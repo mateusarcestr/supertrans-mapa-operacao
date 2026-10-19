@@ -303,3 +303,6 @@ Próximo passo exato: com autorização, remover código morto listado, rodar ts
 Autorizado pelo usuário. Removidos: cena/painel 3D, assistente QA (`qa-engine`), `GuidedProcessFlow`, `TeamMapPage`/`team-map`, `OverviewPage`/`Overview2D`/`ProcessesPage`, helpers exclusivos do 3D em `twin.ts`/`presentation.ts` e seus testes, pacotes `three`/`@react-three/*`, 467 seletores CSS sem uso (`styles.css` 2389 → 1417 linhas) e roteiros QA obsoletos `team-map.mjs`/`handoff-reading.mjs` (quebrados desde F4.28; capturas antigas mantidas como histórico).
 Validação: tsc OK; 29 Vitest OK (12 testes removidos cobriam só código removido); 49 Python OK; build sem o chunk 3D de 966 kB (resta `index` 529 kB); QA `operation`, `process-focus` e `channels` aprovados; capturas renovadas conferidas.
 Próximo passo exato: revisão humana — planilha `docs/review/conflitos-bizagi-vs-pop.xlsx` e 73 participantes inferidos. Opcional: dividir chunk `index` (529 kB) por rota.
+
+## 2026-10-19 — revisão humana em andamento
+Usuário informou que a equipe operacional já está trabalhando nos conflitos da planilha `docs/review/conflitos-bizagi-vs-pop.xlsx`. Nenhuma decisão recebida ainda. Próximo passo exato: ao receber a planilha preenchida, registrar cada decisão em DECISIONS.md (com responsável e data) antes de qualquer alteração no modelo; não aplicar respostas parciais sem rastreio.

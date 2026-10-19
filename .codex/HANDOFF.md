@@ -385,3 +385,4 @@ Redesign da Operação aplicado (ver PROJECT_STATUS.md F4.30). Arquivos: fronten
 NÃO rodar `python -m unittest discover -s tests` até o teste gerar em diretório temporário e fixar o commit do Portal.
 Resolvido em 2026-10-19: testes agora geram em tempdir (commit `c77040a`); a suíte pode ser rodada. Git local ativo — usar `git status`/`git log` na retomada. Pendente: remoção de código morto (ver PROJECT_STATUS.md, marco 2026-10-19), aguardando permissão do usuário.
 Código morto removido (ver PROJECT_STATUS.md, marco 2026-10-19 cont.). QA vigente: `scripts/visual-qa/{operation,process-focus,channels}.mjs` contra `npx vite preview --port 4174 --host 127.0.0.1` em `frontend/`. Próximo: revisão humana.
+Revisão humana dos conflitos em andamento (informado 2026-10-19); aguardar planilha preenchida.
