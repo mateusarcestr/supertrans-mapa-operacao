@@ -105,26 +105,6 @@ export function normalizeRelationshipView(value: string | null | undefined): Rel
   return value === 'matrix' ? 'matrix' : 'network'
 }
 
-export function buildOverviewHref({
-  processId,
-  actorId,
-  activityId,
-  view,
-}: {
-  processId?: string
-  actorId?: string
-  activityId?: string
-  view?: '2d' | '3d'
-}): string {
-  const params = new URLSearchParams()
-  if (processId) params.set('process', processId)
-  if (actorId) params.set('area', actorId)
-  if (activityId) params.set('activity', activityId)
-  if (view === '2d') params.set('view', '2d')
-  const query = params.toString()
-  return query ? `/?${query}` : '/'
-}
-
 export type ProcessRequestResolution =
   | { status: 'process-not-found' }
   | { status: 'loading' }
@@ -144,17 +124,4 @@ export function resolveProcessRequest(
   const targetDiagram = process.diagrams.find((diagram) => diagram.nodes.some((node) => node.id === activityId))
   if (!targetDiagram) return { status: 'activity-not-found', diagramId: firstDiagramId }
   return { status: 'ready', diagramId: targetDiagram.id, nodeId: activityId }
-}
-
-interface CanvasLike {
-  getContext: (kind: string) => unknown
-}
-
-export function supportsWebGl(createCanvas: () => CanvasLike): boolean {
-  try {
-    const canvas = createCanvas()
-    return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'))
-  } catch {
-    return false
-  }
 }

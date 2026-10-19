@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildTwinActivityMarkers, buildTwinModel, filterTwinRoutes, TWIN_DEFAULT_LAYERS } from './twin'
-import type { FrontendCatalog, Handoff, ProcessPayload } from './types'
+import { buildTwinModel } from './twin'
+import type { FrontendCatalog, Handoff } from './types'
 
 const handoffs: Handoff[] = [
   {
@@ -65,80 +65,5 @@ describe('operational twin projection', () => {
     expect(twin.routes.map((route) => route.handoffIds)).toEqual([['h-1'], ['h-2']])
     expect(twin.routes.map((route) => route.flowIds)).toEqual([['flow:1'], ['flow:2']])
     expect(twin.routes.map((route) => route.processId)).toEqual(['P001', 'P002'])
-  })
-
-  it('keeps process routes independent from the handoff-marker layer', () => {
-    const twin = buildTwinModel(catalog)
-
-    expect(filterTwinRoutes(twin.routes, TWIN_DEFAULT_LAYERS, 'P001')).toHaveLength(1)
-    expect(filterTwinRoutes(twin.routes, { ...TWIN_DEFAULT_LAYERS, processes: false }, undefined)).toEqual([])
-    expect(filterTwinRoutes(twin.routes, { ...TWIN_DEFAULT_LAYERS, handoffs: false }, undefined)).toHaveLength(2)
-  })
-
-  it('derives activity markers deterministically and preserves conflict and unresolved readiness', () => {
-    const process: ProcessPayload = {
-      id: 'P001',
-      name: 'Importação',
-      sources: [],
-      documentation: {},
-      lifecycle: {},
-      popSteps: [],
-      reconciliations: [],
-      subprocessReferences: [
-        {
-          id: 'subflow:1',
-          name: 'Sem alvo',
-          processId: 'P001',
-          diagramId: 'diagram:1',
-          sourceNodeId: 'node:subflow',
-          resolutionStatus: 'unresolved',
-          sources: [],
-        },
-      ],
-      diagrams: [
-        {
-          id: 'diagram:1',
-          name: 'Fluxo',
-          sources: [],
-          flows: [],
-          lanes: [{ id: 'lane:comercial', name: 'Comercial', actorId: 'actor:comercial' }],
-          nodes: [
-            {
-              id: 'node:conflict',
-              name: 'Atividade em conflito',
-              type: 'task',
-              incoming: [],
-              outgoing: [],
-              diagramId: 'diagram:1',
-              reconciliationStatus: 'matched',
-              laneAssignment: { laneId: 'lane:comercial', assignmentMethod: 'geometry', classification: 'inferred' },
-              sources: [],
-            },
-            {
-              id: 'node:subflow',
-              name: 'Subprocesso sem alvo',
-              type: 'subprocess',
-              incoming: [],
-              outgoing: [],
-              diagramId: 'diagram:1',
-              sources: [],
-            },
-          ],
-        },
-      ],
-    }
-    const catalogWithConflict = {
-      ...catalog,
-      conflicts: [
-        { id: 'conflict:1', processId: 'P001', field: 'responsibility', status: 'needs-review', entityIds: ['node:conflict'], sources: [] },
-      ],
-    } as unknown as FrontendCatalog
-    const twin = buildTwinModel(catalogWithConflict)
-    const first = buildTwinActivityMarkers(catalogWithConflict, process, twin.areas)
-    const second = buildTwinActivityMarkers(catalogWithConflict, process, twin.areas)
-
-    expect(first).toEqual(second)
-    expect(first.find((marker) => marker.id === 'node:conflict')?.readiness).toBe('READY_WITH_SOURCE_CONFLICT')
-    expect(first.find((marker) => marker.id === 'node:subflow')).toMatchObject({ unresolved: true, readiness: 'NOT_AVAILABLE' })
   })
 })

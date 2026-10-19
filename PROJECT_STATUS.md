@@ -298,3 +298,8 @@ Suíte Python reescreve `docs/alignment/` a partir do Portal vivo (agora `5186bd
 - README atualizado (estado, Python do sistema, Git, Portal fixado, comandos frontend).
 - PENDENTE: remoção de código morto (cena 3D, painel twin, assistente QA, GuidedProcessFlow, TeamMapPage, OverviewPage/Overview2D/ProcessesPage, deps three/@react-three, CSS órfão). Bloqueada por permissão de exclusão de arquivos; aguarda autorização do usuário. O chunk `OperationalTwinScene` (966 kB) do build vem desse código.
 Próximo passo exato: com autorização, remover código morto listado, rodar tsc/Vitest/build/QA operation e process-focus; depois retomar revisão humana (planilha de conflitos e 73 participantes inferidos).
+
+## Marco 2026-10-19 (cont.) — código morto removido
+Autorizado pelo usuário. Removidos: cena/painel 3D, assistente QA (`qa-engine`), `GuidedProcessFlow`, `TeamMapPage`/`team-map`, `OverviewPage`/`Overview2D`/`ProcessesPage`, helpers exclusivos do 3D em `twin.ts`/`presentation.ts` e seus testes, pacotes `three`/`@react-three/*`, 467 seletores CSS sem uso (`styles.css` 2389 → 1417 linhas) e roteiros QA obsoletos `team-map.mjs`/`handoff-reading.mjs` (quebrados desde F4.28; capturas antigas mantidas como histórico).
+Validação: tsc OK; 29 Vitest OK (12 testes removidos cobriam só código removido); 49 Python OK; build sem o chunk 3D de 966 kB (resta `index` 529 kB); QA `operation`, `process-focus` e `channels` aprovados; capturas renovadas conferidas.
+Próximo passo exato: revisão humana — planilha `docs/review/conflitos-bizagi-vs-pop.xlsx` e 73 participantes inferidos. Opcional: dividir chunk `index` (529 kB) por rota.

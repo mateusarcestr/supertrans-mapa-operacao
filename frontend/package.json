@@ -14,8 +14,6 @@
     "@design-systems-orion/blocks": "0.5.1",
     "@design-systems-orion/tokens": "0.3.1",
     "@design-systems-orion/ui": "0.4.1",
-    "@react-three/drei": "^10.7.9",
-    "@react-three/fiber": "^9.8.1",
     "@tailwindcss/vite": "4.3.3",
     "@tanstack/react-table": "8.21.3",
     "class-variance-authority": "0.7.1",
@@ -24,8 +22,7 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
     "tailwind-merge": "3.7.0",
-    "tailwindcss": "4.3.3",
-    "three": "^0.186.1"
+    "tailwindcss": "4.3.3"
   },
   "devDependencies": {
     "@types/react": "^19.1.8",

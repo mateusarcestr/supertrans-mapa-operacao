@@ -267,5 +267,5 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] JSON compacto em `frontend/public/data` (conteúdo idêntico).
 - [x] Prettier no frontend.
 - [x] README atualizado.
-- [ ] Remover código morto 3D/twin/QA/TeamMap e deps three (aguarda permissão de exclusão).
+- [x] Remover código morto 3D/twin/QA/TeamMap, deps three, CSS órfão e roteiros QA obsoletos.
 - [ ] Revisão humana: planilha de conflitos e 73 participantes inferidos.

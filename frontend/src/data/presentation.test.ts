@@ -4,14 +4,12 @@ import * as presentation from './presentation'
 import {
   aggregateConfidence,
   buildHandoffMatrix,
-  buildOverviewHref,
   catalogItemConfidence,
   centeredScrollOffset,
   filterHandoffs,
   normalizeRelationshipView,
   processSummaryConfidence,
   resolveProcessRequest,
-  supportsWebGl,
 } from './presentation'
 import type { Handoff, ProcessPayload } from './types'
 
@@ -113,13 +111,6 @@ describe('presentation contracts', () => {
     expect(normalizeRelationshipView('unexpected')).toBe('network')
   })
 
-  it('preserves process, actor and activity selection when switching overview mode', () => {
-    expect(buildOverviewHref({ processId: 'P001', actorId: 'actor:1', activityId: 'node:1', view: '2d' })).toBe(
-      '/?process=P001&area=actor%3A1&activity=node%3A1&view=2d',
-    )
-    expect(buildOverviewHref({ processId: 'P001', view: '3d' })).toBe('/?process=P001')
-  })
-
   it('separates unknown processes from unknown activities', () => {
     const payload = {
       id: 'P001',
@@ -128,10 +119,5 @@ describe('presentation contracts', () => {
     expect(resolveProcessRequest(['P001'], 'P999', null, null)).toEqual({ status: 'process-not-found' })
     expect(resolveProcessRequest(['P001'], 'P001', payload, 'missing')).toEqual({ status: 'activity-not-found', diagramId: 'd1' })
     expect(resolveProcessRequest(['P001'], 'P001', payload, 'n1')).toEqual({ status: 'ready', diagramId: 'd1', nodeId: 'n1' })
-  })
-
-  it('reports WebGL unavailable when neither context can be created', () => {
-    expect(supportsWebGl(() => ({ getContext: () => null }))).toBe(false)
-    expect(supportsWebGl(() => ({ getContext: (kind: string) => (kind === 'webgl' ? {} : null) }))).toBe(true)
   })
 })

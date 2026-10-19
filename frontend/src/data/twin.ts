@@ -1,19 +1,8 @@
-import { conflictsForNode, laneForNode, readinessForNode, sourceProcessIds } from './model'
+import { sourceProcessIds } from './model'
 import type { DataConfidenceState } from './readiness'
-import type { FrontendCatalog, Handoff, NamedCatalogItem, ProcessPayload } from './types'
+import type { FrontendCatalog, Handoff, NamedCatalogItem } from './types'
 
-export type TwinLayerKey = 'areas' | 'processes' | 'activities' | 'systems' | 'decisions' | 'handoffs'
-export type TwinLayers = Record<TwinLayerKey, boolean>
 export type TwinPosition = [number, number, number]
-
-export const TWIN_DEFAULT_LAYERS: TwinLayers = {
-  areas: true,
-  processes: true,
-  activities: false,
-  systems: false,
-  decisions: false,
-  handoffs: true,
-}
 
 const PROCESS_COLORS = ['#4aa9a2', '#5c93b1', '#7c8fa9', '#a18a72', '#6c9a83', '#846fa5', '#51949a', '#9c806b', '#718aaf', '#5e9b91']
 
@@ -61,16 +50,6 @@ export interface OperationalTwinModel {
   resources: TwinResource[]
 }
 
-export interface TwinActivityMarker {
-  id: string
-  name: string
-  type: string
-  actorId?: string
-  position: TwinPosition
-  readiness: DataConfidenceState
-  unresolved: boolean
-}
-
 function normalizeClassification(value: string | undefined): TwinArea['classification'] {
   return value === 'internal' || value === 'external' ? value : 'unknown'
 }
@@ -83,15 +62,6 @@ function circlePosition(index: number, total: number, radius: number, offset = 0
 function processColor(processId: string, processIds: string[]): string {
   const index = Math.max(processIds.indexOf(processId), 0)
   return PROCESS_COLORS[index % PROCESS_COLORS.length]
-}
-
-function stableUnit(value: string): number {
-  let hash = 2166136261
-  for (let index = 0; index < value.length; index += 1) {
-    hash ^= value.charCodeAt(index)
-    hash = Math.imul(hash, 16777619)
-  }
-  return (hash >>> 0) / 4294967295
 }
 
 function handoffConfidence(handoff: Handoff): DataConfidenceState {
@@ -219,43 +189,4 @@ export function buildTwinModel(catalog: FrontendCatalog): OperationalTwinModel {
     })
 
   return { areas, routes, resources: buildResources(catalog, routes, areas) }
-}
-
-export function filterTwinRoutes(routes: TwinRoute[], layers: TwinLayers, selectedProcessId?: string): TwinRoute[] {
-  if (!layers.processes) return []
-  return selectedProcessId ? routes.filter((route) => route.processId === selectedProcessId) : routes
-}
-
-export function buildTwinActivityMarkers(catalog: FrontendCatalog, process: ProcessPayload, areas: TwinArea[]): TwinActivityMarker[] {
-  const areaByActor = new Map(areas.map((area) => [area.actorId, area]))
-  return process.diagrams.flatMap((diagram) =>
-    diagram.nodes.map((node) => {
-      const lane = laneForNode(diagram, node)
-      const area = lane?.actorId ? areaByActor.get(lane.actorId) : undefined
-      const angle = stableUnit(node.id) * Math.PI * 2
-      const distance = 0.3 + stableUnit(`${node.id}:distance`) * 0.85
-      const conflicts = conflictsForNode(catalog, node.id)
-      const unresolved =
-        node.type === 'subprocess' &&
-        (node.subflowResolutionStatus === 'unresolved' ||
-          process.subprocessReferences.some(
-            (reference) => reference.sourceNodeId === node.id && reference.resolutionStatus === 'unresolved',
-          ))
-      return {
-        id: node.id,
-        name: node.name,
-        type: node.type,
-        actorId: lane?.actorId ?? undefined,
-        position: area
-          ? [
-              Number((area.position[0] + Math.cos(angle) * distance).toFixed(3)),
-              Number((area.height + 0.16).toFixed(3)),
-              Number((area.position[2] + Math.sin(angle) * distance).toFixed(3)),
-            ]
-          : [Number((Math.cos(angle) * distance).toFixed(3)), 0.7, Number((Math.sin(angle) * distance).toFixed(3))],
-        readiness: readinessForNode(process, node, conflicts),
-        unresolved,
-      }
-    }),
-  )
 }
