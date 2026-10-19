@@ -271,3 +271,8 @@ Validação: 41 testes, build e QA dos dez processos/14 diagramas/73 handoffs ap
 - "Passagem entre equipes" no cartão vem só de handoffs canônicos (`documentedPassages`), não da diferença de participante calculada no mockup, para não inventar passagens.
 - Divergência lane × executor POP é sinalizada em texto; não altera estado de confiança nem escolhe fonte.
 - Seletor de passagens mantido (dentro de "Resumo do processo") para preservar acesso direto às 73 passagens.
+
+## DEC-044 — Git local e testes sem efeito colateral (2026-10-19)
+Contexto: suíte Python reescreveu `docs/alignment` a partir do Portal vivo (`5186bdf`); sem Git, sem como reverter.
+Escolha: Git local (sem remoto, `core.autocrlf=false` para preservar hashes). Testes de alinhamento geram em tempdir. Documentos versionados permanecem no Portal `de55185`; atualizar o commit é decisão explícita (registrar aqui e em `PINNED_PORTAL_COMMIT`).
+Projeção do frontend em JSON compacto; formato não faz parte do contrato, conteúdo idêntico. `data/normalized` e `data/raw` mantêm formato original.

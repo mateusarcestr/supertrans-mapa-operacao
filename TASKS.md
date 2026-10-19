@@ -260,3 +260,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Importar design claude.ai/design "Operação Redesign.dc.html" e aplicar em FocusFlow/ProcessDetailPage.
 - [x] Ajustar runners visual-qa operation/process-focus e validar.
 - [ ] Revisão humana do redesign.
+
+## Manutenção 2026-10-19
+- [x] Git local com baseline e commits pequenos (sem remoto).
+- [x] Isolar testes de alinhamento em tempdir e fixar commit Portal `de55185`.
+- [x] JSON compacto em `frontend/public/data` (conteúdo idêntico).
+- [x] Prettier no frontend.
+- [x] README atualizado.
+- [ ] Remover código morto 3D/twin/QA/TeamMap e deps three (aguarda permissão de exclusão).
+- [ ] Revisão humana: planilha de conflitos e 73 participantes inferidos.

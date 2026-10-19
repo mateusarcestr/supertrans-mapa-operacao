@@ -289,3 +289,12 @@ Próximo passo exato: revisão humana do redesign em processo com ramificação 
 
 ## Incidente 2026-10-19
 Suíte Python reescreve `docs/alignment/` a partir do Portal vivo (agora `5186bdf`); 1 falha. Docs restaurados a partir do commit registrado `de55185`. Ver `.codex/HANDOFF.md`. Próximo passo: isolar o teste em diretório temporário com commit fixado.
+
+## Marco 2026-10-19 — correções de manutenção
+- Git local iniciado (`main`, sem remoto, `core.autocrlf=false`). Baseline `0099192`.
+- Testes de alinhamento geram em tempdir; novo teste confere que `docs/alignment` versionado corresponde ao Portal `de55185`. 49 testes Python OK, sem alterar arquivos do projeto.
+- `frontend/public/data` em JSON compacto: 20 MB → 14 MB, conteúdo idêntico (comparação por objeto).
+- Frontend formatado com Prettier (`frontend/.prettierrc.json`); tsc, 41 Vitest e build OK.
+- README atualizado (estado, Python do sistema, Git, Portal fixado, comandos frontend).
+- PENDENTE: remoção de código morto (cena 3D, painel twin, assistente QA, GuidedProcessFlow, TeamMapPage, OverviewPage/Overview2D/ProcessesPage, deps three/@react-three, CSS órfão). Bloqueada por permissão de exclusão de arquivos; aguarda autorização do usuário. O chunk `OperationalTwinScene` (966 kB) do build vem desse código.
+Próximo passo exato: com autorização, remover código morto listado, rodar tsc/Vitest/build/QA operation e process-focus; depois retomar revisão humana (planilha de conflitos e 73 participantes inferidos).
