@@ -17,13 +17,27 @@ import type { Handoff, ProcessPayload } from './types'
 
 const handoffs: Handoff[] = [
   {
-    id: 'h1', processId: 'P001', name: 'A para B', fromActorId: 'a', toActorId: 'b',
-    sourceNodeId: 'n1', targetNodeId: 'n2', flowId: 'f1', classification: 'inferred',
+    id: 'h1',
+    processId: 'P001',
+    name: 'A para B',
+    fromActorId: 'a',
+    toActorId: 'b',
+    sourceNodeId: 'n1',
+    targetNodeId: 'n2',
+    flowId: 'f1',
+    classification: 'inferred',
     sources: [],
   },
   {
-    id: 'h2', processId: 'P002', name: 'B para A', fromActorId: 'b', toActorId: 'a',
-    sourceNodeId: 'n3', targetNodeId: 'n4', flowId: 'f2', classification: 'inferred',
+    id: 'h2',
+    processId: 'P002',
+    name: 'B para A',
+    fromActorId: 'b',
+    toActorId: 'a',
+    sourceNodeId: 'n3',
+    targetNodeId: 'n4',
+    flowId: 'f2',
+    classification: 'inferred',
     sources: [],
   },
 ]
@@ -33,18 +47,26 @@ describe('presentation contracts', () => {
     const split = (presentation as unknown as Record<string, unknown>).splitHandoffActivityNames
     expect(split).toBeTypeOf('function')
     if (typeof split !== 'function') return
-    expect((split as (name: string) => unknown)('3. Recebe solicitação de importação do cliente → 4. Analisa capacidade de atendimento e janela operacional'))
-      .toEqual({ source: '3. Recebe solicitação de importação do cliente', destination: '4. Analisa capacidade de atendimento e janela operacional' })
+    expect(
+      (split as (name: string) => unknown)(
+        '3. Recebe solicitação de importação do cliente → 4. Analisa capacidade de atendimento e janela operacional',
+      ),
+    ).toEqual({
+      source: '3. Recebe solicitação de importação do cliente',
+      destination: '4. Analisa capacidade de atendimento e janela operacional',
+    })
   })
 
   it('states that every mapped handoff comes from inferred assignments and keeps filter counts separate', () => {
     const summary = (presentation as unknown as Record<string, unknown>).handoffInferenceSummary
     expect(summary).toBeTypeOf('function')
     if (typeof summary !== 'function') return
-    expect((summary as (total: number, visible: number) => string)(73, 73))
-      .toBe('73 passagens mapeadas · todas derivadas de atribuições inferidas')
-    expect((summary as (total: number, visible: number) => string)(73, 1))
-      .toBe('73 passagens mapeadas · todas derivadas de atribuições inferidas · exibindo 1 com os filtros atuais')
+    expect((summary as (total: number, visible: number) => string)(73, 73)).toBe(
+      '73 passagens mapeadas · todas derivadas de atribuições inferidas',
+    )
+    expect((summary as (total: number, visible: number) => string)(73, 1)).toBe(
+      '73 passagens mapeadas · todas derivadas de atribuições inferidas · exibindo 1 com os filtros atuais',
+    )
   })
 
   it('uses conflict, review, inferred, ready precedence and treats unavailable as absence', () => {
@@ -55,7 +77,9 @@ describe('presentation contracts', () => {
   })
 
   it('keeps process conflicts above unresolved and partial reconciliation signals', () => {
-    expect(processSummaryConfidence({ conflictCount: 2, unresolvedSubflowCount: 1, reconciliation: { 'partially-matched': 3 } })).toBe('READY_WITH_SOURCE_CONFLICT')
+    expect(processSummaryConfidence({ conflictCount: 2, unresolvedSubflowCount: 1, reconciliation: { 'partially-matched': 3 } })).toBe(
+      'READY_WITH_SOURCE_CONFLICT',
+    )
     expect(processSummaryConfidence({ conflictCount: 0, unresolvedSubflowCount: 1, reconciliation: {} })).toBe('NEEDS_HUMAN_REVIEW')
   })
 
@@ -72,7 +96,9 @@ describe('presentation contracts', () => {
 
   it('filters handoffs by process, origin, destination and confidence without changing records', () => {
     expect(filterHandoffs(handoffs, { processId: 'P001' }).map((item) => item.id)).toEqual(['h1'])
-    expect(filterHandoffs(handoffs, { fromActorId: 'b', toActorId: 'a', confidence: 'READY_WITH_INFERENCE_BADGE' }).map((item) => item.id)).toEqual(['h2'])
+    expect(
+      filterHandoffs(handoffs, { fromActorId: 'b', toActorId: 'a', confidence: 'READY_WITH_INFERENCE_BADGE' }).map((item) => item.id),
+    ).toEqual(['h2'])
     expect(handoffs).toHaveLength(2)
   })
 
@@ -88,8 +114,9 @@ describe('presentation contracts', () => {
   })
 
   it('preserves process, actor and activity selection when switching overview mode', () => {
-    expect(buildOverviewHref({ processId: 'P001', actorId: 'actor:1', activityId: 'node:1', view: '2d' }))
-      .toBe('/?process=P001&area=actor%3A1&activity=node%3A1&view=2d')
+    expect(buildOverviewHref({ processId: 'P001', actorId: 'actor:1', activityId: 'node:1', view: '2d' })).toBe(
+      '/?process=P001&area=actor%3A1&activity=node%3A1&view=2d',
+    )
     expect(buildOverviewHref({ processId: 'P001', view: '3d' })).toBe('/?process=P001')
   })
 
@@ -105,6 +132,6 @@ describe('presentation contracts', () => {
 
   it('reports WebGL unavailable when neither context can be created', () => {
     expect(supportsWebGl(() => ({ getContext: () => null }))).toBe(false)
-    expect(supportsWebGl(() => ({ getContext: (kind: string) => kind === 'webgl' ? {} : null }))).toBe(true)
+    expect(supportsWebGl(() => ({ getContext: (kind: string) => (kind === 'webgl' ? {} : null) }))).toBe(true)
   })
 })

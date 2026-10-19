@@ -11,15 +11,21 @@ export function groupHandoffsForReading(handoffs: Handoff[]): { processId: strin
     items.push(handoff)
     groups.set(handoff.processId, items)
   }
-  return [...groups].sort(([left], [right]) => collator.compare(left, right)).map(([processId, items]) => ({
-    processId,
-    items: items.sort((left, right) => {
-      const a = splitHandoffActivityNames(left.name)
-      const b = splitHandoffActivityNames(right.name)
-      const hasCodeA = /^\d+(?:\.\d+)*\./.test(a.source)
-      const hasCodeB = /^\d+(?:\.\d+)*\./.test(b.source)
-      return Number(hasCodeB) - Number(hasCodeA) || collator.compare(a.source, b.source)
-        || collator.compare(a.destination ?? '', b.destination ?? '') || collator.compare(left.id, right.id)
-    }),
-  }))
+  return [...groups]
+    .sort(([left], [right]) => collator.compare(left, right))
+    .map(([processId, items]) => ({
+      processId,
+      items: items.sort((left, right) => {
+        const a = splitHandoffActivityNames(left.name)
+        const b = splitHandoffActivityNames(right.name)
+        const hasCodeA = /^\d+(?:\.\d+)*\./.test(a.source)
+        const hasCodeB = /^\d+(?:\.\d+)*\./.test(b.source)
+        return (
+          Number(hasCodeB) - Number(hasCodeA) ||
+          collator.compare(a.source, b.source) ||
+          collator.compare(a.destination ?? '', b.destination ?? '') ||
+          collator.compare(left.id, right.id)
+        )
+      }),
+    }))
 }

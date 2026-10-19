@@ -1,11 +1,4 @@
-import type {
-  FrontendCatalog,
-  Handoff,
-  NamedCatalogItem,
-  ProcessSummary,
-  ReviewConflict,
-  SourceReference,
-} from './types'
+import type { FrontendCatalog, Handoff, NamedCatalogItem, ProcessSummary, ReviewConflict, SourceReference } from './types'
 import type { DataConfidenceState } from './readiness'
 
 export interface OperationalAnswerItem {
@@ -204,9 +197,7 @@ export function answerOperationalQuestion(catalog: FrontendCatalog, rawQuery: st
 
   if (isConflictQuery) {
     const allConflicts = (catalog.conflicts as ReviewConflict[]) ?? []
-    const filtered = referencedProcess
-      ? allConflicts.filter((c) => c.processId === referencedProcess.id)
-      : allConflicts
+    const filtered = referencedProcess ? allConflicts.filter((c) => c.processId === referencedProcess.id) : allConflicts
 
     const items: OperationalAnswerItem[] = filtered.slice(0, 8).map((c) => ({
       id: c.id,
@@ -265,9 +256,7 @@ export function answerOperationalQuestion(catalog: FrontendCatalog, rawQuery: st
     }
 
     if (referencedActor) {
-      matchedHandoffs = matchedHandoffs.filter(
-        (h) => h.fromActorId === referencedActor.id || h.toActorId === referencedActor.id,
-      )
+      matchedHandoffs = matchedHandoffs.filter((h) => h.fromActorId === referencedActor.id || h.toActorId === referencedActor.id)
     }
 
     const items: OperationalAnswerItem[] = matchedHandoffs.slice(0, 10).map((h) => {
@@ -327,9 +316,7 @@ export function answerOperationalQuestion(catalog: FrontendCatalog, rawQuery: st
 
   if (isDecisionQuery) {
     // Buscar no índice de atividades por gateways / decisões relevantes
-    let decisionNodes = (catalog.activityIndex ?? []).filter(
-      (item) => item.type === 'Route' || item.type.toLowerCase().includes('gateway'),
-    )
+    let decisionNodes = (catalog.activityIndex ?? []).filter((item) => item.type === 'Route' || item.type.toLowerCase().includes('gateway'))
 
     if (referencedProcess) {
       decisionNodes = decisionNodes.filter((item) => item.processId === referencedProcess.id)
@@ -504,9 +491,7 @@ export function answerOperationalQuestion(catalog: FrontendCatalog, rawQuery: st
     if (referencedActor) {
       // Buscar atividades atribuídas ou relacionadas a este ator
       const actorId = referencedActor.id
-      const handoffsFromOrTo = (catalog.handoffs as Handoff[]).filter(
-        (h) => h.fromActorId === actorId || h.toActorId === actorId,
-      )
+      const handoffsFromOrTo = (catalog.handoffs as Handoff[]).filter((h) => h.fromActorId === actorId || h.toActorId === actorId)
 
       const items: OperationalAnswerItem[] = [
         {

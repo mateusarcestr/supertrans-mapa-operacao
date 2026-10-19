@@ -54,9 +54,7 @@ describe('operational twin projection', () => {
     const internal = first.areas.find((area) => area.actorId === 'actor:comercial')!
     const external = first.areas.find((area) => area.actorId === 'actor:cliente')!
 
-    expect(first.areas.map((area) => [area.actorId, area.position])).toEqual(
-      second.areas.map((area) => [area.actorId, area.position]),
-    )
+    expect(first.areas.map((area) => [area.actorId, area.position])).toEqual(second.areas.map((area) => [area.actorId, area.position]))
     expect(external.radius).toBeGreaterThan(internal.radius)
   })
 
@@ -79,18 +77,62 @@ describe('operational twin projection', () => {
 
   it('derives activity markers deterministically and preserves conflict and unresolved readiness', () => {
     const process: ProcessPayload = {
-      id: 'P001', name: 'Importação', sources: [], documentation: {}, lifecycle: {}, popSteps: [], reconciliations: [],
-      subprocessReferences: [{ id: 'subflow:1', name: 'Sem alvo', processId: 'P001', diagramId: 'diagram:1', sourceNodeId: 'node:subflow', resolutionStatus: 'unresolved', sources: [] }],
-      diagrams: [{
-        id: 'diagram:1', name: 'Fluxo', sources: [], flows: [],
-        lanes: [{ id: 'lane:comercial', name: 'Comercial', actorId: 'actor:comercial' }],
-        nodes: [
-          { id: 'node:conflict', name: 'Atividade em conflito', type: 'task', incoming: [], outgoing: [], diagramId: 'diagram:1', reconciliationStatus: 'matched', laneAssignment: { laneId: 'lane:comercial', assignmentMethod: 'geometry', classification: 'inferred' }, sources: [] },
-          { id: 'node:subflow', name: 'Subprocesso sem alvo', type: 'subprocess', incoming: [], outgoing: [], diagramId: 'diagram:1', sources: [] },
-        ],
-      }],
+      id: 'P001',
+      name: 'Importação',
+      sources: [],
+      documentation: {},
+      lifecycle: {},
+      popSteps: [],
+      reconciliations: [],
+      subprocessReferences: [
+        {
+          id: 'subflow:1',
+          name: 'Sem alvo',
+          processId: 'P001',
+          diagramId: 'diagram:1',
+          sourceNodeId: 'node:subflow',
+          resolutionStatus: 'unresolved',
+          sources: [],
+        },
+      ],
+      diagrams: [
+        {
+          id: 'diagram:1',
+          name: 'Fluxo',
+          sources: [],
+          flows: [],
+          lanes: [{ id: 'lane:comercial', name: 'Comercial', actorId: 'actor:comercial' }],
+          nodes: [
+            {
+              id: 'node:conflict',
+              name: 'Atividade em conflito',
+              type: 'task',
+              incoming: [],
+              outgoing: [],
+              diagramId: 'diagram:1',
+              reconciliationStatus: 'matched',
+              laneAssignment: { laneId: 'lane:comercial', assignmentMethod: 'geometry', classification: 'inferred' },
+              sources: [],
+            },
+            {
+              id: 'node:subflow',
+              name: 'Subprocesso sem alvo',
+              type: 'subprocess',
+              incoming: [],
+              outgoing: [],
+              diagramId: 'diagram:1',
+              sources: [],
+            },
+          ],
+        },
+      ],
     }
-    const catalogWithConflict = { ...catalog, conflicts: [{ id: 'conflict:1', processId: 'P001', field: 'responsibility', status: 'needs-review', entityIds: ['node:conflict'], sources: [] }] } as unknown as FrontendCatalog
+    const catalogWithConflict = {
+      ...catalog,
+      conflicts: [
+        { id: 'conflict:1', processId: 'P001', field: 'responsibility', status: 'needs-review', entityIds: ['node:conflict'], sources: [] },
+      ],
+    } as unknown as FrontendCatalog
     const twin = buildTwinModel(catalogWithConflict)
     const first = buildTwinActivityMarkers(catalogWithConflict, process, twin.areas)
     const second = buildTwinActivityMarkers(catalogWithConflict, process, twin.areas)

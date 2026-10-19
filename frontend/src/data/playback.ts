@@ -60,9 +60,7 @@ function move(state: PlaybackState, flow: PlaybackFlow, isPlaying = state.isPlay
     ...state,
     currentNodeId: flow.targetNodeId,
     visitedNodeIds,
-    traversedFlowIds: state.traversedFlowIds.includes(flow.id)
-      ? state.traversedFlowIds
-      : [...state.traversedFlowIds, flow.id],
+    traversedFlowIds: state.traversedFlowIds.includes(flow.id) ? state.traversedFlowIds : [...state.traversedFlowIds, flow.id],
     isPlaying,
     pendingBranchNodeId: null,
     branchOptions: [],

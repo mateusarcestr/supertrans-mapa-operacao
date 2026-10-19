@@ -20,15 +20,9 @@ describe('catalog selectors', () => {
   })
 
   it('searches processes, actors, systems, channels, and artifacts without graph data', () => {
-    expect(findCatalogResults(catalog, 'opera')).toEqual([
-      { id: 'actor:1', kind: 'actor', label: 'Central de Operações' },
-    ])
-    expect(findCatalogResults(catalog, 'sag')).toEqual([
-      { id: 'system:1', kind: 'system', label: 'Web SAG' },
-    ])
-    expect(findCatalogResults(catalog, 'programação')).toEqual([
-      { id: 'artifact:1', kind: 'artifact', label: 'Programação.xlsx' },
-    ])
+    expect(findCatalogResults(catalog, 'opera')).toEqual([{ id: 'actor:1', kind: 'actor', label: 'Central de Operações' }])
+    expect(findCatalogResults(catalog, 'sag')).toEqual([{ id: 'system:1', kind: 'system', label: 'Web SAG' }])
+    expect(findCatalogResults(catalog, 'programação')).toEqual([{ id: 'artifact:1', kind: 'artifact', label: 'Programação.xlsx' }])
   })
 
   it('keeps the process ID when an activity search result is selected', () => {

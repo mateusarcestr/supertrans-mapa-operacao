@@ -13,9 +13,7 @@ describe('classifyReadiness', () => {
   })
 
   it('does not promote a partial reconciliation to confirmed', () => {
-    expect(classifyReadiness({ reconciliationStatus: 'partially-matched' })).toEqual(
-      'NEEDS_HUMAN_REVIEW',
-    )
+    expect(classifyReadiness({ reconciliationStatus: 'partially-matched' })).toEqual('NEEDS_HUMAN_REVIEW')
   })
 
   it('keeps an unresolved subprocess target unavailable', () => {

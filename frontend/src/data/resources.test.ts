@@ -6,7 +6,10 @@ describe('channel presentation', () => {
   it('groups documented spelling variants while preserving every ID and source', () => {
     const names = ['E-mail', 'Email', 'Grupo do Whatsapp', 'Grupo de Whatsapp', 'Whatsapp', 'Outro canal']
     const input: NamedCatalogItem[] = names.map((name, index) => ({
-      id: `channel:${index}`, name, aliases: [name], classification: 'channel',
+      id: `channel:${index}`,
+      name,
+      aliases: [name],
+      classification: 'channel',
       sources: [{ kind: 'pop', file: `POP/${index}.docx`, row: index + 1 }],
     }))
     const before = JSON.stringify(input)

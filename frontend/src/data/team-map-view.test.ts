@@ -8,8 +8,24 @@ import type { FrontendCatalog } from './types'
 it('shows the team network without an expanded delivery list on initial view', () => {
   const catalog = {
     processes: [{ id: 'P001', name: 'Importação' }],
-    actors: [{ id: 'a', name: 'Comercial' }, { id: 'b', name: 'Operações' }],
-    handoffs: [{ id: 'h', processId: 'P001', fromActorId: 'a', toActorId: 'b', name: '3. Envia → 4. Recebe', sourceNodeId: 's', targetNodeId: 't', flowId: 'f', classification: 'inferred', sources: [] }],
+    actors: [
+      { id: 'a', name: 'Comercial' },
+      { id: 'b', name: 'Operações' },
+    ],
+    handoffs: [
+      {
+        id: 'h',
+        processId: 'P001',
+        fromActorId: 'a',
+        toActorId: 'b',
+        name: '3. Envia → 4. Recebe',
+        sourceNodeId: 's',
+        targetNodeId: 't',
+        flowId: 'f',
+        classification: 'inferred',
+        sources: [],
+      },
+    ],
   } as unknown as FrontendCatalog
   const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(TeamMapPage, { catalog })))
   expect(html).toContain('team-map-network')

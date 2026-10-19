@@ -26,7 +26,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme((previous) => previous === 'light' ? 'dark' : 'light')
+    setTheme((previous) => (previous === 'light' ? 'dark' : 'light'))
   }
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
@@ -43,14 +43,7 @@ export function ThemeToggle() {
   const label = theme === 'light' ? 'Mudar para o tema escuro' : 'Mudar para o tema claro'
 
   return (
-    <Button
-      className="theme-toggle"
-      variant="outline"
-      size="icon"
-      onClick={toggleTheme}
-      aria-label={label}
-      title={label}
-    >
+    <Button className="theme-toggle" variant="outline" size="icon" onClick={toggleTheme} aria-label={label} title={label}>
       {theme === 'light' ? <Moon aria-hidden="true" size={17} /> : <Sun aria-hidden="true" size={17} />}
     </Button>
   )

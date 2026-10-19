@@ -5,7 +5,11 @@ export function buildFocusFlow(diagram: ProcessDiagram, nodeId: string | null) {
   const node = nodeId ? nodeById.get(nodeId) : undefined
   return {
     node,
-    incoming: node ? diagram.flows.filter((flow) => flow.targetNodeId === node.id).map((flow) => ({ flow, node: nodeById.get(flow.sourceNodeId) })) : [],
-    outgoing: node ? diagram.flows.filter((flow) => flow.sourceNodeId === node.id).map((flow) => ({ flow, node: nodeById.get(flow.targetNodeId) })) : [],
+    incoming: node
+      ? diagram.flows.filter((flow) => flow.targetNodeId === node.id).map((flow) => ({ flow, node: nodeById.get(flow.sourceNodeId) }))
+      : [],
+    outgoing: node
+      ? diagram.flows.filter((flow) => flow.sourceNodeId === node.id).map((flow) => ({ flow, node: nodeById.get(flow.targetNodeId) }))
+      : [],
   }
 }

@@ -95,9 +95,7 @@ function stableUnit(value: string): number {
 }
 
 function handoffConfidence(handoff: Handoff): DataConfidenceState {
-  return handoff.classification === 'inferred'
-    ? 'READY_WITH_INFERENCE_BADGE'
-    : 'NEEDS_HUMAN_REVIEW'
+  return handoff.classification === 'inferred' ? 'READY_WITH_INFERENCE_BADGE' : 'NEEDS_HUMAN_REVIEW'
 }
 
 function groupHandoffs(handoffs: Handoff[]): Handoff[][] {
@@ -174,23 +172,26 @@ export function buildTwinModel(catalog: FrontendCatalog): OperationalTwinModel {
     ['unknown', 5.8, Math.PI / 9],
     ['external', 8.2, Math.PI / 5],
   ]
-  const areas = groupSettings.flatMap(([classification, radius, offset]) => groups[classification]
-    .sort((left, right) => ((degrees.get(right.id) ?? 0) - (degrees.get(left.id) ?? 0)) || left.name.localeCompare(right.name, 'pt-BR'))
-    .map((actor, index, group) => {
-      const handoffCount = degrees.get(actor.id) ?? 0
-      return {
-        actorId: actor.id,
-        name: actor.name,
-        classification,
-        position: circlePosition(index, group.length, radius, offset),
-        radius,
-        height: Number((0.5 + Math.min(0.75, handoffCount * 0.06)).toFixed(3)),
-        processIds: [...(relatedProcesses.get(actor.id) ?? new Set<string>())].sort(),
-        handoffCount,
-        confidence: 'READY_WITH_INFERENCE_BADGE' as const,
-        sources: actor.sources,
-      }
-    }))
+  const areas = groupSettings
+    .flatMap(([classification, radius, offset]) =>
+      groups[classification]
+        .sort((left, right) => (degrees.get(right.id) ?? 0) - (degrees.get(left.id) ?? 0) || left.name.localeCompare(right.name, 'pt-BR'))
+        .map((actor, index, group) => {
+          const handoffCount = degrees.get(actor.id) ?? 0
+          return {
+            actorId: actor.id,
+            name: actor.name,
+            classification,
+            position: circlePosition(index, group.length, radius, offset),
+            radius,
+            height: Number((0.5 + Math.min(0.75, handoffCount * 0.06)).toFixed(3)),
+            processIds: [...(relatedProcesses.get(actor.id) ?? new Set<string>())].sort(),
+            handoffCount,
+            confidence: 'READY_WITH_INFERENCE_BADGE' as const,
+            sources: actor.sources,
+          }
+        }),
+    )
     .sort((left, right) => left.name.localeCompare(right.name, 'pt-BR'))
 
   const actorIds = new Set(areas.map((area) => area.actorId))
@@ -211,8 +212,8 @@ export function buildTwinModel(catalog: FrontendCatalog): OperationalTwinModel {
         sourceNodeId: first.sourceNodeId,
         targetNodeId: first.targetNodeId,
         confidence: group.some((handoff) => handoffConfidence(handoff) === 'NEEDS_HUMAN_REVIEW')
-          ? 'NEEDS_HUMAN_REVIEW' as const
-          : 'READY_WITH_INFERENCE_BADGE' as const,
+          ? ('NEEDS_HUMAN_REVIEW' as const)
+          : ('READY_WITH_INFERENCE_BADGE' as const),
         classification: first.classification ?? 'inferred',
       }
     })
@@ -225,36 +226,36 @@ export function filterTwinRoutes(routes: TwinRoute[], layers: TwinLayers, select
   return selectedProcessId ? routes.filter((route) => route.processId === selectedProcessId) : routes
 }
 
-export function buildTwinActivityMarkers(
-  catalog: FrontendCatalog,
-  process: ProcessPayload,
-  areas: TwinArea[],
-): TwinActivityMarker[] {
+export function buildTwinActivityMarkers(catalog: FrontendCatalog, process: ProcessPayload, areas: TwinArea[]): TwinActivityMarker[] {
   const areaByActor = new Map(areas.map((area) => [area.actorId, area]))
-  return process.diagrams.flatMap((diagram) => diagram.nodes.map((node) => {
-    const lane = laneForNode(diagram, node)
-    const area = lane?.actorId ? areaByActor.get(lane.actorId) : undefined
-    const angle = stableUnit(node.id) * Math.PI * 2
-    const distance = 0.3 + stableUnit(`${node.id}:distance`) * 0.85
-    const conflicts = conflictsForNode(catalog, node.id)
-    const unresolved = node.type === 'subprocess' && (
-      node.subflowResolutionStatus === 'unresolved'
-      || process.subprocessReferences.some((reference) => reference.sourceNodeId === node.id && reference.resolutionStatus === 'unresolved')
-    )
-    return {
-      id: node.id,
-      name: node.name,
-      type: node.type,
-      actorId: lane?.actorId ?? undefined,
-      position: area
-        ? [
-          Number((area.position[0] + Math.cos(angle) * distance).toFixed(3)),
-          Number((area.height + 0.16).toFixed(3)),
-          Number((area.position[2] + Math.sin(angle) * distance).toFixed(3)),
-        ]
-        : [Number((Math.cos(angle) * distance).toFixed(3)), 0.7, Number((Math.sin(angle) * distance).toFixed(3))],
-      readiness: readinessForNode(process, node, conflicts),
-      unresolved,
-    }
-  }))
+  return process.diagrams.flatMap((diagram) =>
+    diagram.nodes.map((node) => {
+      const lane = laneForNode(diagram, node)
+      const area = lane?.actorId ? areaByActor.get(lane.actorId) : undefined
+      const angle = stableUnit(node.id) * Math.PI * 2
+      const distance = 0.3 + stableUnit(`${node.id}:distance`) * 0.85
+      const conflicts = conflictsForNode(catalog, node.id)
+      const unresolved =
+        node.type === 'subprocess' &&
+        (node.subflowResolutionStatus === 'unresolved' ||
+          process.subprocessReferences.some(
+            (reference) => reference.sourceNodeId === node.id && reference.resolutionStatus === 'unresolved',
+          ))
+      return {
+        id: node.id,
+        name: node.name,
+        type: node.type,
+        actorId: lane?.actorId ?? undefined,
+        position: area
+          ? [
+              Number((area.position[0] + Math.cos(angle) * distance).toFixed(3)),
+              Number((area.height + 0.16).toFixed(3)),
+              Number((area.position[2] + Math.sin(angle) * distance).toFixed(3)),
+            ]
+          : [Number((Math.cos(angle) * distance).toFixed(3)), 0.7, Number((Math.sin(angle) * distance).toFixed(3))],
+        readiness: readinessForNode(process, node, conflicts),
+        unresolved,
+      }
+    }),
+  )
 }

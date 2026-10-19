@@ -4,7 +4,10 @@ import type { FrontendCatalog } from './types'
 
 const catalog = {
   processes: [{ id: 'P001' }, { id: 'P002' }],
-  activityIndex: [{ id: 'n1', processId: 'P001' }, { id: 'n2', processId: 'P002' }],
+  activityIndex: [
+    { id: 'n1', processId: 'P001' },
+    { id: 'n2', processId: 'P002' },
+  ],
   handoffs: [{ id: 'h1', processId: 'P002', flowId: 'f1', fromActorId: 'a', toActorId: 'b', sourceNodeId: 'n2', targetNodeId: 'n3' }],
 } as unknown as FrontendCatalog
 

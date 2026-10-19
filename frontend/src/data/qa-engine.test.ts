@@ -200,4 +200,3 @@ describe('answerOperationalQuestion', () => {
     expect(res.items[0].subtitle).toContain('POP')
   })
 })
-

@@ -43,11 +43,7 @@ export function conflictsForNode(catalog: FrontendCatalog, nodeId: string): Revi
   return (catalog.conflicts as ReviewConflict[]).filter((conflict) => conflict.entityIds.includes(nodeId))
 }
 
-export function readinessForNode(
-  process: ProcessPayload,
-  node: ProcessNode,
-  conflicts: ReviewConflict[],
-): DataConfidenceState {
+export function readinessForNode(process: ProcessPayload, node: ProcessNode, conflicts: ReviewConflict[]): DataConfidenceState {
   const unresolvedSubflow = process.subprocessReferences.some(
     (reference) => reference.sourceNodeId === node.id && reference.resolutionStatus === 'unresolved',
   )

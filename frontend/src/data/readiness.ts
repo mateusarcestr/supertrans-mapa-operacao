@@ -11,12 +11,7 @@ export type DataConfidenceState = (typeof dataConfidenceStates)[number]
 export interface ReadinessEvidence {
   assignmentMethod?: 'explicit' | 'geometry' | 'unresolved'
   assignmentClassification?: 'confirmed' | 'inferred' | 'unknown'
-  reconciliationStatus?:
-    | 'matched'
-    | 'partially-matched'
-    | 'ambiguous'
-    | 'unmatched-bizagi'
-    | 'unmatched-pop'
+  reconciliationStatus?: 'matched' | 'partially-matched' | 'ambiguous' | 'unmatched-bizagi' | 'unmatched-pop'
   subprocessResolution?: 'resolved' | 'unresolved'
   hasSourceConflict?: boolean
 }

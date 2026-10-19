@@ -20,17 +20,15 @@ export function PlaybackProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<PlaybackSession | null>(null)
 
   const ensureSession = useCallback((processId: string, diagramId: string, graph: PlaybackGraph) => {
-    setSession((current) => current?.processId === processId && current.diagramId === diagramId
-      ? current
-      : { processId, diagramId, state: resetPlayback(graph) })
+    setSession((current) =>
+      current?.processId === processId && current.diagramId === diagramId ? current : { processId, diagramId, state: resetPlayback(graph) },
+    )
   }, [])
 
   const updateSession = useCallback((processId: string, diagramId: string, updater: SetStateAction<PlaybackState>) => {
     setSession((current) => {
       if (!current || current.processId !== processId || current.diagramId !== diagramId) return current
-      const state = typeof updater === 'function'
-        ? (updater as (previous: PlaybackState) => PlaybackState)(current.state)
-        : updater
+      const state = typeof updater === 'function' ? (updater as (previous: PlaybackState) => PlaybackState)(current.state) : updater
       return { ...current, state }
     })
   }, [])

@@ -21,7 +21,11 @@ export function processSummaryConfidence(summary: {
   reconciliation: Record<string, number>
 }): DataConfidenceState {
   if (summary.conflictCount > 0) return 'READY_WITH_SOURCE_CONFLICT'
-  if (summary.unresolvedSubflowCount > 0 || (summary.reconciliation.ambiguous ?? 0) > 0 || (summary.reconciliation['partially-matched'] ?? 0) > 0) {
+  if (
+    summary.unresolvedSubflowCount > 0 ||
+    (summary.reconciliation.ambiguous ?? 0) > 0 ||
+    (summary.reconciliation['partially-matched'] ?? 0) > 0
+  ) {
     return 'NEEDS_HUMAN_REVIEW'
   }
   return 'READY'
@@ -49,9 +53,7 @@ export function centeredScrollOffset({
 }
 
 export function handoffConfidence(handoff: Handoff): DataConfidenceState {
-  return handoff.classification === 'inferred'
-    ? 'READY_WITH_INFERENCE_BADGE'
-    : 'NEEDS_HUMAN_REVIEW'
+  return handoff.classification === 'inferred' ? 'READY_WITH_INFERENCE_BADGE' : 'NEEDS_HUMAN_REVIEW'
 }
 
 export function splitHandoffActivityNames(name: string): { source: string; destination: string | null } {

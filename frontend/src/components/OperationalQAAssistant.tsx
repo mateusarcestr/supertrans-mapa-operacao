@@ -14,12 +14,7 @@ import {
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-import {
-  answerOperationalQuestion,
-  SUGGESTED_QUESTIONS,
-  type OperationalAnswer,
-  type OperationalAnswerItem,
-} from '../data/qa-engine'
+import { answerOperationalQuestion, SUGGESTED_QUESTIONS, type OperationalAnswer, type OperationalAnswerItem } from '../data/qa-engine'
 import type { FrontendCatalog } from '../data/types'
 import { ConfidenceBadge } from './ConfidenceBadge'
 import { Button, Input } from './orion/ui'
@@ -31,12 +26,7 @@ interface OperationalQAAssistantProps {
   initialQuestion?: string
 }
 
-export function OperationalQAAssistant({
-  catalog,
-  isOpen,
-  onClose,
-  initialQuestion = '',
-}: OperationalQAAssistantProps) {
+export function OperationalQAAssistant({ catalog, isOpen, onClose, initialQuestion = '' }: OperationalQAAssistantProps) {
   const [question, setQuestion] = useState(initialQuestion)
   const [activeQuery, setActiveQuery] = useState(initialQuestion)
   const navigate = useNavigate()
@@ -84,11 +74,7 @@ export function OperationalQAAssistant({
   }
 
   return (
-    <div
-      className="modal-backdrop qa-assistant-backdrop"
-      role="presentation"
-      onClick={onClose}
-    >
+    <div className="modal-backdrop qa-assistant-backdrop" role="presentation" onClick={onClose}>
       <section
         ref={dialogRef}
         className="modal qa-assistant-modal"
@@ -107,12 +93,7 @@ export function OperationalQAAssistant({
               <h2 id={titleId}>Assistente de Procedimentos e Processos</h2>
             </div>
           </div>
-          <button
-            type="button"
-            className="icon-button"
-            aria-label="Fechar assistente de dúvidas"
-            onClick={onClose}
-          >
+          <button type="button" className="icon-button" aria-label="Fechar assistente de dúvidas" onClick={onClose}>
             <X size={18} />
           </button>
         </div>
@@ -146,11 +127,7 @@ export function OperationalQAAssistant({
               </button>
             )}
           </div>
-          <Button
-            type="button"
-            className="primary-button qa-submit-btn"
-            onClick={() => handleAsk(question)}
-          >
+          <Button type="button" className="primary-button qa-submit-btn" onClick={() => handleAsk(question)}>
             Consultar
           </Button>
         </div>
@@ -164,9 +141,7 @@ export function OperationalQAAssistant({
                   <div className="qa-metadata-row">
                     <ConfidenceBadge state={answer.confidence} />
                     {answer.sourcesCount > 0 && (
-                      <span className="qa-sources-tag">
-                        {answer.sourcesCount} fonte(s) oficial(is) Bizagi/POP
-                      </span>
+                      <span className="qa-sources-tag">{answer.sourcesCount} fonte(s) oficial(is) Bizagi/POP</span>
                     )}
                   </div>
                 </div>
@@ -197,15 +172,11 @@ export function OperationalQAAssistant({
                             {item.kind === 'process' && <BookOpen size={13} />}
                             <span>{item.kind}</span>
                           </span>
-                          {item.confidence && (
-                            <ConfidenceBadge state={item.confidence} compact />
-                          )}
+                          {item.confidence && <ConfidenceBadge state={item.confidence} compact />}
                         </div>
                         <strong className="qa-item-title">{item.title}</strong>
                         {item.subtitle && <p className="qa-item-subtitle">{item.subtitle}</p>}
-                        {item.description && (
-                          <p className="qa-item-desc">{item.description}</p>
-                        )}
+                        {item.description && <p className="qa-item-desc">{item.description}</p>}
                         {item.action && (
                           <Button
                             type="button"
@@ -232,12 +203,7 @@ export function OperationalQAAssistant({
                   </div>
                   <div className="qa-followup-chips">
                     {answer.suggestedFollowUps.map((suggested) => (
-                      <button
-                        key={suggested}
-                        type="button"
-                        className="qa-chip-button"
-                        onClick={() => handleAsk(suggested)}
-                      >
+                      <button key={suggested} type="button" className="qa-chip-button" onClick={() => handleAsk(suggested)}>
                         {suggested}
                       </button>
                     ))}
@@ -251,8 +217,8 @@ export function OperationalQAAssistant({
                 <HelpCircle size={28} className="qa-intro-icon" />
                 <h3>Pergunte sobre qualquer etapa, regra ou responsabilidade</h3>
                 <p>
-                  O assistente consulta diretamente os 10 processos modelados em Bizagi e os 10
-                  POPs descritivos. Clique em uma das dúvidas comuns abaixo para testar:
+                  O assistente consulta diretamente os 10 processos modelados em Bizagi e os 10 POPs descritivos. Clique em uma das dúvidas
+                  comuns abaixo para testar:
                 </p>
               </div>
 
@@ -263,11 +229,7 @@ export function OperationalQAAssistant({
                     <ul className="qa-suggestion-list">
                       {cat.questions.map((q) => (
                         <li key={q}>
-                          <button
-                            type="button"
-                            className="qa-suggestion-item-btn"
-                            onClick={() => handleAsk(q)}
-                          >
+                          <button type="button" className="qa-suggestion-item-btn" onClick={() => handleAsk(q)}>
                             <span>{q}</span>
                             <ArrowRight size={14} className="qa-arrow-icon" />
                           </button>
@@ -284,4 +246,3 @@ export function OperationalQAAssistant({
     </div>
   )
 }
-
