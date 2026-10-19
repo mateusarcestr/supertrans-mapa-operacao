@@ -1,12 +1,15 @@
 import hashlib
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.build_alignment_docs import DEFAULT_PORTAL, generate
+from scripts.build_alignment_docs import DEFAULT_PORTAL, PortalEvidence, generate
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# Commit do Portal analisado e registrado em docs/alignment (Fase 3A).
+PINNED_PORTAL_COMMIT = "de5518559557ffc9b02e0efefba1a8d0c90b919d"
 EXPECTED = {
     "status-lifecycle-crosswalk.md",
     "operation-types-crosswalk.md",
@@ -37,8 +40,16 @@ def tree_hashes(directory: Path) -> dict[str, str]:
 
 
 class AlignmentDocumentationTests(unittest.TestCase):
+    # Gera em diretório temporário: os testes nunca reescrevem docs/alignment.
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.output = Path(self._tmp.name)
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
     def test_all_phase_3a_documents_are_generated(self):
-        output = ROOT / "docs" / "alignment"
+        output = self.output
         names = set(generate(ROOT, output, DEFAULT_PORTAL))
         self.assertEqual(names, EXPECTED)
         self.assertEqual({path.name for path in output.iterdir()}, EXPECTED)
@@ -46,7 +57,7 @@ class AlignmentDocumentationTests(unittest.TestCase):
             self.assertTrue((output / name).read_text(encoding="utf-8").strip())
 
     def test_generation_is_byte_deterministic(self):
-        output = ROOT / "docs" / "alignment"
+        output = self.output
         generate(ROOT, output, DEFAULT_PORTAL)
         first = tree_hashes(output)
         generate(ROOT, output, DEFAULT_PORTAL)
@@ -55,11 +66,11 @@ class AlignmentDocumentationTests(unittest.TestCase):
     def test_generation_does_not_modify_normalized_model(self):
         normalized = ROOT / "data" / "normalized"
         before = tree_hashes(normalized)
-        generate(ROOT, ROOT / "docs" / "alignment", DEFAULT_PORTAL)
+        generate(ROOT, self.output, DEFAULT_PORTAL)
         self.assertEqual(before, tree_hashes(normalized))
 
     def test_external_boundaries_are_visible(self):
-        output = ROOT / "docs" / "alignment"
+        output = self.output
         generate(ROOT, output, DEFAULT_PORTAL)
         coverage = (output / "coverage-matrix.md").read_text(encoding="utf-8")
         jira = (output / "jira-input-needed.md").read_text(encoding="utf-8")
@@ -70,7 +81,11 @@ class AlignmentDocumentationTests(unittest.TestCase):
         self.assertIn("STPORTAL-233", jira)
         self.assertIn("APROVADA", status)
         self.assertIn("PROGRAMADA", status)
-        self.assertIn("de5518559557ffc9b02e0efefba1a8d0c90b919d", status)
+        self.assertIn(PortalEvidence(DEFAULT_PORTAL).commit, status)
+
+    def test_committed_alignment_matches_pinned_portal_commit(self):
+        status = (ROOT / "docs" / "alignment" / "status-lifecycle-crosswalk.md").read_text(encoding="utf-8")
+        self.assertIn(PINNED_PORTAL_COMMIT, status)
 
     def test_jira_snapshot_covers_expected_issues_without_duplicates(self):
         snapshot = ROOT / "data" / "external" / "jira" / "stportal-5.json"
@@ -92,7 +107,7 @@ class AlignmentDocumentationTests(unittest.TestCase):
             self.assertTrue(issue["source"]["url"].endswith(issue["key"]))
 
     def test_jira_placeholders_are_removed_from_generated_alignment(self):
-        output = ROOT / "docs" / "alignment"
+        output = self.output
         generate(ROOT, output, DEFAULT_PORTAL)
         for path in output.glob("*.md"):
             self.assertNotIn("NOT_AVAILABLE_IN_THIS_RUN", path.read_text(encoding="utf-8"), path.name)
