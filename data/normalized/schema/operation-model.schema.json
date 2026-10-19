@@ -1,0 +1,1928 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:supertrans:operation-model:1.0.0",
+  "title": "Bizagi + POP canonical operation model",
+  "$defs": {
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "bizagi",
+            "pop"
+          ]
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "member": {
+          "type": "string",
+          "minLength": 1
+        },
+        "archiveMember": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "elementId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "table": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "row": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bodyIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "path": {
+          "type": "string"
+        },
+        "section": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "item": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "file",
+        "sha256"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "row"
+            ]
+          },
+          "then": {
+            "required": [
+              "table",
+              "member"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "diagramId"
+            ]
+          },
+          "then": {
+            "required": [
+              "archiveMember",
+              "member"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "pop"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "diagramId"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "stage": {
+          "enum": [
+            "request/intake",
+            "qualification",
+            "approval",
+            "planning",
+            "scheduling",
+            "execution",
+            "completion",
+            "unknown"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "stage",
+        "classification",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "assignment": {
+      "type": "object",
+      "properties": {
+        "assignmentMethod": {
+          "enum": [
+            "explicit",
+            "geometry",
+            "unresolved"
+          ]
+        },
+        "laneId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "candidateLaneIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "assignmentMethod",
+        "laneId",
+        "candidateLaneIds",
+        "classification",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "responsibility": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "documented",
+            "needs-review",
+            "unresolved"
+          ]
+        },
+        "actorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "popActorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bizagiLaneActorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "actorId",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originalName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workflowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "task",
+            "subprocess",
+            "gateway",
+            "startEvent",
+            "endEvent",
+            "intermediateEvent",
+            "unknown"
+          ]
+        },
+        "bounds": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "attributes": {
+          "type": "object"
+        },
+        "extendedAttributes": {
+          "type": "array"
+        },
+        "implementation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "event": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "route": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "loop": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "sourceOrder": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "laneAssignment": {
+          "$ref": "#/$defs/assignment"
+        },
+        "incoming": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "outgoing": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "operationalStage": {
+          "$ref": "#/$defs/stage"
+        },
+        "responsibility": {
+          "$ref": "#/$defs/responsibility"
+        },
+        "subflowTargetOriginalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventKind": {
+          "enum": [
+            "start",
+            "end",
+            "intermediate",
+            "unknown"
+          ]
+        },
+        "gatewayType": {
+          "type": "string"
+        },
+        "reconciliationStatus": {
+          "enum": [
+            "matched",
+            "partially-matched",
+            "ambiguous",
+            "unmatched-bizagi",
+            "unmatched-pop"
+          ]
+        },
+        "reconciliationId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "originalName",
+        "workflowId",
+        "type",
+        "bounds",
+        "attributes",
+        "extendedAttributes",
+        "implementation",
+        "event",
+        "route",
+        "loop",
+        "sourceOrder",
+        "laneAssignment",
+        "incoming",
+        "outgoing",
+        "operationalStage",
+        "responsibility",
+        "subflowTargetOriginalId",
+        "eventKind",
+        "gatewayType",
+        "reconciliationStatus",
+        "reconciliationId"
+      ],
+      "additionalProperties": false
+    },
+    "flow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workflowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "sequence"
+        },
+        "sourceNodeId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetNodeId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceOriginalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetOriginalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "condition": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "graphics": {
+          "type": "array"
+        },
+        "integrity": {
+          "enum": [
+            "valid",
+            "invalid"
+          ]
+        },
+        "defaultPath": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "workflowId",
+        "type",
+        "sourceNodeId",
+        "targetNodeId",
+        "sourceOriginalId",
+        "targetOriginalId",
+        "label",
+        "condition",
+        "graphics",
+        "integrity",
+        "defaultPath"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "integrity": {
+                "const": "valid"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourceNodeId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "targetNodeId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "pool": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workflowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bounds": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "attributes": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "workflowId",
+        "bounds",
+        "attributes"
+      ],
+      "additionalProperties": false
+    },
+    "lane": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "poolId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actorDerivation": {
+          "type": "object"
+        },
+        "localBounds": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "absoluteBounds": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "poolId",
+        "workflowId",
+        "actorId",
+        "actorDerivation",
+        "localBounds",
+        "absoluteBounds"
+      ],
+      "additionalProperties": false
+    },
+    "workflow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId"
+      ],
+      "additionalProperties": false
+    },
+    "annotation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attributes": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "attributes"
+      ],
+      "additionalProperties": false
+    },
+    "association": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attributes": {
+          "type": "object"
+        },
+        "sourceEntityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetEntityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "enum": [
+            "association",
+            "message"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "attributes",
+        "sourceEntityId",
+        "targetEntityId",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "diagram": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pool"
+          }
+        },
+        "lanes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lane"
+          }
+        },
+        "workflows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/workflow"
+          }
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          }
+        },
+        "flows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/flow"
+          }
+        },
+        "associations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/association"
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/annotation"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "originalId",
+        "pools",
+        "lanes",
+        "workflows",
+        "nodes",
+        "flows",
+        "associations",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    "popStep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "rawRowKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "executorText": {
+          "type": "string"
+        },
+        "executorActorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time": {
+          "type": "string"
+        },
+        "section": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subsection": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fieldSources": {
+          "type": "object",
+          "properties": {
+            "sourceId": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/source"
+              },
+              "minItems": 1
+            },
+            "description": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/source"
+              },
+              "minItems": 1
+            },
+            "executor": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/source"
+              },
+              "minItems": 1
+            },
+            "resources": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/source"
+              },
+              "minItems": 1
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/source"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "sourceId",
+            "description",
+            "executor",
+            "resources",
+            "time"
+          ],
+          "additionalProperties": false
+        },
+        "operationalStage": {
+          "$ref": "#/$defs/stage"
+        },
+        "systemIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "channelIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "artifactIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "resourceExpression": {
+          "type": "string"
+        },
+        "operators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reconciliationStatus": {
+          "enum": [
+            "matched",
+            "partially-matched",
+            "ambiguous",
+            "unmatched-bizagi",
+            "unmatched-pop"
+          ]
+        },
+        "reconciliationIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "sourceId",
+        "rawRowKey",
+        "description",
+        "executorText",
+        "executorActorId",
+        "time",
+        "section",
+        "subsection",
+        "fieldSources",
+        "operationalStage",
+        "systemIds",
+        "channelIds",
+        "artifactIds",
+        "resourceExpression",
+        "operators",
+        "reconciliationStatus",
+        "reconciliationIds"
+      ],
+      "additionalProperties": false
+    },
+    "subprocessReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceNodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetOriginalId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetWorkflowId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetDiagramId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolutionStatus": {
+          "enum": [
+            "resolved",
+            "unresolved"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "attributes": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "originalId",
+        "sourceNodeId",
+        "targetOriginalId",
+        "targetWorkflowId",
+        "targetDiagramId",
+        "resolutionStatus",
+        "classification",
+        "attributes"
+      ],
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "popStepId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sameOperationalId": {
+          "type": "boolean"
+        },
+        "textSupport": {
+          "enum": [
+            "exact",
+            "contained",
+            "different"
+          ]
+        },
+        "laneActorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "popActorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actorAgreement": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "context": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "popStepId",
+        "sameOperationalId",
+        "textSupport",
+        "laneActorId",
+        "popActorId",
+        "actorAgreement",
+        "context",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    "reconciliation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "matched",
+            "partially-matched",
+            "ambiguous",
+            "unmatched-bizagi",
+            "unmatched-pop"
+          ]
+        },
+        "bizagiNodeIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "popStepIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "accepted": {
+          "type": "boolean"
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "enum": [
+            "corroborated",
+            "insufficient"
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cardinality": {
+          "enum": [
+            "1:1",
+            "1:N",
+            "N:1",
+            "N:N",
+            "unresolved"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "status",
+        "bizagiNodeIds",
+        "popStepIds",
+        "accepted",
+        "classification",
+        "method",
+        "confidence",
+        "candidates",
+        "evidence",
+        "cardinality"
+      ],
+      "additionalProperties": false
+    },
+    "section": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "paragraphs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/source"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "text",
+              "sources"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "sources",
+        "paragraphs"
+      ],
+      "additionalProperties": false
+    },
+    "process": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "diagrams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diagram"
+          }
+        },
+        "popSteps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/popStep"
+          }
+        },
+        "subprocessReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subprocessReference"
+          }
+        },
+        "reconciliations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reconciliation"
+          }
+        },
+        "documentation": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/section"
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "enum": [
+                "explicit",
+                "inferred",
+                "unknown"
+              ]
+            },
+            "stages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "classification",
+            "stages"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "diagrams",
+        "popSteps",
+        "subprocessReferences",
+        "reconciliations",
+        "documentation",
+        "lifecycle"
+      ],
+      "additionalProperties": false
+    },
+    "catalogEntry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "kind": {
+          "enum": [
+            "actor",
+            "system",
+            "channel",
+            "artifact"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "classification": {
+          "type": "string"
+        },
+        "classifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "evidence": {},
+              "sources": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/source"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "value",
+              "evidence",
+              "sources"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "kind",
+        "aliases",
+        "classification",
+        "classifications"
+      ],
+      "additionalProperties": false
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagramId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "flowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceNodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetNodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fromActorId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "toActorId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "diagramId",
+        "flowId",
+        "sourceNodeId",
+        "targetNodeId",
+        "fromActorId",
+        "toActorId",
+        "classification",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "subprocess-call",
+            "document-reference",
+            "event-link"
+          ]
+        },
+        "sourceEntityId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetEntityId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "derived": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "type",
+        "sourceEntityId",
+        "targetEntityId",
+        "classification",
+        "derived",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "conflict": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entityIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "field": {
+          "type": "string"
+        },
+        "bizagiValue": {},
+        "popValue": {},
+        "status": {
+          "const": "needs-review"
+        },
+        "nature": {
+          "const": "potential-divergence"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "entityIds",
+        "field",
+        "bizagiValue",
+        "popValue",
+        "status",
+        "nature"
+      ],
+      "additionalProperties": false
+    },
+    "diagnostic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1
+        },
+        "processId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entityIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sources",
+        "processId",
+        "entityIds",
+        "code",
+        "severity",
+        "message",
+        "details"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "sourcePolicy": {
+      "const": [
+        "bizagi",
+        "pop"
+      ]
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "file",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "processes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/process"
+      },
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogEntry"
+      }
+    },
+    "systems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogEntry"
+      }
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogEntry"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogEntry"
+      }
+    },
+    "handoffs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/handoff"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conflict"
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "sourcePolicy",
+    "inputs",
+    "processes",
+    "actors",
+    "systems",
+    "channels",
+    "artifacts",
+    "handoffs",
+    "relationships",
+    "conflicts",
+    "diagnostics"
+  ],
+  "additionalProperties": false
+}

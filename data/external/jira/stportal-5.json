@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": {
+    "kind": "jira",
+    "baseUrl": "https://supertranstransportes.atlassian.net",
+    "retrievedAt": "2026-09-29",
+    "method": "authenticated Jira web UI, read-only",
+    "scope": "STPORTAL-5 and listed child issues",
+    "sourcePolicy": "Jira is requirement/specification evidence only; it does not feed data/normalized."
+  },
+  "issues": [
+    {
+      "key": "STPORTAL-5",
+      "summary": "Gestão de Demandas",
+      "status": "Concluído",
+      "description": "Módulo central do fluxo operacional da SuperTrans. Centraliza o registro, análise, aprovação e rastreabilidade de demandas originadas no Porto ou pelo time Comercial, eliminando comunicação informal e garantindo auditoria completa em todas as etapas do ciclo. Perfis envolvidos: Porto, Comercial, Operacional. Estados citados: CRIADA_PORTO → PENDENTE_COMERCIAL → PENDENTE_OPERACIONAL → APROVADA / REJEITADA_COMERCIAL / REJEITADA_OPERACIONAL.",
+      "profiles": ["Porto", "Comercial", "Operacional"],
+      "statuses": ["CRIADA_PORTO", "CRIADA_CLIENTE", "PENDENTE_COMERCIAL", "PENDENTE_OPERACIONAL", "REJEITADA_COMERCIAL", "REJEITADA_OPERACIONAL", "APROVADA"],
+      "transitions": [
+        {"from": "CRIADA_PORTO", "to": "PENDENTE_COMERCIAL", "kind": "automatic"},
+        {"from": "PENDENTE_COMERCIAL", "to": "PENDENTE_OPERACIONAL", "kind": "commercial approval"},
+        {"from": "PENDENTE_COMERCIAL", "to": "REJEITADA_COMERCIAL", "kind": "commercial rejection"},
+        {"from": "PENDENTE_OPERACIONAL", "to": "APROVADA", "kind": "operational approval"},
+        {"from": "PENDENTE_OPERACIONAL", "to": "REJEITADA_OPERACIONAL", "kind": "operational rejection"}
+      ],
+      "acceptanceCriteria": ["Centralizar registro, análise, aprovação e rastreabilidade", "Envolver Porto, Comercial e Operacional", "Manter estados de demanda documentados"],
+      "businessRules": ["Demandas podem ser originadas no Porto ou pelo Comercial", "A especificação separa aprovação comercial de aprovação operacional"],
+      "dependencies": ["STPORTAL-6", "STPORTAL-7", "STPORTAL-8", "STPORTAL-9", "STPORTAL-10", "STPORTAL-11", "STPORTAL-12", "STPORTAL-220", "STPORTAL-221", "STPORTAL-222", "STPORTAL-223", "STPORTAL-224", "STPORTAL-225", "STPORTAL-226", "STPORTAL-227", "STPORTAL-233"],
+      "observations": ["Comentário de atividade de 2026-07-01 registra US-001 a US-006 concluídas e US-007 parcialmente atendida por falta de endpoint dedicado; a página posteriormente mostra o Epic como Concluído/resolvido."],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-5", "locator": "description, child issue list, status"}
+    },
+    {
+      "key": "STPORTAL-6",
+      "summary": "US-001 - Registrar Demanda Originada no Porto",
+      "status": "Concluído",
+      "description": "Como usuário do Porto, registrar uma nova demanda para análise do Comercial. O sistema deve mostrar o formulário somente ao papel Porto, criar CRIADA_PORTO, encaminhar automaticamente para PENDENTE_COMERCIAL, validar obrigatórios e exibir confirmação.",
+      "profiles": ["Porto", "Comercial", "Operacional"],
+      "statuses": ["CRIADA_PORTO", "PENDENTE_COMERCIAL"],
+      "transitions": [{"from": "CRIADA_PORTO", "to": "PENDENTE_COMERCIAL", "kind": "automatic"}],
+      "businessRules": ["Somente Porto acessa o formulário", "Campos obrigatórios bloqueiam o envio", "Não exigir ação manual para encaminhar ao Comercial"],
+      "acceptanceCriteria": ["Acesso apenas ao papel Porto", "Criação em CRIADA_PORTO", "Encaminhamento automático para PENDENTE_COMERCIAL", "Validação inline dos obrigatórios", "Demanda aparece na fila Comercial"],
+      "fields": [{"name": "campos obrigatórios da demanda", "type": "form", "required": true, "rules": ["validar antes de salvar"]}],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-6", "locator": "Regras de Negócio; Perfis; Fluxo Principal; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-7",
+      "summary": "US-002 - Aprovar ou Rejeitar Demanda do Porto",
+      "status": "Concluído",
+      "description": "Como usuário Comercial, analisar demandas originadas no Porto e aprovar ou rejeitar. A aprovação encaminha para PENDENTE_OPERACIONAL; a rejeição exige motivo e grava REJEITADA_COMERCIAL, usuário, data/hora e decisão no histórico.",
+      "profiles": ["Comercial", "Porto", "Operacional"],
+      "statuses": ["PENDENTE_COMERCIAL", "PENDENTE_OPERACIONAL", "REJEITADA_COMERCIAL"],
+      "transitions": [{"from": "PENDENTE_COMERCIAL", "to": "PENDENTE_OPERACIONAL", "kind": "approve"}, {"from": "PENDENTE_COMERCIAL", "to": "REJEITADA_COMERCIAL", "kind": "reject with required reason"}],
+      "businessRules": ["Dashboard mostra somente PENDENTE_COMERCIAL", "Rejeição sem motivo é proibida", "Ações são restritas ao Comercial"],
+      "acceptanceCriteria": ["Aprovar e rejeitar funcionam", "Motivo de rejeição obrigatório", "Histórico registra usuário, data/hora e decisão", "Motivo rejeitado permanece visível"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-7", "locator": "Regras de Negócio; Fluxo Principal; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-8",
+      "summary": "US-003 - Encaminhar Demanda para Operação",
+      "status": "Concluído",
+      "description": "O encaminhamento para Operação é automático após aprovação Comercial. O sistema muda PENDENTE_COMERCIAL para PENDENTE_OPERACIONAL, registra data/hora e histórico e notifica usuários da Operação; não há ação manual adicional.",
+      "profiles": ["Sistema", "Operacional", "Comercial"],
+      "statuses": ["PENDENTE_COMERCIAL", "PENDENTE_OPERACIONAL"],
+      "transitions": [{"from": "PENDENTE_COMERCIAL", "to": "PENDENTE_OPERACIONAL", "kind": "automatic after commercial approval"}],
+      "businessRules": ["Não encaminhar demandas pendentes ou rejeitadas fora da fila Comercial", "Falha de notificação não deve deixar status intermediário"],
+      "acceptanceCriteria": ["Transição automática", "Notificação para Operação", "Data/hora no histórico", "Visibilidade no dashboard Operacional"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-8", "locator": "Regras de Negócio; Fluxo Principal (automático); Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-9",
+      "summary": "US-004 - Aprovar ou Rejeitar Demanda Operacional",
+      "status": "Concluído",
+      "description": "Como usuário Operacional, analisar demandas encaminhadas pelo Comercial. A aprovação muda para APROVADA; a rejeição exige motivo e muda para REJEITADA_OPERACIONAL. A história chama ambos de estados terminais do ciclo de aprovação.",
+      "profiles": ["Operacional", "Comercial", "Porto"],
+      "statuses": ["PENDENTE_OPERACIONAL", "APROVADA", "REJEITADA_OPERACIONAL"],
+      "transitions": [{"from": "PENDENTE_OPERACIONAL", "to": "APROVADA", "kind": "approve"}, {"from": "PENDENTE_OPERACIONAL", "to": "REJEITADA_OPERACIONAL", "kind": "reject with required reason"}],
+      "businessRules": ["Dashboard mostra somente PENDENTE_OPERACIONAL", "Rejeição sem motivo é proibida", "Ações são restritas ao Operacional"],
+      "acceptanceCriteria": ["Aprovação atualiza para APROVADA", "Rejeição registra REJEITADA_OPERACIONAL com motivo", "Histórico registra usuário, data/hora e decisão"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-9", "locator": "Contexto; Regras de Negócio; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-10",
+      "summary": "US-005 - Registrar Demanda Comercial",
+      "status": "Concluído",
+      "description": "Como Comercial, registrar demanda em nome de cliente. A demanda entra em CRIADA_CLIENTE e é encaminhada automaticamente para PENDENTE_OPERACIONAL, sem aprovação Comercial adicional.",
+      "profiles": ["Comercial", "Porto", "Operacional"],
+      "statuses": ["CRIADA_CLIENTE", "PENDENTE_OPERACIONAL"],
+      "transitions": [{"from": "CRIADA_CLIENTE", "to": "PENDENTE_OPERACIONAL", "kind": "automatic"}],
+      "businessRules": ["Somente Comercial acessa o formulário", "Cliente, quantidade, porto, tabela, tipo de operação, tipo/tamanho de container são obrigatórios", "Grade, vencimentos e documentações diversas são opcionais"],
+      "acceptanceCriteria": ["Campos obrigatórios e opcionais são distintos", "Encaminhamento automático para Operação", "Demanda aparece na fila Operacional"],
+      "fields": [{"name": "Cliente", "type": "texto", "required": true}, {"name": "Quantidade", "type": "inteiro positivo", "required": true}, {"name": "Porto de Retirada", "type": "lookup", "required": true}, {"name": "Tabela de Preço", "type": "lookup", "required": true}, {"name": "Tipo de Operação", "type": "lookup", "required": true}, {"name": "Tipo de Container", "type": "lookup", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true}, {"name": "Grade de Programação", "type": "data/texto", "required": false}, {"name": "Vencimento Armazenagem", "type": "data", "required": false}, {"name": "Vencimento Demurrage", "type": "data", "required": false}, {"name": "Documentações Diversas", "type": "texto/upload", "required": false}, {"name": "Cenário", "type": "lookup", "required": false}],
+      "dependencies": ["US-008 a US-011 - Parâmetros Operacionais"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-10", "locator": "Regras de Negócio; Campos do Formulário; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-11",
+      "summary": "US-006 - Consultar Demandas",
+      "status": "Concluído",
+      "description": "Consulta consolidada do pipeline para Porto, Comercial e Operacional, com visibilidade por perfil, filtros combináveis, ordenação, paginação e navegação ao detalhe.",
+      "profiles": ["Porto", "Comercial", "Operacional"],
+      "businessRules": ["Porto vê apenas suas demandas", "Comercial vê demandas que passaram pela etapa Comercial", "Operacional vê demandas encaminhadas para Operação", "Consulta não oferece aprovação/rejeição"],
+      "acceptanceCriteria": ["Filtros por número, cliente, status, tipo de operação, porto e data", "Filtros combináveis AND", "Ordenação por coluna", "Paginação", "Linha clicável para detalhe", "RBAC no backend"],
+      "fields": [{"name": "Número da demanda", "type": "texto/ID", "required": false}, {"name": "Cliente", "type": "texto", "required": false}, {"name": "Status", "type": "badge", "required": false}, {"name": "Tipo de Operação", "type": "texto", "required": false}, {"name": "Porto", "type": "texto", "required": false}, {"name": "Data", "type": "data/hora", "required": false}],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-11", "locator": "Regras de Negócio; Visibilidade por perfil; Colunas da Listagem; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-12",
+      "summary": "US-007 - Consultar Histórico da Demanda",
+      "status": "Concluído",
+      "description": "Timeline cronológica e imutável de criação, encaminhamentos, aprovações, rejeições e mudanças de status. Cada evento deve registrar usuário, data/hora, tipo e motivo quando aplicável; acesso é restrito por permissão.",
+      "profiles": ["Usuário autorizado", "Porto", "Comercial", "Operacional"],
+      "statuses": ["CRIACAO", "ENCAMINHAMENTO", "APROVACAO_COMERCIAL", "REJEICAO_COMERCIAL", "APROVACAO_OPERACIONAL", "REJEICAO_OPERACIONAL"],
+      "businessRules": ["Histórico completo e imutável", "Rejeição exibe motivo", "Usuário sem permissão não vê a timeline", "Filtro opcional por tipo de evento"],
+      "acceptanceCriteria": ["Timeline cronológica", "Usuário, data/hora, ação e motivo quando aplicável", "Diferenciação visual", "Controle de acesso", "Nenhum evento omitido"],
+      "fields": [{"name": "Tipo de evento", "type": "enum", "required": true}, {"name": "Usuário responsável", "type": "nome + papel", "required": true}, {"name": "Data/hora", "type": "timestamp", "required": true}, {"name": "Motivo", "type": "texto livre", "required": false, "condition": "eventos de rejeição"}],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-12", "locator": "Contexto; Estrutura de cada evento; Critérios de Aceite"}
+    },
+    {
+      "key": "STPORTAL-220",
+      "summary": "Formulário de importação",
+      "status": "Concluído",
+      "description": "Formulário específico para Importação, com modos comercial/interno e cliente. Tipo de Operação determina os campos; cliente externo é derivado do usuário autenticado.",
+      "operation": "Importação",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto de retirada", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": false}, {"name": "Tipos de container", "type": "lista repetível Tipo/Tamanho/Quantidade", "required": "ao menos 1 item", "rules": ["tamanho compatível com tipo", "quantidade mínima 1"]}, {"name": "Vencimento armazenagem", "type": "data", "required": false}, {"name": "Vencimento demurrage", "type": "data", "required": false}, {"name": "Números dos containers", "type": "lista repetível", "required": false, "rules": ["ISO 6346"]}, {"name": "Documentos", "type": "upload múltiplo", "required": false, "rules": ["PDF/JPG/PNG/XLSX/DOCX", "máximo 10 MB por arquivo"]}],
+      "businessRules": ["Tipo de Operação controla campos", "Cliente é automático no modo cliente", "Alterações em dados/documentos devem aguardar aprovação da Coordenação Comercial"],
+      "acceptanceCriteria": ["Obrigatórios bloqueiam registro", "Tipo/tamanho compatíveis", "ISO 6346 quando número informado", "Upload rejeita formato/tamanho inválido", "Alteração pendente não é efetivada antes da aprovação"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-220", "locator": "seções 2, 3 e 4; critérios de alteração"}
+    },
+    {
+      "key": "STPORTAL-221",
+      "summary": "Formulário de Exportação",
+      "status": "Para Testar",
+      "operation": "Exportação",
+      "description": "Formulário de Exportação com Cliente condicional ao modo, Armador, Quantidade, Booking e Tipo de Container obrigatórios; Depot, Container e Deadline opcionais.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": true}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Depot", "type": "seleção", "required": false}, {"name": "Booking", "type": "texto/seleção", "required": true}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346"]}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Deadline", "type": "data", "required": false}],
+      "businessRules": ["Quantidade menor que 1 bloqueia registro", "Container é opcional, mas números informados usam ISO 6346", "Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Campos exibidos por tipo de operação", "Obrigatórios bloqueiam envio", "Depot, Container e Deadline podem ficar vazios", "Modo cliente deriva Cliente"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-221", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-222",
+      "summary": "Formulário de DTA",
+      "status": "Para Testar",
+      "operation": "DTA",
+      "description": "Formulário DTA com Porto, Tipo/Tamanho de Container, Vencimento de Armazenagem, Quantidade e Container obrigatórios; Demurrage opcional.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Demurrage", "type": "data", "required": false}, {"name": "Vencimento de Armazenagem", "type": "data", "required": true}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Container", "type": "lista repetível", "required": true, "rules": ["ISO 6346", "quantidade deve corresponder"]}],
+      "businessRules": ["Container obrigatório", "Quantidade de containers deve corresponder à quantidade", "Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Vencimento de Armazenagem ausente bloqueia", "Demurrage pode ficar vazio", "Tipo/tamanho compatíveis", "ISO 6346"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-222", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-223",
+      "summary": "Formulário de Cabotagem (entrega)",
+      "status": "Para Testar",
+      "operation": "Cabotagem Entrega",
+      "description": "Formulário de Cabotagem Entrega com Porto, Armador, Tipo/Tamanho, Quantidade e Container obrigatórios; Demurrage e Vencimento de Armazenagem opcionais.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Demurrage", "type": "data", "required": false}, {"name": "Vencimento de Armazenagem", "type": "data", "required": false}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Container", "type": "lista repetível", "required": true, "rules": ["ISO 6346", "quantidade deve corresponder"]}],
+      "businessRules": ["Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Obrigatórios bloqueiam", "Demurrage e armazenagem opcionais", "ISO 6346", "Quantidade de containers compatível"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-223", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-224",
+      "summary": "Formulário de Embarque de vazio",
+      "status": "Para Testar",
+      "operation": "Embarque de Vazios",
+      "description": "Formulário de Embarque de Vazios com Porto, Armador, Tipo/Tamanho, Quantidade, Depot, Booking e Deadline obrigatórios; Container opcional.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Depot", "type": "seleção", "required": true}, {"name": "Booking", "type": "texto", "required": true}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346 quando informado"]}, {"name": "Deadline", "type": "data", "required": true}],
+      "businessRules": ["Deadline ausente bloqueia", "Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Somente campos específicos são exibidos", "Container opcional", "Deadline obrigatório", "ISO 6346 quando informado"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-224", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-225",
+      "summary": "Formulário de Desembarque de Vazios",
+      "status": "Para Testar",
+      "operation": "Desembarque de Vazios",
+      "description": "Formulário de Desembarque de Vazios com Porto, Armador, Tipo/Tamanho, Quantidade, Depot, Booking e Deadline obrigatórios; Container opcional.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Depot", "type": "seleção", "required": true}, {"name": "Booking", "type": "texto", "required": true}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346 quando informado"]}, {"name": "Deadline", "type": "data", "required": true}],
+      "businessRules": ["Deadline ausente bloqueia", "Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Somente campos específicos são exibidos", "Container opcional", "Deadline obrigatório", "ISO 6346 quando informado"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-225", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-226",
+      "summary": "Formulário da Transferência (CLIENTE X CLIENTE)",
+      "status": "Para Testar",
+      "operation": "Transferência",
+      "description": "Formulário de Transferência Cliente x Cliente com Tipo/Tamanho de Container e Quantidade obrigatórios; Container opcional; Cliente é condicional ao modo.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346 quando informado"]}],
+      "businessRules": ["Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Obrigatórios bloqueiam", "Container opcional", "Quantidade deve corresponder aos números quando informados", "ISO 6346"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-226", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-227",
+      "summary": "Formulário de Housekeeping",
+      "status": "Para Testar",
+      "operation": "Housekeeping",
+      "description": "Formulário de Housekeeping com Porto, Tipo/Tamanho de Container e Quantidade obrigatórios; Container opcional; Cliente é condicional ao modo.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Porto", "type": "seleção", "required": true}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Tamanho do Container", "type": "seleção", "required": true, "rules": ["compatível com tipo"]}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346 quando informado"]}],
+      "businessRules": ["Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Obrigatórios bloqueiam", "Container opcional", "Quantidade deve corresponder aos números quando informados", "ISO 6346"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-227", "locator": "seções 2, 3 e 4"}
+    },
+    {
+      "key": "STPORTAL-233",
+      "summary": "Formulário de Cabotagem (Coleta)",
+      "status": "Para Testar",
+      "operation": "Cabotagem Coleta",
+      "description": "Formulário de Cabotagem Coleta com Armador, Quantidade, Booking e Tipo de Container obrigatórios; Depot, Container e Deadline opcionais; Cliente é condicional ao modo.",
+      "fields": [{"name": "Cliente", "type": "seleção", "required": "sim no modo comercial/interno; oculto no modo cliente"}, {"name": "Tipo de Operação", "type": "seleção", "required": true}, {"name": "Armador", "type": "seleção", "required": true}, {"name": "Quantidade", "type": "numérico", "required": true, "rules": ["mínimo 1"]}, {"name": "Depot", "type": "seleção", "required": false}, {"name": "Booking", "type": "texto", "required": true}, {"name": "Container", "type": "lista repetível", "required": false, "rules": ["ISO 6346 quando informado"]}, {"name": "Tipo de Container", "type": "seleção", "required": true}, {"name": "Deadline", "type": "data", "required": false}],
+      "businessRules": ["Alterações aguardam Coordenação Comercial"],
+      "acceptanceCriteria": ["Obrigatórios bloqueiam", "Depot, Container e Deadline opcionais", "Quantidade deve corresponder aos números quando informados", "ISO 6346"],
+      "source": {"url": "https://supertranstransportes.atlassian.net/browse/STPORTAL-233", "locator": "seções 2, 3 e 4"}
+    }
+  ]
+}

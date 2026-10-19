@@ -1,0 +1,379 @@
+[
+  {
+    "bodyIndex": 1,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 2,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 3,
+    "type": "paragraph",
+    "text": "Objetivo "
+  },
+  {
+    "bodyIndex": 4,
+    "type": "paragraph",
+    "text": "O presente documento tem o objetivo descrever e melhor detalhar o processo de desembarque de contêiner vazio na Super Trans."
+  },
+  {
+    "bodyIndex": 5,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 6,
+    "type": "paragraph",
+    "text": "Público Alvo"
+  },
+  {
+    "bodyIndex": 7,
+    "type": "paragraph",
+    "text": "Áreas de internas: Central de Operações e Motoristas."
+  },
+  {
+    "bodyIndex": 8,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 9,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 10,
+    "type": "paragraph",
+    "text": "Áreas externas: Cliente / Armador, Porto e Depot."
+  },
+  {
+    "bodyIndex": 11,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 12,
+    "type": "paragraph",
+    "text": "Descritivos"
+  },
+  {
+    "bodyIndex": 13,
+    "type": "table",
+    "rows": [
+      [
+        "ID",
+        "Descritivo",
+        "Executor",
+        "Sistema",
+        "Tempo"
+      ],
+      [
+        "1",
+        "Envia uma demanda de desembarque de vazio",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "2",
+        "Recebe uma demanda de desembarque de vazio",
+        "Porto",
+        "E-mail",
+        "-"
+      ],
+      [
+        "3",
+        "Analisa e passa uma programação de atendimento",
+        "Porto",
+        "E-mail",
+        "-"
+      ],
+      [
+        "4",
+        "Recebe uma programação de atendimento",
+        "Central de Operações",
+        "E-mail",
+        "-"
+      ],
+      [
+        "5",
+        "Faz o planejamento para atendimento (escala de motoristas)",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "6",
+        "Passa missão com escala aos motoristas",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "7",
+        "Recebe missão com escala",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "8",
+        "Responde aceitando a missão com CPF + Placa",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "9",
+        "Recebe informação dos motoristas que irão atender a escala com CPF e Placa",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10",
+        "Faz os agendamentos no sistema River, que integra essa informação ao sistema ESL",
+        "Central de Operações",
+        "River",
+        "-"
+      ],
+      [
+        "11",
+        "Sinaliza que os agendamentos foram realizados",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "12",
+        "Recebe informação de agendamentos realizados",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "13",
+        "Se dirige ao porto",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "14",
+        "Chegada no porto",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "15",
+        "Verifica se existe agendamento",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "15.1",
+        "Caso não exista agendamento (Item 15) Informa que existe problema de agendamento",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "15.2",
+        "Recebe informação de problema no agendamento",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "15.3",
+        "Repassa informação de problema no agendamento",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.4",
+        "Recebe informação de problema no agendamento",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.5",
+        "Resolve problema de agendamento (Ex: refaz agendamento no sistema River)",
+        "Central de Operações",
+        "River",
+        "-"
+      ],
+      [
+        "15.6",
+        "Informa que problema de agendamento foi resolvido",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.7",
+        "Recebe informação de problema de agendamento resolvido (retornar ao item 15)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "16",
+        "Caso exista agendamento o CNTR é montado",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "17",
+        "Entrega fisicamente três vias de cautela de desembarque",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "18",
+        "Recebe fisicamente três vias de cautela de desembarque",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "19",
+        "Entrega fisicamente uma via de cautela de desembarque na portaria do porto",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "20",
+        "Se dirige ao Depot",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "21",
+        "Chegada no Depot",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "22",
+        "Recebe fisicamente uma segunda via de cautela de desembarque na portaria do Depot",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "23",
+        "Verifica informações da cautela",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "24",
+        "Desmonta CNTR",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "25",
+        "Entrega fisicamente uma terceira via de cautela de desembarque no setor de abastecimento (fim do processo)",
+        "Motoristas",
+        "-",
+        "-"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 14,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 15,
+    "type": "paragraph",
+    "text": "Referências"
+  },
+  {
+    "bodyIndex": 16,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 17,
+    "type": "paragraph",
+    "text": "Glossário"
+  },
+  {
+    "bodyIndex": 18,
+    "type": "paragraph",
+    "text": "CNTR - Contêiner."
+  },
+  {
+    "bodyIndex": 19,
+    "type": "paragraph",
+    "text": "Anexos"
+  },
+  {
+    "bodyIndex": 20,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 21,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 22,
+    "type": "paragraph",
+    "text": "este documento revoga versões anteriores"
+  },
+  {
+    "bodyIndex": 23,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 24,
+    "type": "paragraph",
+    "text": "Versões"
+  },
+  {
+    "bodyIndex": 25,
+    "type": "table",
+    "rows": [
+      [
+        "Versão",
+        "Descritivo da modificação",
+        "Responsável",
+        "Aprovador",
+        "Data"
+      ],
+      [
+        "0",
+        "Confecção do documento - Publicação",
+        "???",
+        "???",
+        "xx/xx/2025"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 26,
+    "type": "paragraph",
+    "text": ""
+  }
+]

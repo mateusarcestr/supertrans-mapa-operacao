@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourcePolicy": [
+    "bizagi",
+    "pop"
+  ],
+  "inputs": [
+    {
+      "file": "P001.json",
+      "sha256": "9860aa6d8378cc9f0a0776fec3ad81732377e525cdfd42543569400fd3cf8f41"
+    },
+    {
+      "file": "P002.json",
+      "sha256": "8b99fe96f2484a066a7c91d3e8b11490b92d7083609a7dec7e6d93d0f1f1a9c1"
+    },
+    {
+      "file": "P003.json",
+      "sha256": "f74a1b34cf4ff5e394ac0164763b260f985916ac6cbf2e2b66a7c0e74b392252"
+    },
+    {
+      "file": "P004.json",
+      "sha256": "c1f91ecab0994ee44cf40206a39a1c00d9948f10efbe3d33f759e21d73318c82"
+    },
+    {
+      "file": "P005.json",
+      "sha256": "6cc7f413f3344a6a561c984ea18263f9740ea0078e6916e810b648ed40c68982"
+    },
+    {
+      "file": "P006.json",
+      "sha256": "84d2c9670ec62652d6f64ec58caf7030dcd3bafa581f39fc7ac1e1ebe28ed662"
+    },
+    {
+      "file": "P007.json",
+      "sha256": "d92ca6b85e897106f35295e20f1917fd8081b43fffab124085ab1aacd843b2d1"
+    },
+    {
+      "file": "P008.json",
+      "sha256": "15b42b046e5891b6ffc72637a38d7d4046a571acdc1c166676863ccdcbaed283"
+    },
+    {
+      "file": "P009.json",
+      "sha256": "41370722f9809c7b857612a688a84119b4b5520a7ce5017ae0c819c51dd34dfe"
+    },
+    {
+      "file": "P010.json",
+      "sha256": "3d2560c9550fe91755a6a6bea0cb2e5bf0e3438a9d9aa05b5f7f210cd9f7c84f"
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "59df6215f7761463a908e84a1b9510c73d08df6dbbc6ffd34c9a66e2cc69c3ea"
+    }
+  ],
+  "summary": {
+    "processes": 10,
+    "diagrams": 14,
+    "nodes": 1350,
+    "flows": 1354,
+    "popSteps": 1081,
+    "nodeTypes": {
+      "endEvent": 25,
+      "gateway": 87,
+      "intermediateEvent": 145,
+      "startEvent": 14,
+      "subprocess": 14,
+      "task": 1065
+    },
+    "laneAssignments": {
+      "geometry": 1350
+    },
+    "nodeReconciliation": {
+      "ambiguous": 2,
+      "matched": 475,
+      "partially-matched": 583,
+      "unmatched-bizagi": 290
+    },
+    "popReconciliation": {
+      "ambiguous": 2,
+      "matched": 475,
+      "partially-matched": 583,
+      "unmatched-pop": 21
+    },
+    "subprocessResolution": {
+      "resolved": 4,
+      "unresolved": 10
+    },
+    "actors": 31,
+    "systems": 8,
+    "channels": 5,
+    "artifacts": 42,
+    "handoffs": 73,
+    "relationships": 79,
+    "conflicts": 229,
+    "diagnostics": 15,
+    "diagnosticCodes": {
+      "AMBIGUOUS_POP_MATCH": 2,
+      "DUPLICATE_POP_SOURCE_ID": 3,
+      "UNRESOLVED_SUBFLOW": 10
+    }
+  },
+  "processFiles": [
+    "processes/P001.json",
+    "processes/P002.json",
+    "processes/P003.json",
+    "processes/P004.json",
+    "processes/P005.json",
+    "processes/P006.json",
+    "processes/P007.json",
+    "processes/P008.json",
+    "processes/P009.json",
+    "processes/P010.json"
+  ],
+  "files": [
+    {
+      "file": "actors.json",
+      "sha256": "d1a61bb17f1bc8f78e87c314da3d3d8f40e3fb0b4e65b2bedf9189d34a683dcf"
+    },
+    {
+      "file": "artifacts.json",
+      "sha256": "7ded1df62478ae15e1f6171b68cc9f1483661b8d9937463a5b7622a2913342ab"
+    },
+    {
+      "file": "channels.json",
+      "sha256": "9ad08ab863bd1c331ffac1e77df7d70434ea433271ca8002a2460da327543086"
+    },
+    {
+      "file": "conflicts.json",
+      "sha256": "cfaaaaa7dc23ca94baedba2891a453172e67a500706a0a8cc5e96d1dbb6dd566"
+    },
+    {
+      "file": "diagnostics.json",
+      "sha256": "5835093d1aa89ea5d21f09a680564ae41280e8fe533e88ccbae41f1ca55a4097"
+    },
+    {
+      "file": "handoffs.json",
+      "sha256": "3692b9711282e921be51008493520b3571dee657610400dc2527108f8a0312e3"
+    },
+    {
+      "file": "processes/P001.json",
+      "sha256": "2898058551db82157a4e9e0c26dbaabbb571ab650777ddb794f43c8019651b1d"
+    },
+    {
+      "file": "processes/P002.json",
+      "sha256": "83a0fd32fc36e03a2c6a1d87d510275801b6e1c6c42fe5e70986b10b05f36f2d"
+    },
+    {
+      "file": "processes/P003.json",
+      "sha256": "2e072ac3d55219738508f8200b3ed685e6617e13d59992c0611ef7fe53562362"
+    },
+    {
+      "file": "processes/P004.json",
+      "sha256": "735fe43f2b192f4f1cba3d83ceb84f69f85011ee5ca98b22c628f338565502c7"
+    },
+    {
+      "file": "processes/P005.json",
+      "sha256": "5150676b60aa684c09313a5793aed4f5bfa886ebca2ecfbb01c4dd1330f7d66f"
+    },
+    {
+      "file": "processes/P006.json",
+      "sha256": "f267dcb4676b5c196249e21b5bc61bd8d37374625ad25436abbe604c04881f0b"
+    },
+    {
+      "file": "processes/P007.json",
+      "sha256": "c14c266c93229618df39849073fe05df9ad007fa2cc845504e95fc4fb3c809a0"
+    },
+    {
+      "file": "processes/P008.json",
+      "sha256": "4c014d48f1ba274988b13e5efa8a3053cfd7b1ce38051ca83a4edbeca661a083"
+    },
+    {
+      "file": "processes/P009.json",
+      "sha256": "149bc8c844e009628cf1884a4a328bcc5b5afb3e6e691c41c486a8c288577115"
+    },
+    {
+      "file": "processes/P010.json",
+      "sha256": "a782bac91bff1ff0d0ebabb6f88b94f19652ec1782d50bdf4ac54ee22b1ff55f"
+    },
+    {
+      "file": "relationships.json",
+      "sha256": "fb68fa74fa38d3e8e333ad90063bf601935eb4749925b90dbd5f5d142d3b1fda"
+    },
+    {
+      "file": "schema/operation-model.schema.json",
+      "sha256": "e9ea8d8321e11bb63620545cb3ca4eeca62cdafbc532fa1c1f97eb94648e1ffe"
+    },
+    {
+      "file": "systems.json",
+      "sha256": "8657d70f837298594b35f520898d071d5ceb52edcf3e1835af8db30734b8b6f8"
+    }
+  ]
+}

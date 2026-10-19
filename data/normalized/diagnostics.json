@@ -1,0 +1,461 @@
+[
+  {
+    "id": "P001:diagnostic:UNRESOLVED_SUBFLOW:316b1a7c47cab2f7fe8c",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "97de8ab1-69c5-40ae-8dd8-073f288b7916.diag",
+        "member": "Diagram.xml",
+        "diagramId": "97de8ab1-69c5-40ae-8dd8-073f288b7916",
+        "workflowId": "d28a03bd-23b3-494b-9afc-2fb501f7b729",
+        "elementId": "c4c357eb-638c-4dfe-af56-81052f382b69"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P001",
+    "entityIds": [
+      "P001:diagram:97de8ab1-69c5-40ae-8dd8-073f288b7916:workflow:d28a03bd-23b3-494b-9afc-2fb501f7b729:node:c4c357eb-638c-4dfe-af56-81052f382b69:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P001:diagnostic:UNRESOLVED_SUBFLOW:b163a04800934823599e",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "97de8ab1-69c5-40ae-8dd8-073f288b7916.diag",
+        "member": "Diagram.xml",
+        "diagramId": "97de8ab1-69c5-40ae-8dd8-073f288b7916",
+        "workflowId": "d28a03bd-23b3-494b-9afc-2fb501f7b729",
+        "elementId": "dda229b3-f45b-45eb-bc3d-99301508287f"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P001",
+    "entityIds": [
+      "P001:diagram:97de8ab1-69c5-40ae-8dd8-073f288b7916:workflow:d28a03bd-23b3-494b-9afc-2fb501f7b729:node:dda229b3-f45b-45eb-bc3d-99301508287f:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P002:diagnostic:DUPLICATE_POP_SOURCE_ID:961e5284f059ebbb75c9",
+    "name": "DUPLICATE_POP_SOURCE_ID",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 116,
+        "section": "Descritivos",
+        "item": "27.9.3"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 117,
+        "section": "Descritivos",
+        "item": "27.9.3"
+      }
+    ],
+    "code": "DUPLICATE_POP_SOURCE_ID",
+    "processId": "P002",
+    "entityIds": [
+      "P002:pop:1:116:occurrence:1",
+      "P002:pop:1:117:occurrence:1"
+    ],
+    "severity": "warning",
+    "message": "Source ID repeats; occurrences are preserved.",
+    "details": {
+      "sourceId": "27.9.3"
+    }
+  },
+  {
+    "id": "P002:diagnostic:UNRESOLVED_SUBFLOW:28e157ca23162e3f61a1",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "75810c07-ce11-43cc-adcd-8c95546d38d0"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P002",
+    "entityIds": [
+      "P002:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:75810c07-ce11-43cc-adcd-8c95546d38d0:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P002:diagnostic:UNRESOLVED_SUBFLOW:35c5888b3c136cadba3f",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "38b57f56-ece3-42f2-989f-a5b5ce9fda54"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P002",
+    "entityIds": [
+      "P002:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:38b57f56-ece3-42f2-989f-a5b5ce9fda54:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P002:diagnostic:UNRESOLVED_SUBFLOW:a88f07b12998bfb95023",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "788c66b7-6f21-47f5-b299-3f0a6f03ef1e"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P002",
+    "entityIds": [
+      "P002:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:788c66b7-6f21-47f5-b299-3f0a6f03ef1e:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P003:diagnostic:UNRESOLVED_SUBFLOW:b426f8884ae6d0a15a7e",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "36c1b5b7-dd96-43f9-9abe-b997d911cfe1"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P003",
+    "entityIds": [
+      "P003:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:36c1b5b7-dd96-43f9-9abe-b997d911cfe1:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P004:diagnostic:UNRESOLVED_SUBFLOW:5afd8b4958095bba13f8",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+        "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "fe634131-8fb6-4311-8c0d-f492897abf22"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P004",
+    "entityIds": [
+      "P004:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:fe634131-8fb6-4311-8c0d-f492897abf22:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P005:diagnostic:AMBIGUOUS_POP_MATCH:60c92e35d09a2f0ffaa9",
+    "name": "AMBIGUOUS_POP_MATCH",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+        "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "e62d73dc-ae2c-4aff-bc1f-c2117cf300fe"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 176,
+        "section": "Descritivos",
+        "item": "53.15"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 192,
+        "section": "Descritivos",
+        "item": "53.15"
+      }
+    ],
+    "code": "AMBIGUOUS_POP_MATCH",
+    "processId": "P005",
+    "entityIds": [
+      "P005:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:e62d73dc-ae2c-4aff-bc1f-c2117cf300fe"
+    ],
+    "severity": "warning",
+    "message": "More than one plausible POP occurrence.",
+    "details": {}
+  },
+  {
+    "id": "P005:diagnostic:AMBIGUOUS_POP_MATCH:b2d949047381fcd077d6",
+    "name": "AMBIGUOUS_POP_MATCH",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+        "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "f73e5c90-5223-4e84-9d4e-9b4e0751cf3e"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 176,
+        "section": "Descritivos",
+        "item": "53.15"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 192,
+        "section": "Descritivos",
+        "item": "53.15"
+      }
+    ],
+    "code": "AMBIGUOUS_POP_MATCH",
+    "processId": "P005",
+    "entityIds": [
+      "P005:diagram:937a5c2d-c99c-4c3a-9afa-31d918046544:workflow:9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366:node:f73e5c90-5223-4e84-9d4e-9b4e0751cf3e"
+    ],
+    "severity": "warning",
+    "message": "More than one plausible POP occurrence.",
+    "details": {}
+  },
+  {
+    "id": "P005:diagnostic:DUPLICATE_POP_SOURCE_ID:0d264001ac2afb314dce",
+    "name": "DUPLICATE_POP_SOURCE_ID",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 117,
+        "section": "Descritivos",
+        "item": "38.10.9"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 118,
+        "section": "Descritivos",
+        "item": "38.10.9"
+      }
+    ],
+    "code": "DUPLICATE_POP_SOURCE_ID",
+    "processId": "P005",
+    "entityIds": [
+      "P005:pop:1:117:occurrence:1",
+      "P005:pop:1:118:occurrence:1"
+    ],
+    "severity": "warning",
+    "message": "Source ID repeats; occurrences are preserved.",
+    "details": {
+      "sourceId": "38.10.9"
+    }
+  },
+  {
+    "id": "P005:diagnostic:DUPLICATE_POP_SOURCE_ID:1fce76334f3f282c063e",
+    "name": "DUPLICATE_POP_SOURCE_ID",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 176,
+        "section": "Descritivos",
+        "item": "53.15"
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 192,
+        "section": "Descritivos",
+        "item": "53.15"
+      }
+    ],
+    "code": "DUPLICATE_POP_SOURCE_ID",
+    "processId": "P005",
+    "entityIds": [
+      "P005:pop:1:176:occurrence:1",
+      "P005:pop:1:192:occurrence:1"
+    ],
+    "severity": "warning",
+    "message": "Source ID repeats; occurrences are preserved.",
+    "details": {
+      "sourceId": "53.15"
+    }
+  },
+  {
+    "id": "P010:diagnostic:UNRESOLVED_SUBFLOW:7a55e74ce2ef06596650",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "5f9065fd-4686-425b-9042-3899b2623880"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P010",
+    "entityIds": [
+      "P010:diagram:e0bd60ff-7f06-4f83-a66d-2a703746bf2c:workflow:61d98a30-f770-4bbe-a4ab-f15511cc92d3:node:5f9065fd-4686-425b-9042-3899b2623880:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P010:diagnostic:UNRESOLVED_SUBFLOW:d55629db23ebccbe2690",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "19ea5349-68f9-4e24-940c-e31afbc4e18a"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P010",
+    "entityIds": [
+      "P010:diagram:e0bd60ff-7f06-4f83-a66d-2a703746bf2c:workflow:61d98a30-f770-4bbe-a4ab-f15511cc92d3:node:19ea5349-68f9-4e24-940c-e31afbc4e18a:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  },
+  {
+    "id": "P010:diagnostic:UNRESOLVED_SUBFLOW:e0512bb57407c3c2c79d",
+    "name": "UNRESOLVED_SUBFLOW",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "a8e5e8f9-863f-4b07-bf16-e1570c5b58df"
+      }
+    ],
+    "code": "UNRESOLVED_SUBFLOW",
+    "processId": "P010",
+    "entityIds": [
+      "P010:diagram:e0bd60ff-7f06-4f83-a66d-2a703746bf2c:workflow:61d98a30-f770-4bbe-a4ab-f15511cc92d3:node:a8e5e8f9-863f-4b07-bf16-e1570c5b58df:subflow"
+    ],
+    "severity": "warning",
+    "message": "No unique target workflow inside source process.",
+    "details": {}
+  }
+]

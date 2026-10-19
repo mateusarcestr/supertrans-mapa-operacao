@@ -1,0 +1,1358 @@
+Quero que você desenvolva uma aplicação web completa e interativa para representar visualmente, em 3D, toda a operação logística descrita nos arquivos Bizagi e nos documentos POP/Word presentes neste diretório.
+
+IMPORTANTE:
+Este é um trabalho grande e provavelmente não será concluído dentro de uma única sessão/contexto.
+
+Portanto, desde o PRIMEIRO MOMENTO, trabalhe de maneira incremental e totalmente retomável.
+
+NÃO tente fazer tudo de uma vez.
+NÃO dependa da memória desta conversa para saber o que já foi feito.
+O próprio repositório deve ser a fonte de verdade sobre o progresso.
+
+==================================================
+1. OBJETIVO DO PROJETO
+==================================================
+
+Quero uma aplicação web que funcione como um:
+
+"MAPA 3D INTERATIVO DA OPERAÇÃO"
+
+O sistema deve permitir que uma pessoa que não conhece a operação consiga:
+
+- visualizar a operação completa;
+- entender quais processos existem;
+- entender como os processos se relacionam;
+- visualizar quais áreas participam de cada processo;
+- visualizar os atores internos e externos;
+- acompanhar o fluxo passo a passo;
+- entender decisões e bifurcações;
+- identificar início e fim dos processos;
+- entender quais sistemas são utilizados;
+- entender quais documentos, planilhas, e-mails e canais são utilizados;
+- visualizar handoffs entre setores;
+- identificar dependências entre processos;
+- clicar em qualquer processo e receber uma explicação detalhada de como ele funciona.
+
+Não quero apenas um BPMN renderizado.
+
+Quero transformar os processos BPMN em uma EXPERIÊNCIA VISUAL DA OPERAÇÃO.
+
+A aplicação deve funcionar como se estivéssemos olhando para uma "cidade logística digital", onde setores, atores, sistemas, documentos e processos estão espacialmente organizados e ligados entre si.
+
+==================================================
+2. FONTES DE DADOS
+==================================================
+
+Existem dois conjuntos principais de arquivos:
+
+A) Arquivos Bizagi:
+
+0001 - IMPORTAÇÃO.bpm.zip
+0002 - CABOTAGEM ENTREGA.bpm.zip
+0003 - DTA TRANPORTE.bpm.zip
+0004 - EXPORTAÇÃO.bpm.zip
+0005 - CABOTAGEM COLETA.bpm.zip
+0006 - EMBARQUE DE VAZIO.bpm.zip
+0007 - DESEMBARQUE DE VAZIO.bpm.zip
+0008 - TRANFERENCIA.bpm.zip
+0009 - COMERCIAL.bpm.zip
+0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip
+
+ATENÇÃO:
+
+Não trate esses arquivos apenas como ZIPs contendo uma imagem.
+
+Faça engenharia reversa da estrutura.
+
+A estrutura observada dos arquivos Bizagi é semelhante a:
+
+<arquivo>.bpm.zip
+    ModelInfo.xml
+    Participants.xml
+    Preferences.bpp
+    *.diag
+    Users/
+    ...
+
+E cada arquivo .diag também é um arquivo ZIP.
+
+Ao extrair o .diag podem existir arquivos como:
+
+Actions.xml
+BPSimData.xml
+BPSimDataResult.xml
+Diagram.xml
+ExtendedAttributeValues.xml
+
+Portanto:
+
+1. extraia o .bpm.zip;
+2. detecte todos os arquivos .diag;
+3. trate cada .diag como ZIP quando aplicável;
+4. extraia os XMLs internos;
+5. analise principalmente Diagram.xml;
+6. descubra:
+   - pools;
+   - lanes;
+   - participantes;
+   - atividades;
+   - eventos;
+   - gateways;
+   - subprocessos;
+   - sequence flows;
+   - message flows;
+   - nomes;
+   - IDs;
+   - posições;
+   - relacionamentos;
+   - eventuais atributos estendidos;
+7. preserve os IDs originais sempre que forem úteis para rastreabilidade.
+
+Não assuma a estrutura do XML sem verificar os arquivos reais.
+
+Crie um parser robusto baseado no conteúdo encontrado.
+
+--------------------------------------------------
+
+B) Documentos de Processo / POP:
+
+POP-0001 - IMPORTAÇÃO.docx
+POP-0002 - CABOTAGEM ENTREGA.docx
+POP-0003 - DTA TRANPORTE.docx
+POP-0004 - EXPORTAÇÃO.docx
+POP-0005 - CABOTAGEM COLETA.docx
+POP-0006 - EMBARQUE DE VAZIO.docx
+POP-0007 - DESEMBARQUE DE VAZIO.docx
+POP-0008 - TRANFERENCIA.docx
+POP-0009 - COMERCIAL.docx
+POP-0010 - TRANSBORDO IMPORTAÇÃO.docx
+
+Leia o conteúdo REAL desses documentos.
+
+Não use apenas o nome dos arquivos.
+
+Extraia pelo menos:
+
+- objetivo;
+- público-alvo;
+- áreas internas;
+- áreas externas;
+- tabela de descritivos;
+- ID da atividade;
+- descrição;
+- executor;
+- sistema;
+- tempo;
+- referências;
+- glossário;
+- anexos relevantes.
+
+Os documentos Word devem complementar o modelo Bizagi.
+
+==================================================
+3. REGRA DE CONFIABILIDADE DOS DADOS
+==================================================
+
+NÃO INVENTE etapas.
+
+NÃO INVENTE relações entre processos.
+
+NÃO INVENTE sistemas ou executores.
+
+Use os documentos reais.
+
+Considere:
+
+BIZAGI:
+fonte principal da topologia/fluxo visual.
+
+POP WORD:
+fonte principal para explicação textual, executor, sistema, tempo,
+objetivo, público e detalhes operacionais.
+
+Quando Bizagi e POP apresentarem informações complementares:
+combine as informações.
+
+Quando houver aparente divergência:
+NÃO escolha silenciosamente uma versão.
+
+Registre a divergência.
+
+Exemplo:
+
+{
+  "type": "source-conflict",
+  "process": "IMPORTAÇÃO",
+  "bizagi": "...",
+  "pop": "...",
+  "status": "needs-review"
+}
+
+Quero posteriormente poder identificar inconsistências entre documentação e BPMN.
+
+==================================================
+4. PROCESSOS A SEREM REPRESENTADOS
+==================================================
+
+Considere inicialmente estes dez processos:
+
+P001 — IMPORTAÇÃO
+P002 — CABOTAGEM ENTREGA
+P003 — DTA TRANSPORTE
+P004 — EXPORTAÇÃO
+P005 — CABOTAGEM COLETA
+P006 — EMBARQUE DE VAZIO
+P007 — DESEMBARQUE DE CONTÊINER VAZIO
+P008 — TRANSFERÊNCIA
+P009 — COMERCIAL
+P010 — TRANSBORDO IMPORTAÇÃO
+
+Não assuma que eles são independentes.
+
+Analise os documentos e identifique relações reais entre eles.
+
+Por exemplo:
+
+- processos que passam pelo Comercial;
+- processos que chegam à Central de Operações;
+- processos que dependem de Motoristas;
+- operações envolvendo Porto;
+- operações envolvendo Depot;
+- operações envolvendo Pátio C;
+- operações envolvendo contêiner cheio;
+- operações envolvendo contêiner vazio;
+- processos relacionados a importação;
+- processos relacionados a exportação;
+- processos relacionados a cabotagem;
+- processos relacionados a transferência;
+- atividades compartilhadas;
+- sistemas compartilhados;
+- pontos onde um processo potencialmente alimenta outro.
+
+Só represente uma ligação entre processos como fato quando houver evidência nos documentos.
+
+Quando a ligação for apenas inferida, classifique explicitamente como:
+
+"inferredRelationship": true
+
+e explique a evidência usada.
+
+==================================================
+5. ARQUITETURA DA APLICAÇÃO
+==================================================
+
+Preferência:
+
+React
+TypeScript
+Vite
+
+Visualização 3D:
+
+Three.js
+
+Preferencialmente:
+
+@react-three/fiber
+@react-three/drei
+
+Pode utilizar bibliotecas auxiliares se fizer sentido, por exemplo:
+
+- Zustand;
+- React Router;
+- Framer Motion;
+- Lucide Icons;
+- d3;
+- dagre;
+- elkjs;
+- zod.
+
+Mas evite dependências desnecessárias.
+
+O projeto deve continuar executável com algo semelhante a:
+
+npm install
+npm run dev
+
+Antes de escolher versões ou bibliotecas,
+verifique a estrutura existente do projeto, caso já exista.
+
+==================================================
+6. CONCEITO DO MAPA 3D
+==================================================
+
+Não faça apenas caixas flutuando aleatoriamente.
+
+Crie uma metáfora visual coerente.
+
+Imagine uma espécie de:
+
+"TERMINAL LOGÍSTICO DIGITAL 3D"
+
+Cada grande área pode ser representada como uma zona/edificação/plataforma.
+
+Exemplos:
+
+COMERCIAL
+CENTRAL DE OPERAÇÕES
+SUPORTE OPERACIONAL
+MOTORISTAS
+PÁTIO C
+FROTAS
+MANUTENÇÃO
+FINANCEIRO
+FATURAMENTO
+PORTO
+DEPOT
+CLIENTE
+
+Os atores externos podem ficar visualmente em uma área externa ao núcleo da empresa.
+
+Os processos devem atravessar essas áreas como rotas.
+
+Cada processo deve possuir uma identidade visual consistente.
+
+O usuário deve conseguir observar:
+
+CLIENTE
+   ↓
+COMERCIAL
+   ↓
+CENTRAL
+   ↓
+MOTORISTA
+   ↓
+PORTO
+   ↓
+DEPOT
+
+quando esse for realmente o caminho daquele processo.
+
+==================================================
+7. CAMADAS DE VISUALIZAÇÃO
+==================================================
+
+O mapa geral deve possuir pelo menos quatro conceitos visuais.
+
+CAMADA 1 — ÁREAS
+
+Representa setores e atores:
+
+- Comercial;
+- Central de Operações;
+- Suporte Operacional;
+- Motoristas;
+- Pátio;
+- Porto;
+- Depot;
+- Cliente;
+etc.
+
+CAMADA 2 — PROCESSOS
+
+Mostra as rotas dos processos atravessando as áreas.
+
+CAMADA 3 — ATIVIDADES
+
+Quando o usuário entra em um processo,
+mostrar seus passos individuais.
+
+CAMADA 4 — INFORMAÇÃO
+
+Ao selecionar uma atividade,
+mostrar:
+
+- nome;
+- ID;
+- descrição;
+- executor;
+- sistema;
+- tempo;
+- origem;
+- destino;
+- observações;
+- fonte da informação.
+
+==================================================
+8. MAPA GERAL
+==================================================
+
+A tela inicial deve mostrar a operação inteira.
+
+Quero ver algo semelhante a um mapa estratégico da empresa.
+
+Deve ser possível:
+
+- orbitar a câmera;
+- dar zoom;
+- mover;
+- selecionar áreas;
+- selecionar processos;
+- ligar/desligar processos;
+- destacar apenas um processo;
+- pesquisar;
+- resetar câmera;
+- voltar para visão geral.
+
+Adicionar legenda.
+
+Exemplo:
+
+IMPORTAÇÃO
+CABOTAGEM ENTREGA
+DTA
+EXPORTAÇÃO
+CABOTAGEM COLETA
+EMBARQUE DE VAZIO
+DESEMBARQUE DE VAZIO
+TRANSFERÊNCIA
+COMERCIAL
+TRANSBORDO
+
+Ao passar o mouse sobre um processo:
+destacá-lo.
+
+Ao clicar:
+abrir os detalhes.
+
+==================================================
+9. VISÃO DETALHADA DE UM PROCESSO
+==================================================
+
+Ao clicar em IMPORTAÇÃO, por exemplo,
+entrar em uma visão focada desse processo.
+
+Exibir:
+
+IMPORTAÇÃO
+
+Objetivo
+Participantes
+Áreas internas
+Áreas externas
+Quantidade de etapas
+Sistemas envolvidos
+
+Depois mostrar o fluxo.
+
+Cada etapa deve aparecer como um nó.
+
+Exemplo conceitual:
+
+[Cliente]
+    |
+    v
+[Envia solicitação]
+    |
+    v
+[Comercial recebe]
+    |
+    v
+[Central analisa capacidade]
+    |
+    +------ NÃO ------> [Negativa]
+    |
+    SIM
+    |
+    v
+[...]
+
+Não copie este exemplo literalmente.
+Use o processo REAL extraído dos documentos.
+
+==================================================
+10. GATEWAYS E DECISÕES
+==================================================
+
+As decisões devem ser visualmente diferenciadas.
+
+Exemplo:
+
+        ┌── SIM ──>
+[DECISÃO]
+        └── NÃO ──>
+
+Em 3D podem ser representadas como elementos em formato de losango ou interseções.
+
+Ao selecionar uma decisão,
+mostrar claramente:
+
+Pergunta/condição
+Possibilidades
+Para onde cada caminho leva
+
+==================================================
+11. ANIMAÇÃO DO PROCESSO
+==================================================
+
+Adicionar um modo:
+
+"REPRODUZIR PROCESSO"
+
+Quando ativado, a aplicação deve percorrer visualmente o fluxo.
+
+Por exemplo:
+
+Etapa 01
+→ Etapa 02
+→ Etapa 03
+→ decisão
+→ Etapa 04
+...
+
+Um indicador animado deve se deslocar pelo caminho.
+
+Ao chegar em cada etapa:
+
+- destacar a área correspondente;
+- destacar a atividade;
+- atualizar o painel explicativo;
+- mostrar o executor;
+- mostrar o sistema.
+
+Adicionar controles:
+
+▶ Play
+⏸ Pause
+⏮ Anterior
+⏭ Próxima
+↻ Reiniciar
+
+Não precisa simular automaticamente decisões reais.
+Permita escolher o ramo quando chegar a um gateway.
+
+==================================================
+12. MODO "EXPLIQUE ESTE PROCESSO"
+==================================================
+
+Quero uma experiência educacional.
+
+Adicionar painel lateral chamado:
+
+"Como funciona este processo?"
+
+Ele deve gerar uma explicação estruturada baseada nos dados extraídos.
+
+Não precisa usar IA em runtime.
+
+Pode gerar o texto previamente a partir da documentação.
+
+Estrutura:
+
+1. O que é
+2. Como começa
+3. Quem participa
+4. Etapas principais
+5. Decisões importantes
+6. Sistemas utilizados
+7. Como termina
+8. Pontos de integração
+9. Exceções
+10. Observações da documentação
+
+Adicionar ainda:
+
+"Explique passo a passo"
+
+Nesse modo, ao selecionar cada etapa,
+mostrar uma explicação amigável.
+
+==================================================
+13. SISTEMAS
+==================================================
+
+Mapeie também todos os sistemas encontrados.
+
+Exemplos que podem aparecer nos documentos, mas confirme no conteúdo real:
+
+- e-mail;
+- WhatsApp;
+- Microsoft Excel;
+- ESL;
+- River;
+- Modal;
+- Web SAG;
+- planilhas específicas;
+- outros sistemas.
+
+Crie uma visualização:
+
+"Mapa de Sistemas"
+
+Mostrando:
+
+SISTEMA
+  ↓
+PROCESSOS QUE UTILIZAM
+  ↓
+ATIVIDADES
+
+Exemplo conceitual:
+
+WHATSAPP
+ ├ Importação
+ ├ Exportação
+ ├ Transferência
+ └ ...
+
+Mas gere a lista a partir dos arquivos.
+
+==================================================
+14. MAPA DE RESPONSABILIDADES
+==================================================
+
+Criar também uma visão por área.
+
+Exemplo:
+
+CENTRAL DE OPERAÇÕES
+   |
+   + IMPORTAÇÃO
+   + EXPORTAÇÃO
+   + CABOTAGEM
+   + TRANSFERÊNCIA
+   ...
+
+Ao clicar em uma área:
+
+mostrar todas as atividades pelas quais ela é responsável.
+
+==================================================
+15. HANDOFFS
+==================================================
+
+Identifique transições entre responsáveis.
+
+Exemplo:
+
+Comercial → Central de Operações
+Central → Motorista
+Motorista → Porto
+
+Considere cada mudança de executor um possível:
+
+HANDOFF
+
+Criar uma visualização opcional:
+
+"Mapa de Handoffs"
+
+Ela deve permitir descobrir:
+
+- quais áreas mais recebem demandas;
+- quais áreas mais repassam demandas;
+- em quais pontos existe maior quantidade de transições.
+
+Não invente métricas de tempo.
+
+Use somente contagens derivadas do processo.
+
+==================================================
+16. MODELO DE DADOS INTERNO
+==================================================
+
+Não coloque todo o processo hardcoded dentro dos componentes React.
+
+Primeiro normalize os documentos.
+
+Crie algo semelhante a:
+
+src/data/generated/
+
+processes.json
+actors.json
+systems.json
+relationships.json
+source-conflicts.json
+
+Ou um arquivo por processo:
+
+src/data/generated/processes/importacao.json
+src/data/generated/processes/exportacao.json
+...
+
+Estrutura aproximada:
+
+{
+  "id": "P001",
+  "name": "IMPORTAÇÃO",
+
+  "objective": "...",
+
+  "internalActors": [],
+  "externalActors": [],
+
+  "activities": [
+    {
+      "id": "...",
+      "originalId": "...",
+      "name": "...",
+      "description": "...",
+      "executor": "...",
+      "systems": [],
+      "time": "...",
+      "type": "task",
+      "sources": []
+    }
+  ],
+
+  "gateways": [],
+
+  "flows": [
+    {
+      "source": "...",
+      "target": "...",
+      "condition": null
+    }
+  ],
+
+  "systems": [],
+
+  "sources": {
+     "bizagi": "...",
+     "pop": "..."
+  }
+}
+
+A estrutura final pode ser melhor que esta.
+Ela deve refletir os dados reais.
+
+==================================================
+17. RASTREABILIDADE
+==================================================
+
+Isso é MUITO importante.
+
+Para cada dado relevante, preserve a fonte.
+
+Exemplo:
+
+"sources": [
+  {
+     "file": "POP-0001 - IMPORTAÇÃO.docx",
+     "section": "3 DESCRITIVOS",
+     "item": "5"
+  },
+  {
+     "file": "0001 - IMPORTAÇÃO.bpm.zip",
+     "diagramId": "...",
+     "elementId": "..."
+  }
+]
+
+Quero poder descobrir depois:
+
+"De onde veio essa informação?"
+
+==================================================
+18. EXTRATOR / PARSER
+==================================================
+
+Não faça a extração manual se for possível automatizá-la.
+
+Crie scripts, por exemplo:
+
+scripts/extract-bizagi.ts
+scripts/extract-pop.ts
+scripts/build-operation-model.ts
+
+ou use Python para a etapa de ingestão se for significativamente mais adequado.
+
+O resultado gerado deve ser consumível pelo frontend.
+
+A aplicação NÃO precisa reler DOCX/Bizagi toda vez que abrir no navegador.
+
+Fluxo preferido:
+
+arquivos originais
+      ↓
+scripts de extração
+      ↓
+modelo normalizado JSON
+      ↓
+frontend 3D
+
+==================================================
+19. LAYOUT AUTOMÁTICO
+==================================================
+
+Não posicione manualmente centenas de nós.
+
+Implemente um algoritmo de layout.
+
+Pode utilizar:
+
+ELK
+Dagre
+D3
+algoritmo próprio
+
+A posição 3D deve levar em consideração:
+
+X = sequência do processo
+Y = área/executor
+Z = processo/camada
+
+ou outra estratégia melhor.
+
+O mapa precisa continuar compreensível mesmo quando houver dezenas ou centenas de atividades.
+
+==================================================
+20. EXPERIÊNCIA VISUAL
+==================================================
+
+Quero aparência profissional.
+
+Não quero aparência de projeto acadêmico ou demo básica do Three.js.
+
+A interface deve lembrar:
+
+- digital twin;
+- control tower;
+- logistics control center;
+- architecture visualization;
+- operational command center.
+
+Preferir:
+
+fundo escuro elegante;
+superfície/grid discreto;
+labels legíveis;
+cards modernos;
+iluminação suave;
+animações discretas;
+profundidade;
+hierarquia visual clara.
+
+Evite:
+
+- excesso de neon;
+- partículas aleatórias;
+- efeitos que prejudiquem leitura;
+- objetos decorativos sem função.
+
+A prioridade é compreender a operação.
+
+==================================================
+21. PERFORMANCE
+==================================================
+
+Considere que podem existir muitas atividades.
+
+Evite:
+
+- milhares de meshes independentes desnecessários;
+- re-renderização completa;
+- textos 3D pesados em excesso.
+
+Utilize técnicas adequadas do Three.js/R3F.
+
+Lazy load das visões detalhadas se necessário.
+
+==================================================
+22. RESPONSIVIDADE
+==================================================
+
+A aplicação deve funcionar prioritariamente em desktop.
+
+Também deve continuar utilizável em tablets.
+
+Para celular pode oferecer uma visualização simplificada.
+
+==================================================
+23. TELAS / MODOS
+==================================================
+
+Quero inicialmente:
+
+1. Visão Geral 3D
+2. Processos
+3. Processo Detalhado
+4. Áreas / Responsabilidades
+5. Sistemas
+6. Handoffs
+7. Documentação / Fontes
+
+Não precisa fazer páginas completamente separadas se uma arquitetura mais fluida fizer sentido.
+
+==================================================
+24. DOCUMENTAÇÃO DAS DESCOBERTAS
+==================================================
+
+Durante a análise dos arquivos,
+gere:
+
+docs/operation-analysis.md
+
+Incluindo:
+
+- processos encontrados;
+- áreas;
+- sistemas;
+- atores externos;
+- relacionamentos;
+- atividades comuns;
+- divergências;
+- dúvidas;
+- padrões percebidos.
+
+Gerar também:
+
+docs/processes/
+
+importacao.md
+cabotagem-entrega.md
+dta-transporte.md
+exportacao.md
+cabotagem-coleta.md
+embarque-vazio.md
+desembarque-vazio.md
+transferencia.md
+comercial.md
+transbordo-importacao.md
+
+Cada documento deve explicar o processo usando SOMENTE evidências extraídas dos arquivos.
+
+==================================================
+25. NÃO PERDER O PROGRESSO ENTRE SESSÕES
+==================================================
+
+ESTA SEÇÃO É OBRIGATÓRIA.
+
+Como o contexto/tokens podem acabar antes do projeto terminar,
+crie imediatamente na raiz:
+
+AGENTS.md
+
+PROJECT_STATUS.md
+
+TASKS.md
+
+DECISIONS.md
+
+E:
+
+.codex/
+    HANDOFF.md
+
+Esses arquivos devem ser atualizados durante TODO o trabalho.
+
+----------------------------------------------
+
+PROJECT_STATUS.md
+
+Deve dizer:
+
+- objetivo do projeto;
+- arquitetura atual;
+- o que já está funcionando;
+- o que falta;
+- arquivos importantes;
+- comandos para executar;
+- última validação realizada;
+- próximo passo EXATO.
+
+----------------------------------------------
+
+TASKS.md
+
+Use checklist:
+
+[x] feito
+[~] parcialmente feito
+[ ] pendente
+
+Divida em fases e tarefas pequenas.
+
+----------------------------------------------
+
+DECISIONS.md
+
+Registre decisões arquiteturais.
+
+Exemplo:
+
+DEC-001
+Escolha: React Three Fiber
+Motivo: ...
+Alternativas consideradas: ...
+Data: ...
+
+----------------------------------------------
+
+.codex/HANDOFF.md
+
+Este é o arquivo MAIS IMPORTANTE para continuidade.
+
+Antes de encerrar QUALQUER sessão ou quando perceber que o contexto está ficando longo,
+atualize este arquivo.
+
+Ele deve possuir:
+
+# Estado atual
+
+# O que foi feito nesta sessão
+
+# Arquivos alterados
+
+# Testes executados
+
+# Problemas conhecidos
+
+# Tarefa que estava sendo executada
+
+# Próximo passo exato
+
+# Comando sugerido para continuar
+
+# Não refazer
+
+Inclua informações suficientes para outro agente continuar o trabalho SEM precisar da conversa anterior.
+
+==================================================
+26. REGRA PARA FUTURAS SESSÕES
+==================================================
+
+Adicione no AGENTS.md:
+
+ANTES DE COMEÇAR QUALQUER TRABALHO:
+
+1. leia AGENTS.md;
+2. leia PROJECT_STATUS.md;
+3. leia TASKS.md;
+4. leia DECISIONS.md;
+5. leia .codex/HANDOFF.md;
+6. examine git status;
+7. examine os últimos commits;
+8. descubra qual é a próxima tarefa incompleta;
+9. CONTINUE dali.
+
+NÃO reinicie o projeto.
+NÃO refaça tarefas concluídas.
+NÃO reanalise todos os documentos se os artefatos extraídos e validados já existirem.
+
+==================================================
+27. COMMITS DE CHECKPOINT
+==================================================
+
+Se este diretório for um repositório Git:
+
+faça commits pequenos ao concluir fases coerentes.
+
+Exemplos:
+
+chore: initialize operation map project
+
+feat: add bizagi extraction pipeline
+
+feat: normalize operation model
+
+feat: add 3d operation overview
+
+feat: add detailed process visualization
+
+feat: add process playback
+
+feat: add responsibility and system views
+
+Não faça commit se isso conflitar com regras existentes do repositório.
+
+Nunca sobrescreva trabalho do usuário.
+
+==================================================
+28. ESTRATÉGIA DE EXECUÇÃO
+==================================================
+
+Não comece implementando Three.js imediatamente.
+
+Faça nesta ordem:
+
+FASE 0 — INVENTÁRIO
+- identificar todos os arquivos;
+- validar correspondência Bizagi ↔ POP;
+- analisar estrutura dos BPM ZIPs;
+- analisar estrutura dos .diag;
+- analisar estrutura dos DOCX;
+- documentar descobertas.
+
+FASE 1 — EXTRAÇÃO
+- implementar parser Bizagi;
+- implementar parser POP;
+- gerar dados brutos.
+
+FASE 2 — NORMALIZAÇÃO
+- gerar modelo comum;
+- reconciliar Bizagi + POP;
+- registrar divergências;
+- validar os dez processos.
+
+FASE 3 — DOCUMENTAÇÃO
+- gerar documentação textual dos processos;
+- validar que conseguimos explicar cada processo.
+
+FASE 4 — FRONTEND BASE
+- React/Vite/TypeScript;
+- layout;
+- navegação;
+- carregamento de dados.
+
+FASE 5 — MAPA 3D
+- setores;
+- processos;
+- rotas;
+- labels;
+- câmera;
+- controles.
+
+FASE 6 — PROCESSO DETALHADO
+- atividades;
+- gateways;
+- flows;
+- painel explicativo.
+
+FASE 7 — PLAYBACK
+- animação passo a passo;
+- escolhas em gateways.
+
+FASE 8 — VISTAS ANALÍTICAS
+- áreas;
+- sistemas;
+- responsabilidades;
+- handoffs.
+
+FASE 9 — QUALIDADE
+- testes;
+- responsividade;
+- performance;
+- documentação.
+
+Não pule as fases 0–2.
+
+Um mapa bonito baseado em dados incorretos não serve.
+
+==================================================
+29. CRITÉRIO DE CONCLUSÃO POR PROCESSO
+==================================================
+
+Um processo só pode ser considerado "mapeado" quando existir:
+
+[ ] arquivo Bizagi analisado
+[ ] POP analisado
+[ ] atividades extraídas
+[ ] executores extraídos
+[ ] sistemas extraídos
+[ ] decisões extraídas
+[ ] fluxo reconstruído
+[ ] início identificado
+[ ] término(s) identificado(s)
+[ ] documentação textual criada
+[ ] modelo JSON criado
+[ ] rastreabilidade disponível
+[ ] visualização funcionando
+
+==================================================
+30. TESTES
+==================================================
+
+Crie testes principalmente para o parser.
+
+Exemplo:
+
+- .bpm.zip pode ser aberto;
+- .diag é identificado como pacote;
+- Diagram.xml é encontrado;
+- atividades são extraídas;
+- gateways são extraídos;
+- flows possuem origem e destino válidos;
+- IDs duplicados são detectados;
+- atividades referenciadas inexistentes são detectadas;
+- todos os 10 processos possuem um modelo normalizado;
+- executores mencionados nas atividades existem no catálogo de atores.
+
+Adicionar validação do JSON usando schema, preferencialmente Zod ou JSON Schema.
+
+==================================================
+31. VALIDAÇÃO VISUAL
+==================================================
+
+Ao implementar a UI:
+
+execute a aplicação;
+verifique console;
+corrija erros;
+teste navegação;
+teste clique nos objetos;
+teste mudança de processo;
+teste playback;
+teste resize.
+
+Se possuir ferramenta de browser/screenshot disponível,
+use-a para verificar visualmente a interface.
+
+Não considere uma tela pronta apenas porque compilou.
+
+==================================================
+32. EXPLICAÇÃO DO PROCESSO
+==================================================
+
+A aplicação deve conseguir responder visualmente a perguntas como:
+
+"Como funciona a importação?"
+
+"Depois que o cliente pede, quem recebe?"
+
+"Quando entra a Central de Operações?"
+
+"Em quais processos aparece o Pátio C?"
+
+"Quais processos usam WhatsApp?"
+
+"Quais processos dependem de porto?"
+
+"Quem passa a missão ao motorista?"
+
+"Onde existem decisões?"
+
+"Quais são os possíveis finais?"
+
+"Que processos compartilham as mesmas áreas?"
+
+Essa capacidade deve vir do modelo estruturado,
+não de respostas hardcoded.
+
+==================================================
+33. NÃO INTERROMPA PARA PEDIR APROVAÇÃO A CADA FASE
+==================================================
+
+Você está autorizado a analisar os arquivos,
+criar scripts,
+instalar dependências necessárias,
+criar o frontend,
+executar testes
+e avançar pelas fases.
+
+Só interrompa se existir:
+
+- ambiguidade impossível de resolver com os arquivos;
+- risco de apagar trabalho existente;
+- necessidade de credencial;
+- operação destrutiva;
+- decisão de produto que realmente impeça continuar.
+
+Para dúvidas não bloqueantes:
+
+registre em:
+
+docs/open-questions.md
+
+e continue.
+
+==================================================
+34. QUANDO O CONTEXTO ESTIVER ACABANDO
+==================================================
+
+Se perceber que não haverá contexto suficiente para terminar:
+
+NÃO tente correr e fazer várias coisas pela metade.
+
+Faça o seguinte:
+
+1. termine a menor unidade de trabalho possível;
+2. execute os testes relacionados;
+3. atualize TASKS.md;
+4. atualize PROJECT_STATUS.md;
+5. atualize .codex/HANDOFF.md;
+6. registre eventuais decisões em DECISIONS.md;
+7. faça checkpoint em Git se apropriado;
+8. pare em um estado executável.
+
+O HANDOFF deve terminar com uma instrução objetiva semelhante a:
+
+NEXT:
+Implementar a renderização dos gateways do processo P004 usando
+src/data/generated/processes/exportacao.json.
+O parser já está concluído.
+Não modificar scripts/extract-bizagi.ts salvo se um teste falhar.
+
+Assim, uma próxima sessão conseguirá continuar.
+
+==================================================
+35. AO RETOMAR APÓS LIMITE DE TOKENS
+==================================================
+
+Se esta for uma sessão nova ou se você estiver retomando trabalho existente:
+
+NÃO comece novamente deste prompt.
+
+Primeiro leia:
+
+AGENTS.md
+PROJECT_STATUS.md
+TASKS.md
+DECISIONS.md
+.codex/HANDOFF.md
+
+Depois:
+
+git status
+git log --oneline -10
+
+Execute uma validação mínima do estado descrito.
+
+Então continue exatamente da próxima tarefa registrada.
+
+==================================================
+36. RESULTADO FINAL ESPERADO
+==================================================
+
+Ao final quero abrir o sistema e enxergar:
+
+               OPERAÇÃO SUPER TRANS
+
+                 [CLIENTES]
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+    IMPORTAÇÃO   EXPORTAÇÃO   CABOTAGEM
+        │            │            │
+        └──────> OPERAÇÃO <───────┘
+                      │
+                   MOTORISTAS
+                      │
+             ┌────────┼────────┐
+           PORTO     PÁTIO    DEPOT
+
+Isso é somente uma REPRESENTAÇÃO CONCEITUAL.
+
+NÃO use essas conexões como verdade.
+
+Descubra o mapa real analisando os arquivos.
+
+O resultado deve ser uma representação tridimensional baseada na documentação real.
+
+==================================================
+37. PRIMEIRA AÇÃO
+==================================================
+
+Agora NÃO implemente a visualização 3D ainda.
+
+Comece exclusivamente pela FASE 0.
+
+Faça:
+
+1. inventário dos arquivos;
+2. examine todos os .bpm.zip;
+3. confirme a estrutura interna;
+4. examine os .diag;
+5. descubra como o Diagram.xml representa os elementos;
+6. examine os dez POPs;
+7. crie AGENTS.md;
+8. crie PROJECT_STATUS.md;
+9. crie TASKS.md;
+10. crie DECISIONS.md;
+11. crie .codex/HANDOFF.md;
+12. crie docs/operation-analysis.md;
+13. apresente um resumo técnico do que encontrou;
+14. somente então avance para o parser.
+
+Continue trabalhando de forma autônoma depois disso.

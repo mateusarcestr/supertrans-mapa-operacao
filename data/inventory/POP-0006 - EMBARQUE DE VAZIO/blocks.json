@@ -1,0 +1,473 @@
+[
+  {
+    "bodyIndex": 1,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 2,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 3,
+    "type": "paragraph",
+    "text": "Objetivo "
+  },
+  {
+    "bodyIndex": 4,
+    "type": "paragraph",
+    "text": "O presente documento tem o objetivo descrever e melhor detalhar o processo de embarque de contêiner vazio na Super Trans."
+  },
+  {
+    "bodyIndex": 5,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 6,
+    "type": "paragraph",
+    "text": "Público Alvo"
+  },
+  {
+    "bodyIndex": 7,
+    "type": "paragraph",
+    "text": "Áreas de internas: Central de Operações e Motoristas."
+  },
+  {
+    "bodyIndex": 8,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 9,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 10,
+    "type": "paragraph",
+    "text": "Áreas externas: Cliente / Armador, Depot e Porto."
+  },
+  {
+    "bodyIndex": 11,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 12,
+    "type": "paragraph",
+    "text": "Descritivos"
+  },
+  {
+    "bodyIndex": 13,
+    "type": "table",
+    "rows": [
+      [
+        "ID",
+        "Descritivo",
+        "Executor",
+        "Sistema",
+        "Tempo"
+      ],
+      [
+        "1",
+        "Envia uma demanda de Embarque de vazio",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "2",
+        "Recebe a demanda de embarque de vazio",
+        "Depot",
+        "E-mail",
+        "-"
+      ],
+      [
+        "3",
+        "Repassa a demanda de embarque de vazio",
+        "Depot",
+        "E-mail e Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "4",
+        "Recebe demanda de embarque de vazio",
+        "Central de Operações",
+        "E-mail e Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "5",
+        "Faz o planejamento para atendimento (escala de motoristas)",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "6",
+        "Passa missão com escala aos motoristas (Grupo do Whatsapp)",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "7",
+        "Recebe missão com escala (Grupo do Whatsapp)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "8",
+        "Responde aceitando a missão com CPF + Placa",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "9",
+        "Recebe informação dos motoristas que irão atender a escala com CPF e Placa",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10",
+        "Faz o cadastro do schedule no sistema Web SAG",
+        "Central de Operações",
+        "Web SAG",
+        "-"
+      ],
+      [
+        "11",
+        "Sinaliza que os agendamentos foram realizados",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "12",
+        "Recebe informação de agendamentos realizados",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "13",
+        "Se dirige ao Depot",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "14",
+        "Chegada no Depot",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "15",
+        "Verifica se existe cadastro",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "15.1",
+        "Caso não exista cadastro, informa que existe problema de cadastro",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "15.2",
+        "Recebe informação de problema de cadastro",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "15.3",
+        "Repassa informação de problema de cadastro",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.4",
+        "Recebe informação de problema de cadastro",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.5",
+        "Resolve problema de cadastro (Realiza cadastro no sistema Web SAG)",
+        "Central de Operações",
+        "Web SAG",
+        "-"
+      ],
+      [
+        "15.6",
+        "Informa que problema de agendamento foi resolvido",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "15.7",
+        "Recebe informação de problema de agendamento resolvido (retorna ao item 15)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "16",
+        "Caso já tenha cadastro, monta CNTR",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "17",
+        "Entrega fisicamente três vias de cautela de embarque",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "18",
+        "Recebe fisicamente três vias de cautela de embarque",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "19",
+        "Entrega fisicamente uma via de cautela de embarque na portaria do depot",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "20",
+        "Se dirige ao porto",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "21",
+        "Chegada no porto",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "22",
+        "Entrega fisicamente uma segunda via de cautela de embarque na portaria do porto",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "23",
+        "Verifica se existe cadastro de schedule",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "23.1",
+        "Caso não exista cadastro de schedule, resolve internamente problema de cadastro, porto, central e Depot",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "24",
+        "Caso exista cadastro de schedule, realiza vistoria",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "24.1",
+        "Tenta resolver problema de vistoria, caso seja possível retorna para vistoria (item 24)",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "24.2",
+        "Caso não seja possível resolver a vistoria internamente, sinaliza negativamente o recebimento do CNTR",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "24.3",
+        "Devolve fisicamente a segunda via de cautela de embarque na portaria do porto",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "24.4",
+        "Recebe fisicamente a segunda via de cautela de embarque na portaria do ",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "24.5",
+        "Informa a central do problema",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "24.6",
+        "Se dirige ao Depot para troca",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "24.7",
+        "Chegada no Depot",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "24.8",
+        "Verifica informação de schedule",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "27.9",
+        "Desmonta CNTR",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "24.10",
+        "Monta CNTR (volta para o item 20)",
+        "Depot",
+        "-",
+        "-"
+      ],
+      [
+        "25",
+        "Desmonta CNTR",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "26",
+        "Entrega fisicamente uma terceira via de cautela de embarque ao setor de abastecimento (fim do processo)",
+        "Motoristas",
+        "-",
+        "-"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 14,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 15,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 16,
+    "type": "paragraph",
+    "text": "Referências"
+  },
+  {
+    "bodyIndex": 17,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 18,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 19,
+    "type": "paragraph",
+    "text": "Glossário"
+  },
+  {
+    "bodyIndex": 20,
+    "type": "paragraph",
+    "text": "CNTR - Contêiner."
+  },
+  {
+    "bodyIndex": 21,
+    "type": "paragraph",
+    "text": "Anexos"
+  },
+  {
+    "bodyIndex": 22,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 23,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 24,
+    "type": "paragraph",
+    "text": "este documento revoga versões anteriores"
+  },
+  {
+    "bodyIndex": 25,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 26,
+    "type": "paragraph",
+    "text": "Versões"
+  },
+  {
+    "bodyIndex": 27,
+    "type": "table",
+    "rows": [
+      [
+        "Versão",
+        "Descritivo da modificação",
+        "Responsável",
+        "Aprovador",
+        "Data"
+      ],
+      [
+        "0",
+        "Confecção do documento - Publicação",
+        "???",
+        "???",
+        "xx/xx/2025"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 28,
+    "type": "paragraph",
+    "text": ""
+  }
+]

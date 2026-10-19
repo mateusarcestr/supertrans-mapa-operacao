@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+dist/
+.DS_Store
+data/test-workspaces/
+.python-deps/
+
+# One-off UI iteration artifacts. Functional project tooling belongs in scripts/.
+/fix_unused.py
+/take_*screenshots.js
+/frontend/take_*screenshots.js
+/update_*.py
+/polish_nodes_log.txt
+/regression_log.txt
+/screenshot_log*.txt
+/temp_styles.css
+/frontend/src/*.py

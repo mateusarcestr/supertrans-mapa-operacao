@@ -1,0 +1,85 @@
+import assert from 'node:assert/strict'
+import { createRequire } from 'node:module'
+import { mkdir, readFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+
+const require = createRequire(new URL('../../frontend/package.json', import.meta.url))
+const { chromium } = require('playwright')
+const catalog = JSON.parse(await readFile(new URL('../../frontend/public/data/catalog.json', import.meta.url), 'utf8'))
+const output = new URL('../../docs/screenshots/process-focus/', import.meta.url)
+await mkdir(output, { recursive: true })
+const browser = await chromium.launch({ headless: true })
+const page = await browser.newPage()
+const errors = []
+page.on('pageerror', (error) => errors.push(error.message))
+const process = JSON.parse(await readFile(new URL('../../frontend/public/data/processes/P001.json', import.meta.url), 'utf8'))
+const diagram = process.diagrams[0]
+const gateway = diagram.nodes.find((node) => node.type === 'gateway' && diagram.flows.filter((flow) => flow.sourceNodeId === node.id).length > 1)
+try {
+  for (const [theme, width, height] of [['dark', 1366, 900], ['light', 1024, 900], ['light', 390, 844]]) {
+    await page.setViewportSize({ width, height })
+    await page.goto(`http://127.0.0.1:4174/processos/P001?activity=${encodeURIComponent(gateway.id)}`)
+    await page.evaluate((theme) => localStorage.setItem('supertrans-theme', theme), theme)
+    await page.reload()
+    await page.locator(`.focus-flow-current[data-node-id="${gateway.id}"]`).waitFor()
+    assert.equal(await page.locator('.process-graph').count(), 0)
+    assert.equal(await page.locator('.process-info-drawer').isVisible(), false)
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+    assert.equal(await page.locator('.process-detail').evaluate((element) => element.scrollWidth > element.clientWidth), false)
+    const outgoing = diagram.flows.filter((flow) => flow.sourceNodeId === gateway.id)
+    assert.deepEqual(await page.locator('.focus-flow-outgoing [data-flow-id]').evaluateAll((items) => items.map((item) => item.dataset.flowId)), outgoing.map((flow) => flow.id))
+    await page.screenshot({ path: fileURLToPath(new URL(`${theme}-${width}.png`, output)), fullPage: true })
+    await page.getByRole('button', { name: 'Ver evidências', exact: true }).click()
+    await page.getByRole('dialog', { name: 'Informações e evidências da operação' }).waitFor()
+    assert.ok((await page.locator('.process-info-drawer').textContent()).includes('Evidências'))
+    assert.ok((await page.locator('.process-info-drawer').textContent()).includes('Caminhos documentados'))
+    await page.keyboard.press('Escape')
+    await page.locator('.process-info-drawer').waitFor({ state: 'hidden' })
+    await page.locator('.focus-flow-outgoing button').first().click()
+    await page.locator(`.focus-flow-current[data-node-id="${outgoing[0].targetNodeId}"]`).waitFor()
+    assert.equal(await page.locator('.focus-flow-current').evaluate((element) => element === document.activeElement), true)
+    await page.getByRole('button', { name: 'Voltar', exact: true }).click()
+    await page.locator(`.focus-flow-current[data-node-id="${gateway.id}"]`).waitFor()
+    assert.equal(await page.getByRole('button', { name: 'Voltar', exact: true }).isDisabled(), true)
+    await page.locator('.focus-flow-outgoing button').first().click()
+    await page.locator(`.focus-flow-current[data-node-id="${outgoing[0].targetNodeId}"]`).waitFor()
+    await page.waitForURL((url) => url.searchParams.get('activity') === outgoing[0].targetNodeId)
+    await page.goBack()
+    await page.locator(`.focus-flow-current[data-node-id="${gateway.id}"]`).waitFor()
+    assert.equal(await page.getByRole('button', { name: 'Voltar', exact: true }).isDisabled(), true)
+  }
+  for (const summary of catalog.processes) {
+    const payload = JSON.parse(await readFile(new URL(`../../frontend/public/data/processes/${summary.id}.json`, import.meta.url), 'utf8'))
+    for (const diagram of payload.diagrams) {
+      await page.goto(`http://127.0.0.1:4174/processos/${summary.id}?diagram=${encodeURIComponent(diagram.id)}`)
+      await page.locator('.focus-flow-current').waitFor()
+      const nodeId = await page.locator('.focus-flow-current').getAttribute('data-node-id')
+      assert.ok(diagram.nodes.some((node) => node.id === nodeId))
+      assert.deepEqual(await page.locator('.focus-flow-outgoing [data-flow-id]').evaluateAll((items) => items.map((item) => item.dataset.flowId)), diagram.flows.filter((flow) => flow.sourceNodeId === nodeId).map((flow) => flow.id))
+      assert.deepEqual(await page.locator('.focus-flow-incoming [data-flow-id]').evaluateAll((items) => items.map((item) => item.dataset.flowId)), diagram.flows.filter((flow) => flow.targetNodeId === nodeId).map((flow) => flow.id))
+    }
+  }
+  await page.setViewportSize({ width: 1366, height: 900 })
+  await page.goto('http://127.0.0.1:4174/processos/P001')
+  await page.locator('.focus-flow-current').waitFor()
+  await page.locator('.process-guided-playback > summary').click()
+  await page.getByRole('button', { name: 'Ir ao início', exact: true }).click()
+  const startId = await page.locator('.focus-flow-current').getAttribute('data-node-id')
+  const nextFlow = diagram.flows.find((flow) => flow.sourceNodeId === startId)
+  await page.getByRole('button', { name: 'Próximo', exact: true }).click()
+  await page.locator(`.focus-flow-current[data-node-id="${nextFlow.targetNodeId}"]`).waitFor()
+  await page.getByRole('button', { name: 'Diagrama completo Bizagi', exact: true }).click()
+  await page.locator('.process-graph').waitFor()
+  assert.equal(await page.locator('.graph-node').count(), diagram.nodes.length)
+  await page.getByRole('button', { name: 'Voltar à etapa em foco', exact: true }).click()
+  await page.locator('.focus-flow-current').waitFor()
+  await page.locator('.process-diagram-picker select').selectOption(process.diagrams[1].id)
+  await page.waitForURL((url) => url.searchParams.get('diagram') === process.diagrams[1].id)
+  await page.reload()
+  await page.locator('.focus-flow-current').waitFor()
+  assert.ok(process.diagrams[1].nodes.map((node) => node.id).includes(await page.locator('.focus-flow-current').getAttribute('data-node-id')))
+  assert.deepEqual(errors, [])
+  console.log('QA passed: all 10 processes/14 diagrams, real adjacent flows, gateway choices, deep links, drawer/Escape, playback following focus, full Bizagi retained, diagram refresh, 3 viewports, no overflow or errors.')
+} finally {
+  await browser.close()
+}

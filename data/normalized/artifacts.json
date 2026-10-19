@@ -1,0 +1,6308 @@
+[
+  {
+    "id": "artifact:001d057c49888db925f4",
+    "name": "Booking",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 2,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 3,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 8,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 9,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 10,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 11,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 12,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 13,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 14,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 15,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 16,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 17,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 36,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 37,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 38,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 39,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 40,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 41,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 42,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 43,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 44,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 45,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 46,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 47,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 48,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 49,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 51,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 86,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 87,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 88,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 2,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 21,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 22,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Booking"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 2,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 3,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 8,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 9,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 10,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 11,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 12,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 13,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 14,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 15,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 16,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 17,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 36,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 37,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 38,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 39,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 40,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 41,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 42,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 43,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 44,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 45,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 46,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 47,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 48,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 49,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 51,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 86,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 87,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 88,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 2,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 21,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Booking",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 22,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:0662c60dde03635b2fe9",
+    "name": "Planilha: Programação de DTA.xlsx",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "bdc5fabb-c71b-4a24-97fc-5a7b0b7fa402"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Planilha: Programação de DTA.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "bdc5fabb-c71b-4a24-97fc-5a7b0b7fa402",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Planilha: Programação de DTA.xlsx"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+            "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "bdc5fabb-c71b-4a24-97fc-5a7b0b7fa402"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:076c96c8d79e7c555797",
+    "name": "Controle de CNTR de Aluguel.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 28,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Controle de CNTR de Aluguel.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "e Controle de CNTR de Aluguel.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 28,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:0b8807fd875b831cbb77",
+    "name": "Classificada como viagem frustada",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "4da20cef-bdd8-4ab3-b5fc-8e38cb1e4bdf"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Classificada como viagem frustada"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "4da20cef-bdd8-4ab3-b5fc-8e38cb1e4bdf",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Classificada como viagem frustada"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+            "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "4da20cef-bdd8-4ab3-b5fc-8e38cb1e4bdf"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:0ec4e543d61543c114ee",
+    "name": "Caso ocorra problema de deadline o problema deve ser solucionado entre o cliente e o armador",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+        "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "b3475e27-dc9c-4ae9-8d7b-3ddf179d8301"
+      },
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+        "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "13d58056-214e-43d7-904b-36d39c73f1f4"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Caso ocorra problema de deadline o problema deve ser solucionado entre o cliente e o armador"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "b3475e27-dc9c-4ae9-8d7b-3ddf179d8301",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Caso ocorra problema de deadline o problema deve ser solucionado entre o cliente e o armador"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+            "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "b3475e27-dc9c-4ae9-8d7b-3ddf179d8301"
+          }
+        ]
+      },
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "13d58056-214e-43d7-904b-36d39c73f1f4",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Caso ocorra problema de deadline o problema deve ser solucionado entre o cliente e o armador"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+            "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "13d58056-214e-43d7-904b-36d39c73f1f4"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:0eee47fd8e7d705b7395",
+    "name": "Com cópia para Central e Depot",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0007 - DESEMBARQUE DE VAZIO.bpm.zip",
+        "sha256": "0edaef2d16a857ce3374ad0cd9fdf03e8e5e3077c3ff44aa46dd073f339631b4",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Com cópia para Central e Depot"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "1635cf07-662b-45a8-ad97-9588a311eeff",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Com cópia para Central e Depot"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0007 - DESEMBARQUE DE VAZIO.bpm.zip",
+            "sha256": "0edaef2d16a857ce3374ad0cd9fdf03e8e5e3077c3ff44aa46dd073f339631b4",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:160c77c0401408edcf8a",
+    "name": "Programação Agenda Diária.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 104,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação Agenda Diária.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação Agenda Diária.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 104,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:2170b99d2ac56eecf216",
+    "name": "CTE",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 3,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 10,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 25,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "CTE"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "CTE",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 3,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "CTE",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 10,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "CTE",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 25,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:2a3abdfec9a5a6e81f85",
+    "name": "Com número do Booking e O.S",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+        "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Com número do Booking e O.S"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "1635cf07-662b-45a8-ad97-9588a311eeff",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Com número do Booking e O.S"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+            "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:2dcedcb2b32cb48160b7",
+    "name": "E-mail e Grupo de Whatsapp",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+        "member": "Diagram.xml",
+        "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+        "elementId": "1946e70f-6c51-42b2-843c-faf46c6280f7"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "E-mail e Grupo de Whatsapp"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "1946e70f-6c51-42b2-843c-faf46c6280f7",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "E-mail e Grupo de Whatsapp"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+            "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+            "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+            "member": "Diagram.xml",
+            "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+            "elementId": "1946e70f-6c51-42b2-843c-faf46c6280f7"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:3018f3cbb2ea66cafd86",
+    "name": "Processo de contratação de terceiros",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "elementId": "9019179f-cf7c-4e42-bef6-93df8d0ac96a"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Processo de contratação de terceiros"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "9019179f-cf7c-4e42-bef6-93df8d0ac96a",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Processo de contratação de terceiros"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+            "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+            "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+            "member": "Diagram.xml",
+            "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+            "elementId": "9019179f-cf7c-4e42-bef6-93df8d0ac96a"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:3d67c5419e997418038a",
+    "name": "Grade de programação Norcoast.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 12,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 8,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Grade de programação Norcoast.xlsx",
+      "Grade de Programação Norcoast.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Grade de programação Norcoast.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 12,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Grade de Programação Norcoast.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 8,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:47507d504ddec6c4b55b",
+    "name": "Processos Recusados.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0009 - COMERCIAL.docx",
+        "sha256": "11639644033595b5836243e3bf46ebe5a6d3d9351ab0e10eef08f76d17f054ef",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 11,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Processos Recusados.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Processos Recusados.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0009 - COMERCIAL.docx",
+            "sha256": "11639644033595b5836243e3bf46ebe5a6d3d9351ab0e10eef08f76d17f054ef",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 11,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:4b9ca78a04852c14d7c1",
+    "name": "Programação Exportação.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 4,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação Exportação.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 4,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:4ce7bcf6e148d5048b8e",
+    "name": "NF",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 20,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 21,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 3,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 10,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 25,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 156,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 157,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 158,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 150,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 151,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 153,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 154,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 47,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 53,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 60,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 70,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 71,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 72,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 73,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 76,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 77,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 78,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 79,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 80,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 81,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "NF"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 20,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 21,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 3,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 10,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 25,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 156,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 157,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 158,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 150,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 151,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 153,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 154,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 47,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 53,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 60,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 70,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 71,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 72,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 73,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 76,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 77,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 78,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 79,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 80,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "NF",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 81,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:4dbb0e2d72a40919aaaa",
+    "name": "Grade de Programação.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 4,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Grade de Programação.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Grade de Programação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 4,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:55408868cded9f70e72f",
+    "name": "Caso no processo envolva carga de Armazém, segue o 'Subprocesso - Carga de Armazém'",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+        "member": "Diagram.xml",
+        "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+        "elementId": "9e7ae82c-fb73-44e2-b117-81113b216d98"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Caso no processo envolva carga de Armazém, segue o 'Subprocesso - Carga de Armazém'"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "9e7ae82c-fb73-44e2-b117-81113b216d98",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Caso no processo envolva carga de Armazém, segue o 'Subprocesso - Carga de Armazém'"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+            "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+            "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+            "member": "Diagram.xml",
+            "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+            "elementId": "9e7ae82c-fb73-44e2-b117-81113b216d98"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:5693a3a6028761119743",
+    "name": "Para Clientes VIP as informações obrigatórias são limitadas (2 informações apenas)",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+        "member": "Diagram.xml",
+        "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+        "elementId": "8a663525-dcf8-4e2b-b10e-739629074f9a"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Para Clientes VIP as informações obrigatórias são limitadas (2 informações apenas)"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "8a663525-dcf8-4e2b-b10e-739629074f9a",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Para Clientes VIP as informações obrigatórias são limitadas (2 informações apenas)"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+            "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+            "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+            "member": "Diagram.xml",
+            "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+            "elementId": "8a663525-dcf8-4e2b-b10e-739629074f9a"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:5e64f1a374bab29fab67",
+    "name": "Programação DTA.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 4,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação DTA.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação DTA.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 4,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:68f72d2a52dd11c2da95",
+    "name": "Processos Liberados.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 35,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Processos Liberados.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Processos Liberados.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 35,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:735190893b1ebee26b11",
+    "name": "Programação Norcoast.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 55,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação Norcoast.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação Norcoast.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 55,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:738af13a5c696eb471bf",
+    "name": "Plano Exportação.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 99,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 108,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 188,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Plano Exportação.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Plano Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 99,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Plano Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 108,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Plano Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 188,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:7cb3cbe9c8f3d731a6b5",
+    "name": "De acordo com horário e quantidade",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+        "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "0ffc3fce-ed4b-4bb1-b023-3e5ce9a9b48c"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "De acordo com horário e quantidade"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "0ffc3fce-ed4b-4bb1-b023-3e5ce9a9b48c",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "De acordo com horário e quantidade"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+            "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "0ffc3fce-ed4b-4bb1-b023-3e5ce9a9b48c"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:83d7d851024cf7fcd9c0",
+    "name": "Programação de Exportação.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 17,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 19,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 172,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação de Exportação.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Quadro Físico e Programação de Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 17,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Quadro Físico e Programação de Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 19,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação de Exportação.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 172,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:856e0cd02f3352d6b5b2",
+    "name": "manifesto",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 60,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 91,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 64,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 35,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 36,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 140,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 201,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "manifesto"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 60,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 91,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 64,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 35,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 36,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 140,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "manifesto",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 201,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:860b4a4c28674680e319",
+    "name": "Programação Diária.xlsx.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 7,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação Diária.xlsx.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "quadro físico planilha Programação Diária.xlsx.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 7,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:9101b44eb040445af8fb",
+    "name": "Posteriormente é enviado um e-mail de formalização ao suporte operacional",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "36100ff1-cd59-4523-ad42-d69e3e717542"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Posteriormente é enviado um e-mail de formalização ao suporte operacional"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "36100ff1-cd59-4523-ad42-d69e3e717542",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Posteriormente é enviado um e-mail de formalização ao suporte operacional"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+            "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "36100ff1-cd59-4523-ad42-d69e3e717542"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:910ddced022da4e88d12",
+    "name": "Processo inicia várias vezes até a quantidade solicitada seja igual a solicitação inicial",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+        "member": "Diagram.xml",
+        "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+        "elementId": "43ac4650-5302-403c-b4b9-801abf95720d"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Processo inicia várias vezes até a quantidade solicitada seja igual a solicitação inicial"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "43ac4650-5302-403c-b4b9-801abf95720d",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Processo inicia várias vezes até a quantidade solicitada seja igual a solicitação inicial"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+            "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+            "archiveMember": "29a1b0fb-8e41-4704-8b14-95e2c39166e0.diag",
+            "member": "Diagram.xml",
+            "diagramId": "29a1b0fb-8e41-4704-8b14-95e2c39166e0",
+            "elementId": "43ac4650-5302-403c-b4b9-801abf95720d"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:9397b42ce7a31359098b",
+    "name": "Viagem Frustrada",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+        "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "53146e42-812d-4e07-802d-10dce87d1874"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Viagem Frustrada"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "53146e42-812d-4e07-802d-10dce87d1874",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Viagem Frustrada"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+            "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "53146e42-812d-4e07-802d-10dce87d1874"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:ab5ec4d13b6028d5e32e",
+    "name": "Quadro físico",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 47,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 104,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 7,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 17,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 19,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 7,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 82,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Quadro físico",
+      "quadro físico",
+      "Quadro Físico"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "Quadro físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 47,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "quadro físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 104,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "quadro físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 7,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Quadro Físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 17,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Quadro Físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 19,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "Quadro Físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 7,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "quadro físico",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 82,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:b0720f22bae09694232f",
+    "name": "Controle de Importação 2025.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 38,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Controle de Importação 2025.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Controle de Importação 2025.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 38,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:bbaf6fded38cdbd54898",
+    "name": "nota de operação",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 57,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 58,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 59,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 87,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 90,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 112,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 113,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 153,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 173,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 181,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 185,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 186,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 187,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 188,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 4,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 23,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 28,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 18,
+        "path": "body/tbl[18]",
+        "table": 2,
+        "row": 29,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 32,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 47,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 58,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 99,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 108,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 109,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 110,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 14,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 44,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 45,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+        "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 46,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 23,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 24,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 54,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 96,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 101,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 105,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 116,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 137,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 150,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 151,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 152,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 169,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 174,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 194,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 195,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 198,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 199,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+        "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 200,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 38,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 54,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 55,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 63,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 87,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 108,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 121,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 147,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 152,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 153,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 154,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 158,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 197,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 18,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 23,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 28,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 48,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 61,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 66,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 67,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 42,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 60,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 63,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 88,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 91,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 99,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 102,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 104,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 105,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "nota de operação"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 57,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 58,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 59,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 87,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 90,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 112,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 113,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 153,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 173,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 181,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 185,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 186,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 187,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 188,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 4,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 23,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 28,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 18,
+            "path": "body/tbl[18]",
+            "table": 2,
+            "row": 29,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 32,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 47,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 58,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 99,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 108,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 109,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 110,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 14,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 44,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 45,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+            "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 46,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 23,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 24,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 54,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 96,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 101,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 105,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 116,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 137,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 150,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 151,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 152,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 169,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 174,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 194,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 195,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 198,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 199,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+            "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 200,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 38,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 54,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 55,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 63,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 87,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 108,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 121,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 147,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 152,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 153,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 154,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 158,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+            "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 197,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 18,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 23,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 28,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 48,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 61,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 66,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 67,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 42,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 60,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 63,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 88,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 91,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 99,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 102,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 104,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "nota de operação",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 105,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:c15ad81d1ed198ebac46",
+    "name": "Controle de Contêineres.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 74,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Controle de Contêineres.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Controle de Contêineres.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 74,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:cca3566295059bf23c6d",
+    "name": "Controle de Vazio Pátio C.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 127,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 136,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 119,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Controle de Vazio Pátio C.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Controle de Vazio Pátio C.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 127,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Controle de Vazio Pátio C.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 136,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "spreadsheet",
+        "evidence": "Controle de Vazio Pátio C.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+            "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 119,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:d05641b154a34871cf6e",
+    "name": "Cliente fica ciente, pois está no grupo",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "e15c641f-2a92-4d09-a9ed-c90ce0c30d43"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Cliente fica ciente, pois está no grupo"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "e15c641f-2a92-4d09-a9ed-c90ce0c30d43",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Cliente fica ciente, pois está no grupo"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+            "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "e15c641f-2a92-4d09-a9ed-c90ce0c30d43"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:d21216d9df605bfba1f9",
+    "name": "Para clientes que exijam contrato, passa pelo processo jurídico",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0009 - COMERCIAL.bpm.zip",
+        "sha256": "945ec4fb93395113026938ea71a076a2adb6e4db6a36049230be7254a5b7f0c6",
+        "archiveMember": "6aba6256-16b4-468d-9cac-a04c09825787.diag",
+        "member": "Diagram.xml",
+        "diagramId": "6aba6256-16b4-468d-9cac-a04c09825787",
+        "elementId": "92d6baab-9e34-4454-8416-7ac69fe24ba7"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Para clientes que exijam contrato, passa pelo processo jurídico"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "92d6baab-9e34-4454-8416-7ac69fe24ba7",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Para clientes que exijam contrato, passa pelo processo jurídico"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0009 - COMERCIAL.bpm.zip",
+            "sha256": "945ec4fb93395113026938ea71a076a2adb6e4db6a36049230be7254a5b7f0c6",
+            "archiveMember": "6aba6256-16b4-468d-9cac-a04c09825787.diag",
+            "member": "Diagram.xml",
+            "diagramId": "6aba6256-16b4-468d-9cac-a04c09825787",
+            "elementId": "92d6baab-9e34-4454-8416-7ac69fe24ba7"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:d230ba688b62fdabe154",
+    "name": "Programação Diaria.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+        "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 28,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Programação Diaria.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Programação Diaria.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+            "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 28,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:dc39e5efea000c9fd55b",
+    "name": "Com um dia de antecedência",
+    "sources": [
+      {
+        "kind": "bizagi",
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Com um dia de antecedência"
+    ],
+    "classifications": [
+      {
+        "value": "bpmn-annotation",
+        "evidence": {
+          "BizAgiArtifactTypeSpecified": "false",
+          "Id": "1635cf07-662b-45a8-ad97-9588a311eeff",
+          "ArtifactType": "Annotation",
+          "TextAnnotation": "Com um dia de antecedência"
+        },
+        "sources": [
+          {
+            "kind": "bizagi",
+            "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+            "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+            "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+            "member": "Diagram.xml",
+            "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+            "elementId": "1635cf07-662b-45a8-ad97-9588a311eeff"
+          }
+        ]
+      }
+    ],
+    "classification": "bpmn-annotation"
+  },
+  {
+    "id": "artifact:dea331e91976e7c41cc3",
+    "name": "cautela de desembarque",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+        "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 25,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+        "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 26,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+        "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 27,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+        "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 30,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+        "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 33,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "cautela de desembarque"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de desembarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+            "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 25,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de desembarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+            "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 26,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de desembarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+            "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 27,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de desembarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+            "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 30,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de desembarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+            "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 33,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:ed499fafda84c8a6d575",
+    "name": "Agenda diária.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+        "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 47,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Agenda diária.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Agenda diária.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+            "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 47,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  },
+  {
+    "id": "artifact:efdf90c242f08ff14652",
+    "name": "cautela de embarque",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 25,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 26,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 27,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 30,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 36,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 37,
+        "column": 2
+      },
+      {
+        "kind": "pop",
+        "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+        "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 45,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "cautela de embarque"
+    ],
+    "classifications": [
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 25,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 26,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 27,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 30,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 36,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 37,
+            "column": 2
+          }
+        ]
+      },
+      {
+        "value": "document-or-board",
+        "evidence": "cautela de embarque",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+            "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 45,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "document-or-board"
+  },
+  {
+    "id": "artifact:fe69004670ea803e67ce",
+    "name": "Transferência Clientes.xlsx",
+    "sources": [
+      {
+        "kind": "pop",
+        "file": "POP/POP-0008 - TRANFERENCIA.docx",
+        "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+        "member": "word/document.xml",
+        "bodyIndex": 13,
+        "path": "body/tbl[13]",
+        "table": 1,
+        "row": 7,
+        "column": 2
+      }
+    ],
+    "kind": "artifact",
+    "aliases": [
+      "Transferência Clientes.xlsx"
+    ],
+    "classifications": [
+      {
+        "value": "spreadsheet",
+        "evidence": "Transferência Clientes.xlsx",
+        "sources": [
+          {
+            "kind": "pop",
+            "file": "POP/POP-0008 - TRANFERENCIA.docx",
+            "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831",
+            "member": "word/document.xml",
+            "bodyIndex": 13,
+            "path": "body/tbl[13]",
+            "table": 1,
+            "row": 7,
+            "column": 2
+          }
+        ]
+      }
+    ],
+    "classification": "spreadsheet"
+  }
+]

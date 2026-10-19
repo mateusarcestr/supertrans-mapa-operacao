@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ns1:BPSimData simulationLevel="LevelOne" xmlns:ns1="http://www.bpsim.org/schemas/1.0">
+  <ns1:Scenario id="Scenario_e8066423-9262-4690-9f1a-f6ef2fa41b0a" name="Cenário 1" author="USUARIO" version="1.0">
+    <ns1:ScenarioParameters>
+      <ns1:PropertyParameters />
+    </ns1:ScenarioParameters>
+  </ns1:Scenario>
+</ns1:BPSimData>

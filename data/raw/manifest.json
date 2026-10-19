@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "1.0.0-raw",
+  "processes": [
+    {
+      "id": "P001",
+      "file": "P001.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+          "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1"
+        },
+        {
+          "file": "POP/POP-0001 - IMPORTAÇÃO.docx",
+          "sha256": "6a86c0427652a4ab96952174b5b27bdba2a09946e3acaf663439fc22fd083dca"
+        }
+      ],
+      "counts": {
+        "diagrams": 2,
+        "nodes": 269,
+        "nodeTypes": {
+          "startEvent": 2,
+          "task": 211,
+          "gateway": 19,
+          "endEvent": 4,
+          "intermediateEvent": 31,
+          "subprocess": 2
+        },
+        "flows": 273,
+        "popRows": 215
+      }
+    },
+    {
+      "id": "P002",
+      "file": "P002.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+          "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9"
+        },
+        {
+          "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+          "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc"
+        }
+      ],
+      "counts": {
+        "diagrams": 2,
+        "nodes": 161,
+        "nodeTypes": {
+          "task": 123,
+          "gateway": 12,
+          "intermediateEvent": 14,
+          "startEvent": 2,
+          "endEvent": 6,
+          "subprocess": 4
+        },
+        "flows": 164,
+        "popRows": 130
+      }
+    },
+    {
+      "id": "P003",
+      "file": "P003.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+          "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb"
+        },
+        {
+          "file": "POP/POP-0003 - DTA TRANPORTE.docx",
+          "sha256": "749d8c25e2dc46233b6076dec5e96217ca2c5cf76219e4db71ea838a4d16eea4"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 61,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 46,
+          "intermediateEvent": 8,
+          "endEvent": 1,
+          "gateway": 4,
+          "subprocess": 1
+        },
+        "flows": 60,
+        "popRows": 47
+      }
+    },
+    {
+      "id": "P004",
+      "file": "P004.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+          "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba"
+        },
+        {
+          "file": "POP/POP-0004 - EXPORTAÇÃO.docx",
+          "sha256": "cbe54adc0d87116579a169def0ceb0d53b7ec8f4459bbd640dbdb042c975ea7f"
+        }
+      ],
+      "counts": {
+        "diagrams": 3,
+        "nodes": 256,
+        "nodeTypes": {
+          "startEvent": 3,
+          "task": 200,
+          "gateway": 16,
+          "endEvent": 4,
+          "subprocess": 4,
+          "intermediateEvent": 29
+        },
+        "flows": 255,
+        "popRows": 201
+      }
+    },
+    {
+      "id": "P005",
+      "file": "P005.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0005 - CABOTAGEM COLETA.bpm.zip",
+          "sha256": "abbfa1631b922507bae1abd075ab3d2610042e84b12d18a25d2ce42d31b6b49e"
+        },
+        {
+          "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+          "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 252,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 201,
+          "gateway": 17,
+          "endEvent": 3,
+          "intermediateEvent": 30
+        },
+        "flows": 253,
+        "popRows": 201
+      }
+    },
+    {
+      "id": "P006",
+      "file": "P006.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0006 - EMBARQUE DE VAZIO.bpm.zip",
+          "sha256": "ef3959c5ebef33470fb246662f79c3e81324c0409491443b27fe6d6c93c4f041"
+        },
+        {
+          "file": "POP/POP-0006 - EMBARQUE DE VAZIO.docx",
+          "sha256": "405dfaa0dcb83f9a8bfabd003d60385f0f4b82822a9239a48a3df2c6e4363134"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 54,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 44,
+          "gateway": 4,
+          "intermediateEvent": 4,
+          "endEvent": 1
+        },
+        "flows": 55,
+        "popRows": 44
+      }
+    },
+    {
+      "id": "P007",
+      "file": "P007.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0007 - DESEMBARQUE DE VAZIO.bpm.zip",
+          "sha256": "0edaef2d16a857ce3374ad0cd9fdf03e8e5e3077c3ff44aa46dd073f339631b4"
+        },
+        {
+          "file": "POP/POP-0007 - DESEMBARQUE DE VAZIO.docx",
+          "sha256": "66148869c27d57fdfbeff03153adeb078ac101ad997d1597eaa39bd8b28739f8"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 37,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 32,
+          "gateway": 1,
+          "intermediateEvent": 2,
+          "endEvent": 1
+        },
+        "flows": 36,
+        "popRows": 32
+      }
+    },
+    {
+      "id": "P008",
+      "file": "P008.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0008 - TRANFERENCIA.bpm.zip",
+          "sha256": "ee8e256fe6db7d470fcb7c815d7294390ebc5625b51e36fa4de1984596ef13df"
+        },
+        {
+          "file": "POP/POP-0008 - TRANFERENCIA.docx",
+          "sha256": "b9a9c37db7c8b09a5b42014b6fe2120927bc11c3cdf8c73b4f6ea583a1c86831"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 90,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 69,
+          "intermediateEvent": 13,
+          "endEvent": 1,
+          "gateway": 6
+        },
+        "flows": 91,
+        "popRows": 69
+      }
+    },
+    {
+      "id": "P009",
+      "file": "P009.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0009 - COMERCIAL.bpm.zip",
+          "sha256": "945ec4fb93395113026938ea71a076a2adb6e4db6a36049230be7254a5b7f0c6"
+        },
+        {
+          "file": "POP/POP-0009 - COMERCIAL.docx",
+          "sha256": "11639644033595b5836243e3bf46ebe5a6d3d9351ab0e10eef08f76d17f054ef"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 49,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 36,
+          "gateway": 4,
+          "endEvent": 2,
+          "intermediateEvent": 6
+        },
+        "flows": 48,
+        "popRows": 36
+      }
+    },
+    {
+      "id": "P010",
+      "file": "P010.json",
+      "sources": [
+        {
+          "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+          "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c"
+        },
+        {
+          "file": "POP/POP-0010 - TRANSBORDO IMPORTAÇÃO.docx",
+          "sha256": "891728134fd1633338dc58e2f005199f8cec9d995d98b26be7e995034532ade4"
+        }
+      ],
+      "counts": {
+        "diagrams": 1,
+        "nodes": 121,
+        "nodeTypes": {
+          "startEvent": 1,
+          "task": 103,
+          "gateway": 4,
+          "endEvent": 2,
+          "subprocess": 3,
+          "intermediateEvent": 8
+        },
+        "flows": 119,
+        "popRows": 106
+      }
+    }
+  ],
+  "diagnostics": [
+    {
+      "processId": "P001",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "97de8ab1-69c5-40ae-8dd8-073f288b7916.diag",
+        "member": "Diagram.xml",
+        "diagramId": "97de8ab1-69c5-40ae-8dd8-073f288b7916",
+        "workflowId": "d28a03bd-23b3-494b-9afc-2fb501f7b729",
+        "elementId": "c4c357eb-638c-4dfe-af56-81052f382b69"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Processo de importação"
+    },
+    {
+      "processId": "P001",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0001 - IMPORTAÇÃO.bpm.zip",
+        "sha256": "ce090bc915c1cba3519f60e5900115026f36d0258f91b9a2c579171025bba5c1",
+        "archiveMember": "97de8ab1-69c5-40ae-8dd8-073f288b7916.diag",
+        "member": "Diagram.xml",
+        "diagramId": "97de8ab1-69c5-40ae-8dd8-073f288b7916",
+        "workflowId": "d28a03bd-23b3-494b-9afc-2fb501f7b729",
+        "elementId": "dda229b3-f45b-45eb-bc3d-99301508287f"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Processo de importação\n(Entrega  ao cliente CNTR cheio)"
+    },
+    {
+      "processId": "P002",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "788c66b7-6f21-47f5-b299-3f0a6f03ef1e"
+      },
+      "targetId": null,
+      "name": "Processo de Importação\nEntrega não Registrada"
+    },
+    {
+      "processId": "P002",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "38b57f56-ece3-42f2-989f-a5b5ce9fda54"
+      },
+      "targetId": null,
+      "name": "Processo de Importação\nRetirada de CNTR Vazio no Cliente "
+    },
+    {
+      "processId": "P002",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0002 - CABOTAGEM ENTREGA.bpm.zip",
+        "sha256": "edb4dcc8f6d2c40be6ca93e08c4ecc7c2eb7d668ac18e221a0692afe225e61a9",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "75810c07-ce11-43cc-adcd-8c95546d38d0"
+      },
+      "targetId": null,
+      "name": "Processo de Importação\n(Entrega no Depot)"
+    },
+    {
+      "processId": "P002",
+      "code": "duplicate-pop-id",
+      "severity": "warning",
+      "message": "POP ID 27.9.3 occurs 2 times",
+      "source": {
+        "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+        "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+        "member": "word/document.xml"
+      },
+      "item": "27.9.3",
+      "occurrences": [
+        {
+          "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+          "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 116,
+          "section": "Descritivos",
+          "item": "27.9.3"
+        },
+        {
+          "file": "POP/POP-0002 - CABOTAGEM ENTREGA.docx",
+          "sha256": "7eda28bda8a1878017f42b37be1d7095de22b8fb65903724d1ac1a7613ef08bc",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 117,
+          "section": "Descritivos",
+          "item": "27.9.3"
+        }
+      ]
+    },
+    {
+      "processId": "P003",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0003 - DTA TRANPORTE.bpm.zip",
+        "sha256": "219ec0a16689e331bf82e4f7d85a0cf5502d0e6fb4274b9aeb606149777bfeeb",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "36c1b5b7-dd96-43f9-9abe-b997d911cfe1"
+      },
+      "targetId": null,
+      "name": "Processo de Importação\n(Retirada de CNTR vazio)"
+    },
+    {
+      "processId": "P004",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0004 - EXPORTAÇÃO.bpm.zip",
+        "sha256": "feaa48cb6acb61919e383ffc27e246003cf4195f5bbb687736703b5e03d54aba",
+        "archiveMember": "937a5c2d-c99c-4c3a-9afa-31d918046544.diag",
+        "member": "Diagram.xml",
+        "diagramId": "937a5c2d-c99c-4c3a-9afa-31d918046544",
+        "workflowId": "9da3fcf7-cda6-4ff3-a6bd-eb2372fa0366",
+        "elementId": "fe634131-8fb6-4311-8c0d-f492897abf22"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Subprocesso 1 - Exportação"
+    },
+    {
+      "processId": "P005",
+      "code": "duplicate-pop-id",
+      "severity": "warning",
+      "message": "POP ID 38.10.9 occurs 2 times",
+      "source": {
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml"
+      },
+      "item": "38.10.9",
+      "occurrences": [
+        {
+          "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+          "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 117,
+          "section": "Descritivos",
+          "item": "38.10.9"
+        },
+        {
+          "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+          "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 118,
+          "section": "Descritivos",
+          "item": "38.10.9"
+        }
+      ]
+    },
+    {
+      "processId": "P005",
+      "code": "duplicate-pop-id",
+      "severity": "warning",
+      "message": "POP ID 53.15 occurs 2 times",
+      "source": {
+        "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+        "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+        "member": "word/document.xml"
+      },
+      "item": "53.15",
+      "occurrences": [
+        {
+          "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+          "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 176,
+          "section": "Descritivos",
+          "item": "53.15"
+        },
+        {
+          "file": "POP/POP-0005 - CABOTAGEM COLETA.docx",
+          "sha256": "8ff23cffb9c8c57235b21b14733ff205a510dc0e19608086bb3cadbb4c8f3b02",
+          "member": "word/document.xml",
+          "bodyIndex": 13,
+          "path": "body/tbl[13]",
+          "table": 1,
+          "row": 192,
+          "section": "Descritivos",
+          "item": "53.15"
+        }
+      ]
+    },
+    {
+      "processId": "P010",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "19ea5349-68f9-4e24-940c-e31afbc4e18a"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Processo de importação (não direto)"
+    },
+    {
+      "processId": "P010",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "a8e5e8f9-863f-4b07-bf16-e1570c5b58df"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Processo de importação (Devolução de CNTR vazio no Depot)"
+    },
+    {
+      "processId": "P010",
+      "code": "unresolved-subflow",
+      "severity": "warning",
+      "message": "SubFlow target absent in this source package",
+      "source": {
+        "file": "Processos em bpm/0010 - TRANSBORDO IMPORTAÇÃO.bpm.zip",
+        "sha256": "08f68aa09160a3ea963f367810ea6a71e8552cf71618172274753d9c97960d7c",
+        "archiveMember": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c.diag",
+        "member": "Diagram.xml",
+        "diagramId": "e0bd60ff-7f06-4f83-a66d-2a703746bf2c",
+        "workflowId": "61d98a30-f770-4bbe-a4ab-f15511cc92d3",
+        "elementId": "5f9065fd-4686-425b-9042-3899b2623880"
+      },
+      "targetId": "1a5ecac4-be22-4ddd-98d0-94b1485f82d3",
+      "name": "Processo de importação\nEntrega Cliente - Cheio"
+    }
+  ]
+}

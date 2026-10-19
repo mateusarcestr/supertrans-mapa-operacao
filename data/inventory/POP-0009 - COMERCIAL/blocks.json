@@ -1,0 +1,412 @@
+[
+  {
+    "bodyIndex": 1,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 2,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 3,
+    "type": "paragraph",
+    "text": "Objetivo "
+  },
+  {
+    "bodyIndex": 4,
+    "type": "paragraph",
+    "text": "O presente documento tem o objetivo descrever e melhor detalhar o processo do setor Comercial, em especial sobre a composição de preço na Super Trans."
+  },
+  {
+    "bodyIndex": 5,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 6,
+    "type": "paragraph",
+    "text": "Público Alvo"
+  },
+  {
+    "bodyIndex": 7,
+    "type": "paragraph",
+    "text": "Áreas de internas: Comercial, Central de Operações e Gerência."
+  },
+  {
+    "bodyIndex": 8,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 9,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 10,
+    "type": "paragraph",
+    "text": "Áreas externas: Cliente."
+  },
+  {
+    "bodyIndex": 11,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 12,
+    "type": "paragraph",
+    "text": "Descritivos"
+  },
+  {
+    "bodyIndex": 13,
+    "type": "table",
+    "rows": [
+      [
+        "ID",
+        "Descritivo",
+        "Executor",
+        "Sistema",
+        "Tempo"
+      ],
+      [
+        "1",
+        "Envia necessidades de atendimento (escopo operacional)",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "2",
+        "Recebe necessidades de atendimento (escopo operacional)",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "3",
+        "Repassa necessidades de atendimento (escopo operacional)",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "4",
+        "Recebe necessidades de atendimento (escopo operacional)",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "5",
+        "Analisa a possibilidade de atendimento de acordo com a situação atual do setor",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "5.1",
+        "Caso não seja possível atender, nega a possibilidade de atendimento",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "5.2",
+        "Recebe negativa da possibilidade de atendimento",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.3",
+        "Analisa se trata-se de um cliente potencial",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.3.1",
+        "Identifica que o cliente não é potencial, envia resposta negando o atendimento (escopo operacional)",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.3.2",
+        "Alimenta a informação na planilha: Processos Recusados.xlsx (fim do processo)",
+        "Comercial",
+        "Microsoft Excel",
+        "-"
+      ],
+      [
+        "5.4",
+        "Identificou que o cliente é potencial, passa para o gestor analisar o se o cliente é potencial (pessoalmente)",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.5",
+        "Recebe para a analisar o se o cliente é potencial (pessoalmente)",
+        "Gerencial",
+        "-",
+        "-"
+      ],
+      [
+        "5.6",
+        "Analisa necessidade de acordo com: manutenção, frota, espaço e tempo",
+        "Gerencial",
+        "-",
+        "-"
+      ],
+      [
+        "5.6.1",
+        "Caso entenda que não é possível atender, responde negando o atendimento",
+        "Gerencial",
+        "-",
+        "-"
+      ],
+      [
+        "5.6.2",
+        "Recebe negativa da possibilidade de atendimento (retorna ao item 5.3.1)",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.7",
+        "Caso entenda que não é possível atender, responde positivamente para o atendimento",
+        "Gerencial",
+        "-",
+        "-"
+      ],
+      [
+        "5.8",
+        "Recebe aceite positivo para o atendimento",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.9",
+        "Repassa aceite positivo para atendimento",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "5.10",
+        "Recebe aceite positivo para atendimento - gerencia (retorna ao item 7)",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "6",
+        "Se entender que é possível atender, aceita positivamente o atendimento",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "7",
+        "Informa a capacidade de atendimento (parcial ou total)",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "8",
+        "Recebe informação da capacidade de atendimento",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "9",
+        "Monta a proposta comercial com as informações recebidas e coletadas",
+        "Comercial",
+        "-",
+        "-"
+      ],
+      [
+        "10",
+        "Envia proposta comercial ao cliente",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "11",
+        "Recebe proposta comercial",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "12",
+        "Analisa proposta comercial",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "12.1",
+        "Caso não aceite a proposta, responde rejeitando a proposta comercial",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "12.2",
+        "Recebe rejeição da proposta comercial (retorna ao item 5.3.2)",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "13",
+        "Responde aceitando a proposta comercial\n** Para clientes que exijam contrato, esse processo deve passar antes pelo processo jurídico para análise.",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "14",
+        "Recebe aceite da proposta comercial",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "15",
+        "Solicita informações cadastrais",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "16",
+        "Recebe solicitação de informações cadastrais",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "17",
+        "Encaminha informações dos dados cadastrais",
+        "Cliente",
+        "E-mail",
+        "-"
+      ],
+      [
+        "18",
+        "Recebe informações dos dados cadastrais",
+        "Comercial",
+        "E-mail",
+        "-"
+      ],
+      [
+        "19",
+        "Faz o cadastro do cliente com sua tabela de preço no sistema ESL",
+        "Comercial",
+        "ESL",
+        "-"
+      ],
+      [
+        "20",
+        "Informado (e-mail) que o cadastro OK e que fica na espera da programação (cópia Faturamento)",
+        "Comercial",
+        "E-mail",
+        "-"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 14,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 15,
+    "type": "paragraph",
+    "text": "Referências"
+  },
+  {
+    "bodyIndex": 16,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 17,
+    "type": "paragraph",
+    "text": "Glossário"
+  },
+  {
+    "bodyIndex": 18,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 19,
+    "type": "paragraph",
+    "text": "Anexos"
+  },
+  {
+    "bodyIndex": 20,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 21,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 22,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 23,
+    "type": "paragraph",
+    "text": "este documento revoga versões anteriores"
+  },
+  {
+    "bodyIndex": 24,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 25,
+    "type": "paragraph",
+    "text": "Versões"
+  },
+  {
+    "bodyIndex": 26,
+    "type": "table",
+    "rows": [
+      [
+        "Versão",
+        "Descritivo da modificação",
+        "Responsável",
+        "Aprovador",
+        "Data"
+      ],
+      [
+        "0",
+        "Confecção do documento - Publicação",
+        "???",
+        "???",
+        "xx/xx/2025"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 27,
+    "type": "paragraph",
+    "text": ""
+  }
+]

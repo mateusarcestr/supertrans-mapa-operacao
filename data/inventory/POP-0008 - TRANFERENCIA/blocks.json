@@ -1,0 +1,638 @@
+[
+  {
+    "bodyIndex": 1,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 2,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 3,
+    "type": "paragraph",
+    "text": "Objetivo "
+  },
+  {
+    "bodyIndex": 4,
+    "type": "paragraph",
+    "text": "O presente documento tem o objetivo descrever e melhor detalhar o processo de transferência de contêiner na Super Trans."
+  },
+  {
+    "bodyIndex": 5,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 6,
+    "type": "paragraph",
+    "text": "Público Alvo"
+  },
+  {
+    "bodyIndex": 7,
+    "type": "paragraph",
+    "text": "Áreas de internas: Comercial, Central de Operações, Motoristas Pátio C."
+  },
+  {
+    "bodyIndex": 8,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 9,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 10,
+    "type": "paragraph",
+    "text": "Áreas externas: Cliente de Origem, Cliente de Destino, Porto de Origem Porto de Destino."
+  },
+  {
+    "bodyIndex": 11,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 12,
+    "type": "paragraph",
+    "text": "Descritivos"
+  },
+  {
+    "bodyIndex": 13,
+    "type": "table",
+    "rows": [
+      [
+        "ID",
+        "Descritivo",
+        "Executor",
+        "Sistema",
+        "Tempo"
+      ],
+      [
+        "1",
+        "Envia uma demanda de solicitação de transferência",
+        "Cliente de Origem",
+        "E-mail ou Whatsapp",
+        "-"
+      ],
+      [
+        "2",
+        "Verificado se o cliente é o porto",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "3",
+        "Caso a o cliente seja o Porto, recebe uma demanda de solicitação de transferência",
+        "Comercial",
+        "E-mail ou Whatsapp",
+        "-"
+      ],
+      [
+        "4",
+        "Repassa uma demanda de solicitação de transferência",
+        "Comercial",
+        "E-mail ou Whatsapp",
+        "-"
+      ],
+      [
+        "5",
+        "Recebe uma demanda de solicitação de transferência (Caso o cliente não seja o porto, o processo se inicia aqui)",
+        "Central de Operações",
+        "E-mail ou Whatsapp",
+        "-"
+      ],
+      [
+        "6",
+        "Faz uma programação de atendimento (Transferência Clientes.xlsx e Quadro Físico)",
+        "Central de Operações",
+        "Microsoft Excel",
+        "-"
+      ],
+      [
+        "7",
+        "Verificado se o cliente é o porto",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "7.1",
+        "Caso o cliente seja o Porto, aceita demanda",
+        "Central de Operações",
+        "E-mail e Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "7.2",
+        "Recebe aceite da demanda",
+        "Comercial",
+        "E-mail e Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "7.3",
+        "Aceita formalmente junto ao cliente",
+        "Comercial",
+        "E-mail e Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "8",
+        "Caso o cliente não seja o porto, é passada missão aos motoristas",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "9",
+        "Recebe missão",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10",
+        "Verifica se a missão é porto ou cliente",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10.1",
+        "Responde com informações dos motoristas que irão atender (CPF +Placa)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10.2",
+        "Recebe informações dos motoristas que irão atender (CPF +Placa)",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10.3",
+        "Envia informações dos motoristas com a missão ao porto",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10.4",
+        "Cria nota de operação (Física)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "10.5",
+        "Se dirige ao porto de origem",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "10.6",
+        "Chegada ao Porto de Origem",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "10.7",
+        "Verifica as informações da missão",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "10.8",
+        "Monta CNTR",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "10.9",
+        "Atualiza nota de operação (Física)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "10.10",
+        "Se dirige ao Porto de Destino",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "10.11",
+        "Chegada ao Porto de Destino",
+        "Porto de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "10.12",
+        "Verifica as informações da missão",
+        "Porto de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "10.13",
+        "Desmonta CNTR (vai para o item 35)",
+        "Porto de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "11",
+        "Caso a missão seja no cliente, cria nota de operação (Física)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "12",
+        "Se dirige ao Pátio C",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "13",
+        "Chegada ao Pátio C",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "14",
+        "Verifica as informações da missão",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "15",
+        "Montar CNTR de aluguel",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "16",
+        "Se dirige ao cliente de origem",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "17",
+        "Chegada ao Cliente de origem",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "18",
+        "Verifica as informações da missão",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "19",
+        "Verificar cenário de acordo com o cliente",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "19.1",
+        "Caso o cenário seja \"Retirada Cheio\", atrelar CNTR (vai para o item 21)",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "19.2",
+        "Caso o cenário seja \"Desatrelado\", desatrelar CNTR",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "19.3",
+        "Ovar a carga",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "19.4",
+        "Envia solicitação de retirada",
+        "Cliente de Origem",
+        "E-mail e Whatsapp",
+        "De acordo com sua demanda"
+      ],
+      [
+        "19.5",
+        "Recebe solicitação de retirada",
+        "Comercial",
+        "E-mail e Whatsapp",
+        "Espera receber solicitação"
+      ],
+      [
+        "19.6",
+        "Repassa solicitação de retirada",
+        "Comercial",
+        "E-mail e Whatsapp",
+        "-"
+      ],
+      [
+        "19.7",
+        "Recebe solicitação de retirada",
+        "Central de Operações",
+        "E-mail e Whatsapp",
+        "-"
+      ],
+      [
+        "19.8",
+        "Passa missão aos motoristas",
+        "Central de Operações",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "19.9",
+        "Recebe missão (vai para o item 22)",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "20",
+        "Caso o cenário seja \"Atrelado\", ovar a carga",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "21",
+        "Entrega da NF de carga",
+        "Cliente de Origem",
+        "-",
+        "-"
+      ],
+      [
+        "22",
+        "Atualiza nota de operação (Física)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "23",
+        "Verificar se a retirada é no cliente de origem",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "23.1",
+        "Caso a retirada seja no cliente de origem, se dirige ao cliente de origem (retorna ao item 17)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "24",
+        "Caso a retirada não seja no cliente de origem, se dirige ao cliente de destino",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "25",
+        "Chegada ao Cliente de destino",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "26",
+        "Verificados informações da NF",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "27",
+        "Verificar cenário de acordo com o cliente",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "27.1",
+        "Caso o cenário seja \"Retirada Vazio\", atrelar CNTR (vai para item 30)",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "27.2",
+        "Caso o cenário seja \"Retirada Desatrelado\", desatrelar CNTR",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "27.3",
+        "Desovar a carga",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "24.4",
+        "Envia solicitação de retirada (retorna ao item 19.5)",
+        "Cliente de Destino",
+        "E-mail e Grupo de Whatsapp",
+        "De acordo com sua demanda"
+      ],
+      [
+        "28",
+        "Caso o cenário seja \"Retirada Atrelado\", espera desova da carga",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "29",
+        "Entrega da NF de carga",
+        "Cliente de Destino",
+        "-",
+        "-"
+      ],
+      [
+        "30",
+        "Atualiza nota de operação (Física)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "31",
+        "Se dirige ao Pátio C",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "32",
+        "Chegada ao Pátio C",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "33",
+        "Verificados informações da missão",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "34",
+        "Desmonta CNTR",
+        "Pátio C",
+        "-",
+        "-"
+      ],
+      [
+        "35",
+        "Entrega nota de operação física",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "36",
+        "Recebe nota de operação física",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "37",
+        "Cria processo no sistema ESL",
+        "Central de Operações",
+        "ESL",
+        "-"
+      ],
+      [
+        "38",
+        "Alimenta informações de viagem no sistema ESL",
+        "Central de Operações",
+        "ESL",
+        "-"
+      ],
+      [
+        "39",
+        "Finaliza processo no sistema ESL (fim de processo)",
+        "Central de Operações",
+        "ESL",
+        "-"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 14,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 15,
+    "type": "paragraph",
+    "text": "Referências"
+  },
+  {
+    "bodyIndex": 16,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 17,
+    "type": "paragraph",
+    "text": "Glossário"
+  },
+  {
+    "bodyIndex": 18,
+    "type": "paragraph",
+    "text": "CNTR - Contêiner."
+  },
+  {
+    "bodyIndex": 19,
+    "type": "paragraph",
+    "text": "Anexos"
+  },
+  {
+    "bodyIndex": 20,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 21,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 22,
+    "type": "paragraph",
+    "text": "este documento revoga versões anteriores"
+  },
+  {
+    "bodyIndex": 23,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 24,
+    "type": "paragraph",
+    "text": "Versões"
+  },
+  {
+    "bodyIndex": 25,
+    "type": "table",
+    "rows": [
+      [
+        "Versão",
+        "Descritivo da modificação",
+        "Responsável",
+        "Aprovador",
+        "Data"
+      ],
+      [
+        "0",
+        "Confecção do documento - Publicação",
+        "???",
+        "???",
+        "xx/xx/2025"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 26,
+    "type": "paragraph",
+    "text": ""
+  }
+]

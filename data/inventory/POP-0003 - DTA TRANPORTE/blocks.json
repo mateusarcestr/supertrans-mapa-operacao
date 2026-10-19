@@ -1,0 +1,504 @@
+[
+  {
+    "bodyIndex": 1,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 2,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 3,
+    "type": "paragraph",
+    "text": "Objetivo "
+  },
+  {
+    "bodyIndex": 4,
+    "type": "paragraph",
+    "text": "O presente documento tem o objetivo descrever e melhor detalhar o processo DTA Transporte na Super Trans."
+  },
+  {
+    "bodyIndex": 5,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 6,
+    "type": "paragraph",
+    "text": "Público Alvo"
+  },
+  {
+    "bodyIndex": 7,
+    "type": "paragraph",
+    "text": "Áreas de internas: Suporte Operacional, Motoristas e Central de Operações."
+  },
+  {
+    "bodyIndex": 8,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 9,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 10,
+    "type": "paragraph",
+    "text": "Áreas externas: Cliente / Aurora EADI e Porto. "
+  },
+  {
+    "bodyIndex": 11,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 12,
+    "type": "paragraph",
+    "text": "Descritivos"
+  },
+  {
+    "bodyIndex": 13,
+    "type": "table",
+    "rows": [
+      [
+        "ID",
+        "Descritivo",
+        "Executor",
+        "Sistema",
+        "Tempo"
+      ],
+      [
+        "1",
+        "Envia a programação de transporte de CNTR",
+        "Cliente",
+        "E-mail",
+        "Com um dia de antecedência"
+      ],
+      [
+        "2",
+        "Recebe programação de transporte de CNTR",
+        "Suporte Operacional",
+        "E-mail",
+        "-"
+      ],
+      [
+        "3",
+        "Monta planejamento de atendimento de coleta (Porto, CNTR, Motorista, Tipo e Qtd), Planilha: Programação DTA.xlsx",
+        "Suporte Operacional",
+        "Microsoft Excel",
+        "No mesmo dia do recebimento"
+      ],
+      [
+        "4",
+        "Cria processo no sistema ESL",
+        "Suporte Operacional",
+        "ESL",
+        "-"
+      ],
+      [
+        "5",
+        "Cria agendamento dos CNTR no sistema River e Modal",
+        "Suporte Operacional",
+        "River e Modal",
+        "-"
+      ],
+      [
+        "6",
+        "Passa missão aos motoristas",
+        "Suporte Operacional",
+        "Grupo do Whatsapp",
+        ""
+      ],
+      [
+        "7",
+        "Recebe missão no mesmo dia",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "No mesmo dia de recebimento"
+      ],
+      [
+        "8",
+        "Se dirige ao porto - Dia seguinte",
+        "Motoristas",
+        "-",
+        "No dia seguinte do recebimento"
+      ],
+      [
+        "9",
+        "Chegada no Porto",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "10",
+        "Verifica se motorista e placa estão vinculados ao CNTR a serem coletados",
+        "Porto",
+        "River e Modal",
+        "-"
+      ],
+      [
+        "11",
+        "Conferente organiza o comboio para atendimento",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "12",
+        "Monta os CNTR",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "12.1",
+        "Cria nota de operação física (em paralelo ao item 13)",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "12.2",
+        "Envia foto do CNTR, lacre e placa",
+        "Motoristas",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "12.3",
+        "Recebe foto do CNTR, lacre e placa",
+        "Suporte Operacional",
+        "Grupo do Whatsapp",
+        "-"
+      ],
+      [
+        "12.4",
+        "Cria os manifestos no sistema ESL",
+        "Suporte Operacional",
+        "ESL",
+        "-"
+      ],
+      [
+        "12.5",
+        "Imprime os espelhos dos manifestos (vai para o tem 20)",
+        "Suporte Operacional",
+        "-",
+        "-"
+      ],
+      [
+        "13",
+        "Realiza vistoria da Receita Federal",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "13.1",
+        "Caso não passe pela vistoria, não libera e informa os motivos",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "13.2",
+        "Recebe negativa e os motivos (equipe presencial do porto)",
+        "Suporte Operacional",
+        "-",
+        "-"
+      ],
+      [
+        "13.3",
+        "Tenta resolver o problema (equipe presencial do porto)",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "13.3.1",
+        "Caso o cliente não consiga resolver o problema, informa ao fiscal da não resolução do problema",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "13.3.2",
+        "Fiscal recebe informação de não possibilidade de resolução do problema",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "13.3.3",
+        "Veta Saída dos CNTR",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "13.3.4",
+        "Desmonta CNTR, classificado como viagem frustrada (Fim do processo)",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "13.4",
+        "Caso o cliente consiga resolver o problema (item 13.3), apresenta resolução do problema ao fiscal",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "13.5",
+        "Fiscal recebe resolução do problema (volta ao item 13)",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "14",
+        "Caso passe pela vistoria (item 13), realiza a liberação da Receita Federal",
+        "Porto",
+        "-",
+        "-"
+      ],
+      [
+        "15",
+        "Recebe informação de liberação da Receita Federal",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "16",
+        "Averbar a carga no sistema River",
+        "Cliente",
+        "River",
+        "-"
+      ],
+      [
+        "17",
+        "Imprime as DTA",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "18",
+        "Entrega as DTA fisicamente",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "19",
+        "Recebe as DTA fisicamente",
+        "Suporte Operacional",
+        "-",
+        "-"
+      ],
+      [
+        "20",
+        "Entrega as DTA, O.S e espelho do manifesto fisicamente",
+        "Suporte Operacional",
+        "-",
+        "-"
+      ],
+      [
+        "21",
+        "Recebe as DTA, O.S e espelho do manifesto fisicamente",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "22",
+        "Se dirige ao cliente",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "23",
+        "Chegada ao cliente",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "24",
+        "Verifica documentação",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "25",
+        "Passa pela vistoria",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "25.1",
+        "Caso não passe pela vistoria, identifica divergência / inconsistência de vistoria",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "25.2",
+        "Resolve divergência / inconsistência de vistoria (volta para o item 25)",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "26",
+        "Desmonta CNTR",
+        "Cliente",
+        "-",
+        "-"
+      ],
+      [
+        "27",
+        "Preenche nota de operação",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "28",
+        "Entrega nota de operação",
+        "Motoristas",
+        "-",
+        "-"
+      ],
+      [
+        "29",
+        "Recebe nota de operação física",
+        "Central de Operações",
+        "-",
+        "-"
+      ],
+      [
+        "30",
+        "Lança no sistema ESL",
+        "Central de Operações",
+        "ESL",
+        "-"
+      ],
+      [
+        "-",
+        "Seguido o processo de Importação referente ao processo de retirada de CNTR vazio - POP-0001 - IMPORTAÇÃO (fim do processo)",
+        "-",
+        "-",
+        "-"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 14,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 15,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 16,
+    "type": "paragraph",
+    "text": "Referências"
+  },
+  {
+    "bodyIndex": 17,
+    "type": "paragraph",
+    "text": "POP-0001 – IMPORTAÇÃO"
+  },
+  {
+    "bodyIndex": 18,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 19,
+    "type": "paragraph",
+    "text": "Glossário"
+  },
+  {
+    "bodyIndex": 20,
+    "type": "paragraph",
+    "text": "CNTR - Contêiner."
+  },
+  {
+    "bodyIndex": 21,
+    "type": "paragraph",
+    "text": "DTA – Declaração de trânsito aduaneiro."
+  },
+  {
+    "bodyIndex": 22,
+    "type": "paragraph",
+    "text": "MANIFESTO – Documento referente a uma viagem de transporte com uma origem e um destino criado sistemicamente."
+  },
+  {
+    "bodyIndex": 23,
+    "type": "paragraph",
+    "text": "Anexos"
+  },
+  {
+    "bodyIndex": 24,
+    "type": "paragraph",
+    "text": "Não se aplica."
+  },
+  {
+    "bodyIndex": 25,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 26,
+    "type": "paragraph",
+    "text": "este documento revoga versões anteriores"
+  },
+  {
+    "bodyIndex": 27,
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "bodyIndex": 28,
+    "type": "paragraph",
+    "text": "Versões"
+  },
+  {
+    "bodyIndex": 29,
+    "type": "table",
+    "rows": [
+      [
+        "Versão",
+        "Descritivo da modificação",
+        "Responsável",
+        "Aprovador",
+        "Data"
+      ],
+      [
+        "0",
+        "Confecção do documento - Publicação",
+        "???",
+        "???",
+        "xx/xx/2025"
+      ]
+    ]
+  },
+  {
+    "bodyIndex": 30,
+    "type": "paragraph",
+    "text": ""
+  }
+]
