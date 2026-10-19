@@ -1,6 +1,6 @@
 # Mapa da operação Super Trans
 
-Construção incremental de uma aplicação educativa de operação logística em 3D, baseada em dez pares Bizagi/POP. **Estado atual: Fases 0–2 concluídas, com modelo canônico offline. Frontend ainda não implementado.**
+Mapa interativo da operação Super Trans, baseado em dez pares Bizagi/POP. **Estado atual: Fases 0–3A.1 e frontend 2D (F4.1–F4.30) concluídos; validação humana pendente.** Por decisão do usuário (F4.25), a leitura é 2D; o 3D foi substituído.
 
 Leia [PROJECT_STATUS.md](PROJECT_STATUS.md) e [.codex/HANDOFF.md](.codex/HANDOFF.md) antes de continuar.
 
@@ -13,14 +13,7 @@ python -m scripts.extract_sources
 python -m unittest discover -s tests -v
 ```
 
-Runtime usado nesta máquina:
-
-```powershell
-& 'C:\Users\marce\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -X utf8 -m scripts.extract_sources
-& 'C:\Users\marce\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -X utf8 -m unittest discover -s tests -v
-```
-
-O problema inicial de permissões temporárias no Codex/Windows foi corrigido usando ACL herdada. Extração e 16 testes passaram no ambiente normal. A pasta `.codex/` permanece protegida pelo ambiente e sua atualização pode exigir permissão ampliada.
+No Windows, use `python -X utf8` em todos os comandos (o `python` do sistema basta). A suíte grava apenas em diretórios temporários; não altera `docs/` nem `data/`.
 
 Saídas: `data/raw/P001.json` até `P010.json`, `data/raw/manifest.json`. Os dez pares são obrigatórios; falta, duplicidade de arquivo e pacote inválido interrompem geração antes de publicar novos JSONs. Diagnósticos de conteúdo são preservados. CLI retorna 2 se houver diagnósticos de erro; avisos de revisão não impedem extração.
 
@@ -43,7 +36,7 @@ Saídas: `data/raw/P001.json` até `P010.json`, `data/raw/manifest.json`. Os dez
 
 Os JSONs brutos preservam estilos, metadados e representações redundantes para auditoria; são volumosos e **não devem ser importados no frontend**. A Fase 2 gera `data/normalized/`, independente de interface. Não usar ordem das linhas POP como fluxo nem GUID isolado como chave global. Normalização concluída não significa que todos os vínculos foram resolvidos nem que existe grafo executável completo.
 
-O pedido autoriza commits caso exista Git. Este diretório não era um repositório; nenhum Git foi inicializado e nenhum commit/push foi feito.
+Repositório Git local desde 2026-10-19 (sem remoto; não publicar). `core.autocrlf=false` no repositório preserva bytes e hashes dos dados.
 
 ## Executar normalização (Fase 2)
 
@@ -55,7 +48,7 @@ python -m scripts.build_operation_model
 python -m unittest discover -s tests -v
 ```
 
-Na máquina atual, substituir `python` pelo runtime absoluto mostrado acima, com `-X utf8`. O normalizador procura jsonschema no ambiente ou em `.python-deps/`, ignorada pelo projeto. Não precisa instalar ferramentas web.
+O normalizador procura jsonschema no ambiente ou em `.python-deps/`, ignorada pelo projeto. Não precisa instalar ferramentas web.
 
 A CLI lê somente `data/raw/`, valida schema e locadores, e grava 20 JSONs em `data/normalized/`. `--raw` e `--out` permitem diretórios alternativos. `load_model()` em `scripts/build_operation_model.py` verifica hashes e monta o objeto completo; `validate_model(model, raw_dir)` em `scripts/model/validation.py` valida o modelo e sua proveniência. Schema raiz descreve o objeto composto; processo isolado usa a definição `$defs/process`.
 
@@ -73,8 +66,22 @@ O gerador lê somente `data/normalized/`, preserva estados e locadores, e cria 2
 ## Executar alinhamento externo (Fase 3A)
 
 ```powershell
-python -m scripts.build_alignment_docs
+python -m scripts.build_alignment_docs --portal <checkout do Portal no commit desejado>
 python -m unittest discover -s tests -v
 ```
 
 O alinhamento lê o modelo normalizado e o checkout do Portal em modo somente leitura, sem alterar nenhum dos dois. Os documentos ficam em `docs/alignment/`. Quando o Jira não estiver acessível, a coluna é marcada `NOT_AVAILABLE_IN_THIS_RUN` e `docs/alignment/jira-input-needed.md` lista o export necessário.
+
+Os documentos versionados refletem o Portal no commit `de5518559557ffc9b02e0efefba1a8d0c90b919d`; um teste confere isso. Regenerar contra outro commit é decisão explícita: registre em DECISIONS.md e atualize `PINNED_PORTAL_COMMIT` em `tests/test_alignment_documentation.py`.
+
+## Frontend
+
+```powershell
+npm --prefix frontend install
+npm --prefix frontend run dev
+npm --prefix frontend test
+npm --prefix frontend run build
+python -X utf8 -m scripts.build_frontend_data   # regenera frontend/public/data a partir de data/normalized
+```
+
+Formatação: dentro de `frontend/`, `npx prettier@3.3.3 --write "src/**/*.{ts,tsx}"` (config em `frontend/.prettierrc.json`).
