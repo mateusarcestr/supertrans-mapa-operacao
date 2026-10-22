@@ -491,3 +491,13 @@ DEC-056. scripts/nvidia_catalog.py consulta /v1/models oficial e devolve83 model
 AssistantModelPicker com busca/resumo/ficha, foco de busca, Escape/ArrowDown e refresh. Modelo | Esforço | Processo permanece alinhado. Painel de chave também usa catálogo e permite identificador manual. GPT OSS20B suporta low/medium/high via reasoning_effort,max4096; outros perfis só com suporte verificado. Modelos especializados recusados no backend. Probe reconhece streaming só de raciocínio como conexão válida sem exibir conteúdo interno.
 
 82 Python suíte completa,25 específicos após último ajuste,29 Vitest/build e QA model-catalog/model-controls/chat-layout/assistant-settings OK. Rota real8766 validada em três GETs de catálogo/cache/refresh, sem perguntas/inferência. Snapshot público em docs/review/nvidia-catalog-2026-10-22.json. Vite4174 sessão92869/backend QA8766 sessão38833 devem ser encerrados ao finalizar. Chave real/.env.local/fontes/raw/normalized/review operacional/knowledge intactos. Próximo exato: usuário reiniciar npm run dev e abrir seletor Modelo; avaliar qualidade de inferência separadamente, sem pedir chave novamente.
+
+## CHECKPOINT VIGENTE — fluxo sequencial em cards e contexto multi-turn (2026-10-22)
+
+DEC-057. Atendido pedido do usuário com exemplo visual fornecido (cards em coluna conectados por setas para baixo). Perguntas encadeadas como "faça um fluxo dessa dúvida" agora transmitem e resolvem o histórico multi-turn da conversa anterior (pergunta, resposta e fontes) no frontend (AssistantPage.tsx) e backend (scripts/chat_server.py).
+
+Geração de fluxo: detecção automática de solicitações de fluxo/passo a passo (is_flow_request). A IA é instruída a retornar a lista ordenada das etapas no campo "fluxo": [{"etapa": 1, "titulo": "...", "executor": "...", "detalhes": "..."}], com fallback determinístico synthesize_flow baseado nas evidências documentadas caso a IA omita o fluxo ou na busca local. A interface renderiza os cards com número da etapa, título, executor, detalhes e setas direcionais ArrowDown.
+
+Parsing JSON resiliente: adicionada função parse_json_payload para extrair objetos JSON limpos mesmo quando o modelo LLM envolve a resposta em blocos de código markdown (```json). Normalização de espaços em branco ao validar citações literais (select_quotes). Modo configurado (nvidia-api/local-nim) é preservado mesmo em buscas vazias.
+
+86 testes Python na suíte completa aprovados (2 novos testes específicos de contexto multi-turn e parsing resiliente), build frontend Vite/TypeScript concluído sem erros. Próximo exato: usuário reiniciar npm run dev e testar perguntas encadeadas e geração de fluxos no chat.

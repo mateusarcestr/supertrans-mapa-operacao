@@ -104,3 +104,23 @@ class ChatTests(unittest.TestCase):
             self.assertEqual(answer['mode'], 'local-search')
             self.assertTrue(answer['sources'])
             self.assertTrue(answer['warning'])
+
+    def test_parse_json_payload_handles_markdown_code_fences(self):
+        from scripts.chat_server import parse_json_payload
+        fenced = '```json\n{"resposta": "ok", "evidencias": []}\n```'
+        self.assertEqual(parse_json_payload(fenced), {"resposta": "ok", "evidencias": []})
+        broken = 'texto antes {"resposta": "ok"} texto depois'
+        self.assertEqual(parse_json_payload(broken), {"resposta": "ok"})
+
+    def test_followup_flow_request_resolves_context_and_returns_flow_steps(self):
+        assistant = Assistant(ROOT / 'knowledge')
+        history = {
+            'question': 'Como funciona a retirada do contêiner vazio?',
+            'sources': [{'id': 'processes/P001.md:3886:0'}]
+        }
+        answer = assistant.answer('faça um fluxo dessa dúvida', 'P001', history=history)
+        self.assertNotEqual(answer['answer'], 'Não encontrei essa informação na base selecionada. Tente indicar a etapa ou escolher outro processo.')
+        self.assertTrue(answer['sources'])
+        self.assertIsNotNone(answer.get('flow'))
+        self.assertTrue(len(answer['flow']['steps']) > 0)
+        self.assertTrue(all('title' in s for s in answer['flow']['steps']))

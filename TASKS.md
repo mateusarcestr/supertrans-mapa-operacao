@@ -372,3 +372,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Mapear esforços baixo/médio/alto do GPT OSS20B conforme documentação oficial.
 - [x] Validar rota real de catálogo/cache/atualização, testes/build e QA desktop/mobile/temas com APIs simuladas.
 - [ ] Usuário reiniciar npm run dev e revisar catálogo; inferência/qualidade de cada modelo não foi validada nesta unidade.
+
+## Fluxo sequencial em cards e contexto multi-turn — 2026-10-22
+
+- [x] Implementar histórico de conversa (multi-turn context) no frontend para perguntas encadeadas.
+- [x] Adicionar resolução de contexto para consultas referenciais ("dessa dúvida", "disso aqui").
+- [x] Extrair JSON com resiliência contra markdown code fences (```json).
+- [x] Gerar representação visual de fluxo em cards verticais com setas direcionais conectadas (↓).
+- [x] Validar suíte Python completa (86 testes OK) e build frontend Vite/TypeScript.
+- [ ] Usuário testar encadeamento de perguntas e geração de fluxos no chat.

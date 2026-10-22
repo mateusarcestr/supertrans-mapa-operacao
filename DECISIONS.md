@@ -656,3 +656,24 @@ Consulta real:83 IDs,22 namespaces/fabricantes. API só entrega id/object/create
 AssistantModelPicker é diálogo com busca por nome/fabricante/finalidade, resumo por item, seleção marcada, links oficiais, refresh e erro/cache. Mantém cabeçalho Modelo | Esforço | Processo e36px. Painel de chave também carrega catálogo, preservando entrada manual avançada. Preferências não reenviam segredo. GPT OSS20B tem low/medium/high mapeados a reasoning_effort e max_tokens4096, verificados na referência oficial. Super/Lightning mantêm on/off; outros ficam Padrão até suporte verificado. Probe aceita resposta só de raciocínio como conectividade confirmada, sem expor raciocínio nem confundir com qualidade de resposta final.
 
 Validação:82 Python na suíte completa,25 específicos após ajuste final,29 Vitest/build, QA model-catalog/model-controls/chat-layout/assistant-settings aprovados com API simulada. UI cobre83 opções, descrições, filtro de embeddings bloqueados, escolha DeepSeek/GPT, esforço, refresh com falha, mobile/temas. Backend real isolado8766 retornou83 modelos, cache e refresh corretos. Snapshot público docs/review/nvidia-catalog-2026-10-22.json e capturas docs/screenshots/model-catalog; fonte e momento registrados. Nenhuma rota de perguntas chamada no backend real, nenhuma inferência/acervo enviado, chave não alterada. Fonte oficial de esforço: https://docs.api.nvidia.com/nim/reference/openai-gpt-oss-20b-infer ; catálogo/uso geral: https://docs.api.nvidia.com/nim/reference/llm-apis . Próximo: reiniciar npm run dev e revisar seleção; qualidade/latência de cada modelo continuam não verificadas.
+
+## DEC-057 — fluxo sequencial em cards, contexto multi-turn e recuperação assistida por IA (2026-10-22)
+
+Usuário relatou: "Se eu uso as fontes locais e peço algo no chat, ele não encontra, só quer usar as locais" e forneceu transcrição real: pergunta "Como funciona a retirada do contêiner vazio?" seguida de "faça um fluxo dessa dúvida", que resultou em "Consulta direta à documentação: Não encontrei essa informação na base selecionada". O usuário instruiu explicitamente: "Sempre usar a IA para consultar e a IA consulta as fontes, podendo até gerar fluxos como esse aqui", anexando exemplo visual com sequência vertical de cards e setas direcionais conectadas.
+
+Diagnóstico técnico:
+1. Ao perguntar "faça um fluxo dessa dúvida", o backend recebia a consulta sem histórico anterior, tratando termos como "dessa", "dúvida", "faça", "fluxo" de forma isolada no BM25.
+2. A ausência de hits locais forçava o retorno com mode='local-search', gerando o selo enganoso "Consulta direta à documentação" mesmo com a NVIDIA selecionada.
+3. Respostas da IA que continham blocos markdown ou pequenas divergências de citação eram descartadas por parsing estrito, gerando fallback textual seco.
+
+Implementação:
+1. Contexto multi-turn no frontend (AssistantPage.tsx): ask() transmite history (pergunta anterior, resposta e fontes).
+2. Backend (scripts/chat_server.py):
+   - parse_json_payload: extração resiliente de JSON mesmo com markdown fences ou texto adjacente.
+   - select_quotes: normalização de espaços em branco na verificação de citações.
+   - Resolução de contexto: consultas referenciais ("dessa dúvida", "disso aqui", etc.) ou sem hits combinam a busca com a pergunta e fontes anteriores.
+   - Preservação do modo configurado (nvidia-api / local-nim) em caso de busca vazia.
+   - Geração de fluxo estruturado: detecção de pedidos de fluxo/passo a passo (is_flow_request) com instrução à IA para retornar "fluxo": [{"etapa": 1, "titulo": "...", "executor": "...", "detalhes": "..."}]. Fallback determinístico synthesize_flow baseado nas evidências documentadas de cada atividade.
+3. Interface: cards verticais com número, título, executor, detalhes/sistema e setas direcionais ArrowDown, reproduzindo a referência visual fornecida.
+
+Validação: 86 testes unitários Python (suíte completa) aprovados, build TypeScript/Vite sem erros. Próximo: usuário testar o fluxo no chat com perguntas encadeadas.

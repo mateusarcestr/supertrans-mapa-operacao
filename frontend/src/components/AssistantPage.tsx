@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Square, Workflow } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Square, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings, type AssistantConfiguration } from './AssistantSettings'
@@ -8,7 +8,9 @@ import { ThemeToggle } from './ThemeToggle'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
 interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
-interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[] }
+export interface FlowStep { step?: number | string; title: string; executor?: string; details?: string }
+export interface FlowDiagram { title?: string; steps: FlowStep[] }
+interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[]; flow?: FlowDiagram }
 interface Turn { question: string; reply?: Reply; error?: string }
 
 export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
@@ -52,13 +54,19 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
     const text = value.trim()
     if (pending || text.length < 3) return
     const current = revision.current
+    const lastTurn = turns[turns.length - 1]
+    const history = lastTurn && lastTurn.reply ? {
+      question: lastTurn.question,
+      answer: lastTurn.reply.answer,
+      sources: lastTurn.reply.sources,
+    } : null
     setQuestion('')
     setPending(true)
     setTurns((previous) => [...previous, { question: text }])
     request.current = new AbortController()
     try {
       const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: text, processId: processId || null, model: configuration?.model, effort: configuration?.effort }), signal: request.current.signal })
+        body: JSON.stringify({ question: text, processId: processId || null, model: configuration?.model, effort: configuration?.effort, history }), signal: request.current.signal })
       if (!response.ok) throw new Error('Não foi possível consultar. Confira se o serviço local está iniciado e tente novamente.')
       const reply: Reply = await response.json()
       if (current !== revision.current) return
@@ -109,6 +117,37 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
             <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
             <p className="assistant-response-text">{turn.reply.answer}</p>
             {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
+            {turn.reply.flow && turn.reply.flow.steps.length > 0 && (
+              <section className="assistant-flow-container" aria-label="Fluxo das etapas">
+                <header className="assistant-flow-header">
+                  <Workflow size={16} aria-hidden="true" />
+                  <h3>{turn.reply.flow.title || 'Fluxo sugerido'}</h3>
+                </header>
+                <div className="assistant-flow-timeline">
+                  {turn.reply.flow.steps.map((step, idx, arr) => (
+                    <div key={idx} className="assistant-flow-step-block">
+                      <div className="assistant-flow-card">
+                        <div className="assistant-flow-card-head">
+                          <span className="assistant-flow-card-number">{step.step || idx + 1}</span>
+                          <strong className="assistant-flow-card-title">{step.title}</strong>
+                        </div>
+                        {(step.executor || step.details) && (
+                          <div className="assistant-flow-card-body">
+                            {step.executor && <span className="assistant-flow-badge-executor">{step.executor}</span>}
+                            {step.details && <span className="assistant-flow-card-details">{step.details}</span>}
+                          </div>
+                        )}
+                      </div>
+                      {idx < arr.length - 1 && (
+                        <div className="assistant-flow-arrow" aria-hidden="true">
+                          <ArrowDown size={18} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
             {turn.reply.responsibilities?.map((role) => <section className="assistant-role" key={role.executor}>
               <h3>{role.executor}<span>{role.activities.length} atividades</span></h3>
               <ul>{role.activities.slice(0, 3).map((activity) => <li key={activity.sourceId}>{activity.title}{activity.diagram && <small> · {activity.diagram}</small>}</li>)}</ul>

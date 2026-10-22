@@ -1613,3 +1613,19 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .assistant-catalog-notice { display:flex; gap:8px; align-items:center; padding:8px 20px; margin:0; font-size:12px; color:var(--muted-foreground); }
 
 .assistant-model-search:focus-within { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft); }
+
+.assistant-flow-container { margin:20px 0; padding:16px; border:1px solid var(--border); border-radius:14px; background:var(--background); }
+.assistant-flow-header { display:flex; align-items:center; gap:8px; margin-bottom:14px; color:var(--foreground); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; }
+.assistant-flow-header svg { color:var(--accent); }
+.assistant-flow-header h3 { margin:0; font-size:13px; font-weight:600; }
+.assistant-flow-timeline { display:flex; flex-direction:column; align-items:center; width:100%; max-width:560px; margin:0 auto; }
+.assistant-flow-step-block { display:flex; flex-direction:column; align-items:center; width:100%; }
+.assistant-flow-card { width:100%; box-sizing:border-box; padding:14px 18px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--foreground); text-align:center; box-shadow:0 1px 2px rgba(0,0,0,0.06); transition:border-color 0.15s ease; }
+.assistant-flow-card:hover { border-color:var(--accent); }
+.assistant-flow-card-head { display:flex; align-items:center; justify-content:center; gap:10px; font-size:14px; }
+.assistant-flow-card-number { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--secondary); color:var(--accent); font-size:11px; font-weight:700; flex:none; }
+.assistant-flow-card-title { font-size:14px; line-height:1.4; color:var(--foreground); }
+.assistant-flow-card-body { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin-top:8px; font-size:12px; }
+.assistant-flow-badge-executor { padding:2px 8px; border-radius:6px; background:var(--secondary); color:var(--foreground); font-weight:600; font-size:11px; }
+.assistant-flow-card-details { color:var(--muted-foreground); font-size:12px; }
+.assistant-flow-arrow { display:grid; place-items:center; padding:8px 0; color:var(--muted-foreground); }

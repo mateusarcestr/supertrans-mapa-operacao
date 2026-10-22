@@ -373,3 +373,11 @@ Cabeçalho reorganizado na ordem Modelo | Esforço | Processo, com rótulos vis�
 Lista fixa removida: GET /api/chat/models consulta https://integrate.api.nvidia.com/v1/models, cache10min e atualização manual. Verificação real HTTP200:83 modelos/22 fabricantes,62 selecionáveis para conversa e21 especializados identificados. Header/painel usam catálogo; seletor pesquisável mostra resumo de uma frase em português e ficha oficial. Disponibilidade vem da API; descrições são editoriais por família/finalidade, pois a API retorna só id/object/created/owned_by. Sem ranking ou promessa de rapidez.
 
 GPT OSS20B habilita esforços baixo/médio/alto via reasoning_effort e limite4096 documentado; demais capacidades só quando verificadas. Backend recusa uso dos tipos especializados no chat.82 testes Python na suíte completa,25 específicos após ajuste final,29 Vitest/build e QA catálogo/model-controls/chat-layout/settings aprovados. Snapshot público em docs/review/nvidia-catalog-2026-10-22.json; nenhuma inferência/documento enviado à NVIDIA e chave real intacta. Próximo: encerrar instâncias QA, usuário reiniciar npm run dev e abrir Modelo; avaliar respostas reais separadamente.
+
+## Marco 2026-10-22 — fluxo sequencial em cards e contexto multi-turn (DEC-057)
+
+Atendido pedido do usuário: perguntas sequenciais como "faça um fluxo dessa dúvida" agora aproveitam o contexto da pergunta e fontes anteriores (histórico multi-turn). O chat detecta solicitações de fluxo e gera uma representação visual estruturada em sequência vertical de cards com setas conectadas (↓), contendo etapa, título, executor e sistemas/canais, correspondendo ao design de cards solicitado.
+
+Implementada extração resiliente de JSON no backend (parse_json_payload) para contornar delimitadores de código markdown retornados por modelos LLM, além de normalização de espaços para validação de citações literais. O modo selecionado (NVIDIA/NIM) é mantido mesmo em buscas sem termos coincidentes.
+
+Validação: 86 testes unitários Python aprovados, build frontend Vite/TypeScript concluído sem erros. Próximo passo: usuário testar perguntas encadeadas e geração de fluxos no chat.

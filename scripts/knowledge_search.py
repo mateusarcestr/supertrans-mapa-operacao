@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import unicodedata
 
-STOP = set('a o os as de do da dos das em no na nos nas para por com um uma e ou que qual quais quem como quando onde quanto isso essa esse processo etapa item pode sobre sao ser se ao the'.split())
+STOP = set('a o os as de do da dos das em no na nos nas para por com um uma e ou que qual quais quem como quando onde quanto isso essa esse processo etapa item pode sobre sao ser se ao the faca fazer faz gera gerar crie criar mostra mostrar monte montar duvida duvidas dessa desse disso deste desta disto dele dela aquilo aqui ali la'.split())
 ALIASES = {'executa': 'executor', 'executam': 'executor', 'responsavel': 'executor', 'responsaveis': 'executor',
            'container': 'conteiner', 'cntr': 'conteiner', 'conteineres': 'conteiner', 'agenda': 'agendamento',
            'agendar': 'agendamento', 'retira': 'retirada', 'etapas': 'procedimento', 'passos': 'procedimento'}
