@@ -14,6 +14,23 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SettingsTests(unittest.TestCase):
+    def test_connection_test_uses_saved_key_without_exposing_it(self):
+        self.store.save(dict(model=NVIDIA_MODEL, apiKey='connection-placeholder'))
+        with patch('scripts.chat_server.probe_provider', return_value={'ok': True, 'message': 'Conexão confirmada.'}) as probe:
+            reply = self.store.test_connection({})
+        self.assertTrue(reply['ok'])
+        self.assertEqual(probe.call_args.args[-1], 'connection-placeholder')
+        self.assertNotIn('connection-placeholder', json.dumps(reply))
+
+    def test_connection_test_requires_key_and_never_persists_draft(self):
+        with self.assertRaises(ValueError):
+            self.store.test_connection({})
+        with patch('scripts.chat_server.probe_provider', return_value={'ok': False, 'message': 'Chave recusada (401).'}) as probe:
+            reply = self.store.test_connection(dict(model=NVIDIA_MODEL, apiKey='unsaved-placeholder'))
+        self.assertFalse(reply['ok'])
+        self.assertEqual(probe.call_args.args[-1], 'unsaved-placeholder')
+        self.assertFalse((self.root / '.env.local').exists())
+
     def setUp(self):
         self.env = patch.dict(os.environ, {}, clear=False)
         self.env.start()

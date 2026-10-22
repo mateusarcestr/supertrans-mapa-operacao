@@ -330,3 +330,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] npm run dev iniciar frontend/backend, aguardar saúde e limpar serviços próprios ao encerrar.
 - [x] Validar 70 Python/29 Vitest/build, QA chat/configurações e ciclo completo de desenvolvimento.
 - [ ] Revisão do usuário e avaliação de respostas NVIDIA reais; chave não foi cadastrada por este trabalho.
+
+## Correção da configuração NVIDIA — 2026-10-22
+
+- [x] Confirmar sintoma salva, mas chat continua em busca local e separar estado configurado de modo da resposta.
+- [x] Testar conexão com texto sintético, ao salvar e por botão, preservando segredo/configuração.
+- [x] Diferenciar erros de autenticação, acesso, modelo, cota, rede e tempo limite.
+- [x] Implementar SSE conforme exemplo fornecido e ignorar reasoning/eventos vazios.
+- [x] Validar 74 Python/29 Vitest/build, regressão visual simulada e painel real com mensagem sintética.
+- [ ] Revisão do usuário após reiniciar npm run dev; avaliar qualidade operacional sem confundir teste sintético com resposta documental.

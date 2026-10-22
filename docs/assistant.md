@@ -20,7 +20,7 @@ Screenshots, código, dependências, HTML de protótipos e decisões antigas de 
 
 Última orientação do usuário substituiu a preferência inicial por inferência local: usar API externa com modelo `nvidia/nemotron-3.5-super-vl-120b-a12b`. Endpoint fixo: `https://integrate.api.nvidia.com/v1/chat/completions`. Chave `NVIDIA_API_KEY` somente no servidor; nenhuma variável `VITE_` ou resposta HTTP contém a chave.
 
-Adaptador HTTP compatível com o exemplo Chat Completions fornecido, sem nova dependência. Envia pergunta e até cinco trechos de 5.500 caracteres; não envia acervo inteiro, imagem de demonstração ou links para buscar. `stream=false`, `temperature=0`, saída limitada, thinking desativado. Modelo retorna JSON com explicação, IDs de fonte e citações literais; servidor aceita evidências existentes nos trechos e referências válidas. Explicação exige evidências aceitas; validação literal das citações não comprova semanticamente toda a síntese. Citações verdadeiras ainda podem ser irrelevantes: não é promessa de compreensão ou cobertura perfeita. Sem evidência, informa ausência. Falha/timeout/limite da API informa fallback para busca local.
+Adaptador HTTP compatível com o exemplo Chat Completions fornecido, sem nova dependência. Envia pergunta e até cinco trechos de 5.500 caracteres; não envia acervo inteiro, imagem de demonstração ou links para buscar. `stream=true` na NVIDIA (eventos SSE acumulados no servidor), `temperature=0`, saída limitada, thinking desativado. Modelo retorna JSON com explicação, IDs de fonte e citações literais; servidor aceita evidências existentes nos trechos e referências válidas. Explicação exige evidências aceitas; validação literal das citações não comprova semanticamente toda a síntese. Citações verdadeiras ainda podem ser irrelevantes: não é promessa de compreensão ou cobertura perfeita. Sem evidência, informa ausência. Falha/timeout/limite da API informa fallback para busca local.
 
 ### Dados e trial
 
@@ -43,7 +43,7 @@ python -m scripts.chat_server
 
 Abrir `http://127.0.0.1:8765`. Servidor em loopback entrega `frontend/dist`, `/api/chat` e Markdown citados. Sem chave/modelo, modo **Busca local**. Não grava perguntas/documentos em access logs.
 
-No chat, abra **Configurações da IA**. Selecione Nemotron 3.5 Super ou **Outro modelo NVIDIA** e informe o identificador disponível na sua conta. Cole a chave no campo protegido e clique **Salvar configuração**. A próxima pergunta usa a configuração salva, sem reiniciar o serviço. Salvar não testa a validade da chave nem a disponibilidade do modelo.
+No chat, abra **Configurações da IA**. Selecione Nemotron 3.5 Super ou **Outro modelo NVIDIA** e informe o identificador disponível na sua conta. Cole a chave no campo protegido e clique **Salvar configuração**. A próxima pergunta usa a configuração salva, sem reiniciar o serviço. Salvar com chave configurada também testa conexão usando somente a mensagem sintética Responda apenas OK. O botão Testar conexão verifica a chave/modelo atuais sem salvar alterações.
 
 O campo fica vazio após salvar e ao reabrir. Campo vazio mantém a chave existente; a opção **Remover chave e usar busca local** apaga a chave salva. Chave não é devolvida pela API nem guardada no localStorage, URL ou bundle. O navegador transmite a chave ao servidor local ao salvar. Persistência em texto no arquivo local `.env.local`, ignorado pelo Git, sem criptografia em repouso. Não publique este servidor local na rede.
 
@@ -57,7 +57,7 @@ Testes: cobertura/determinismo/preservação do modelo; escopo de processo; aus�
 
 QA `scripts/visual-qa/assistant.mjs`: entrada simples, perguntas, fontes/Markdown, ausência de resposta, troca de processo e etapas sob demanda em claro/escuro/desktop/mobile. Sem chave, rejeita requisições de navegador a hosts externos.
 
-Inferência NVIDIA real, qualidade do modelo, latência e limites da conta **não validados**. Contrato HTTP simulado não comprova inferência real. As dúvidas operacionais existentes continuam explícitas; corpus não transforma inferências em fatos.
+Conectividade e inferência NVIDIA reais confirmadas com mensagem sintética em 2026-10-22, inclusive pelo painel no navegador. Também houve timeout observado em outra tentativa; sucesso pontual não garante latência estável. Qualidade sobre documentos, limites da conta e uso operacional **não validados**. Contrato HTTP simulado não comprova inferência real. As dúvidas operacionais existentes continuam explícitas; corpus não transforma inferências em fatos.
 
 QA `scripts/visual-qa/assistant-settings.mjs`: formulário, modelo personalizado, chave limpa após salvar, remoção, Escape, desktop/mobile e temas; API de configuração simulada. Testes HTTP reais em servidor efêmero e diretório temporário verificam persistência, aplicação imediata, ausência de chave na resposta e recusa de origem externa.
 
@@ -68,3 +68,11 @@ Perguntas gerais sobre executores percorrem todos os trechos do processo revisad
 Perguntas específicas mantêm recuperação lexical. Sem IA, resposta apresenta procedimento e executor recuperados, em vez de somente números de linha. Com NVIDIA, prompt pede explicação em português e evidências literais. Síntese só é exibida quando todas as evidências passam pela validação literal e suas referências numéricas são válidas. Isso não verifica semanticamente cada afirmação da síntese: relevância e qualidade reais do modelo continuam pendentes de avaliação. Falha de validação usa trechos/busca, sem apresentar síntese sem evidências aceitas.
 
 QA `node scripts/visual-qa/dev-lifecycle.mjs` exige portas 5173/8765 livres, inicia os dois serviços, testa status/configurações/pergunta pelo proxy e emite SIGINT para conferir liberação das portas. Não usa chave nem envia documentos à NVIDIA.
+
+## Estado da configuração e diagnóstico de conexão
+
+O indicador superior representa o provedor configurado e não é sobrescrito pelo modo da última resposta. Uma consulta agregada local não desconfigura a NVIDIA; cada resposta informa separadamente se usou NVIDIA, NIM local ou consulta direta à documentação. Essa era a causa reproduzida do relato salva, mas continua em busca local.
+
+POST /api/chat/settings/test aceita rascunho ou a chave já salva, sem devolver segredo e sem persistir alterações. Usa texto sintético, sem acervo. O salvamento continua separado da validade: chave fica salva mesmo se o teste falhar, com mensagem explícita. Erros 401/403/404/429, parâmetros, rede e timeout têm diagnósticos distintos, sem repetir corpo de erro do provedor. SSE ignora reasoning_content e eventos sem choices.
+
+QA assistant-settings reproduz salvar seguido de resposta local e confirma que o estado NVIDIA permanece, em três temas/larguras, com transporte simulado. QA assistant-provider-state exige chave existente e testa só o painel/conexão sintética real, bloqueando /api/chat e conferindo .env.local byte a byte. Nenhum documento operacional foi enviado nesta validação.

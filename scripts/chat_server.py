@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import tempfile
 import threading
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -50,6 +51,68 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         raise ValueError('Redirecionamento do modelo local não permitido')
 
 
+def provider_error(error):
+    if isinstance(error, urllib.error.HTTPError):
+        status = error.code
+        messages = {401: 'A NVIDIA recusou a chave de API (401). Confira ou substitua a chave.',
+                    403: 'A NVIDIA negou acesso ao modelo (403). Confira as permissões da conta.',
+                    404: 'Modelo não encontrado na NVIDIA (404). Confira o identificador escolhido.',
+                    429: 'Limite da NVIDIA atingido (429). Aguarde ou confira a cota da conta.',
+                    400: 'A NVIDIA recusou os parâmetros do modelo (400). Confira o modelo selecionado.',
+                    422: 'A NVIDIA recusou os parâmetros do modelo (422). Confira o modelo selecionado.'}
+        return messages.get(status, f'A NVIDIA retornou erro HTTP {status}. Tente novamente.')
+    if isinstance(error, TimeoutError) or isinstance(getattr(error, 'reason', None), TimeoutError):
+        return 'A NVIDIA não respondeu dentro do tempo limite. A chave não pôde ser validada; tente novamente ou escolha outro modelo.'
+    if isinstance(error, OSError):
+        return 'Não foi possível conectar à NVIDIA. Confira a conexão de rede e tente novamente.'
+    return 'A IA respondeu em formato inválido ou sem evidências verificáveis.'
+
+
+def provider_completion(request, timeout=45):
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+    with opener.open(request, timeout=timeout) as response:
+        if not str(response.headers.get('Content-Type', '')).startswith('text/event-stream'):
+            return json.loads(response.read(1_000_000))
+        content = []
+        size = 0
+        started = time.monotonic()
+        for raw in response:
+            size += len(raw)
+            if size > 1_000_000:
+                raise ValueError('Provider response too large')
+            if time.monotonic() - started > 90:
+                raise TimeoutError()
+            if not raw.startswith(b'data:'):
+                continue
+            data = raw[5:].strip()
+            if data == b'[DONE]':
+                break
+            chunk = json.loads(data)
+            for choice in chunk.get('choices', []):
+                text = choice.get('delta', {}).get('content')
+                if isinstance(text, str):
+                    content.append(text)
+        return {'choices': [{'message': {'content': ''.join(content)}}]}
+
+
+def probe_provider(endpoint, model, api_key):
+    """Check inference with synthetic text only; never include the operational corpus."""
+    body = dict(model=model, messages=[dict(role='user', content='Responda apenas OK.')],
+                temperature=0, max_tokens=16, stream=True)
+    if model == NVIDIA_MODEL:
+        body['chat_template_kwargs'] = {'enable_thinking': False}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + api_key}
+    request = urllib.request.Request(endpoint, data=json.dumps(body).encode(), headers=headers)
+    try:
+        payload = provider_completion(request, timeout=30)
+        content = payload['choices'][0]['message']['content']
+        if not isinstance(content, str) or not content.strip():
+            raise ValueError('empty response')
+        return dict(ok=True, message='Conexão confirmada: a NVIDIA respondeu usando este modelo e esta chave.')
+    except (OSError, ValueError, KeyError, IndexError, TypeError) as error:
+        return dict(ok=False, message=provider_error(error))
+
+
 def select_quotes(hits: list[dict], generated: str) -> list[dict]:
     """Accept only exact, non-empty quotations from retrieved Markdown."""
     payload = json.loads(generated)
@@ -78,7 +141,7 @@ def nim_quotes(question, hits, endpoint, model, api_key=''):
               'Nunca invente fatos ou citações. Se não houver apoio, retorne {"evidencias":[]}. Selecione poucos trechos curtos e completos.')
     body = dict(model=model, messages=[dict(role='system', content=system),
                 dict(role='user', content=f'Pergunta: {question}\nDOCUMENTOS:\n{context}')], temperature=0, max_tokens=1400)
-    body['stream'] = False
+    body['stream'] = endpoint == NVIDIA_ENDPOINT
     if model == NVIDIA_MODEL:
         body['chat_template_kwargs'] = {'enable_thinking': False}
     headers = {'Content-Type': 'application/json'}
@@ -86,9 +149,7 @@ def nim_quotes(question, hits, endpoint, model, api_key=''):
         headers['Authorization'] = 'Bearer ' + api_key
     request = urllib.request.Request(endpoint, data=json.dumps(body).encode(), headers=headers)
     # No environment proxy and no redirects; the provider destination is explicit.
-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
-    with opener.open(request, timeout=45) as response:
-        result = json.loads(response.read(1_000_000))
+    result = provider_completion(request)
     generated = result['choices'][0]['message']['content']
     selected = select_quotes(hits, generated)
     payload = json.loads(generated)
@@ -156,8 +217,8 @@ class Assistant:
                 mode = 'nvidia-api' if external else 'local-nim'
                 if not selected:
                     return dict(mode=mode, answer='Não encontrei evidência suficiente para responder com segurança.', sources=[])
-            except (OSError, ValueError, KeyError, IndexError, TypeError):
-                warning = 'A IA não respondeu com evidências válidas. Mostrando resultados da busca local.'
+            except (OSError, ValueError, KeyError, IndexError, TypeError) as error:
+                warning = provider_error(error) + ' Mostrando resultados da busca local.'
         if not selected:
             selected = [dict(h, quote=readable(h, question)) for h in hits[:3]]
         public = [dict(id=h['id'], file=h['file'], line=h['line'], title=re.sub(r'\s*\[.*?\]\s*$', '', h['title']),
@@ -218,6 +279,17 @@ class SettingsStore:
                         mode='nvidia-api' if self.assistant.external else 'local-nim' if self.assistant.endpoint else 'local-search',
                         externalContext=self.assistant.external)
 
+    def test_connection(self, data):
+        with self.assistant.config_lock:
+            config = configuration(self.root)
+            model = data.get('model') or self.assistant.model or config['NVIDIA_MODEL'] or NVIDIA_MODEL
+            key = data.get('apiKey') or self.assistant.api_key or config['NVIDIA_API_KEY']
+        if not isinstance(model, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]{1,199}', model):
+            raise ValueError('Informe um identificador de modelo válido.')
+        if not isinstance(key, str) or not key or len(key) > 512 or any(ord(c) < 33 or ord(c) > 126 for c in key):
+            raise ValueError('Informe ou salve uma chave de API válida antes de testar.')
+        return probe_provider(NVIDIA_ENDPOINT, model, key)
+
     def save(self, data):
         with self.assistant.config_lock:
             if self.public()['locked']:
@@ -273,7 +345,7 @@ def make_handler(assistant, directory, settings=None):
             self.wfile.write(body)
 
         def do_POST(self):
-            if self.path not in ('/api/chat', '/api/chat/settings'):
+            if self.path not in ('/api/chat', '/api/chat/settings', '/api/chat/settings/test'):
                 return self.json_response({'error': 'Rota inexistente'}, 404)
             # Only the local same-origin app may submit questions.
             origin = self.headers.get('Origin')
@@ -288,11 +360,13 @@ def make_handler(assistant, directory, settings=None):
                 if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
                     raise ValueError('Use JSON')
                 data = json.loads(self.rfile.read(length))
-                if self.path == '/api/chat/settings':
+                if self.path in ('/api/chat/settings', '/api/chat/settings/test'):
                     try:
-                        return self.json_response(settings.save(data))
+                        return self.json_response(settings.test_connection(data) if self.path.endswith('/test') else settings.save(data))
                     except ValueError as error:
                         return self.json_response({'error': str(error)}, 400)
+                    except OSError:
+                        return self.json_response({'error': 'Não foi possível gravar .env.local. Confira a permissão de escrita na pasta do projeto.'}, 500)
                 return self.json_response(assistant.answer(data.get('question'), data.get('processId')))
             except (ValueError, TypeError, AttributeError):
                 return self.json_response({'error': 'Pergunta ou processo inválido'}, 400)

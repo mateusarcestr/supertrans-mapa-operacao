@@ -38,17 +38,46 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: Settings) =
     }
   }
 
+  async function probe(modelId: string, apiKey: string) {
+    const response = await fetch('/api/chat/settings/test', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: modelId, apiKey }), signal: AbortSignal.timeout(35000) })
+    const data = await response.json()
+    if (!response.ok) throw new Error(data.error || 'Não foi possível testar a conexão.')
+    return data as { ok: boolean; message: string }
+  }
+
+  async function testConnection() {
+    setBusy(true); setError(''); setMessage('Testando conexão com a NVIDIA, sem enviar documentos…')
+    try {
+      const result = await probe(model.trim(), key.trim())
+      setMessage(result.ok ? result.message : '')
+      if (!result.ok) setError(result.message)
+    } catch (reason) { setMessage(''); setError(reason instanceof Error && reason.name === 'Error' ? reason.message : 'O teste de conexão não foi concluído. Confira se o serviço está iniciado e tente novamente.') }
+    finally { setBusy(false) }
+  }
+
   async function save(event: FormEvent) {
     event.preventDefault()
     setBusy(true); setError(''); setMessage('')
+    let saved = false
     try {
       const response = await fetch('/api/chat/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ model: model.trim(), apiKey: key.trim(), removeKey: remove }) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || 'Não foi possível salvar.')
+      saved = true
       setSettings(data); setKey(''); setRemove(false); onSaved(data)
-      setMessage(data.keyConfigured ? 'Configuração salva. Será usada na próxima pergunta. A validade da chave ainda não foi testada.' : 'Configuração salva. Assistente em busca local.')
-    } catch (reason) { setError(reason instanceof Error ? reason.message : 'Não foi possível salvar.') }
+      if (data.keyConfigured) {
+        setMessage('Configuração salva. Testando conexão com a NVIDIA, sem enviar documentos…')
+        const result = await probe(data.model, '')
+        setMessage(result.ok ? 'Configuração salva. ' + result.message : '')
+        if (!result.ok) setError('Configuração salva, mas a conexão falhou. ' + result.message)
+      } else setMessage('Configuração salva. Assistente em busca local.')
+    } catch (reason) {
+      setMessage('')
+      const detail = reason instanceof Error && reason.name === 'Error' ? reason.message : 'O serviço ou o teste de conexão não respondeu. Tente novamente.'
+      setError((saved ? 'Configuração salva. ' : '') + detail)
+    }
     finally { setBusy(false) }
   }
 
@@ -70,7 +99,8 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: Settings) =
           <small>{settings.keyConfigured ? 'Chave configurada. O valor salvo não é exibido.' : 'Sem chave, o assistente usa a busca local.'} Armazenamento no servidor em .env.local, fora do Git.</small>
           {settings.keyConfigured && <label className="assistant-settings-remove"><input type="checkbox" checked={remove} onChange={(event) => { setRemove(event.target.checked); setKey('') }} />Remover chave e usar busca local</label>}
           <p className="assistant-footnote">Com a API ativa, perguntas e trechos relevantes da documentação são enviados à NVIDIA.</p>
-          <button type="submit" className="assistant-settings-save">{busy ? 'Salvando…' : 'Salvar configuração'}</button>
+          <button type="button" className="assistant-settings-test" disabled={remove || (!key.trim() && !settings.keyConfigured)} onClick={() => void testConnection()}>Testar conexão</button>
+          <button type="submit" className="assistant-settings-save">{busy ? 'Aguarde…' : 'Salvar configuração'}</button>
         </fieldset>
       </form>}
       {message && <p role="status">{message}</p>}

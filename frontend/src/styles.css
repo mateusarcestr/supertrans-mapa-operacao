@@ -1543,3 +1543,6 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .assistant-role summary, .assistant-sources > summary { cursor:pointer; color:var(--accent); font-size:13px; }
 .assistant-sources { margin-top:22px; padding-top:16px; border-top:1px solid var(--border); }
 .assistant-sources > summary svg { vertical-align:middle; margin-right:6px; }
+
+.assistant-settings-test { border:1px solid var(--border); background:var(--secondary); color:var(--foreground); border-radius:8px; padding:11px; cursor:pointer; }
+.assistant-reply-mode { font-size:12px; color:var(--muted-foreground); margin-bottom:12px; }

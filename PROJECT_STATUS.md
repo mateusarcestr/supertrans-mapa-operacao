@@ -345,3 +345,9 @@ Próximo exato: usuário abre Configurações da IA, cadastra chave e modelo; va
 Corrigido caso do print: pergunta ampla não usa mais três hits isolados. Percorre Markdown revisado do processo, agrupa executor/procedimento documentados e apresenta atividades com expansão/fontes recolhidas; Importação contém oito executores/121 atividades únicas informadas. Não converte lanes em executor. Consultas específicas recebem texto com procedimento/executor; API admite síntese referenciada com evidências literais validadas. Sem inferência NVIDIA real nesta unidade.
 
 npm run dev em frontend agora inicia Python e Vite, aguarda saúde, recusa portas incompatíveis e fecha serviços próprios ao encerrar. DEC-051. 70 Python/29 Vitest/build, QA assistant/assistant-settings e teste end-to-end dev-lifecycle aprovados; dez testes específicos repetidos após ajuste de ordem/texto. Fontes/dados/knowledge intactos. Próximo: usuário reiniciar npm run dev e revisar resposta; validar qualidade NVIDIA real após configurar chave com conteúdo liberado.
+
+## Marco 2026-10-22 — estado NVIDIA e diagnóstico de conexão
+
+Relato confirmado: chave estava salva, mas resposta local sobrescrevia o indicador do provedor. Removida essa sobrescrita; modo de cada resposta é apresentado separadamente. Configurações agora testa conexão sintética ao salvar e por botão explícito, sem documentos; falhas distinguem credencial/permissão/modelo/cota/rede/timeout. Transporte NVIDIA passou para SSE, ignorando reasoning e eventos vazios. DEC-052.
+
+Validação: 74 Python/29 Vitest/build; QA da regressão com transporte simulado e painel real via localhost:5173. Conexão real confirmada com chave/modelo existentes e texto sintético; houve timeout em outra tentativa, sem atribuí-lo à chave. .env.local permaneceu byte idêntico, não versionado nem exposto. Nenhum documento enviado à NVIDIA. Próximo: usuário reiniciar npm run dev e revisar status; qualidade de respostas operacionais segue pendente.

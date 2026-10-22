@@ -2,12 +2,38 @@ import json
 from pathlib import Path
 import unittest
 from unittest.mock import patch
-from scripts.chat_server import Assistant, local_endpoint, select_quotes, nim_quotes, NVIDIA_ENDPOINT, NVIDIA_MODEL
+from scripts.chat_server import Assistant, local_endpoint, select_quotes, nim_quotes, provider_completion, provider_error, NVIDIA_ENDPOINT, NVIDIA_MODEL
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class ChatTests(unittest.TestCase):
+    def test_streaming_ignores_reasoning_and_handles_empty_choices(self):
+        from unittest.mock import MagicMock
+        import urllib.request
+        response = MagicMock()
+        response.headers.get.return_value = 'text/event-stream; charset=utf-8'
+        response.__iter__.return_value = iter([
+            b'data: {"choices":[]}\n',
+            b'data: {"choices":[{"delta":{"reasoning_content":"private reasoning"}}]}\n',
+            b'data: {"choices":[{"delta":{"content":"O"}}]}\n',
+            b'data: {"choices":[{"delta":{"content":"K"}}]}\n', b'data: [DONE]\n'])
+        opener = MagicMock()
+        opener.open.return_value.__enter__.return_value = response
+        with patch('scripts.chat_server.urllib.request.build_opener', return_value=opener):
+            result = provider_completion(urllib.request.Request(NVIDIA_ENDPOINT))
+        self.assertEqual(result['choices'][0]['message']['content'], 'OK')
+
+    def test_provider_errors_are_actionable_and_do_not_echo_response_body(self):
+        import urllib.error
+        for code in [401, 403, 404, 429]:
+            error = urllib.error.HTTPError(NVIDIA_ENDPOINT, code, 'secret-placeholder', None, None)
+            message = provider_error(error)
+            error.close()
+            self.assertIn(str(code), message)
+            self.assertNotIn('secret-placeholder', message)
+        self.assertIn('tempo limite', provider_error(TimeoutError()))
+
     def test_synthesis_is_displayed_only_with_valid_evidence_and_citations(self):
         from unittest.mock import MagicMock
         hits = [{'id': 'doc:1', 'text': 'A Central de Operações realiza o agendamento.'}]
@@ -33,7 +59,7 @@ class ChatTests(unittest.TestCase):
         self.assertEqual(request.get_header('Authorization'), 'Bearer placeholder-key')
         body = json.loads(request.data)
         self.assertEqual(body['model'], NVIDIA_MODEL)
-        self.assertFalse(body['stream'])
+        self.assertTrue(body['stream'])
         self.assertEqual(len(body['messages']), 2)
         self.assertEqual(answer[0]['quote'], hits[0]['text'])
 

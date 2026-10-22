@@ -43,7 +43,6 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
       if (!response.ok) throw new Error('Não foi possível consultar. Confira se o serviço local está iniciado e tente novamente.')
       const reply: Reply = await response.json()
       if (current !== revision.current) return
-      setMode(reply.mode)
       setTurns((previous) => previous.map((turn, index) => index === previous.length - 1 ? { ...turn, reply } : turn))
     } catch (reason) {
       if (current !== revision.current) return
@@ -78,6 +77,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         {turns.map((turn, index) => <article className="assistant-turn" key={index} ref={index === turns.length - 1 ? lastReply : undefined}>
           <h2>{turn.question}</h2>
           {turn.reply && <div className="assistant-answer">
+            <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
             <p className="assistant-response-text">{turn.reply.answer}</p>
             {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
             {turn.reply.responsibilities?.map((role) => <section className="assistant-role" key={role.executor}>
