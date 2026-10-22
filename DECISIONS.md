@@ -557,3 +557,7 @@ Responsável operacional e data: NÃO INFORMADOS nas 270 respostas. Usuário inf
 | P002 | Número repetido no POP!E5 | Etapas diferentes: renumerar B | Não informado | Não informado |
 | P005 | Número repetido no POP!E6 | Etapas diferentes: renumerar B | Não informado | Não informado |
 | P005 | Número repetido no POP!E7 | Etapas diferentes: renumerar B | Não informado | Não informado |
+
+## DEC-046 — autoria da revisão identificada pelo usuário (2026-10-22)
+
+Usuário identificou **Dariane Pantoja e Lunna Nogueira** como revisoras da planilha. Atribuição conjunta ao arquivo e às 270 respostas; distribuição individual por linha não informada. Complementa campos de responsável da DEC-045 sem adulterar o arquivo recebido. Evidência em `data/review/attribution.json`, vinculada ao SHA-256 da planilha; importador reaplica atribuição nas regenerações. Data de realização da revisão continua não informada; 2026-10-22 é data desta informação, não data da revisão. Status `received-date-pending`; propostas/topologia/inferências preservadas.

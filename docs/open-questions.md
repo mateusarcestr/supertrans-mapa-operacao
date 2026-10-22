@@ -29,3 +29,5 @@ Questões preservadas após Fase 2. O modelo registra incertezas, não substitui
 - Quem executa!B56: confirmar se “modal” é nome oficial de sistema antes de alterar catálogo.
 
 Detalhes: `docs/review/revisao-recebida-2026-10-22.md`. Nenhuma dúvida gerou etapa/relação inventada.
+
+Atualização 2026-10-22: autoria esclarecida pelo usuário — Dariane Pantoja e Lunna Nogueira. Resta informar data da revisão; demais dúvidas de conteúdo permanecem.

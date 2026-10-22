@@ -9,6 +9,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ReviewImportTests(unittest.TestCase):
+    def test_later_attribution_is_bound_to_workbook_and_keeps_date_pending(self):
+        from scripts.import_conflict_review import apply_attribution
+        review = {'source': {'sha256': 'expected'}, 'decisions': [{'reviewer': None, 'reviewedAt': None}]}
+        attribution = {'workbookSha256': 'wrong', 'reviewers': ['Dariane Pantoja', 'Lunna Nogueira']}
+        with self.assertRaises(ValueError):
+            apply_attribution(review, attribution)
+        attribution['workbookSha256'] = 'expected'
+        result = apply_attribution(review, attribution)
+        self.assertEqual(result['decisions'][0]['reviewer'], 'Dariane Pantoja e Lunna Nogueira')
+        self.assertIsNone(result['decisions'][0]['reviewedAt'])
+        self.assertEqual(result['decisions'][0]['status'], 'received-date-pending')
+
     def test_received_review_binds_every_answer_without_promoting_sources(self):
         from scripts.import_conflict_review import import_review
         before = directory_hash(NORMALIZED)

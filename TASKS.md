@@ -279,3 +279,9 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [ ] Receber responsável/data prometidos pelo usuário e registrar atribuição rastreável.
 - [ ] Esclarecer 18 pendências de conteúdo e fontes/escopo das inclusões antes de promover decisões elegíveis.
 - [ ] Validar separadamente participantes das 73 passagens inferidas.
+
+## Autoria da revisão — 2026-10-22
+
+- [x] Registrar Dariane Pantoja e Lunna Nogueira como revisoras, por informação do usuário.
+- [x] Atualizar dados do frontend preservando planilha e propostas originais.
+- [ ] Receber data da revisão; 18 pendências de conteúdo e 73 participantes inferidos seguem pendentes.

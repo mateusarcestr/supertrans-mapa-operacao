@@ -36,7 +36,9 @@ try {
     const missing = review.locator('details').filter({ hasText: 'Item POP indicado não encontrado' }).first()
     await missing.locator('summary').click()
     await missing.locator('.human-review-decision').waitFor({ state: 'visible' })
-    assert.ok((await missing.textContent()).includes('Não informado'))
+    const expectedReviewer = catalog.humanReview.decisions.find((item) => item.processId === 'P004' && item.warnings.includes('pop-item-not-found')).reviewer ?? 'Não informado'
+    assert.ok((await missing.textContent()).includes(expectedReviewer))
+    assert.ok((await missing.textContent()).includes('Data da validação: Não informada'))
     await page.screenshot({ path: fileURLToPath(new URL(`documentation-${theme}-${width}.png`, output)), fullPage: true })
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
     const sample = catalog.humanReview.decisions.find((item) => item.category === 'description')

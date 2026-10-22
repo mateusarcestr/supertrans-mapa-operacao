@@ -37,7 +37,7 @@ export function HumanReviewBrowser({ review }: { review: HumanReview }) {
     <section className="doc-card human-review-browser">
       <h2>Respostas da revisão operacional</h2>
       <p>{review.summary.answered} de {review.summary.total} respostas recebidas. Propostas preservadas separadamente das fontes; conflitos e participantes inferidos mantêm sua classificação.</p>
-      <p>Autoria/data pendentes em {review.summary.warnings['missing-attribution'] ?? 0} respostas.</p>
+      <p>Cadastro da revisão incompleto em {review.summary.warnings['missing-attribution'] ?? 0} respostas. Confira responsável e data nos detalhes.</p>
       <label>Processo <select value={processId} onChange={(event) => setProcessId(event.target.value)}>
         {Array.from({ length: 10 }, (_, index) => `P${String(index + 1).padStart(3, '0')}`).map((id) => <option key={id}>{id}</option>)}
       </select></label>{' '}

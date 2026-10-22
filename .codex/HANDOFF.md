@@ -398,3 +398,9 @@ Documentação real: `frontend/src/RefinedResourcePages.tsx`; nova aba Respostas
 Próximo EXATO: usuário escolheu “Informarei responsável e data”; receber e registrar atribuição sem adulterar planilha. Esclarecer 18 pendências: 10 chamadas ao próprio processo sem trecho, 2 referências P004/26.16 inexistentes, 3 renumerações sem novo número e 3 observações. Inclusões requerem fonte/escopo. Aplicação posterior exige camada de revisão explícita; os 73 participantes continuam inferidos. Não reextrair nem reiniciar normalização.
 
 Complemento final 2026-10-22: QA operation.mjs aprovado nas 73 passagens/10 processos e três larguras/temas. Timeout anterior vinha da corrida no runner entre fechamento nativo/Escape e atualização React onClose; agora aguarda valor vazio no seletor antes de reabrir. Nenhuma lógica de navegação do produto alterada. QA human-review repetido e aprovado após link Abrir etapa. Fontes/raw/normalized/alignment sem diferenças contra HEAD. Servidor preview temporário encerrado ao final.
+
+## CHECKPOINT — autoria informada (2026-10-22)
+
+Usuário identificou Dariane Pantoja e Lunna Nogueira como revisoras. Atribuição conjunta às 270 respostas, sem presumir divisão individual. Sidecar `data/review/attribution.json` vinculado ao hash da planilha; importador CLI aplica depois da extração, preservando arquivo recebido e autoria vazia nele. Ledger e frontend regenerados com nomes e status received-date-pending. DEC-046 complementa responsáveis da DEC-045. Data de realização ainda não informada; providedAt é data da declaração, não da revisão.
+
+Validação: 5 testes específicos de importação aprovados (incluindo rejeição de atribuição ligada a outro hash), build e QA human-review em três larguras/temas aprovados. 270 nomes no frontend conferidos; nenhuma data inventada; fontes e normalizado intactos. Preview temporário encerrado. Próximo exato: receber data e esclarecer 18 pendências; participantes das 73 passagens continuam inferidos.

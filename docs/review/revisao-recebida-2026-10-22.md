@@ -65,3 +65,7 @@ A CLI da projeção inclui o registro disponível por padrão; API Python aceita
 Receber responsável e data prometidos pelo usuário; registrar atribuição separada e rastreável, sem alterar planilha recebida. Esclarecer 18 pendências de conteúdo e fontes das inclusões pedidas; somente então aplicar decisões elegíveis numa camada explícita de revisão, preservando evidência original. As 73 atribuições inferidas continuam aguardando validação própria.
 
 Complemento QA: `operation.mjs` aprovado para dez processos/73 passagens, seletores/aliases/drawer, três larguras/temas, sem overflow ou erros. Runner passou a aguardar seletor controlado vazio após Escape; fechamento nativo acontece antes da atualização React de onClose. Duas tentativas anteriores encontraram timeout; sincronização explícita resolveu a corrida no runner. Nenhuma lógica de navegação do produto foi alterada.
+
+## Complemento — autoria identificada
+
+Usuário informou Dariane Pantoja e Lunna Nogueira como revisoras. Atribuição conjunta às 270 respostas, sem divisão individual presumida. `data/review/attribution.json` preserva declaração e hash do arquivo; importador incorpora nomes ao ledger e à projeção frontend. Data da revisão continua não informada. Registros iniciais de autoria ausente acima descrevem estado no recebimento; este complemento os atualiza. Nenhuma proposta foi promovida por esta atribuição.

@@ -314,3 +314,7 @@ Usuário informou que a equipe operacional já está trabalhando nos conflitos d
 Próximo passo EXATO: receber autoria/data, esclarecer 18 pendências e escopo/fontes das inclusões pedidas; preparar promoção explícita somente de decisões elegíveis. Participantes das 73 passagens continuam inferidos. Não reextrair ou renormalizar fontes para esta unidade.
 
 Complemento do marco: QA `operation.mjs` aprovado nas 73 passagens/10 processos; sincronização do runner após Escape ajustada para aguardar atualização React. Fontes/raw/normalized/alignment conferidos contra Git HEAD, sem diferenças.
+
+## Complemento 2026-10-22 — revisoras identificadas
+
+Dariane Pantoja e Lunna Nogueira identificadas pelo usuário como revisoras. Nomes incorporados às 270 respostas e ao frontend; atribuição rastreável em `data/review/attribution.json` (DEC-046). Data da revisão ainda não informada. Próximo: receber data e esclarecer 18 pendências antes de promover decisões elegíveis.

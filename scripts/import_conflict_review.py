@@ -203,12 +203,27 @@ def import_review(path: Path, normalized: Path = ROOT / 'data/normalized') -> di
                 decisions=decisions)
 
 
+def apply_attribution(review: dict, attribution: dict) -> dict:
+    """Attach later user-supplied authorship without editing the received XLSX."""
+    if attribution['workbookSha256'] != review['source']['sha256']:
+        raise ValueError('Atribuição corresponde a outra planilha')
+    review['attribution'] = attribution
+    for decision in review['decisions']:
+        if not decision['reviewer']:
+            decision['reviewer'] = ' e '.join(attribution['reviewers'])
+            decision['status'] = 'received-date-pending' if not decision['reviewedAt'] else 'received'
+    return review
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('workbook', type=Path)
     parser.add_argument('--output', type=Path, default=ROOT / 'data/review/conflict-decisions.json')
+    parser.add_argument('--attribution', type=Path, default=ROOT / 'data/review/attribution.json')
     args = parser.parse_args()
     review = import_review(args.workbook)
+    if args.attribution.exists():
+        review = apply_attribution(review, load(args.attribution))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(review, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(review['summary'], ensure_ascii=False))
