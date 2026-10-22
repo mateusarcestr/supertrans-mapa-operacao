@@ -381,3 +381,14 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Gerar representação visual de fluxo em cards verticais com setas direcionais conectadas (↓).
 - [x] Validar suíte Python completa (86 testes OK) e build frontend Vite/TypeScript.
 - [ ] Usuário testar encadeamento de perguntas e geração de fluxos no chat.
+
+## Harness de Engenharia de Grafos e Autoresearch — 2026-10-22
+
+- [x] Criar `harness/prepare.py` com benchmark gold imutável e métricas ponderadas.
+- [x] Criar `harness/program.md` com especificação de controle, superfícies mutáveis e invariantes.
+- [x] Criar `harness/loop.py` com CLI do loop ratchet (benchmark, step, history).
+- [x] Criar `harness/ledger.jsonl` para rastreamento de linhagem de experimentos em DAG.
+- [x] Implementar testes unitários em `tests/test_harness.py` (5 testes).
+- [x] Documentar arquitetura e plano de 5 planos em `docs/harness.md`.
+- [x] Validar benchmark com score 0.9474 e 91 testes Python aprovados.
+- [ ] Conduzir otimizações de recuperação usando o ratchet loop.

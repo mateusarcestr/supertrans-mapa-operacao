@@ -677,3 +677,21 @@ Implementação:
 3. Interface: cards verticais com número, título, executor, detalhes/sistema e setas direcionais ArrowDown, reproduzindo a referência visual fornecida.
 
 Validação: 86 testes unitários Python (suíte completa) aprovados, build TypeScript/Vite sem erros. Próximo: usuário testar o fluxo no chat com perguntas encadeadas.
+
+## DEC-058 — Harness de Engenharia de Grafos e Autoresearch (2026-10-22)
+
+Usuário solicitou: "Usa as informações desse PDF para criar um harness que faça sentido para esse projeto", fornecendo o artigo "Graph Engineering: The Karpathy Loop, Improved 1000x by Itself / The Anthropic Playbook" (Julho 2026).
+
+O artigo sintetiza três elementos arquiteturais fundamentais:
+1. O loop de Karpathy (Autoresearch): iteração automatizada com prepare.py (imutável), superfície editável, program.md com regras naturais de controle e ratchet loop (keep se melhorar, revert se piorar).
+2. AgentHub: DAG de commits e linhagem experimental onde cada nó armazena metadados e hipótese, permitindo colaboração sem inflar o contexto.
+3. Anthropic Playbook de Grafos de Conhecimento: estruturação em cinco planos (Control, Execution, Artifact, Graph, Evaluation) e cumprimento de quatro invariantes (toda afirmação tem fonte/inferência explícita, todo artefato tem versão, toda avaliação tem rubrica, todo estado anterior é endereçável).
+
+Implementação adaptada à operação Super Trans:
+- harness/prepare.py: benchmark gold com seis casos essenciais de teste operacional (retirada de CNTR, fluxo multi-turn, validação de documentos, pátio C, catálogo de responsabilidades e cabotagem). Avaliadores objetivos de fundamentação de fontes (grounding), revocação de entidades, coerência de fluxo e verificação determinística das 86 invariantes do projeto.
+- harness/program.md: especificação de controle do autoresearch definindo arquivos mutáveis (prompts, busca lexical, interface), arquivos protegidos (fontes originais POP/Bizagi, dados raw/normalized, suíte de testes), métrica composta escalar (composite_score) e política de reversão via git reset.
+- harness/loop.py: CLI executável com comandos benchmark, step e history, registrando o histórico de ensaios em harness/ledger.jsonl.
+- tests/test_harness.py: cinco testes unitários garantindo a conformidade e estabilidade do harness.
+- docs/harness.md: documentação da arquitetura e guia de operação.
+
+Validação: benchmark executado com composite_score inicial de 0.9474 (100% fundamentação, 100% coerência de fluxo, 86/86 invariantes preservadas), 91 testes Python aprovados (86 anteriores + 5 novos). Próximo passo: utilizar o harness para guiar melhorias incrementais no chat e grafo de processos.

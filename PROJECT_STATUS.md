@@ -381,3 +381,16 @@ Atendido pedido do usuário: perguntas sequenciais como "faça um fluxo dessa d�
 Implementada extração resiliente de JSON no backend (parse_json_payload) para contornar delimitadores de código markdown retornados por modelos LLM, além de normalização de espaços para validação de citações literais. O modo selecionado (NVIDIA/NIM) é mantido mesmo em buscas sem termos coincidentes.
 
 Validação: 86 testes unitários Python aprovados, build frontend Vite/TypeScript concluído sem erros. Próximo passo: usuário testar perguntas encadeadas e geração de fluxos no chat.
+
+## Marco 2026-10-22 — Harness de Engenharia de Grafos e Autoresearch (DEC-058)
+
+Criado o harness autônomo baseado no artigo "Graph Engineering: The Karpathy Loop, Improved 1000x by Itself / The Anthropic Playbook".
+
+O sistema agora possui:
+- `harness/prepare.py`: Benchmark gold imutável avaliando fundamentação de fontes (35%), revocação de entidades (25%), coerência de fluxo (20%), responsabilidades (10%) e latência (10%), além de verificação estrita das 86 invariantes do projeto.
+- `harness/program.md`: Especificação de controle do loop com arquivos protegidos/mutáveis e regras de ratchet.
+- `harness/loop.py`: CLI de automação com comandos `benchmark`, `step` (keep se score melhorar, git reset se regredir) e `history` (ledger DAG em `harness/ledger.jsonl`).
+- `tests/test_harness.py`: 5 testes unitários cobrindo o avaliador e o registro de histórico.
+- `docs/harness.md`: Documentação técnica completa.
+
+Validação: Benchmark gold executado com composite_score de 0.9474 (100% de fundamentação, 100% de fluxo, 6/6 casos aprovados), 91 testes Python aprovados (86 anteriores + 5 novos). Próximo passo: utilizar o harness para testar experimentos de prompt e recuperação com reversão automática.

@@ -501,3 +501,18 @@ Geração de fluxo: detecção automática de solicitações de fluxo/passo a pa
 Parsing JSON resiliente: adicionada função parse_json_payload para extrair objetos JSON limpos mesmo quando o modelo LLM envolve a resposta em blocos de código markdown (```json). Normalização de espaços em branco ao validar citações literais (select_quotes). Modo configurado (nvidia-api/local-nim) é preservado mesmo em buscas vazias.
 
 86 testes Python na suíte completa aprovados (2 novos testes específicos de contexto multi-turn e parsing resiliente), build frontend Vite/TypeScript concluído sem erros. Próximo exato: usuário reiniciar npm run dev e testar perguntas encadeadas e geração de fluxos no chat.
+
+## CHECKPOINT VIGENTE — harness autoresearch e engenharia de grafos (2026-10-22)
+
+DEC-058. Implementado o harness autônomo baseado no artigo "Graph Engineering: The Karpathy Loop, Improved 1000x by Itself / The Anthropic Playbook".
+
+O harness estrutura o projeto nos 5 planos recomendados:
+- Control plane: harness/program.md define o contrato natural de controle, arquivos mutáveis, arquivos protegidos e regras de ratchet.
+- Execution plane: scripts/chat_server.py e scripts/knowledge_search.py executam a recuperação, síntese e formatação de fluxos.
+- Artifact plane: data/raw/, data/normalized/ e knowledge/reviews/ mantêm versões imutáveis e auditáveis.
+- Graph plane: knowledge/processes/*.md e harness/ledger.jsonl (DAG de experimentos em JSONL).
+- Evaluation plane: harness/prepare.py com benchmark gold (6 casos representativos da operação Super Trans), métricas de fundamentação (35%), entidades (25%), fluxo (20%), responsabilidades (10%), latência (10%) e verificação de 100% de invariantes determinísticos.
+
+CLI de controle: harness/loop.py fornece comandos benchmark (scorecard executivo), step (keep se melhorar, git reset se piorar) e history (rastreamento de linhagem).
+
+91 testes Python aprovados (86 anteriores + 5 novos em tests/test_harness.py). Benchmark gold executado com composite_score de 0.9474 (6/6 casos gold aprovados). Documentação completa em docs/harness.md. Próximo exato: utilizar o harness para testar otimizações autônomas com reversão automática.
