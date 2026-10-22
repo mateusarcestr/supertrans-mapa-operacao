@@ -2,6 +2,10 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Settings2, X } from 'lucide-react'
 
 const defaultModel = 'nvidia/nemotron-3.5-super-vl-120b-a12b'
+export interface NvidiaModel {
+  id: string; label: string; efforts: string[]; provider?: string; summary?: string
+  category?: string; selectable?: boolean; sourceUrl?: string
+}
 export interface AssistantConfiguration {
   model: string
   keyConfigured: boolean
@@ -9,7 +13,7 @@ export interface AssistantConfiguration {
   mode: 'local-search' | 'local-nim' | 'nvidia-api'
   externalContext: boolean
   effort?: string
-  models?: { id: string; label: string; efforts: string[] }[]
+  models?: NvidiaModel[]
 }
 
 export function AssistantSettings({ onSaved }: { onSaved: (settings: AssistantConfiguration) => void }) {
@@ -17,6 +21,7 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: AssistantCo
   const [settings, setSettings] = useState<AssistantConfiguration | null>(null)
   const [model, setModel] = useState(defaultModel)
   const [custom, setCustom] = useState(false)
+  const [availableModels, setAvailableModels] = useState<NvidiaModel[]>([])
   const [key, setKey] = useState('')
   const [remove, setRemove] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -34,7 +39,9 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: AssistantCo
       const response = await fetch('/api/chat/settings', { signal: controller.current.signal })
       if (!response.ok) throw new Error()
       const data: AssistantConfiguration = await response.json()
-      setSettings(data); setModel(data.model); setCustom(data.model !== defaultModel)
+      setSettings(data); setModel(data.model); setCustom(false)
+      fetch('/api/chat/models', { signal: controller.current.signal }).then(response => response.json())
+        .then(catalog => { if (Array.isArray(catalog.models)) setAvailableModels(catalog.models) }).catch(() => {})
     } catch (reason) {
       if (!(reason instanceof DOMException && reason.name === 'AbortError')) setError('Não foi possível carregar. Confira se o serviço local está iniciado.')
     }
@@ -93,9 +100,12 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: AssistantCo
         <p>Provedor: NVIDIA API</p>
         {settings.locked && <p className="assistant-notice">Configuração gerenciada pelas variáveis do servidor. Altere-as e reinicie o serviço.</p>}
         <fieldset disabled={busy || settings.locked}>
-          <label>Modelo<select aria-label="Modelo" value={custom ? 'custom' : defaultModel} onChange={(event) => { const other = event.target.value === 'custom'; setCustom(other); setModel(other ? '' : defaultModel) }}>
-            <option value={defaultModel}>Nemotron 3.5 Super (padrão)</option><option value="custom">Outro modelo NVIDIA</option>
+          <label>Modelo<select aria-label="Modelo" value={custom ? 'custom' : model} onChange={(event) => { const other = event.target.value === 'custom'; setCustom(other); setModel(other ? '' : event.target.value) }}>
+            {!availableModels.some(item => item.id === model) && <option value={model}>{settings.models?.find(item => item.id === model)?.label || model}</option>}
+            {availableModels.map(item => <option key={item.id} value={item.id} disabled={item.selectable === false}>{item.label}</option>)}
+            <option value="custom">Outro identificador NVIDIA</option>
           </select></label>
+          {!custom && <small>{availableModels.find(item => item.id === model)?.summary || settings.models?.find(item => item.id === model)?.summary}</small>}
           {custom && <label>Identificador do modelo<input required maxLength={200} value={model} onChange={(event) => setModel(event.target.value)} placeholder="organização/nome-do-modelo" autoComplete="off" /></label>}
           <label>Chave de API NVIDIA<input type="password" maxLength={512} value={key} disabled={remove} onChange={(event) => setKey(event.target.value)} autoComplete="new-password" spellCheck={false} placeholder={settings.keyConfigured ? 'Chave salva · deixe vazio para manter' : 'Cole sua chave de API'} /></label>
           <small>{settings.keyConfigured ? 'Chave configurada. O valor salvo não é exibido.' : 'Sem chave, o assistente usa a busca local.'} Armazenamento no servidor em .env.local, fora do Git.</small>

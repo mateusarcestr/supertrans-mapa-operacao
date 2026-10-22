@@ -483,3 +483,11 @@ compact_context remove JSON/IDs e preserva procedimento/executor/condições. Pr
 ## CHECKPOINT VIGENTE — trio de seletores padronizado (2026-10-22)
 
 DEC-055. Modelo | Esforço | Processo agora compartilham grid, rótulos visíveis e altura36px. AssistantModelControls recebe o campo de processo por children; AssistantPage preserva filtro/limpeza de conversa e aria-label Consultar processo. Status abaixo do grupo. Build/QA model-controls/chat-layout OK, incluindo ordem, alinhamento e pergunta enviada a P002, desktop/mobile/temas. Nenhuma alteração backend/chave/acervo. Próximo exato: encerrar Vite de QA4174 e usuário atualizar página; não exige reiniciar backend.
+
+## CHECKPOINT VIGENTE — catálogo NVIDIA dinâmico (2026-10-22)
+
+DEC-056. scripts/nvidia_catalog.py consulta /v1/models oficial e devolve83 modelos atuais, com metadados editoriais por família/finalidade, sem lista fixa. Cache10min por credencial, refresh manual, timeout12s e fallback somente do último cache da mesma chave com aviso. SettingsStore.catalog_models e GET /api/chat/models?refresh=1. API oficial não traz descrições; resumos em português não são textos originais da API nem benchmarks.21 especializados visíveis mas não selecionáveis no chat;62 elegíveis não testados por inferência.
+
+AssistantModelPicker com busca/resumo/ficha, foco de busca, Escape/ArrowDown e refresh. Modelo | Esforço | Processo permanece alinhado. Painel de chave também usa catálogo e permite identificador manual. GPT OSS20B suporta low/medium/high via reasoning_effort,max4096; outros perfis só com suporte verificado. Modelos especializados recusados no backend. Probe reconhece streaming só de raciocínio como conexão válida sem exibir conteúdo interno.
+
+82 Python suíte completa,25 específicos após último ajuste,29 Vitest/build e QA model-catalog/model-controls/chat-layout/assistant-settings OK. Rota real8766 validada em três GETs de catálogo/cache/refresh, sem perguntas/inferência. Snapshot público em docs/review/nvidia-catalog-2026-10-22.json. Vite4174 sessão92869/backend QA8766 sessão38833 devem ser encerrados ao finalizar. Chave real/.env.local/fontes/raw/normalized/review operacional/knowledge intactos. Próximo exato: usuário reiniciar npm run dev e abrir seletor Modelo; avaliar qualidade de inferência separadamente, sem pedir chave novamente.

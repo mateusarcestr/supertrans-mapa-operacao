@@ -21,6 +21,7 @@ try {
     let respond = true
     await page.route('**/api/**', async route => {
       const path = new URL(route.request().url()).pathname
+      if (path === '/api/chat/models') return route.fulfill({ json: { models } })
       if (path === '/api/chat/settings') {
         if (route.request().method() === 'POST') {
           const body = route.request().postDataJSON()
@@ -41,16 +42,17 @@ try {
     await page.reload()
     const model = page.getByRole('combobox', { name: 'Modelo do chat', exact: true })
     const effort = page.getByRole('combobox', { name: 'Esforço do modelo', exact: true })
-    await model.selectOption(models[1].id)
-    await page.waitForFunction(() => document.querySelector('[aria-label="Modelo do chat"]').value.includes('lightning'))
+    await model.click()
+    await page.getByRole('option', { name: /Nemotron 3.5 Lightning/ }).click()
+    await page.waitForFunction(() => document.querySelector('[aria-label="Modelo do chat"]').title.includes('lightning'))
     await effort.selectOption('standard')
     await page.waitForFunction(() => document.querySelector('[aria-label="Esforço do modelo"]').value === 'standard')
     await page.reload()
-    await page.waitForFunction(() => document.querySelector('[aria-label="Modelo do chat"]')?.value.includes('lightning') && document.querySelector('[aria-label="Esforço do modelo"]')?.value === 'standard')
-    assert.equal(await model.inputValue(), models[1].id)
+    await page.waitForFunction(() => document.querySelector('[aria-label="Modelo do chat"]')?.title.includes('lightning') && document.querySelector('[aria-label="Esforço do modelo"]')?.value === 'standard')
+    assert.equal(await model.getAttribute('title'), models[1].id)
     assert.equal(await effort.inputValue(), 'standard')
-    assert.deepEqual(await page.locator('.assistant-model-controls label > span').allTextContents(), ['Modelo', 'Esforço', 'Processo'])
-    const selects = await page.locator('.assistant-model-controls select').evaluateAll(elements => elements.map(el => ({ height: el.getBoundingClientRect().height, top: el.getBoundingClientRect().top })))
+    assert.deepEqual(await page.locator('.assistant-model-controls > .assistant-model-field > span, .assistant-model-controls > label > span').allTextContents(), ['Modelo', 'Esforço', 'Processo'])
+    const selects = await page.locator('.assistant-model-controls > .assistant-model-field > .assistant-model-trigger, .assistant-model-controls > label > select').evaluateAll(elements => elements.map(el => ({ height: el.getBoundingClientRect().height, top: el.getBoundingClientRect().top })))
     assert.equal(new Set(selects.map(el => el.height)).size, 1)
     assert.equal(new Set(selects.map(el => el.top)).size, 1)
     await page.getByRole('combobox', { name: 'Consultar processo', exact: true }).selectOption('P002')

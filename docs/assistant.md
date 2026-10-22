@@ -92,3 +92,15 @@ A NVIDIA documenta enable_thinking on/off nestes modelos. Os nomes de esforço r
 Contexto enviado retira JSON de fontes/IDs e mantém texto operacional/condições. Referências continuam ligadas ao Markdown completo no servidor. No exemplo da retirada do contêiner,9539→3324 caracteres (65,2%). Busca local~5ms; redução do payload não comprova redução de latência externa. Raciocínio permite mais tokens e pode aumentar espera. Nenhum documento foi enviado ao provedor para benchmark nesta unidade.
 
 Indicador mostra modelo+tempo transcorrido. Interromper espera aborta fetch no navegador e permite outra pergunta; não garante cancelamento de inferência/cobrança na NVIDIA. Texto continua sendo apresentado após validação da resposta completa, sem expor raciocínio interno. QA model-controls verifica salvar/recarregar, snapshot da pergunta, cronômetro e interrupção em dois temas/mobile com API simulada; não altera chave real.
+
+## Catálogo oficial NVIDIA
+
+O seletor busca disponibilidade real em GET https://integrate.api.nvidia.com/v1/models pelo servidor, sem expor a chave. GET /api/chat/models entrega a lista à interface; ?refresh=1 força atualização. Cache em memória de10min evita repetir chamada a cada troca de modelo. Falha mostra cache anterior da mesma credencial com aviso, ou lista indisponível sem inventar alternativas.
+
+Catálogo consultado em2026-10-22:83 modelos de22 fabricantes/namespaces. Snapshot público em docs/review/nvidia-catalog-2026-10-22.json, usado para QA; produção não lê esse snapshot como lista de disponibilidade. API só entrega id/object/created/owned_by. Resumos são frases editoriais por família/finalidade em português, com link à ficha oficial. Não são benchmarks ou garantia de velocidade/preço/qualidade. Tipos especializados continuam visíveis, com explicação, mas não podem ser usados neste chat. A classificação não substitui validar compatibilidade/qualidade real de cada modelo.
+
+Modelo abre diálogo pesquisável por nome, fabricante ou finalidade. Cada resultado mostra nome, tipo, uma frase e ficha oficial; atualizar consulta a API de novo. Painel da chave também carrega a lista. Os21 modelos especializados identificados são bloqueados para conversa;62 selecionáveis não foram testados por inferência. A interface mantém Modelo | Esforço | Processo.
+
+GPT OSS20B usa os esforços [low/medium/high documentados](https://docs.api.nvidia.com/nim/reference/openai-gpt-oss-20b-infer), apresentados como Baixo/Médio/Alto; os perfis on/off conhecidos continuam e os demais usam Padrão. Controle de esforço não é inferido pelo nome do modelo. Probe pode confirmar que um modelo respondeu mesmo quando o limite curto foi usado por raciocínio, sem mostrar esse raciocínio ao usuário.
+
+QA model-catalog testa o snapshot real com APIs simuladas:83 opções, resumos, busca, modelos especializados desabilitados, DeepSeek/GPT, refresh e falha/cache em mobile/temas. Backend real foi validado somente com GET do catálogo, sem enviar documentos nem executar inferência. Referência geral: [NVIDIA LLM APIs](https://docs.api.nvidia.com/nim/reference/llm-apis).

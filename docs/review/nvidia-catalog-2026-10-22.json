@@ -1,0 +1,1091 @@
+{
+  "models": [
+    {
+      "id": "01-ai/yi-large",
+      "label": "Yi Large",
+      "provider": "01-ai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/01-ai/yi-large/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "adept/fuyu-8b",
+      "label": "Fuyu 8B",
+      "provider": "adept",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/adept/fuyu-8b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "ai21labs/jamba-1.5-large-instruct",
+      "label": "Jamba 1.5 Large Instruct",
+      "provider": "ai21labs",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/ai21labs/jamba-1.5-large-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "aisingapore/sea-lion-7b-instruct",
+      "label": "Sea Lion 7B Instruct",
+      "provider": "aisingapore",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/aisingapore/sea-lion-7b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "bigcode/starcoder2-15b",
+      "label": "Starcoder2 15B",
+      "provider": "bigcode",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/bigcode/starcoder2-15b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "databricks/dbrx-instruct",
+      "label": "Dbrx Instruct",
+      "provider": "databricks",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/databricks/dbrx-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "label": "Deepseek Coder 6.7B Instruct",
+      "provider": "deepseek-ai",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/deepseek-ai/deepseek-coder-6.7b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "deepseek-ai/deepseek-v4.1-flash",
+      "label": "Deepseek V4.1 Flash",
+      "provider": "deepseek-ai",
+      "summary": "Ajuda a analisar documentos e resolver perguntas que exigem raciocínio.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/deepseek-ai/deepseek-v4.1-flash/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/codegemma-1.1-7b",
+      "label": "Codegemma 1.1 7B",
+      "provider": "google",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/codegemma-1.1-7b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/codegemma-7b",
+      "label": "Codegemma 7B",
+      "provider": "google",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/codegemma-7b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/deplot",
+      "label": "Deplot",
+      "provider": "google",
+      "summary": "Transforma informações visuais de gráficos em dados organizados.",
+      "category": "Gráficos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/deplot/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/diffusiongemma-26b-a4b-it",
+      "label": "Diffusiongemma 26B A4b IT",
+      "provider": "google",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/diffusiongemma-26b-a4b-it/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/gemma-2b",
+      "label": "Gemma 2B",
+      "provider": "google",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/gemma-2b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/gemma-3-12b-it",
+      "label": "Gemma 3 12B IT",
+      "provider": "google",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/gemma-3-12b-it/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/gemma-3-4b-it",
+      "label": "Gemma 3 4B IT",
+      "provider": "google",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/gemma-3-4b-it/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/gemma-4-31b-it",
+      "label": "Gemma 4 31B IT",
+      "provider": "google",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/gemma-4-31b-it/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "google/recurrentgemma-2b",
+      "label": "Recurrentgemma 2B",
+      "provider": "google",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/google/recurrentgemma-2b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "ibm/granite-3.0-3b-a800m-instruct",
+      "label": "Granite 3.0 3B A800m Instruct",
+      "provider": "ibm",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/ibm/granite-3.0-3b-a800m-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "ibm/granite-3.0-8b-instruct",
+      "label": "Granite 3.0 8B Instruct",
+      "provider": "ibm",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/ibm/granite-3.0-8b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "ibm/granite-34b-code-instruct",
+      "label": "Granite 34B Code Instruct",
+      "provider": "ibm",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/ibm/granite-34b-code-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "ibm/granite-8b-code-instruct",
+      "label": "Granite 8B Code Instruct",
+      "provider": "ibm",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/ibm/granite-8b-code-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/codellama-70b",
+      "label": "Codellama 70B",
+      "provider": "meta",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/codellama-70b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/llama-3.2-11b-vision-instruct",
+      "label": "Llama 3.2 11B Vision Instruct",
+      "provider": "meta",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/llama-3.2-11b-vision-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/llama-3.2-90b-vision-instruct",
+      "label": "Llama 3.2 90B Vision Instruct",
+      "provider": "meta",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/llama-3.2-90b-vision-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/llama-guard-4-12b",
+      "label": "Llama Guard 4 12B",
+      "provider": "meta",
+      "summary": "Avalia a segurança ou o assunto de um texto.",
+      "category": "Segurança",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/llama-guard-4-12b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/llama2-70b",
+      "label": "Llama2 70B",
+      "provider": "meta",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/llama2-70b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "meta/muse-glimmer-30b",
+      "label": "Muse Glimmer 30B",
+      "provider": "meta",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/meta/muse-glimmer-30b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "microsoft/kosmos-2",
+      "label": "Kosmos 2",
+      "provider": "microsoft",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/microsoft/kosmos-2/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "microsoft/phi-3-vision-128k-instruct",
+      "label": "Phi 3 Vision 128k Instruct",
+      "provider": "microsoft",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/microsoft/phi-3-vision-128k-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "microsoft/phi-3.5-moe-instruct",
+      "label": "Phi 3.5 Moe Instruct",
+      "provider": "microsoft",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/microsoft/phi-3.5-moe-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "mistralai/codestral-22b-instruct-v0.1",
+      "label": "Codestral 22B Instruct V0.1",
+      "provider": "mistralai",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/mistralai/codestral-22b-instruct-v0.1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.3",
+      "label": "Mistral 7B Instruct V0.3",
+      "provider": "mistralai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/mistralai/mistral-7b-instruct-v0.3/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "mistralai/mistral-large",
+      "label": "Mistral Large",
+      "provider": "mistralai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/mistralai/mistral-large/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "mistralai/mistral-large-2-instruct",
+      "label": "Mistral Large 2 Instruct",
+      "provider": "mistralai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/mistralai/mistral-large-2-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-v0.1",
+      "label": "Mixtral 8x22b V0.1",
+      "provider": "mistralai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/mistralai/mixtral-8x22b-v0.1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "moonshotai/kimi-k2.6",
+      "label": "Kimi K2.6",
+      "provider": "moonshotai",
+      "summary": "Ajuda a conversar sobre informações e trabalhar com textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/moonshotai/kimi-k2.6/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nv-mistralai/mistral-nemo-12b-instruct",
+      "label": "Mistral Nemo 12B Instruct",
+      "provider": "nv-mistralai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nv-mistralai/mistral-nemo-12b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/ai-synthetic-video-detector",
+      "label": "AI Synthetic Video Detector",
+      "provider": "nvidia",
+      "summary": "Identifica sinais de que um vídeo foi gerado por inteligência artificial.",
+      "category": "Vídeo",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/ai-synthetic-video-detector/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/cosmos-reason2-8b",
+      "label": "Cosmos Reason2 8B",
+      "provider": "nvidia",
+      "summary": "Analisa imagens e vídeos para interpretar situações do mundo físico.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/cosmos-reason2-8b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/embed-qa-4",
+      "label": "Embed QA 4",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/embed-qa-4/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/ising-calibration-1.5-31b",
+      "label": "Ising Calibration 1.5 31B",
+      "provider": "nvidia",
+      "summary": "Auxilia tarefas de calibração em computação quântica.",
+      "category": "Ciência",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/ising-calibration-1.5-31b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemoguard-8b-content-safety",
+      "label": "Llama 3.1 Nemoguard 8B Content Safety",
+      "provider": "nvidia",
+      "summary": "Avalia a segurança ou o assunto de um texto.",
+      "category": "Segurança",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemoguard-8b-content-safety/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemoguard-8b-topic-control",
+      "label": "Llama 3.1 Nemoguard 8B Topic Control",
+      "provider": "nvidia",
+      "summary": "Avalia a segurança ou o assunto de um texto.",
+      "category": "Segurança",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemoguard-8b-topic-control/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-51b-instruct",
+      "label": "Llama 3.1 Nemotron 51B Instruct",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemotron-51b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "label": "Llama 3.1 Nemotron 70B Instruct",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemotron-70b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+      "label": "Llama 3.1 Nemotron Safety Guard 8B V3",
+      "provider": "nvidia",
+      "summary": "Avalia a segurança ou o assunto de um texto.",
+      "category": "Segurança",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemotron-safety-guard-8b-v3/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "label": "Llama 3.1 Nemotron Ultra 253B V1",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.1-nemotron-ultra-253b-v1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1",
+      "label": "Llama 3.2 Nemoretriever 1B Vlm Embed V1",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-3.2-nv-embedqa-1b-v1",
+      "label": "Llama 3.2 Nv Embedqa 1B V1",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-3.2-nv-embedqa-1b-v1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "label": "Llama Nemotron Embed VL 1B V2",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama-nemotron-embed-vl-1b-v2/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/llama3-chatqa-1.5-70b",
+      "label": "Llama3 Chatqa 1.5 70B",
+      "provider": "nvidia",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/llama3-chatqa-1.5-70b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/mistral-nemo-minitron-8b-8k-instruct",
+      "label": "Mistral Nemo Minitron 8B 8k Instruct",
+      "provider": "nvidia",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/mistral-nemo-minitron-8b-8k-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3-embed-1b",
+      "label": "Nemotron 3 Embed 1B",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3-embed-1b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "label": "Nemotron 3 Nano Omni 30B A3b Reasoning",
+      "provider": "nvidia",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b",
+      "label": "Nemotron 3 Super 120B A12b",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "label": "Nemotron 3 Ultra 550B A55b",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-content-safety",
+      "label": "Nemotron 3.5 Content Safety",
+      "provider": "nvidia",
+      "summary": "Avalia a segurança ou o assunto de um texto.",
+      "category": "Segurança",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3.5-content-safety/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-embed-1b",
+      "label": "Nemotron 3.5 Embed 1B",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3.5-embed-1b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-embed-8b",
+      "label": "Nemotron 3.5 Embed 8B",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3.5-embed-8b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "label": "Nemotron 3.5 Lightning 30B A3b",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "none",
+        "standard"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+      "label": "Nemotron 3.5 Super VL 120B A12b",
+      "provider": "nvidia",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "none",
+        "standard"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-3.5-super-vl-120b-a12b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-4-340b-instruct",
+      "label": "Nemotron 4 340B Instruct",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-4-340b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-4-340b-reward",
+      "label": "Nemotron 4 340B Reward",
+      "provider": "nvidia",
+      "summary": "Avalia respostas de outros modelos para apoiar seu treinamento.",
+      "category": "Avaliação",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-4-340b-reward/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-nano-3-30b-a3b",
+      "label": "Nemotron Nano 3 30B A3b",
+      "provider": "nvidia",
+      "summary": "Ajuda a responder perguntas e explicar informações fornecidas em documentos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-nano-3-30b-a3b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-parse",
+      "label": "Nemotron Parse",
+      "provider": "nvidia",
+      "summary": "Extrai informações da estrutura visual de páginas e documentos.",
+      "category": "Leitura de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-parse/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nemotron-parse-2.0",
+      "label": "Nemotron Parse 2.0",
+      "provider": "nvidia",
+      "summary": "Extrai informações da estrutura visual de páginas e documentos.",
+      "category": "Leitura de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nemotron-parse-2.0/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/neva-22b",
+      "label": "Neva 22B",
+      "provider": "nvidia",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/neva-22b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nv-embedqa-mistral-7b-v2",
+      "label": "Nv Embedqa Mistral 7B V2",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nv-embedqa-mistral-7b-v2/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/nvclip",
+      "label": "Nvclip",
+      "provider": "nvidia",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/nvclip/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/riva-translate-4b-instruct",
+      "label": "Riva Translate 4B Instruct",
+      "provider": "nvidia",
+      "summary": "Traduz textos entre idiomas.",
+      "category": "Tradução",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/riva-translate-4b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/riva-translate-4b-instruct-v2",
+      "label": "Riva Translate 4B Instruct V2",
+      "provider": "nvidia",
+      "summary": "Traduz textos entre idiomas.",
+      "category": "Tradução",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/riva-translate-4b-instruct-v2/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "nvidia/vila",
+      "label": "Vila",
+      "provider": "nvidia",
+      "summary": "Interpreta textos e imagens para explicar informações e responder perguntas.",
+      "category": "Texto e imagens",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/nvidia/vila/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "openai/gpt-oss-20b",
+      "label": "GPT OSS 20B",
+      "provider": "openai",
+      "summary": "Responde perguntas e resolve tarefas em texto com raciocínio ajustável.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "sourceUrl": "https://build.nvidia.com/openai/gpt-oss-20b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "poolside/laguna-xs-2.1",
+      "label": "Laguna Xs 2.1",
+      "provider": "poolside",
+      "summary": "Ajuda a escrever, completar e explicar código de programação.",
+      "category": "Programação",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/poolside/laguna-xs-2.1/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "snowflake/arctic-embed-l",
+      "label": "Arctic Embed L",
+      "provider": "snowflake",
+      "summary": "Ajuda a encontrar documentos ou imagens com conteúdo parecido.",
+      "category": "Busca de documentos",
+      "selectable": false,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/snowflake/arctic-embed-l/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "stepfun-ai/step-5-preview",
+      "label": "Step 5 Preview",
+      "provider": "stepfun-ai",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/stepfun-ai/step-5-preview/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "writer/palmyra-creative-122b",
+      "label": "Palmyra Creative 122B",
+      "provider": "writer",
+      "summary": "Ajuda a criar e reescrever textos.",
+      "category": "Escrita",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/writer/palmyra-creative-122b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "writer/palmyra-fin-70b-32k",
+      "label": "Palmyra Fin 70B 32k",
+      "provider": "writer",
+      "summary": "Trabalha com textos e perguntas da área financeira.",
+      "category": "Finanças",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/writer/palmyra-fin-70b-32k/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "writer/palmyra-med-70b",
+      "label": "Palmyra Med 70B",
+      "provider": "writer",
+      "summary": "Trabalha com textos e perguntas da área médica.",
+      "category": "Saúde",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/writer/palmyra-med-70b/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "writer/palmyra-med-70b-32k",
+      "label": "Palmyra Med 70B 32k",
+      "provider": "writer",
+      "summary": "Trabalha com textos e perguntas da área médica.",
+      "category": "Saúde",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/writer/palmyra-med-70b-32k/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "z-ai/glm-5.3",
+      "label": "GLM 5.3",
+      "provider": "z-ai",
+      "summary": "Ajuda com perguntas, redação de textos e tarefas de raciocínio.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/z-ai/glm-5.3/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "z-ai/glm-5.3-flash",
+      "label": "GLM 5.3 Flash",
+      "provider": "z-ai",
+      "summary": "Ajuda com perguntas, redação de textos e tarefas de raciocínio.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/z-ai/glm-5.3-flash/modelcard",
+      "summarySource": "editorial-model-family"
+    },
+    {
+      "id": "zyphra/zamba2-7b-instruct",
+      "label": "Zamba2 7B Instruct",
+      "provider": "zyphra",
+      "summary": "Responde perguntas, resume informações e ajuda a escrever textos.",
+      "category": "Conversa",
+      "selectable": true,
+      "efforts": [
+        "default"
+      ],
+      "sourceUrl": "https://build.nvidia.com/zyphra/zamba2-7b-instruct/modelcard",
+      "summarySource": "editorial-model-family"
+    }
+  ],
+  "source": "https://integrate.api.nvidia.com/v1/models",
+  "fetchedAt": "2026-10-22T20:26:52.855970+00:00",
+  "cached": false,
+  "stale": false
+}

@@ -363,3 +363,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Padronizar Modelo | Esforço | Processo com rótulos visíveis e dimensões consistentes.
 - [x] Validar escolha de processo na requisição, build, alinhamento e rolagem em desktop/mobile.
 - [ ] Revisão visual do usuário.
+
+## Catálogo oficial de modelos — 2026-10-22
+
+- [x] Buscar disponibilidade em /v1/models oficial, sem lista fixa no seletor.
+- [x] Adicionar busca por nome/fabricante/uso, resumo em português e ficha oficial.
+- [x] Identificar modelos especializados e preservar cache com aviso em falhas de atualização.
+- [x] Mapear esforços baixo/médio/alto do GPT OSS20B conforme documentação oficial.
+- [x] Validar rota real de catálogo/cache/atualização, testes/build e QA desktop/mobile/temas com APIs simuladas.
+- [ ] Usuário reiniciar npm run dev e revisar catálogo; inferência/qualidade de cada modelo não foi validada nesta unidade.

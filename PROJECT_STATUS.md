@@ -367,3 +367,9 @@ Busca medida em cerca de5ms. Contexto da pergunta do print caiu de9539 para3324 
 ## Marco 2026-10-22 — seletores padronizados (DEC-055)
 
 Cabeçalho reorganizado na ordem Modelo | Esforço | Processo, com rótulos visíveis, mesma altura e estilo nos três selects. Processo permanece escolhido pelo usuário e segue no payload da pergunta. Build e QA model-controls/chat-layout aprovados em temas/desktop/mobile, incluindo mudança para P002. Backend/chave/acervo intactos. Próximo: atualizar navegador e revisão visual.
+
+## Marco 2026-10-22 — catálogo oficial NVIDIA e descrições (DEC-056)
+
+Lista fixa removida: GET /api/chat/models consulta https://integrate.api.nvidia.com/v1/models, cache10min e atualização manual. Verificação real HTTP200:83 modelos/22 fabricantes,62 selecionáveis para conversa e21 especializados identificados. Header/painel usam catálogo; seletor pesquisável mostra resumo de uma frase em português e ficha oficial. Disponibilidade vem da API; descrições são editoriais por família/finalidade, pois a API retorna só id/object/created/owned_by. Sem ranking ou promessa de rapidez.
+
+GPT OSS20B habilita esforços baixo/médio/alto via reasoning_effort e limite4096 documentado; demais capacidades só quando verificadas. Backend recusa uso dos tipos especializados no chat.82 testes Python na suíte completa,25 específicos após ajuste final,29 Vitest/build e QA catálogo/model-controls/chat-layout/settings aprovados. Snapshot público em docs/review/nvidia-catalog-2026-10-22.json; nenhuma inferência/documento enviado à NVIDIA e chave real intacta. Próximo: encerrar instâncias QA, usuário reiniciar npm run dev e abrir Modelo; avaliar respostas reais separadamente.

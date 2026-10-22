@@ -14,22 +14,23 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from scripts.knowledge_search import KnowledgeIndex, terms
+from scripts.nvidia_catalog import EFFORTS, NvidiaCatalog, model_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 NVIDIA_ENDPOINT = 'https://integrate.api.nvidia.com/v1/chat/completions'
 NVIDIA_MODEL = 'nvidia/nemotron-3.5-super-vl-120b-a12b'
-MODEL_OPTIONS = [
-    dict(id=NVIDIA_MODEL, label='Nemotron 3.5 Super', efforts=['none', 'standard']),
-    dict(id='nvidia/nemotron-3.5-lightning-30b-a3b', label='Nemotron 3.5 Lightning', efforts=['none', 'standard']),
-]
+THINKING_MODELS = {model for model, efforts in EFFORTS.items() if efforts == ['none', 'standard']}
 
 
 def model_choices(current):
-    return MODEL_OPTIONS + ([] if current in {m['id'] for m in MODEL_OPTIONS} else [dict(id=current, label=current, efforts=['default'])])
+    # Current selection only; availability is always loaded from NVIDIA's live catalog.
+    return [model_metadata(current)]
 
 
 def resolve_effort(model, effort=None):
-    choices = next((m['efforts'] for m in MODEL_OPTIONS if m['id'] == model), ['default'])
+    choices = EFFORTS.get(model, ['default'])
+    if effort == 'default' and choices != ['default']:
+        effort = 'medium' if model == 'openai/gpt-oss-20b' else choices[0]
     effort = effort or choices[0]
     if effort not in choices:
         raise ValueError('Esforço não suportado por este modelo.')
@@ -90,6 +91,7 @@ def provider_completion(request, timeout=45):
         if not str(response.headers.get('Content-Type', '')).startswith('text/event-stream'):
             return json.loads(response.read(1_000_000))
         content = []
+        received_tokens = False
         size = 0
         started = time.monotonic()
         for raw in response:
@@ -105,24 +107,31 @@ def provider_completion(request, timeout=45):
                 break
             chunk = json.loads(data)
             for choice in chunk.get('choices', []):
+                if choice.get('delta', {}).get('reasoning_content'):
+                    received_tokens = True
                 text = choice.get('delta', {}).get('content')
                 if isinstance(text, str):
                     content.append(text)
-        return {'choices': [{'message': {'content': ''.join(content)}}]}
+                    received_tokens = received_tokens or bool(text)
+        return {'choices': [{'message': {'content': ''.join(content)}}], 'receivedTokens': received_tokens}
 
 
 def probe_provider(endpoint, model, api_key):
     """Check inference with synthetic text only; never include the operational corpus."""
     body = dict(model=model, messages=[dict(role='user', content='Responda apenas OK.')],
                 temperature=0, max_tokens=16, stream=True)
-    if model in {m['id'] for m in MODEL_OPTIONS}:
+    if model in THINKING_MODELS:
         body['chat_template_kwargs'] = {'enable_thinking': False}
+    elif model == 'openai/gpt-oss-20b':
+        body.update(reasoning_effort='low', max_tokens=256)
     headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + api_key}
     request = urllib.request.Request(endpoint, data=json.dumps(body).encode(), headers=headers)
     try:
         payload = provider_completion(request, timeout=30)
         content = payload['choices'][0]['message']['content']
         if not isinstance(content, str) or not content.strip():
+            if payload.get('receivedTokens') or payload['choices'][0]['message'].get('reasoning_content'):
+                return dict(ok=True, message='Conexão confirmada: o modelo respondeu ao teste; o limite curto foi usado pelo raciocínio.')
             raise ValueError('empty response')
         return dict(ok=True, message='Conexão confirmada: a NVIDIA respondeu usando este modelo e esta chave.')
     except (OSError, ValueError, KeyError, IndexError, TypeError) as error:
@@ -175,8 +184,10 @@ def nim_quotes(question, hits, endpoint, model, api_key='', effort=None):
     body = dict(model=model, messages=[dict(role='system', content=system),
                 dict(role='user', content=f'Pergunta: {question}\nDOCUMENTOS:\n{context}')], temperature=0, max_tokens=1400 if effort != 'standard' else 8192)
     body['stream'] = endpoint == NVIDIA_ENDPOINT
-    if model in {m['id'] for m in MODEL_OPTIONS}:
+    if model in THINKING_MODELS:
         body['chat_template_kwargs'] = {'enable_thinking': effort == 'standard'}
+    elif model == 'openai/gpt-oss-20b':
+        body.update(reasoning_effort=effort, max_tokens=4096)
     headers = {'Content-Type': 'application/json'}
     if api_key:
         headers['Authorization'] = 'Bearer ' + api_key
@@ -239,6 +250,8 @@ class Assistant:
             if endpoint and not external and model_override != model:
                 raise ValueError('Modelo local é gerenciado no servidor.')
             model = model_override
+        if model and not model_metadata(model)['selectable']:
+            raise ValueError('Modelo especializado incompatível com o chat de processos.')
         effort = resolve_effort(model or NVIDIA_MODEL, effort_override if effort_override is not None else effort if not model_override else None)
         if not isinstance(question, str) or not 3 <= len(question.strip()) <= 2000:
             raise ValueError('Escreva uma pergunta entre 3 e 2000 caracteres')
@@ -311,6 +324,12 @@ class SettingsStore:
     def __init__(self, assistant, root=ROOT):
         self.assistant = assistant
         self.root = root
+        self.catalog = NvidiaCatalog()
+
+    def catalog_models(self, refresh=False):
+        with self.assistant.config_lock:
+            key = self.assistant.api_key or configuration(self.root)['NVIDIA_API_KEY']
+        return self.catalog.get(key, refresh)
 
     def public(self):
         with self.assistant.config_lock:
@@ -342,6 +361,8 @@ class SettingsStore:
             remove = data.get('removeKey', False)
             if not isinstance(model, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]{1,199}', model):
                 raise ValueError('Informe um identificador de modelo válido.')
+            if not model_metadata(model)['selectable']:
+                raise ValueError('Este modelo é especializado em outra tarefa e não pode ser usado como assistente de processos.')
             if not isinstance(key, str) or len(key) > 512 or any(ord(c) < 33 or ord(c) > 126 or c in "\"'" for c in key):
                 raise ValueError('Chave inválida: use o valor sem espaços ou quebras de linha.')
             if not isinstance(remove, bool) or (remove and key):
@@ -419,6 +440,9 @@ def make_handler(assistant, directory, settings=None):
                 return self.json_response({'error': 'Não foi possível consultar a base local'}, 500)
 
         def do_GET(self):
+            if urllib.parse.urlsplit(self.path).path == '/api/chat/models':
+                refresh = urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query).get('refresh') == ['1']
+                return self.json_response(settings.catalog_models(refresh))
             if self.path == '/api/chat/settings':
                 return self.json_response(settings.public())
             if self.path == '/api/chat/status':

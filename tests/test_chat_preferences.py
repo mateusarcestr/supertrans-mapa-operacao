@@ -8,6 +8,22 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class PreferenceTests(unittest.TestCase):
+    def test_legacy_default_effort_still_loads_when_model_gains_verified_controls(self):
+        assistant = Assistant(ROOT / 'knowledge', model='openai/gpt-oss-20b', effort='default')
+        self.assertEqual(assistant.effort, 'medium')
+
+    def test_gpt_oss_uses_official_reasoning_parameter_and_token_limit(self):
+        hit = {'id': 'test:1', 'text': 'A equipe de teste responde à pergunta.'}
+        opener = MagicMock()
+        content = json.dumps({'evidencias': [{'source_id': 'test:1', 'quote': hit['text']}]})
+        opener.open.return_value.__enter__.return_value.read.return_value = json.dumps({'choices': [{'message': {'content': content}}]}).encode()
+        with patch('scripts.chat_server.urllib.request.build_opener', return_value=opener):
+            nim_quotes('Quem responde?', [hit], NVIDIA_ENDPOINT, 'openai/gpt-oss-20b', 'placeholder', effort='high')
+        body = json.loads(opener.open.call_args.args[0].data)
+        self.assertEqual(body['reasoning_effort'], 'high')
+        self.assertLessEqual(body['max_tokens'], 4096)
+        self.assertNotIn('chat_template_kwargs', body)
+
     def test_compaction_preserves_branch_conditions(self):
         hit = {'text': 'Próxima: Entrega | ID: opaque | ligação: opaque | condição: Aceite confirmado'}
         compact = compact_context(hit)
