@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Circle, FileText, Flag, GitBranch, ListChecks, Repeat2, Split, TriangleAlert } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Circle, FileText, Flag, GitBranch, ListChecks, Repeat2, Split, TriangleAlert, UsersRound, UserRound, Monitor, MessageCircle, ClipboardList, BadgeCheck } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { buildFocusFlow } from '../data/focus-flow'
 import {
@@ -108,16 +108,16 @@ export function FocusFlow({
               <h2>{title(node)}</h2>
             </div>
             <ConfidenceBadge state={readinessForNode(process, node, conflictsForNode(catalog, node.id))} />
-            {node.reviewDecisionIds?.length ? <span className="tag">Revisado</span> : null}
+            {node.reviewDecisionIds?.length ? <span className="tag with-icon"><BadgeCheck size={14} aria-hidden="true" />Revisado</span> : null}
           </div>
           {(laneActor || popActor) && (
             <div className="focus-flow-participants">
               <div>
-                <span>Participante (Bizagi · lane)</span>
+                <span className="with-icon"><UsersRound size={14} aria-hidden="true" />Participante (Bizagi · lane)</span>
                 <strong>{laneActor ? `${laneActor} · inferido` : 'Não documentado'}</strong>
               </div>
               <div>
-                <span>{node.reviewedExecutorText ? 'Executor revisado' : 'Executor (POP)'}</span>
+                <span className="with-icon"><UserRound size={14} aria-hidden="true" />{node.reviewedExecutorText ? 'Executor revisado' : 'Executor (POP)'}</span>
                 <strong>{popActor ?? 'Não documentado'}</strong>
               </div>
               {divergent && <p>Lane original difere do executor. Associação geométrica da lane permanece inferida.</p>}
@@ -125,17 +125,17 @@ export function FocusFlow({
           )}
           {instruction && (
             <div className="focus-flow-instruction">
-              <span>Instrução POP</span>
+              <span className="with-icon"><ClipboardList size={14} aria-hidden="true" />Instrução POP</span>
               <p>{instruction}</p>
             </div>
           )}
           {(systems.length > 0 || channels.length > 0) && (
             <div className="focus-flow-chips">
               {systems.map((item) => (
-                <span key={item.id}>Sistema · {item.name}</span>
+                <span className="with-icon" key={item.id}><Monitor size={14} aria-hidden="true" />Sistema · {item.name}</span>
               ))}
               {channels.map((item) => (
-                <span key={item.id}>Canal · {item.name}</span>
+                <span className="with-icon" key={item.id}><MessageCircle size={14} aria-hidden="true" />Canal · {item.name}</span>
               ))}
             </div>
           )}

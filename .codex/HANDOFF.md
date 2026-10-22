@@ -414,3 +414,11 @@ Usuário questionou Conflito persistente em etapa já revisada. Causa: integraç
 7 testes Python específicos, 29 Vitest, build e QA human-review/operation/process-focus aprovados. Regressão mostrou 229 antes e 1 depois; testes comparam fluxos/lanes/IDs e hash normalizado preservados. QA cobre 10 processos/73 passagens/14 diagramas, conflito aberto, etapa reportada e 3 larguras/temas. Capturas revisadas visualmente; preview encerrado ao final. Aviso conhecido de chunk >500 kB permanece.
 
 Próximo EXATO: esclarecer P001/O que a etapa faz!G20-H20 (único conflito ativo) e demais 18 pendências; delimitar 3 inclusões que exigem fonte/escopo; receber data da revisão. Os 73 participantes continuam inferidos. Não voltar ao estado de só armazenar propostas nem resolver autorreferências automaticamente. CLI python -m scripts.build_frontend_data aplica ledger; API exige review_path explícito. Ledger recebido permanece imutável; applicationStatus é derivado na projeção.
+
+## CHECKPOINT VIGENTE — dark e ícones (2026-10-22)
+
+Usuário pediu dark menos escuro, sidebar preta e azul Supertrans em ícones/detalhes, mais ícones. DEC-048: override local em styles.css, fundo dark #24272c/cartão #30343b/sidebar #101112 nos dois temas; neutros em documentação/matriz/diagrama/botões dark. Nenhuma dependência alterada. Ícones Lucide ampliados em pages/FocusFlow/ActivityPanel/ConfidenceBadge/RefinedResourcePages; rótulos preservados e decorativos aria-hidden. Selects usam padding-left 38px para não sobrepor ícone/texto.
+
+29 Vitest/build e QA dark-theme/operation/process-focus/channels aprovados. Runner scripts/visual-qa/dark-theme.mjs verifica tokens/estilo computado, ícones, padding, dois temas e 1366/1024/390, drawer, persistência, sem overflow/erros. Capturas em docs/screenshots/dark-theme revisadas visualmente. Regressão: 10 processos/73 passagens/14 diagramas e canais. Fontes, dados normalizados e frontend/public/data sem diferenças. Aviso conhecido de chunk >500 kB continua. Preview temporário encerrado.
+
+Próximo exato: revisão visual do usuário; não mexer no modelo por acabamento. Continuam pendentes data da revisão, 18 dúvidas de conteúdo/único conflito ativo e escopo de três inclusões. Não reextrair fontes nem reabrir questões já resolvidas pela DEC-047.

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowRight, FileText, Mail, MessageCircle, Monitor, Users } from 'lucide-react'
+import { ArrowRight, FileText, Mail, MessageCircle, Monitor, Users, ClipboardCheck, TriangleAlert, CircleHelp, GitBranch, ShieldCheck } from 'lucide-react'
 
 import { ConfidenceBadge } from './components/ConfidenceBadge'
 import { HumanReviewBrowser } from './components/HumanReview'
@@ -800,14 +800,14 @@ export function DocumentationPage({ catalog }: PageProps) {
       <div className="evidence-tabs" role="tablist">
         {(
           [
-            ['sources', 'Fontes'],
-            ['review', `Respostas recebidas · ${catalog.humanReview?.summary.answered ?? 0}`],
-            ['conflicts', `Conflitos · ${conflicts.length}`],
-            ['ambiguities', `Ambiguidades · ${ambiguities.length}`],
-            ['subflows', `Subprocessos sem destino · ${unresolved.length}`],
-            ['readiness', 'Confiabilidade dos dados'],
+            ['sources', 'Fontes', FileText],
+            ['review', `Respostas recebidas · ${catalog.humanReview?.summary.answered ?? 0}`, ClipboardCheck],
+            ['conflicts', `Conflitos · ${conflicts.length}`, TriangleAlert],
+            ['ambiguities', `Ambiguidades · ${ambiguities.length}`, CircleHelp],
+            ['subflows', `Subprocessos sem destino · ${unresolved.length}`, GitBranch],
+            ['readiness', 'Confiabilidade dos dados', ShieldCheck],
           ] as const
-        ).map(([id, label]) => (
+        ).map(([id, label, Icon]) => (
           <button
             key={id}
             role="tab"
@@ -815,7 +815,7 @@ export function DocumentationPage({ catalog }: PageProps) {
             className={section === id ? 'is-active' : ''}
             onClick={() => setSection(id)}
           >
-            {label}
+            <Icon size={16} aria-hidden="true" />{label}
           </button>
         ))}
       </div>

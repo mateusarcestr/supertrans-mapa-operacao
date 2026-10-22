@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link, useNavigate, useNavigationType, useSearchParams } from 'react-router-dom'
+import { Workflow, GitBranch, ListChecks, Network, LayoutList, ChartNoAxesCombined, PlayCircle, Files } from 'lucide-react'
 
 import { operationDataClient } from './data/client'
 import { usePlaybackSession } from './data/playback-context'
@@ -212,7 +213,8 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
   return (
     <div className="process-detail operation-page">
       <div className="operation-toolbar">
-        <label className="field-control operation-process-picker">
+        <label className="field-control operation-process-picker with-field-icon">
+          <Workflow size={17} aria-hidden="true" />
           <span className="sr-only">Processo</span>
           <select aria-label="Selecionar processo" value={process.id} onChange={(event) => navigate(`/operacao/${event.target.value}`)}>
             {catalog.processes.map((item) => (
@@ -222,7 +224,8 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
             ))}
           </select>
         </label>
-        <label className="field-control process-diagram-picker">
+        <label className="field-control process-diagram-picker with-field-icon">
+          <GitBranch size={17} aria-hidden="true" />
           <span className="sr-only">Diagrama do processo</span>
           <select
             aria-label="Diagrama do processo"
@@ -242,7 +245,8 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
             ))}
           </select>
         </label>
-        <label className="field-control operation-step-picker">
+        <label className="field-control operation-step-picker with-field-icon">
+          <ListChecks size={17} aria-hidden="true" />
           <span className="sr-only">Ir para atividade, evento ou decisão</span>
           <select
             aria-label="Ir para atividade, evento ou decisão"
@@ -264,10 +268,11 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
           </select>
         </label>
         <button
-          className="secondary-button operation-view-toggle"
+          className="secondary-button operation-view-toggle with-icon"
           aria-pressed={detailView === 'diagram'}
           onClick={() => setDetailView(detailView === 'focus' ? 'diagram' : 'focus')}
         >
+          {detailView === 'focus' ? <Network size={17} aria-hidden="true" /> : <LayoutList size={17} aria-hidden="true" />}
           {detailView === 'focus' ? 'Diagrama completo Bizagi' : 'Voltar à etapa em foco'}
         </button>
       </div>
@@ -372,13 +377,14 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
             />
           )}
           <details className="process-diagram-sources">
-            <summary>Fontes do diagrama</summary>
+            <summary><span className="with-icon"><Files size={16} aria-hidden="true" />Fontes do diagrama</span></summary>
             <EvidenceList sources={diagram.sources} showAll />
           </details>
         </div>
       </dialog>
       <details className="process-summary">
         <summary>
+          <ChartNoAxesCombined className="summary-icon" size={17} aria-hidden="true" />{' '}
           Resumo do processo · {summary?.nodeTypes.task ?? 0} atividades · {summary?.conflictCount ?? 0} conflitos para revisar
         </summary>
         <div className="process-stat-strip">
@@ -411,7 +417,7 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
         </label>
       </details>
       <details className="process-guided-playback">
-        <summary>Reprodução guiada do fluxo</summary>
+        <summary><span className="with-icon"><PlayCircle size={17} aria-hidden="true" />Reprodução guiada do fluxo</span></summary>
         <PlaybackBar
           state={playback}
           currentName={currentNode?.name?.trim() ?? 'Aguardando início'}

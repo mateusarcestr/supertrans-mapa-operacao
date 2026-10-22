@@ -294,3 +294,11 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Validar etapa relatada, conflito aberto, fontes, build/testes e navegação completa.
 - [ ] Esclarecer conflito P001/G20-H20 e demais pendências; delimitar três inclusões antes de alterar topologia/documentos.
 - [ ] Receber data da revisão e validar separadamente 73 atribuições inferidas.
+
+## Aparência dark e ícones — 2026-10-22
+
+- [x] Clarear superfícies dark e melhorar distinção de cartões/bordas.
+- [x] Sidebar preta; azul Supertrans em ícones, seleção e detalhes.
+- [x] Adicionar ícones Lucide com rótulos acessíveis preservados.
+- [x] Validar testes/build, dois temas/três larguras e regressão operacional.
+- [ ] Revisão visual do usuário; pendências operacionais anteriores continuam registradas.

@@ -322,3 +322,7 @@ Dariane Pantoja e Lunna Nogueira identificadas pelo usuário como revisoras. Nom
 ## Marco 2026-10-22 — decisões aplicadas ao frontend
 
 Corrigida lacuna de integração: 228 conflitos resolvidos e 1 ativo na projeção, duas correspondências aplicadas e 19 explicações reconhecidas. Etapa 1/P001 mostra Revisado e executor Cliente; selos/contagens/busca/instruções refletem decisões, mantendo histórico Bizagi/POP. DEC-047 substitui limitação de só guardar propostas. Fontes, normalizado, topologia e 73 passagens inferidas preservados. 7 Python específicos, 29 Vitest, build e QA human-review/operation/process-focus aprovados. Próximo: esclarecer conflito G20/H20 e demais 18 pendências, delimitar três inclusões e receber data da revisão.
+
+## Marco 2026-10-22 — dark mais claro e iconografia
+
+Dark ajustado para grafite, cartões mais claros e bordas legíveis; sidebar preta nos dois temas. Azul Supertrans em ícones/detalhes e seleção. Lucide ampliado em seletores, status, participantes, ações e evidências. DEC-048 detalha tokens e limites. 29 testes, build, QA dark-theme/operation/process-focus/channels aprovados; fontes/dados preservados. Próximo: revisão visual pelo usuário; manter pendências operacionais anteriores (1 conflito ativo, 18 dúvidas, três inclusões e data da revisão).

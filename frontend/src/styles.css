@@ -49,12 +49,54 @@
 
 :root.dark {
   color-scheme: dark;
+  --background: #24272c;
+  --foreground: #f3f5f7;
+  --card: #30343b;
+  --card-foreground: #f3f5f7;
+  --popover: #343940;
+  --popover-foreground: #f3f5f7;
+  --secondary: #2b2f35;
+  --secondary-foreground: #e7ebef;
+  --muted: #3b4149;
+  --muted-foreground: #b9c2cd;
+  --border: #4b535e;
+  --input: #58616d;
   --focus-ring: var(--brand-accent);
   --scrollbar: var(--border);
   --node-current-fill: color-mix(in srgb, var(--brand-accent) 28%, transparent);
   --grid-line: color-mix(in srgb, var(--foreground) 8%, transparent);
   --shadow-main: 0 10px 30px rgba(0, 0, 0, .28);
 }
+
+/* Local visual preference: black navigation, brand blue in small accents. */
+:root[data-brand="supertrans"] {
+  --sidebar: #101112;
+  --sidebar-foreground: #edf1f5;
+  --sidebar-accent: #282b30;
+  --sidebar-primary: #282b30;
+  --sidebar-border: #30343a;
+}
+
+:root.dark .orion-app-shell { background: var(--background); }
+:root.dark .doc-card-primary { background: var(--card); }
+:root.dark .handoff-table-head,
+:root.dark .handoff-matrix thead th,
+:root.dark .handoff-matrix th:first-child { background: var(--secondary); }
+:root.dark .graph-frame { background-color: var(--secondary); }
+.summary-icon { display: inline-block; vertical-align: -3px; color: var(--accent); }
+:root.dark .primary-button { background: #353b43; color: var(--foreground); border-color: var(--accent); }
+:root.dark .primary-button:hover { background: #414954; }
+.orion-app-shell nav a svg { color: var(--brand-accent); }
+.sidebar-foot { color: var(--sidebar-foreground); }
+.sidebar-foot .mini-status { background: #1c1f23; color: #dce2e9; border-color: var(--sidebar-border); }
+.sidebar-foot .mini-status small, .sidebar-foot .version-label { color: #aeb8c4; }
+.with-icon { display: inline-flex; align-items: center; gap: 8px; }
+.with-icon > svg { flex: none; color: var(--accent); }
+.field-control.with-field-icon { position: relative; }
+.with-field-icon > svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--accent); pointer-events: none; }
+.operation-toolbar .field-control.with-field-icon > select { padding-left: 38px; }
+.evidence-tabs button { display: inline-flex; align-items: center; gap: 7px; }
+.evidence-tabs button svg { flex: none; color: var(--accent); }
 * { box-sizing: border-box; }
 html, body, #root { min-height: 100%; }
 body { margin: 0; background: var(--bg-primary); font-family: var(--font-family); }

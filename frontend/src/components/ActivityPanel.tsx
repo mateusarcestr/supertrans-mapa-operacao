@@ -1,4 +1,5 @@
 import { useMemo, type ReactNode } from 'react'
+import { UsersRound, ClipboardList, ArrowLeftRight, Package, FileText, Route, ClipboardCheck, X } from 'lucide-react'
 
 import {
   actorName,
@@ -33,9 +34,12 @@ function textValue(value: unknown): string | undefined {
 }
 
 function PanelSection({ title, children }: { title: string; children: ReactNode }) {
+  const Icon = ({ Responsabilidade: UsersRound, 'Informação operacional': ClipboardList, Handoffs: ArrowLeftRight,
+    Artefatos: Package, Evidências: FileText, Navegação: Route, 'Caminhos documentados': Route,
+    'Revisão operacional recebida': ClipboardCheck } as Record<string, typeof FileText>)[title] ?? FileText
   return (
     <section className="panel-section">
-      <h4>{title}</h4>
+      <h4 className="with-icon"><Icon size={16} aria-hidden="true" />{title}</h4>
       {children}
     </section>
   )
@@ -94,7 +98,7 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
           <h2>{nodeDisplayName(node)}</h2>
         </div>
         <button className="icon-button" aria-label="Fechar painel" onClick={onClose}>
-          ×
+          <X size={18} aria-hidden="true" />
         </button>
       </div>
       <ConfidenceBadge state={readiness} />
