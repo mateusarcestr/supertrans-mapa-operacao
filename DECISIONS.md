@@ -561,3 +561,13 @@ Responsável operacional e data: NÃO INFORMADOS nas 270 respostas. Usuário inf
 ## DEC-046 — autoria da revisão identificada pelo usuário (2026-10-22)
 
 Usuário identificou **Dariane Pantoja e Lunna Nogueira** como revisoras da planilha. Atribuição conjunta ao arquivo e às 270 respostas; distribuição individual por linha não informada. Complementa campos de responsável da DEC-045 sem adulterar o arquivo recebido. Evidência em `data/review/attribution.json`, vinculada ao SHA-256 da planilha; importador reaplica atribuição nas regenerações. Data de realização da revisão continua não informada; 2026-10-22 é data desta informação, não data da revisão. Status `received-date-pending`; propostas/topologia/inferências preservadas.
+
+## DEC-047 — decisões claras passam a valer na leitura operacional (2026-10-22)
+
+Usuário apontou que a etapa continuava marcada como Conflito apesar da revisão concluída. Implementação anterior apenas armazenou propostas; esta decisão substitui esse limite das DEC-045/046 para respostas inequívocas atribuídas às revisoras. Data da revisão permanece desconhecida e não bloqueia aplicação de decisão expressamente confirmada pelo usuário.
+
+Camada `scripts/apply_review_projection.py` aplica decisões em cópias entregues ao frontend, sem editar fontes nem `data/normalized`: 228 preferências de executor/descrição resolvem os respectivos conflitos; duas escolhas A/B resolvem correspondências; 19 linhas são reconhecidas como explicações cobertas. Mantém nomes/descrições/executores/status originais em campos de histórico e valores Bizagi/POP completos nos conflitos resolvidos. Cada decisão aplicada mantém IDs, revisoras e célula da planilha. Contagens e selos usam somente conflitos ativos; fonte divergente resolvida fica no histórico. Vínculos explícitos revisados tornam executor/instrução disponíveis nos detalhes.
+
+Não altera ligações Bizagi, lanes geométricas, participantes inferidos das 73 passagens nem resolve chamadas ao próprio processo. Restam 1 conflito ativo (P001, observação G20/H20), 18 pendências de conteúdo já enumeradas, três pedidos de inclusão sem escopo/fonte de implementação e data da revisão. 230 decisões aplicadas + 19 explicações reconhecidas; 21 respostas restantes não são promovidas automaticamente.
+
+Validação: teste de regressão reproduziu contagem errada 229 antes da correção; 7 testes específicos Python (importação/projeção), 29 Vitest, build e QA human-review/operation/process-focus aprovados. QA verificou a etapa 1 de Importação sem Conflito, selo Revisado, executor Cliente, histórico resolvido e conflito ainda aberto; 10 processos/73 passagens/14 diagramas, três larguras/temas. Fontes e modelo normalizado preservados. Aviso conhecido de chunk >500 kB permanece.

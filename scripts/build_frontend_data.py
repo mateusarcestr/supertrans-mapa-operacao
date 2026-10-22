@@ -1,8 +1,8 @@
 """Create deterministic, browser-oriented projections from ``data/normalized``.
 
-The projection is a read-only delivery format.  It never changes the canonical
-operation model: a compact catalog loads first, then each process graph can be
-fetched independently by the frontend.
+The projection never changes canonical source files. Explicit human decisions
+are applied to delivery copies with source history retained. A compact catalog
+loads first, then each process graph can be fetched independently.
 """
 
 from __future__ import annotations
@@ -13,6 +13,7 @@ import shutil
 from collections import Counter
 from pathlib import Path
 from typing import Any
+from scripts.apply_review_projection import apply_review
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,7 +137,14 @@ def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory:
     summary["unresolvedSubflows"] = summary["subprocessResolution"]["unresolved"]
     handoffs = read_json(input_directory / "handoffs.json")
     conflicts = read_json(input_directory / "conflicts.json")
-    conflict_counts = Counter(conflict["processId"] for conflict in conflicts)
+    actors = read_json(input_directory / "actors.json")
+    review = read_json(review_path) if review_path is not None else None
+    if review is not None:
+        apply_review(processes, conflicts, review, actors)
+        summary['sourceConflicts'] = len(conflicts)
+        summary['conflicts'] = sum(c['status'] != 'resolved-human-review' for c in conflicts)
+        summary['resolvedConflicts'] = len(conflicts) - summary['conflicts']
+    conflict_counts = Counter(conflict["processId"] for conflict in conflicts if conflict['status'] != 'resolved-human-review')
     catalog = {
         "schemaVersion": "1.0.0",
         "sourcePolicy": manifest["sourcePolicy"],
@@ -146,7 +154,7 @@ def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory:
             for process in processes
         ],
         "activityIndex": activity_index(processes),
-        "actors": read_json(input_directory / "actors.json"),
+        "actors": actors,
         "systems": read_json(input_directory / "systems.json"),
         "channels": read_json(input_directory / "channels.json"),
         "artifacts": read_json(input_directory / "artifacts.json"),
@@ -155,8 +163,8 @@ def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory:
         "conflicts": conflicts,
         "diagnostics": read_json(input_directory / "diagnostics.json"),
     }
-    if review_path is not None:
-        catalog["humanReview"] = read_json(review_path)
+    if review is not None:
+        catalog["humanReview"] = review
     write_json(output_directory / "catalog.json", catalog)
     for process in processes:
         write_json(output_directory / "processes" / f"{process['id']}.json", process_payload(process))

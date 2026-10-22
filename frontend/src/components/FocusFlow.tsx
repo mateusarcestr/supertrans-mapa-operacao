@@ -108,6 +108,7 @@ export function FocusFlow({
               <h2>{title(node)}</h2>
             </div>
             <ConfidenceBadge state={readinessForNode(process, node, conflictsForNode(catalog, node.id))} />
+            {node.reviewDecisionIds?.length ? <span className="tag">Revisado</span> : null}
           </div>
           {(laneActor || popActor) && (
             <div className="focus-flow-participants">
@@ -116,10 +117,10 @@ export function FocusFlow({
                 <strong>{laneActor ? `${laneActor} · inferido` : 'Não documentado'}</strong>
               </div>
               <div>
-                <span>Executor (POP)</span>
+                <span>{node.reviewedExecutorText ? 'Executor revisado' : 'Executor (POP)'}</span>
                 <strong>{popActor ?? 'Não documentado'}</strong>
               </div>
-              {divergent && <p>Os dois valores divergem. Participante ainda aguarda confirmação.</p>}
+              {divergent && <p>Lane original difere do executor. Associação geométrica da lane permanece inferida.</p>}
             </div>
           )}
           {instruction && (

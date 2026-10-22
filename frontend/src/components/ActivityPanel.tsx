@@ -11,6 +11,7 @@ import {
   nodeReconciliations,
   nodeTypeLabel,
   readinessForNode,
+  sourceConflictsForNode,
 } from '../data/model'
 import type { FrontendCatalog, Handoff, ProcessDiagram, ProcessNode, ProcessPayload, ReviewConflict, SourceReference } from '../data/types'
 import { ConfidenceBadge } from './ConfidenceBadge'
@@ -115,7 +116,7 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
           <p className="muted">Não documentado</p>
         )}
         <p className="field-note">Área/lane: {lane?.name ?? 'Não determinada'} · método geometry</p>
-        {popActor && <p className="field-note">Executor POP: {popActor}</p>}
+        {popActor && <p className="field-note">{node.reviewedExecutorText ? 'Executor revisado' : 'Executor POP'}: {popActor}</p>}
       </PanelSection>
 
       <PanelSection title="Informação operacional">
@@ -197,11 +198,11 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
         )}
       </PanelSection>
 
-      {conflicts.length > 0 && <ConflictBlock conflicts={conflicts} />}
+      {sourceConflictsForNode(catalog, node.id).length > 0 && <ConflictBlock conflicts={sourceConflictsForNode(catalog, node.id)} />}
 
       {humanDecisions.length > 0 && (
         <PanelSection title="Revisão operacional recebida">
-          <p className="field-note">Respostas recebidas; fontes e classificação de certeza preservadas.</p>
+          <p className="field-note">Decisões aplicadas indicadas abaixo; fontes originais preservadas.</p>
           {humanDecisions.map((decision) => <HumanDecisionDetails key={decision.id} decision={decision} />)}
         </PanelSection>
       )}
@@ -229,10 +230,10 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
 
 function ConflictBlock({ conflicts }: { conflicts: ReviewConflict[] }) {
   return (
-    <div className="conflict-box">
+    <div className={conflicts.some((conflict) => conflict.status !== 'resolved-human-review') ? 'conflict-box' : 'panel-section'}>
       <div className="conflict-title">
         <span>!</span>
-        <strong>CONFLITO ENTRE FONTES</strong>
+        <strong>{conflicts.some((conflict) => conflict.status !== 'resolved-human-review') ? 'CONFLITO ENTRE FONTES' : 'HISTÓRICO BIZAGI × POP · RESOLVIDO'}</strong>
       </div>
       {conflicts.slice(0, 3).map((conflict) => (
         <div className="conflict-item" key={conflict.id}>

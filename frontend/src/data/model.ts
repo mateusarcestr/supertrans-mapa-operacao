@@ -40,6 +40,10 @@ export function namedItems(catalog: FrontendCatalog, ids: string[], kind: 'syste
 }
 
 export function conflictsForNode(catalog: FrontendCatalog, nodeId: string): ReviewConflict[] {
+  return sourceConflictsForNode(catalog, nodeId).filter((conflict) => conflict.status !== 'resolved-human-review')
+}
+
+export function sourceConflictsForNode(catalog: FrontendCatalog, nodeId: string): ReviewConflict[] {
   return (catalog.conflicts as ReviewConflict[]).filter((conflict) => conflict.entityIds.includes(nodeId))
 }
 

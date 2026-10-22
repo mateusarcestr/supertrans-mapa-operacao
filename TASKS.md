@@ -285,3 +285,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Registrar Dariane Pantoja e Lunna Nogueira como revisoras, por informação do usuário.
 - [x] Atualizar dados do frontend preservando planilha e propostas originais.
 - [ ] Receber data da revisão; 18 pendências de conteúdo e 73 participantes inferidos seguem pendentes.
+
+## Aplicação da revisão — 2026-10-22
+
+- [x] Aplicar 228 escolhas claras e duas correspondências na projeção operacional.
+- [x] Reconhecer 19 explicações sem inventar etapas.
+- [x] Corrigir selos/contagens e executor ausente da etapa revisada; preservar histórico.
+- [x] Validar etapa relatada, conflito aberto, fontes, build/testes e navegação completa.
+- [ ] Esclarecer conflito P001/G20-H20 e demais pendências; delimitar três inclusões antes de alterar topologia/documentos.
+- [ ] Receber data da revisão e validar separadamente 73 atribuições inferidas.

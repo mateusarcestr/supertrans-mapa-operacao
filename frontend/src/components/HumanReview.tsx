@@ -14,7 +14,8 @@ export function HumanDecisionDetails({ decision }: { decision: HumanDecision }) 
   return (
     <div className="panel-section human-review-decision" data-review-id={decision.id}>
       <strong>{decision.answer || 'Sem resposta'}</strong>
-      {decision.proposedValue && <p>Valor proposto: {decision.proposedValue}</p>}
+      <p>{decision.applicationStatus === 'applied' ? 'Decisão aplicada' : decision.applicationStatus === 'acknowledged' ? 'Explicação reconhecida; nenhuma etapa nova necessária' : 'Pendente de aplicação ou esclarecimento'}</p>
+      {decision.proposedValue && <p>{decision.applicationStatus === 'applied' ? 'Valor adotado' : 'Valor proposto'}: {decision.appliedValue ?? decision.proposedValue}</p>}
       {decision.proposedTargetProcessId && <p>Processo indicado: {decision.proposedTargetProcessId}</p>}
       {decision.note && <p>{decision.note}</p>}
       {decision.sourceCellEdits.map((edit) => (
@@ -36,7 +37,8 @@ export function HumanReviewBrowser({ review }: { review: HumanReview }) {
   return (
     <section className="doc-card human-review-browser">
       <h2>Respostas da revisão operacional</h2>
-      <p>{review.summary.answered} de {review.summary.total} respostas recebidas. Propostas preservadas separadamente das fontes; conflitos e participantes inferidos mantêm sua classificação.</p>
+      <p>{review.summary.answered} de {review.summary.total} respostas recebidas. Decisões claras aplicadas à leitura operacional; fontes originais e associações inferidas preservadas.</p>
+      <p>{review.summary.applied ?? 0} decisões aplicadas; {review.summary.acknowledged ?? 0} explicações reconhecidas.</p>
       <p>Cadastro da revisão incompleto em {review.summary.warnings['missing-attribution'] ?? 0} respostas. Confira responsável e data nos detalhes.</p>
       <label>Processo <select value={processId} onChange={(event) => setProcessId(event.target.value)}>
         {Array.from({ length: 10 }, (_, index) => `P${String(index + 1).padStart(3, '0')}`).map((id) => <option key={id}>{id}</option>)}

@@ -787,7 +787,7 @@ function entityLink(processId?: string, entityIds: string[] = []) {
 
 export function DocumentationPage({ catalog }: PageProps) {
   const [section, setSection] = useState<'sources' | 'conflicts' | 'ambiguities' | 'subflows' | 'readiness' | 'review'>('sources')
-  const conflicts = catalog.conflicts as ReviewConflict[]
+  const conflicts = (catalog.conflicts as ReviewConflict[]).filter((conflict) => conflict.status !== 'resolved-human-review')
   const diagnostics = catalog.diagnostics as Diagnostic[]
   const ambiguities = catalog.activityIndex.filter((activity) => activity.reconciliationStatus === 'ambiguous')
   const unresolved = diagnostics.filter((diagnostic) => diagnostic.code === 'UNRESOLVED_SUBFLOW')
@@ -863,7 +863,7 @@ export function DocumentationPage({ catalog }: PageProps) {
         {section === 'conflicts' && (
           <ReviewList
             title="Conflitos entre fontes"
-            description="Nenhum vencedor foi escolhido."
+            description="Somente divergências ainda sem decisão conclusiva. Resoluções anteriores ficam no histórico de cada etapa."
             items={conflicts.map((conflict) => ({
               id: conflict.id,
               title: `${conflict.processId} · ${conflict.field}`,

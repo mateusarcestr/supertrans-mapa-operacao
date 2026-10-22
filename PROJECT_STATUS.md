@@ -318,3 +318,7 @@ Complemento do marco: QA `operation.mjs` aprovado nas 73 passagens/10 processos;
 ## Complemento 2026-10-22 — revisoras identificadas
 
 Dariane Pantoja e Lunna Nogueira identificadas pelo usuário como revisoras. Nomes incorporados às 270 respostas e ao frontend; atribuição rastreável em `data/review/attribution.json` (DEC-046). Data da revisão ainda não informada. Próximo: receber data e esclarecer 18 pendências antes de promover decisões elegíveis.
+
+## Marco 2026-10-22 — decisões aplicadas ao frontend
+
+Corrigida lacuna de integração: 228 conflitos resolvidos e 1 ativo na projeção, duas correspondências aplicadas e 19 explicações reconhecidas. Etapa 1/P001 mostra Revisado e executor Cliente; selos/contagens/busca/instruções refletem decisões, mantendo histórico Bizagi/POP. DEC-047 substitui limitação de só guardar propostas. Fontes, normalizado, topologia e 73 passagens inferidas preservados. 7 Python específicos, 29 Vitest, build e QA human-review/operation/process-focus aprovados. Próximo: esclarecer conflito G20/H20 e demais 18 pendências, delimitar três inclusões e receber data da revisão.

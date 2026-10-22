@@ -34,16 +34,34 @@ class ReviewImportTests(unittest.TestCase):
         self.assertEqual(sum(d.get('selectedPopStepId') is not None for d in review['decisions'] if d['category'] == 'ambiguous'), 2)
         self.assertEqual(directory_hash(NORMALIZED), before)
 
-    def test_projection_includes_review_without_resolving_conflicts(self):
+    def test_projection_applies_clear_decisions_preserving_sources_and_open_conflict(self):
         from scripts.build_frontend_data import build_frontend_data
         from tests.test_frontend_data import workspace_temp
         import json
+        before = directory_hash(NORMALIZED)
         with workspace_temp() as temporary:
             build_frontend_data(NORMALIZED, temporary / 'output', ROOT / 'data/review/conflict-decisions.json')
             catalog = json.loads((temporary / 'output/catalog.json').read_text(encoding='utf-8'))
             self.assertEqual(catalog['humanReview']['summary']['answered'], 270)
-            self.assertEqual(catalog['summary']['conflicts'], 229)
-            self.assertTrue(all(c['status'] == 'needs-review' for c in catalog['conflicts']))
+            self.assertEqual(catalog['summary']['conflicts'], 1)
+            self.assertEqual(sum(c['status'] == 'resolved-human-review' for c in catalog['conflicts']), 228)
+            self.assertEqual(catalog['humanReview']['summary']['applied'], 230)
+            self.assertEqual(catalog['humanReview']['summary']['acknowledged'], 19)
+            for source_path in (NORMALIZED / 'processes').glob('*.json'):
+                source = json.loads(source_path.read_text(encoding='utf-8'))
+                projected = json.loads((temporary / 'output/processes' / source_path.name).read_text(encoding='utf-8'))
+                for original, delivered in zip(source['diagrams'], projected['diagrams'], strict=True):
+                    self.assertEqual(original['flows'], delivered['flows'])
+                    self.assertEqual(original['lanes'], delivered['lanes'])
+                    self.assertEqual([n['id'] for n in original['nodes']], [n['id'] for n in delivered['nodes']])
+            process = json.loads((temporary / 'output/processes/P001.json').read_text(encoding='utf-8'))
+            node = next(n for d in process['diagrams'] for n in d['nodes'] if n['name'].startswith('1. Envia'))
+            self.assertTrue(node['reviewDecisionIds'])
+            rec = next(r for r in process['reconciliations'] if node['id'] in r['bizagiNodeIds'])
+            self.assertTrue(rec['popStepIds'])
+            self.assertEqual(rec['status'], 'matched')
+            self.assertTrue(all(r['resolutionStatus'] == 'unresolved' for r in process['subprocessReferences'] if r['sourceNodeId'] in [d['entityIds'][0] for d in catalog['humanReview']['decisions'] if d['category'] == 'subprocess']))
+        self.assertEqual(directory_hash(NORMALIZED), before)
 
     def test_changed_source_cell_is_rejected(self):
         from scripts.import_conflict_review import read_workbook, validate_rows

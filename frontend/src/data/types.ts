@@ -68,12 +68,14 @@ export interface ActivityIndexItem {
 }
 
 export interface HumanReview {
-  summary: { total: number; answered: number; warnings: Record<string, number> }
+  summary: { total: number; answered: number; applied?: number; acknowledged?: number; warnings: Record<string, number> }
   source: { file: string; sha256: string }
   decisions: HumanDecision[]
 }
 
 export interface HumanDecision {
+  applicationStatus?: 'applied' | 'acknowledged' | 'pending'
+  appliedValue?: string
   id: string
   processId: string
   category: string
@@ -107,6 +109,8 @@ export interface DiagramLane {
 }
 
 export interface ProcessNode {
+  reviewDecisionIds?: string[]
+  reviewedExecutorText?: string
   id: string
   name: string
   type: string

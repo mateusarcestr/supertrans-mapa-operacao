@@ -69,3 +69,7 @@ Complemento QA: `operation.mjs` aprovado para dez processos/73 passagens, seleto
 ## Complemento — autoria identificada
 
 Usuário informou Dariane Pantoja e Lunna Nogueira como revisoras. Atribuição conjunta às 270 respostas, sem divisão individual presumida. `data/review/attribution.json` preserva declaração e hash do arquivo; importador incorpora nomes ao ledger e à projeção frontend. Data da revisão continua não informada. Registros iniciais de autoria ausente acima descrevem estado no recebimento; este complemento os atualiza. Nenhuma proposta foi promovida por esta atribuição.
+
+## Complemento — decisões aplicadas (DEC-047)
+
+Usuário confirmou que decisões resolvidas devem valer no sistema. Projeção agora aplica 228 escolhas claras e duas correspondências; reconhece 19 explicações. Contagem de conflito ativo cai de 229 para 1; histórico mantém 228 resoluções e valores originais. Etapa 1/P001 exibe Revisado e executor Cliente. Metadado de data permanece pendente sem bloquear decisões claras. Fontes, normalizado, lanes e passagens inferidas preservados. As seções anteriores descrevem estados históricos, substituídos por este complemento quanto à aplicação. 7 testes Python específicos, 29 Vitest, build e QA human-review/operation/process-focus aprovados; 10 processos, 73 passagens, 14 diagramas e 3 larguras/temas. Próximo: conflito P001/G20-H20 e demais pendências, três inclusões que requerem escopo e data da revisão.
