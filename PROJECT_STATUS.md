@@ -306,3 +306,11 @@ Próximo passo exato: revisão humana — planilha `docs/review/conflitos-bizagi
 
 ## 2026-10-19 — revisão humana em andamento
 Usuário informou que a equipe operacional já está trabalhando nos conflitos da planilha `docs/review/conflitos-bizagi-vs-pop.xlsx`. Nenhuma decisão recebida ainda. Próximo passo exato: ao receber a planilha preenchida, registrar cada decisão em DECISIONS.md (com responsável e data) antes de qualquer alteração no modelo; não aplicar respostas parciais sem rastreio.
+
+## Marco 2026-10-22 — revisão recebida incorporada como evidência
+
+270/270 respostas importadas da planilha revisada, vinculadas a IDs/células e hash em `data/review/conflict-decisions.json`. DEC-045 registra individualmente as respostas; análise em `docs/review/revisao-recebida-2026-10-22.md`. Centro de evidências ganhou aba Respostas recebidas, filtros e consulta por etapa. Fontes e dados canônicos preservados. Autoria/data ausentes; usuário informou que fornecerá. 18 pendências de conteúdo (10 autorreferências, 2 itens POP inexistentes, 3 renumerações e 3 observações). 3 alterações em contexto registradas separadamente. 53 testes Python, 29 Vitest, build e QA específico em três larguras/temas aprovados. Aviso de chunk >500 kB permanece.
+
+Próximo passo EXATO: receber autoria/data, esclarecer 18 pendências e escopo/fontes das inclusões pedidas; preparar promoção explícita somente de decisões elegíveis. Participantes das 73 passagens continuam inferidos. Não reextrair ou renormalizar fontes para esta unidade.
+
+Complemento do marco: QA `operation.mjs` aprovado nas 73 passagens/10 processos; sincronização do runner após Escape ajustada para aguardar atualização React. Fontes/raw/normalized/alignment conferidos contra Git HEAD, sem diferenças.

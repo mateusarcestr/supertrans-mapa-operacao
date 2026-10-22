@@ -1415,3 +1415,17 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
   .focus-flow-nav-end { width: 100%; margin-left: 0; }
   .focus-flow-nav-end > * { flex: 1; justify-content: center; }
 }
+.human-review-browser,
+.human-review-decision {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.human-review-browser details {
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--border-color, #aaa6);
+}
+
+.human-review-browser summary {
+  cursor: pointer;
+}

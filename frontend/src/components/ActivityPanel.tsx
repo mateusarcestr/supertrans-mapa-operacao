@@ -15,6 +15,7 @@ import {
 import type { FrontendCatalog, Handoff, ProcessDiagram, ProcessNode, ProcessPayload, ReviewConflict, SourceReference } from '../data/types'
 import { ConfidenceBadge } from './ConfidenceBadge'
 import { EvidenceList } from './EvidenceList'
+import { HumanDecisionDetails } from './HumanReview'
 
 interface ActivityPanelProps {
   process: ProcessPayload
@@ -56,6 +57,8 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
   const reconciliation = nodeReconciliations(process, node.id)
   const popSteps = nodePopSteps(process, node.id)
   const conflicts = conflictsForNode(catalog, node.id)
+  const relatedIds = new Set([node.id, ...popSteps.map((step) => step.id)])
+  const humanDecisions = catalog.humanReview?.decisions.filter((decision) => decision.processId === process.id && decision.entityIds.some((id) => relatedIds.has(id))) ?? []
   const lane = laneForNode(diagram, node)
   const laneActor = actorName(catalog, lane?.actorId)
   const popActor = popSteps.find((step) => step.executorActorId)?.executorText
@@ -195,6 +198,13 @@ export function ActivityPanel({ process, diagram, node, catalog, onSelectNode, o
       </PanelSection>
 
       {conflicts.length > 0 && <ConflictBlock conflicts={conflicts} />}
+
+      {humanDecisions.length > 0 && (
+        <PanelSection title="Revisão operacional recebida">
+          <p className="field-note">Respostas recebidas; fontes e classificação de certeza preservadas.</p>
+          {humanDecisions.map((decision) => <HumanDecisionDetails key={decision.id} decision={decision} />)}
+        </PanelSection>
+      )}
 
       <PanelSection title="Evidências">
         <EvidenceList sources={sourceReferences} match={node.reconciliationStatus} showAll={showAllEvidence} />

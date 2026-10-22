@@ -56,6 +56,8 @@ try {
       visited.add(handoff.id)
       await page.keyboard.press('Escape')
       await page.locator('.process-info-drawer').waitFor({ state: 'hidden' })
+      // Native close precedes React's onClose update; wait before reopening.
+      await page.waitForFunction(() => document.querySelector('.operation-passage-picker select')?.value === '')
     }
   }
   assert.equal(visited.size, catalog.handoffs.length)

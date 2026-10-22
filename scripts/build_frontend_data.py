@@ -122,7 +122,7 @@ def activity_index(processes: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return activities
 
 
-def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory: Path = DEFAULT_OUTPUT) -> None:
+def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory: Path = DEFAULT_OUTPUT, review_path: Path | None = None) -> None:
     """Build browser data from a normalized model without mutating its input."""
     manifest = read_json(input_directory / "manifest.json")
     process_files = manifest["processFiles"]
@@ -155,6 +155,8 @@ def build_frontend_data(input_directory: Path = DEFAULT_INPUT, output_directory:
         "conflicts": conflicts,
         "diagnostics": read_json(input_directory / "diagnostics.json"),
     }
+    if review_path is not None:
+        catalog["humanReview"] = read_json(review_path)
     write_json(output_directory / "catalog.json", catalog)
     for process in processes:
         write_json(output_directory / "processes" / f"{process['id']}.json", process_payload(process))
@@ -164,8 +166,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    review = ROOT / "data/review/conflict-decisions.json"
+    parser.add_argument("--review", type=Path, default=review if review.exists() else None,
+                        help="Separate review evidence; never resolves canonical conflicts")
     arguments = parser.parse_args()
-    build_frontend_data(arguments.input, arguments.output)
+    build_frontend_data(arguments.input, arguments.output, arguments.review)
 
 
 if __name__ == "__main__":

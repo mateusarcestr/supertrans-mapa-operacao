@@ -386,3 +386,15 @@ NÃO rodar `python -m unittest discover -s tests` até o teste gerar em diretór
 Resolvido em 2026-10-19: testes agora geram em tempdir (commit `c77040a`); a suíte pode ser rodada. Git local ativo — usar `git status`/`git log` na retomada. Pendente: remoção de código morto (ver PROJECT_STATUS.md, marco 2026-10-19), aguardando permissão do usuário.
 Código morto removido (ver PROJECT_STATUS.md, marco 2026-10-19 cont.). QA vigente: `scripts/visual-qa/{operation,process-focus,channels}.mjs` contra `npx vite preview --port 4174 --host 127.0.0.1` em `frontend/`. Próximo: revisão humana.
 Revisão humana dos conflitos em andamento (informado 2026-10-19); aguardar planilha preenchida.
+
+## CHECKPOINT VIGENTE — revisão recebida (2026-10-22)
+
+Planilha raiz `conflitos-bizagi-vs-pop-revisada.xlsx` contém 270/270 respostas. Importador `scripts/import_conflict_review.py` compara contexto ao template, preserva 3 edições conhecidas e liga IDs sem depender de posição. Ledger: `data/review/conflict-decisions.json`; DEC-045 registra individualmente as respostas; análise: `docs/review/revisao-recebida-2026-10-22.md`. Fontes/data/normalized intactos; nenhuma resolução automática.
+
+Documentação real: `frontend/src/RefinedResourcePages.tsx`; nova aba Respostas recebidas com filtros. `components/HumanReview.tsx` compartilha leitura com ActivityPanel. CLI build_frontend_data incorpora registro disponível por padrão; API Python aceita review_path explicitamente. Preservar humanReview ao regenerar projeção.
+
+53 Python/29 Vitest/build e QA human-review em 3 larguras/temas aprovados. Primeiras tentativas sandbox falharam por tempdir/spawn; fora sandbox passou. Build mantém aviso de chunk >500 kB. Runner `scripts/visual-qa/human-review.mjs` requer preview Vite 4174. QA operation adicional encontrou timeout de drawer na linha 54; não declarar regressão das 73 passagens aprovada nesta rodada sem nova evidência.
+
+Próximo EXATO: usuário escolheu “Informarei responsável e data”; receber e registrar atribuição sem adulterar planilha. Esclarecer 18 pendências: 10 chamadas ao próprio processo sem trecho, 2 referências P004/26.16 inexistentes, 3 renumerações sem novo número e 3 observações. Inclusões requerem fonte/escopo. Aplicação posterior exige camada de revisão explícita; os 73 participantes continuam inferidos. Não reextrair nem reiniciar normalização.
+
+Complemento final 2026-10-22: QA operation.mjs aprovado nas 73 passagens/10 processos e três larguras/temas. Timeout anterior vinha da corrida no runner entre fechamento nativo/Escape e atualização React onClose; agora aguarda valor vazio no seletor antes de reabrir. Nenhuma lógica de navegação do produto alterada. QA human-review repetido e aprovado após link Abrir etapa. Fontes/raw/normalized/alignment sem diferenças contra HEAD. Servidor preview temporário encerrado ao final.

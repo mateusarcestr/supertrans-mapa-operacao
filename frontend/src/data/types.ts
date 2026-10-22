@@ -41,6 +41,7 @@ export interface NamedCatalogItem {
 }
 
 export interface FrontendCatalog {
+  humanReview?: HumanReview
   schemaVersion: string
   sourcePolicy: string[]
   summary: FrontendSummary
@@ -64,6 +65,31 @@ export interface ActivityIndexItem {
   type: string
   reconciliationStatus?: string
   laneId?: string | null
+}
+
+export interface HumanReview {
+  summary: { total: number; answered: number; warnings: Record<string, number> }
+  source: { file: string; sha256: string }
+  decisions: HumanDecision[]
+}
+
+export interface HumanDecision {
+  id: string
+  processId: string
+  category: string
+  subject: string
+  entityIds: string[]
+  answer: string
+  note: string | null
+  reviewer: string | null
+  reviewedAt: string | null
+  status: string
+  proposedValue?: string
+  proposedTargetProcessId?: string
+  selectedPopStepId?: string
+  source: { file: string; sheet: string; row: number; cell: string }
+  sourceCellEdits: { cell: string; original: string; received: string }[]
+  warnings: string[]
 }
 
 export interface Bounds {

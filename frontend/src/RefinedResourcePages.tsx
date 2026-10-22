@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowRight, FileText, Mail, MessageCircle, Monitor, Users } from 'lucide-react'
 
 import { ConfidenceBadge } from './components/ConfidenceBadge'
+import { HumanReviewBrowser } from './components/HumanReview'
 import { EvidenceList } from './components/EvidenceList'
 import { PageHeader } from './components/orion/blocks'
 import { Input } from './components/orion/ui'
@@ -785,7 +786,7 @@ function entityLink(processId?: string, entityIds: string[] = []) {
 }
 
 export function DocumentationPage({ catalog }: PageProps) {
-  const [section, setSection] = useState<'sources' | 'conflicts' | 'ambiguities' | 'subflows' | 'readiness'>('sources')
+  const [section, setSection] = useState<'sources' | 'conflicts' | 'ambiguities' | 'subflows' | 'readiness' | 'review'>('sources')
   const conflicts = catalog.conflicts as ReviewConflict[]
   const diagnostics = catalog.diagnostics as Diagnostic[]
   const ambiguities = catalog.activityIndex.filter((activity) => activity.reconciliationStatus === 'ambiguous')
@@ -800,6 +801,7 @@ export function DocumentationPage({ catalog }: PageProps) {
         {(
           [
             ['sources', 'Fontes'],
+            ['review', `Respostas recebidas · ${catalog.humanReview?.summary.answered ?? 0}`],
             ['conflicts', `Conflitos · ${conflicts.length}`],
             ['ambiguities', `Ambiguidades · ${ambiguities.length}`],
             ['subflows', `Subprocessos sem destino · ${unresolved.length}`],
@@ -818,6 +820,7 @@ export function DocumentationPage({ catalog }: PageProps) {
         ))}
       </div>
       <section className="evidence-center" role="tabpanel">
+        {section === 'review' && (catalog.humanReview ? <HumanReviewBrowser review={catalog.humanReview} /> : <p>Nenhuma revisão importada.</p>)}
         {section === 'sources' && (
           <>
             <div className="documentation-grid">

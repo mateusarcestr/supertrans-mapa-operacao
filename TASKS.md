@@ -269,3 +269,13 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] README atualizado.
 - [x] Remover código morto 3D/twin/QA/TeamMap, deps three, CSS órfão e roteiros QA obsoletos.
 - [ ] Revisão humana: planilha de conflitos e 73 participantes inferidos.
+
+## Revisão recebida — 2026-10-22
+
+- [x] Conferir 270 respostas, contexto alterado e integridade contra template.
+- [x] Registrar decisões individuais, entidades, hash e locadores sem alterar fontes.
+- [x] Expor revisão no Centro de evidências e nos detalhes da etapa.
+- [x] Validar importação/projeção, testes Python/frontend, build e QA responsivo.
+- [ ] Receber responsável/data prometidos pelo usuário e registrar atribuição rastreável.
+- [ ] Esclarecer 18 pendências de conteúdo e fontes/escopo das inclusões antes de promover decisões elegíveis.
+- [ ] Validar separadamente participantes das 73 passagens inferidas.

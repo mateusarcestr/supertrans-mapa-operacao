@@ -276,3 +276,284 @@ Validação: 41 testes, build e QA dos dez processos/14 diagramas/73 handoffs ap
 Contexto: suíte Python reescreveu `docs/alignment` a partir do Portal vivo (`5186bdf`); sem Git, sem como reverter.
 Escolha: Git local (sem remoto, `core.autocrlf=false` para preservar hashes). Testes de alinhamento geram em tempdir. Documentos versionados permanecem no Portal `de55185`; atualizar o commit é decisão explícita (registrar aqui e em `PINNED_PORTAL_COMMIT`).
 Projeção do frontend em JSON compacto; formato não faz parte do contrato, conteúdo idêntico. `data/normalized` e `data/raw` mantêm formato original.
+
+## DEC-045 — respostas da revisão recebida, sem promoção automática (2026-10-22)
+
+Solicitação: verificar planilha revisada para melhorar sistema. Decisão técnica: incorporar como evidência separada, acessível na Documentação e nas etapas, preservando fontes/IDs/topologia e estados de certeza. Análise: [revisão recebida](docs/review/revisao-recebida-2026-10-22.md). Ledger: `data/review/conflict-decisions.json`; chave de cada linha abaixo = arquivo + aba + célula, vinculada a IDs canônicos no ledger.
+
+Responsável operacional e data: NÃO INFORMADOS nas 270 respostas. Usuário informou em 2026-10-22 que fornecerá responsável/data. Data deste registro é de recebimento/análise, não de validação. Todas registradas como `received-unattributed`; nenhuma aplicada ao modelo. 18 pendências de conteúdo detalhadas no relatório. As 73 passagens inferidas não foram validadas por esta planilha.
+
+### Registro individual das 270 respostas recebidas
+
+| Processo | Aba/célula | Resposta recebida | Responsável | Data de validação |
+| --- | --- | --- | --- | --- |
+| P001 | Quem executa!G5 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G6 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G7 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G8 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G9 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G10 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G11 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G12 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G13 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G14 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G15 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G16 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G17 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G18 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G19 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G20 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G21 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G22 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G23 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G24 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G25 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G26 | POP está correto | Não informado | Não informado |
+| P001 | Quem executa!G27 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G28 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G29 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G30 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G31 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G32 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G33 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G34 | POP está correto | Não informado | Não informado |
+| P002 | Quem executa!G35 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G36 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G37 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G38 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G39 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G40 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G41 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G42 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G43 | POP está correto | Não informado | Não informado |
+| P003 | Quem executa!G44 | POP está correto | Não informado | Não informado |
+| P004 | Quem executa!G45 | POP está correto | Não informado | Não informado |
+| P004 | Quem executa!G46 | POP está correto | Não informado | Não informado |
+| P004 | Quem executa!G47 | POP está correto | Não informado | Não informado |
+| P005 | Quem executa!G48 | POP está correto | Não informado | Não informado |
+| P005 | Quem executa!G49 | POP está correto | Não informado | Não informado |
+| P005 | Quem executa!G50 | POP está correto | Não informado | Não informado |
+| P006 | Quem executa!G51 | POP está correto | Não informado | Não informado |
+| P007 | Quem executa!G52 | POP está correto | Não informado | Não informado |
+| P007 | Quem executa!G53 | POP está correto | Não informado | Não informado |
+| P007 | Quem executa!G54 | POP está correto | Não informado | Não informado |
+| P007 | Quem executa!G55 | POP está correto | Não informado | Não informado |
+| P007 | Quem executa!G56 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G57 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G58 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G59 | Bizagi está correto | Não informado | Não informado |
+| P008 | Quem executa!G60 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G61 | Bizagi está correto | Não informado | Não informado |
+| P008 | Quem executa!G62 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G63 | POP está correto | Não informado | Não informado |
+| P008 | Quem executa!G64 | POP está correto | Não informado | Não informado |
+| P009 | Quem executa!G65 | Bizagi está correto | Não informado | Não informado |
+| P009 | Quem executa!G66 | Bizagi está correto | Não informado | Não informado |
+| P010 | Quem executa!G67 | POP está correto | Não informado | Não informado |
+| P010 | Quem executa!G68 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G5 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G6 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G7 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G8 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G9 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G10 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G11 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G12 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G13 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G14 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G15 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G16 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G17 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G18 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G19 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G20 | Nenhum: informar ao lado | Não informado | Não informado |
+| P001 | O que a etapa faz!G21 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G22 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G23 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G24 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G25 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G26 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G27 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G28 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G29 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G30 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G31 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G32 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G33 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G34 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G35 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G36 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G37 | POP está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G38 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G39 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G40 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G41 | Bizagi está correto | Não informado | Não informado |
+| P001 | O que a etapa faz!G42 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G43 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G44 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G45 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G46 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G47 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G48 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G49 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G50 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G51 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G52 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G53 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G54 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G55 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G56 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G57 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G58 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G59 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G60 | POP está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G61 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G62 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G63 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G64 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G65 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G66 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G67 | Bizagi está correto | Não informado | Não informado |
+| P002 | O que a etapa faz!G68 | POP está correto | Não informado | Não informado |
+| P003 | O que a etapa faz!G69 | Bizagi está correto | Não informado | Não informado |
+| P003 | O que a etapa faz!G70 | POP está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G71 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G72 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G73 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G74 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G75 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G76 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G77 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G78 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G79 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G80 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G81 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G82 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G83 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G84 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G85 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G86 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G87 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G88 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G89 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G90 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G91 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G92 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G93 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G94 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G95 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G96 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G97 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G98 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G99 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G100 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G101 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G102 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G103 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G104 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G105 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G106 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G107 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G108 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G109 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G110 | Bizagi está correto | Não informado | Não informado |
+| P004 | O que a etapa faz!G111 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G112 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G113 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G114 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G115 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G116 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G117 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G118 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G119 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G120 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G121 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G122 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G123 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G124 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G125 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G126 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G127 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G128 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G129 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G130 | POP está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G131 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G132 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G133 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G134 | POP está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G135 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G136 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G137 | Bizagi está correto | Não informado | Não informado |
+| P005 | O que a etapa faz!G138 | Bizagi está correto | Não informado | Não informado |
+| P006 | O que a etapa faz!G139 | Bizagi está correto | Não informado | Não informado |
+| P006 | O que a etapa faz!G140 | Bizagi está correto | Não informado | Não informado |
+| P006 | O que a etapa faz!G141 | Bizagi está correto | Não informado | Não informado |
+| P006 | O que a etapa faz!G142 | Bizagi está correto | Não informado | Não informado |
+| P007 | O que a etapa faz!G143 | Bizagi está correto | Não informado | Não informado |
+| P007 | O que a etapa faz!G144 | Bizagi está correto | Não informado | Não informado |
+| P007 | O que a etapa faz!G145 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G146 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G147 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G148 | POP está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G149 | POP está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G150 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G151 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G152 | POP está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G153 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G154 | POP está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G155 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G156 | POP está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G157 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G158 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G159 | Bizagi está correto | Não informado | Não informado |
+| P008 | O que a etapa faz!G160 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G161 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G162 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G163 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G164 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G165 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G166 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G167 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G168 | Bizagi está correto | Não informado | Não informado |
+| P010 | O que a etapa faz!G169 | Bizagi está correto | Não informado | Não informado |
+| P001 | POP sem fluxograma!G5 | Só explicação: já coberta | Não informado | Não informado |
+| P001 | POP sem fluxograma!G6 | Só explicação: já coberta | Não informado | Não informado |
+| P001 | POP sem fluxograma!G7 | Só explicação: já coberta | Não informado | Não informado |
+| P001 | POP sem fluxograma!G8 | Falta no Bizagi: incluir | Não informado | Não informado |
+| P001 | POP sem fluxograma!G9 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G10 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G11 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G12 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G13 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G14 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G15 | Só explicação: já coberta | Não informado | Não informado |
+| P002 | POP sem fluxograma!G16 | Só explicação: já coberta | Não informado | Não informado |
+| P003 | POP sem fluxograma!G17 | Outro: informar ao lado | Não informado | Não informado |
+| P004 | POP sem fluxograma!G18 | Só explicação: já coberta | Não informado | Não informado |
+| P004 | POP sem fluxograma!G19 | Só explicação: já coberta | Não informado | Não informado |
+| P004 | POP sem fluxograma!G20 | Só explicação: já coberta | Não informado | Não informado |
+| P004 | POP sem fluxograma!G21 | Só explicação: já coberta | Não informado | Não informado |
+| P008 | POP sem fluxograma!G22 | Só explicação: já coberta | Não informado | Não informado |
+| P010 | POP sem fluxograma!G23 | Só explicação: já coberta | Não informado | Não informado |
+| P010 | POP sem fluxograma!G24 | Só explicação: já coberta | Não informado | Não informado |
+| P010 | POP sem fluxograma!G25 | Só explicação: já coberta | Não informado | Não informado |
+| P001 | Fluxograma sem POP!F5 | Incluir no POP | Não informado | Não informado |
+| P004 | Fluxograma sem POP!F6 | Incluir no POP | Não informado | Não informado |
+| P004 | Fluxograma sem POP!F7 | Já está no POP (informar item) 26.16 | Não informado | Não informado |
+| P004 | Fluxograma sem POP!F8 | Já está no POP (informar item) 26.16 | Não informado | Não informado |
+| P008 | Fluxograma sem POP!F9 | Outro: informar ao lado | Não informado | Não informado |
+| P005 | Duas linhas possíveis!E5 | Linha B | Não informado | Não informado |
+| P005 | Duas linhas possíveis!E6 | Linha A | Não informado | Não informado |
+| P001 | Chamada de outro processo!F5 | P001 · Importação | Não informado | Não informado |
+| P001 | Chamada de outro processo!F6 | P001 · Importação | Não informado | Não informado |
+| P002 | Chamada de outro processo!F7 | P002 · Cabotagem Entrega | Não informado | Não informado |
+| P002 | Chamada de outro processo!F8 | P002 · Cabotagem Entrega | Não informado | Não informado |
+| P002 | Chamada de outro processo!F9 | P002 · Cabotagem Entrega | Não informado | Não informado |
+| P003 | Chamada de outro processo!F10 | P003 · DTA Transporte | Não informado | Não informado |
+| P004 | Chamada de outro processo!F11 | P004 · Exportação | Não informado | Não informado |
+| P010 | Chamada de outro processo!F12 | P010 · Transbordo Importação | Não informado | Não informado |
+| P010 | Chamada de outro processo!F13 | P010 · Transbordo Importação | Não informado | Não informado |
+| P010 | Chamada de outro processo!F14 | P010 · Transbordo Importação | Não informado | Não informado |
+| P002 | Número repetido no POP!E5 | Etapas diferentes: renumerar B | Não informado | Não informado |
+| P005 | Número repetido no POP!E6 | Etapas diferentes: renumerar B | Não informado | Não informado |
+| P005 | Número repetido no POP!E7 | Etapas diferentes: renumerar B | Não informado | Não informado |
