@@ -7,6 +7,8 @@ import json
 import os
 from pathlib import Path
 import re
+import tempfile
+import threading
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -108,6 +110,7 @@ def readable(hit, question=''):
 class Assistant:
     def __init__(self, corpus: Path, endpoint: str = '', model: str = '', nvidia_api_key: str = ''):
         self.index = KnowledgeIndex(corpus)
+        self.config_lock = threading.RLock()
         self.endpoint = local_endpoint(endpoint) if endpoint else ''
         self.model = model
         self.api_key = ''
@@ -121,6 +124,8 @@ class Assistant:
             raise ValueError('NIM_MODEL é obrigatório ao configurar NIM_BASE_URL')
 
     def answer(self, question: str, process_id: str | None):
+        with self.config_lock:
+            endpoint, model, api_key, external = self.endpoint, self.model, self.api_key, self.external
         if not isinstance(question, str) or not 3 <= len(question.strip()) <= 2000:
             raise ValueError('Escreva uma pergunta entre 3 e 2000 caracteres')
         if process_id is not None and not re.fullmatch(r'P00[1-9]|P010', str(process_id)):
@@ -131,10 +136,10 @@ class Assistant:
         mode = 'local-search'
         warning = None
         selected = []
-        if self.endpoint:
+        if endpoint:
             try:
-                selected = nim_quotes(question, hits, self.endpoint, self.model, self.api_key)
-                mode = 'nvidia-api' if self.external else 'local-nim'
+                selected = nim_quotes(question, hits, endpoint, model, api_key)
+                mode = 'nvidia-api' if external else 'local-nim'
                 if not selected:
                     return dict(mode=mode, answer='Não encontrei evidência suficiente para responder com segurança.', sources=[])
             except (OSError, ValueError, KeyError, IndexError, TypeError):
@@ -143,11 +148,61 @@ class Assistant:
             selected = [dict(h, quote=readable(h, question)) for h in hits[:3]]
         public = [dict(id=h['id'], file=h['file'], line=h['line'], title=re.sub(r'\s*\[.*?\]\s*$', '', h['title']),
                        quote=h['quote'], processId=h['processId']) for h in selected]
-        return dict(mode=mode, externalContext=self.external, answer='Encontrei estes trechos na documentação:' if mode == 'local-search' else 'A documentação informa:',
+        return dict(mode=mode, externalContext=external, answer='Encontrei estes trechos na documentação:' if mode == 'local-search' else 'A documentação informa:',
                     sources=public, warning=warning)
 
 
-def make_handler(assistant, directory):
+class SettingsStore:
+    def __init__(self, assistant, root=ROOT):
+        self.assistant = assistant
+        self.root = root
+
+    def public(self):
+        with self.assistant.config_lock:
+            config = configuration(self.root)
+            locked = bool(config['NIM_BASE_URL'] or any(key in os.environ for key in ('NVIDIA_API_KEY', 'NVIDIA_MODEL')))
+            return dict(model=self.assistant.model or config['NVIDIA_MODEL'] or NVIDIA_MODEL,
+                        keyConfigured=bool(self.assistant.api_key), locked=locked,
+                        mode='nvidia-api' if self.assistant.external else 'local-nim' if self.assistant.endpoint else 'local-search',
+                        externalContext=self.assistant.external)
+
+    def save(self, data):
+        with self.assistant.config_lock:
+            if self.public()['locked']:
+                raise ValueError('Configuração gerenciada pelo ambiente do servidor. Altere as variáveis e reinicie o serviço.')
+            model = data.get('model', '')
+            key = data.get('apiKey', '')
+            remove = data.get('removeKey', False)
+            if not isinstance(model, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]{1,199}', model):
+                raise ValueError('Informe um identificador de modelo válido.')
+            if not isinstance(key, str) or len(key) > 512 or any(ord(c) < 33 or ord(c) > 126 or c in "\"'" for c in key):
+                raise ValueError('Chave inválida: use o valor sem espaços ou quebras de linha.')
+            if not isinstance(remove, bool) or (remove and key):
+                raise ValueError('Escolha substituir ou remover a chave.')
+            config = configuration(self.root)
+            key = '' if remove else key or config['NVIDIA_API_KEY']
+            path = self.root / '.env.local'
+            lines = path.read_text(encoding='utf-8').splitlines() if path.exists() else []
+            lines = [line for line in lines if line.strip().partition('=')[0].strip() not in ('NVIDIA_API_KEY', 'NVIDIA_MODEL')]
+            lines += ['NVIDIA_API_KEY=' + key, 'NVIDIA_MODEL=' + model]
+            temporary = None
+            try:
+                with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=self.root, prefix='.env.local.', delete=False) as handle:
+                    temporary = Path(handle.name)
+                    handle.write('\n'.join(lines) + '\n')
+                temporary.replace(path)
+            finally:
+                if temporary and temporary.exists():
+                    temporary.unlink()
+            self.assistant.endpoint = NVIDIA_ENDPOINT if key else ''
+            self.assistant.api_key = key
+            self.assistant.model = model
+            self.assistant.external = bool(key)
+            return self.public()
+
+
+def make_handler(assistant, directory, settings=None):
+    settings = settings or SettingsStore(assistant)
     class Handler(SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
             super().__init__(*args, directory=str(directory), **kwargs)
@@ -166,7 +221,7 @@ def make_handler(assistant, directory):
             self.wfile.write(body)
 
         def do_POST(self):
-            if self.path != '/api/chat':
+            if self.path not in ('/api/chat', '/api/chat/settings'):
                 return self.json_response({'error': 'Rota inexistente'}, 404)
             # Only the local same-origin app may submit questions.
             origin = self.headers.get('Origin')
@@ -181,6 +236,11 @@ def make_handler(assistant, directory):
                 if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
                     raise ValueError('Use JSON')
                 data = json.loads(self.rfile.read(length))
+                if self.path == '/api/chat/settings':
+                    try:
+                        return self.json_response(settings.save(data))
+                    except ValueError as error:
+                        return self.json_response({'error': str(error)}, 400)
                 return self.json_response(assistant.answer(data.get('question'), data.get('processId')))
             except (ValueError, TypeError, AttributeError):
                 return self.json_response({'error': 'Pergunta ou processo inválido'}, 400)
@@ -188,6 +248,8 @@ def make_handler(assistant, directory):
                 return self.json_response({'error': 'Não foi possível consultar a base local'}, 500)
 
         def do_GET(self):
+            if self.path == '/api/chat/settings':
+                return self.json_response(settings.public())
             if self.path == '/api/chat/status':
                 return self.json_response(dict(mode='nvidia-api' if assistant.external else 'local-nim' if assistant.endpoint else 'local-search', externalContext=assistant.external, documents=len(assistant.index.chunks)))
             if self.path.startswith('/api/'):

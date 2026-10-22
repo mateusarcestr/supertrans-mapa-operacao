@@ -314,3 +314,10 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [ ] Revisão do usuário da interface simplificada.
 - [ ] Configurar chave no servidor com corpus liberado/serviço apropriado e validar NVIDIA real; ainda não houve inferência real.
 - [ ] Esclarecer pendências operacionais anteriores; chatbot não resolve lacunas de fonte.
+## Configuração da IA na interface — 2026-10-22
+
+- [x] Adicionar chave protegida e seleção padrão/personalizada do modelo no chat.
+- [x] Persistir no servidor sem retornar segredo; aplicar sem reinício e permitir remoção.
+- [x] Respeitar precedência de ambiente/NIM local e recusar gravação de origem externa.
+- [x] Validar persistência, contrato HTTP, 66 Python/29 Vitest/build e QA desktop/mobile/claro/escuro.
+- [ ] Usuário cadastrar chave/modelo e validar NVIDIA real com conteúdo liberado; testes realizados não chamaram o provedor real.

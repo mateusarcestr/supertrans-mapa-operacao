@@ -332,3 +332,10 @@ Dark ajustado para grafite, cartões mais claros e bordas legíveis; sidebar pre
 / e /assistente agora abrem chat; processo, pergunta e fontes sob demanda, etapas disponíveis por link. Menu simplificado. Base knowledge/ com 39 Markdown: 10 processos, 1.350 nós, 1.081 linhas POP, 270 revisões e snapshots externos separados. Runtime consulta só Markdown. API NVIDIA preparada com modelo solicitado e chave no servidor; sem chave, busca local identificada. Nenhuma chamada NVIDIA real foi feita. DEC-049 e docs/assistant.md registram decisão mais recente de API externa, confidencialidade e limites do trial.
 
 62 Python/29 Vitest/build e QA assistant/operation/process-focus/human-review aprovados. Fontes/modelo/revisões canônicas preservados. Assistente em 127.0.0.1:8765 deixado ativo em busca local; chave não configurada. Próximo: revisar interface e configurar provedor com conteúdo liberado, validar inferência real. Pendências de processo anteriores permanecem.
+## Marco 2026-10-22 — chave e modelo pela interface
+
+Botão Configurações da IA no chat: senha para chave NVIDIA, seleção do modelo padrão ou identificador personalizado, manutenção/substituição/remoção da chave. Salvar persiste atomicamente em .env.local ignorado e aplica à próxima pergunta sem reiniciar. API retorna somente presença da chave, nunca seu valor; nenhum segredo em localStorage/URL/bundle/log. Configuração por ambiente ou NIM local bloqueia edição para preservar precedência administrativa. DEC-050.
+
+Validação: 66 Python, 29 Vitest, build e QA assistant/assistant-settings aprovados; testes HTTP em servidor efêmero e UI simulada sem inferência NVIDIA real. Temas e mobile conferidos; aviso existente de chunk >500 kB permanece. Fontes/raw/normalized/review/frontend/public/data intactos. Serviço 8765 atualizado e ativo em busca local, sem chave real cadastrada.
+
+Próximo exato: usuário abre Configurações da IA, cadastra chave e modelo; validar inferência real com material liberado. Pendências operacionais anteriores continuam abertas.

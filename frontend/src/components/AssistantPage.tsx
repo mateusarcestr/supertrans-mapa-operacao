@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { ArrowRight, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Send, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
+import { AssistantSettings } from './AssistantSettings'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
 interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string }
@@ -58,6 +59,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         <Link className="assistant-flow-link" to={`/operacao/${processId || 'P001'}`}><Workflow size={17} aria-hidden="true" />Ver etapas<ArrowRight size={15} aria-hidden="true" /></Link>
         <span className="assistant-local-status">{mode === 'nvidia-api' ? 'NVIDIA NIM · respostas com fontes' : mode === 'local-nim' ? 'NIM local · respostas com fontes' : mode === 'local-search' ? 'Busca local · trechos documentados' : 'Base de processos'}</span>
       </header>
+      <div className="assistant-settings-bar"><AssistantSettings onSaved={(settings) => { setMode(settings.mode); setExternalContext(settings.externalContext) }} /></div>
       {turns.length === 0 && <section className="assistant-welcome">
         <span className="assistant-mark"><MessageCircle size={27} aria-hidden="true" /></span>
         <h1>O que você quer entender?</h1>

@@ -43,16 +43,11 @@ python -m scripts.chat_server
 
 Abrir `http://127.0.0.1:8765`. Servidor em loopback entrega `frontend/dist`, `/api/chat` e Markdown citados. Sem chave/modelo, modo **Busca local**. Não grava perguntas/documentos em access logs.
 
-Após definir quais documentos podem sair do ambiente:
+No chat, abra **Configurações da IA**. Selecione Nemotron 3.5 Super ou **Outro modelo NVIDIA** e informe o identificador disponível na sua conta. Cole a chave no campo protegido e clique **Salvar configuração**. A próxima pergunta usa a configuração salva, sem reiniciar o serviço. Salvar não testa a validade da chave nem a disponibilidade do modelo.
 
-```powershell
-Copy-Item .env.example .env.local
-# Editar .env.local localmente e preencher NVIDIA_API_KEY.
-# Não enviar chave ao chat, ao frontend ou ao Git.
-python -m scripts.chat_server
-```
+O campo fica vazio após salvar e ao reabrir. Campo vazio mantém a chave existente; a opção **Remover chave e usar busca local** apaga a chave salva. Chave não é devolvida pela API nem guardada no localStorage, URL ou bundle. O navegador transmite a chave ao servidor local ao salvar. Persistência em texto no arquivo local `.env.local`, ignorado pelo Git, sem criptografia em repouso. Não publique este servidor local na rede.
 
-`.env.local` ignorado pelo Git; variáveis do processo prevalecem. Modelo solicitado já está em `NVIDIA_MODEL`. Reiniciar serviço após alterar configuração/Markdown. Alternativa: `NIM_BASE_URL=http://127.0.0.1:8000/v1` e `NIM_MODEL` para NIM próprio; localhost obrigatório e prioridade sobre API externa. Nenhum modelo local foi instalado ou validado.
+Alternativa administrativa: copiar `.env.example` para `.env.local` e editar no servidor; alterações manuais exigem reinício. Variáveis de ambiente prevalecem e bloqueiam edição pela interface para não anunciar uma substituição que não terá efeito. `NIM_BASE_URL` e `NIM_MODEL` continuam disponíveis para NIM local; configuração local também é gerenciada no servidor. Nenhum modelo local foi instalado ou validado.
 
 Desenvolvimento: serviço Python e `npm --prefix frontend run dev` em terminais distintos. Vite encaminha `/api` e `/knowledge` para 8765. Não é solução de deploy; serviço não foi publicado nem validado para produção/rede.
 
@@ -63,3 +58,5 @@ Testes: cobertura/determinismo/preservação do modelo; escopo de processo; aus�
 QA `scripts/visual-qa/assistant.mjs`: entrada simples, perguntas, fontes/Markdown, ausência de resposta, troca de processo e etapas sob demanda em claro/escuro/desktop/mobile. Sem chave, rejeita requisições de navegador a hosts externos.
 
 Inferência NVIDIA real, qualidade do modelo, latência e limites da conta **não validados**. Contrato HTTP simulado não comprova inferência real. As dúvidas operacionais existentes continuam explícitas; corpus não transforma inferências em fatos.
+
+QA `scripts/visual-qa/assistant-settings.mjs`: formulário, modelo personalizado, chave limpa após salvar, remoção, Escape, desktop/mobile e temas; API de configuração simulada. Testes HTTP reais em servidor efêmero e diretório temporário verificam persistência, aplicação imediata, ausência de chave na resposta e recusa de origem externa.
