@@ -302,3 +302,15 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Adicionar ícones Lucide com rótulos acessíveis preservados.
 - [x] Validar testes/build, dois temas/três larguras e regressão operacional.
 - [ ] Revisão visual do usuário; pendências operacionais anteriores continuam registradas.
+
+## Chat documental — 2026-10-22
+
+- [x] Confirmar chat principal/etapas sob demanda; registrar mudança posterior de execução local para API externa NVIDIA.
+- [x] Gerar base Markdown separada, revisada e rastreável sem reextrair originais.
+- [x] Implementar busca local restrita ao diretório da base, fontes e ausência de evidência.
+- [x] Integrar adaptador NVIDIA com chave no servidor e citações literais verificadas; testar contrato sem enviar documentos.
+- [x] Simplificar entrada e preservar navegação/fluxos/revisões existentes.
+- [x] Validar 62 testes Python, 29 frontend, build e QA de chat/fluxos/fontes.
+- [ ] Revisão do usuário da interface simplificada.
+- [ ] Configurar chave no servidor com corpus liberado/serviço apropriado e validar NVIDIA real; ainda não houve inferência real.
+- [ ] Esclarecer pendências operacionais anteriores; chatbot não resolve lacunas de fonte.

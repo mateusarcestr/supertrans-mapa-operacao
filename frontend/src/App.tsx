@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { BookOpen, Boxes, Search, UsersRound, Workflow } from 'lucide-react'
+import { BookOpen, MessageCircle, Search, Workflow } from 'lucide-react'
 import {
   BrowserRouter,
   Link,
@@ -19,6 +19,7 @@ import { findCatalogResults, type CatalogResult } from './data/selectors'
 import type { FrontendCatalog } from './data/types'
 import { AreasPage, DocumentationPage, HandoffsPage, SystemsPage } from './RefinedResourcePages'
 import { ProcessDetailPage } from './pages'
+import { AssistantPage } from './components/AssistantPage'
 import { operationEntryHref } from './data/operation'
 import { ThemeProvider, ThemeToggle } from './components/ThemeToggle'
 import { AppShell as OrionAppShell } from './components/orion/blocks'
@@ -28,9 +29,8 @@ import { Button, Input } from './components/orion/ui'
 const CatalogContext = createContext<FrontendCatalog | null>(null)
 
 const navigation: NavigationItem[] = [
-  { id: 'operation', href: '/operacao', label: 'Operação', icon: Workflow },
-  { id: 'areas', href: '/areas', label: 'Equipes', icon: UsersRound },
-  { id: 'systems', href: '/sistemas', label: 'Recursos', icon: Boxes },
+  { id: 'assistant', href: '/assistente', label: 'Perguntar', icon: MessageCircle },
+  { id: 'operation', href: '/operacao', label: 'Processos', icon: Workflow },
   { id: 'documentation', href: '/documentacao', label: 'Evidências', icon: BookOpen },
 ]
 
@@ -86,7 +86,8 @@ function AppLoader() {
       <PlaybackProvider>
         <Routes>
           <Route element={<AppShell />}>
-            <Route path="/" element={<OverviewRoute />} />
+            <Route path="/" element={<HomeRoute />} />
+            <Route path="/assistente" element={<AssistantRoute />} />
             <Route path="/operacao" element={<OverviewRoute />} />
             <Route path="/operacao/:processId" element={<ProcessRoute />} />
             <Route path="/processos" element={<ProcessesRoute />} />
@@ -133,12 +134,13 @@ function AppShell() {
   const catalog = useCatalog()
   const navigate = useNavigate()
   const location = useLocation()
+  const assistantView = location.pathname === '/assistente' || (location.pathname === '/' && !location.search)
   const [query, setQuery] = useState('')
   const results = useMemo(() => findCatalogResults(catalog, query), [catalog, query])
   const routeProcessId = location.pathname.match(/^\/(?:processos|operacao)\/(P\d{3})/)?.[1]
   const overviewProcessId = location.pathname === '/' ? (new URLSearchParams(location.search).get('process') ?? undefined) : undefined
   const processId = routeProcessId ?? overviewProcessId
-  const activeItemId =
+  const activeItemId = assistantView ? 'assistant' :
     location.pathname.startsWith('/processos') || location.pathname.startsWith('/operacao')
       ? 'operation'
       : location.pathname === '/areas'
@@ -191,7 +193,7 @@ function AppShell() {
         navigation,
         activeItemId,
         renderLink,
-        footer: (
+        footer: !assistantView && (
           <div className="sidebar-foot">
             <div className="mini-status">
               <span />
@@ -209,7 +211,7 @@ function AppShell() {
       <a className="skip-link" href="#main-content">
         Pular para conteúdo
       </a>
-      <header className="topbar portal-topbar">
+      {!assistantView && <header className="topbar portal-topbar">
         <div className="mobile-page-title">{processId ?? 'Mapa Operacional'}</div>
         <div className="global-search">
           <span aria-hidden="true">
@@ -269,7 +271,8 @@ function AppShell() {
             MT
           </Button>
         </div>
-      </header>
+      </header>}
+      {assistantView && <div className="assistant-theme"><ThemeToggle /></div>}
       <div id="main-content" className="content-shell">
         <Outlet />
       </div>
@@ -278,6 +281,7 @@ function AppShell() {
 }
 
 function makeBreadcrumbs(pathname: string, search: string, catalog: FrontendCatalog): BreadcrumbItem[] {
+  if (pathname === '/assistente' || (pathname === '/' && !search)) return [{ label: 'Perguntar sobre processos', current: true }]
   const params = new URLSearchParams(search)
   if (pathname === '/') {
     const view = params.get('view')
@@ -305,6 +309,13 @@ function useCatalog() {
   const catalog = useContext(CatalogContext)
   if (!catalog) throw new Error('Catalog context missing')
   return catalog
+}
+function HomeRoute() {
+  const location = useLocation()
+  return location.search ? <OverviewRoute /> : <AssistantRoute />
+}
+function AssistantRoute() {
+  return <AssistantPage catalog={useCatalog()} />
 }
 function OverviewRoute() {
   const catalog = useCatalog()

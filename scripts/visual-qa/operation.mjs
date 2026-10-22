@@ -23,7 +23,10 @@ try {
     await marker.waitFor()
     assert.equal(await page.getByRole('link', { name: 'Operação', exact: true }).count() >= 1, true)
     assert.equal(await page.getByRole('link', { name: 'Passagens', exact: true }).count(), 0)
-    assert.equal(await page.getByRole('link', { name: 'Processos', exact: true }).count(), 0)
+    if (width === 1366) {
+      assert.ok(await page.getByRole('link', { name: 'Processos', exact: true }).count() >= 1)
+      assert.ok(await page.getByRole('link', { name: 'Perguntar', exact: true }).count() >= 1)
+    }
     assert.equal(await page.locator('.process-info-drawer').isVisible(), false)
     assert.equal(await page.locator('.process-detail').evaluate((element) => element.scrollWidth > element.clientWidth), false)
     assert.ok((await page.locator('.focus-flow-outgoing').textContent()).includes('Ver passagem entre equipes'))
@@ -61,7 +64,9 @@ try {
     }
   }
   assert.equal(visited.size, catalog.handoffs.length)
-  for (const route of ['/', '/processos', '/handoffs', '/?view=3d&process=P002', '/?view=2d&process=P003']) {
+  await page.goto('http://127.0.0.1:4174/')
+  await page.getByRole('heading', { name: 'O que você quer entender?' }).waitFor()
+  for (const route of ['/processos', '/handoffs', '/?view=3d&process=P002', '/?view=2d&process=P003']) {
     await page.goto(`http://127.0.0.1:4174${route}`)
     await page.locator('.focus-flow-current').waitFor()
     assert.ok(new URL(page.url()).pathname.startsWith('/operacao/'))

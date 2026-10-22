@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "counts": {
+    "processes": 10,
+    "decisions": 270,
+    "nodes": 1350,
+    "popSteps": 1081
+  },
+  "files": [
+    {
+      "path": "processes/P001.md",
+      "sha256": "c6663e6d58aa75c319c60207502a282a2a575e5f52ecf3f19007be3d1623f390"
+    },
+    {
+      "path": "originals/P001.md",
+      "sha256": "072276fbd27b07e02d46c123d458afdad50236aaa466755c4024dddb9c07d027"
+    },
+    {
+      "path": "processes/P002.md",
+      "sha256": "ec3040fe58e552ad5d2dcb20b6b162f98aab08a172647beeefb50cdf0f088b9a"
+    },
+    {
+      "path": "originals/P002.md",
+      "sha256": "172ac29f722ac17e3f9f9c8f593d0f50a17a1aaf7ed5cc353a7e0e38b22f6f8f"
+    },
+    {
+      "path": "processes/P003.md",
+      "sha256": "b27cc0d4fde4525b3a442b1f8aa829cddbe1c91876a6a13cb2446b5869667314"
+    },
+    {
+      "path": "originals/P003.md",
+      "sha256": "ac7ef824f0911a2e3a4217790b0db1df8c614156aa3d7a7d4360a54e0d32d2b4"
+    },
+    {
+      "path": "processes/P004.md",
+      "sha256": "eca8e30c00dcb885d0e139feb10842cb8832b324e92337aadee6ab5e299282b1"
+    },
+    {
+      "path": "originals/P004.md",
+      "sha256": "fda0071e70ad0b606c6e0a0b24c1dbee7d3e31d1e82f31f83692e015d3f2b694"
+    },
+    {
+      "path": "processes/P005.md",
+      "sha256": "7559ca8af97d5fc6a5db8872f3b949070dfe0ec4d18325de22987085ce3aa36f"
+    },
+    {
+      "path": "originals/P005.md",
+      "sha256": "965433f13666563e9d0b3d9e82b264f72dd8133af7787e6b92585f424b51da9a"
+    },
+    {
+      "path": "processes/P006.md",
+      "sha256": "c43f9c773cf0740a100f3c5ec897f85d60ad974d10ea3703197f07e333a7212d"
+    },
+    {
+      "path": "originals/P006.md",
+      "sha256": "8e0cac0a750902a9c25aeebef90b30369f505ad8477920ef2054325933c814bc"
+    },
+    {
+      "path": "processes/P007.md",
+      "sha256": "a86a869f8d2fef3dab9bbaf736209673a983a1770d01681cfb26d6c149bd70ed"
+    },
+    {
+      "path": "originals/P007.md",
+      "sha256": "d1a5a4f3069796ab6a056594c39b5f0bcdb93738057d18cfa286558ed8fa06dd"
+    },
+    {
+      "path": "processes/P008.md",
+      "sha256": "301da5fa23705b37713c3d41c255a249c8197e14939aab70680c115c8cda19eb"
+    },
+    {
+      "path": "originals/P008.md",
+      "sha256": "4cd46a5603d63924a6c669a2e3fd37756cf91caddcbee431ebc369b416d6ca98"
+    },
+    {
+      "path": "processes/P009.md",
+      "sha256": "fd7202a2259a99012dd3e84a45d5096cdf7e7e4ef9b32b36ec943f02e86d0089"
+    },
+    {
+      "path": "originals/P009.md",
+      "sha256": "38e2c197d67394e575a8ff77066f1a7217d839d94f368cfc53384f9e12d84576"
+    },
+    {
+      "path": "processes/P010.md",
+      "sha256": "e7b8d2adcfce1d0b5bb9e16af3e79a19ce9e927b4364d1a476c3df64e5dd025e"
+    },
+    {
+      "path": "originals/P010.md",
+      "sha256": "927a6b720f33a27430048fc1ba484bfd26b15c60e27d4e12a5197ff2020733a0"
+    },
+    {
+      "path": "reviews/decisions.md",
+      "sha256": "9b649bf00143a5a46afe0c5c13d9dcf3b492f99152c4fb44dcf06252cf6e94a9"
+    },
+    {
+      "path": "external/central-readiness.md",
+      "sha256": "9137d7e0b49627687a4e6bcb34b49898fdf094e253de226956d2ada9df69dee6"
+    },
+    {
+      "path": "external/coverage-matrix.md",
+      "sha256": "ede00b85eef6b7cd21dfe34e54af499069c60f22e628eaa500a7e815d2305cd3"
+    },
+    {
+      "path": "external/demand-fields-matrix.md",
+      "sha256": "12960be6b87b7c87202e25af9b87411427c3b6a9e2ce21c9a0562809c8b8fdd2"
+    },
+    {
+      "path": "external/executable-rules.md",
+      "sha256": "dcd35dc5c344b779e154ea9c2800dbb5585e8a2aa0e91e4968513c3a72ea78fe"
+    },
+    {
+      "path": "external/frontend-readiness-after-alignment.md",
+      "sha256": "1393dc650b05707fe9225919f10a479609032f4c83ad0bdbe9a21027729780f5"
+    },
+    {
+      "path": "external/gap-analysis.md",
+      "sha256": "fd86d5557346855dc833dee37a6872b65fbc84e1d40162c50f13aff633b4c0ab"
+    },
+    {
+      "path": "external/handoffs-vs-system-routing.md",
+      "sha256": "d6afbf96c4d31a923937a06099cec11a1088c997b6d87b5e282401f2a811ccdb"
+    },
+    {
+      "path": "external/history-audit-analysis.md",
+      "sha256": "f87389058ab19b962cfb629f65d2ed1ce2fbe1a51e777a15df3b9b01de73ad68"
+    },
+    {
+      "path": "external/human-review-priority.md",
+      "sha256": "49938105e6572dece049e36723124796faa452ac116aeda4bc61b3005951cbe9"
+    },
+    {
+      "path": "external/jira-input-needed.md",
+      "sha256": "49305db7c51d18b48c5cd337d3d42d84acc5700fd61be8e1aa613badce5bfec6"
+    },
+    {
+      "path": "external/map-integration-contract.md",
+      "sha256": "4b39b07d43940b61e0247165318148d0da4c9564e33b5ab3e58d23a18c7d73e0"
+    },
+    {
+      "path": "external/notifications-analysis.md",
+      "sha256": "39e6eff1c30a7ecd706f77eca9a70e9d46e45b5f89fda91208e3446644936417"
+    },
+    {
+      "path": "external/operation-types-crosswalk.md",
+      "sha256": "96cdaa27229790865712001b7937e988edd724c990a7b8835f551b59b3c1db9f"
+    },
+    {
+      "path": "external/responsibility-crosswalk.md",
+      "sha256": "ce683ba1964a4c77867f74982b80dc394cb3b4be9a4d3195cfefec6b8c0d831e"
+    },
+    {
+      "path": "external/scenario-flow-analysis.md",
+      "sha256": "bf0f81c8fb9a45d56ff019c8a5fbe2d0d93578847c50bd5f985192f8ed7efdd3"
+    },
+    {
+      "path": "external/scheduling-analysis.md",
+      "sha256": "986204c4919930a732a4807652bcfbb11ad3843fe514b7e523978823eeae0ace"
+    },
+    {
+      "path": "external/status-lifecycle-crosswalk.md",
+      "sha256": "3de687dd0097d83b67eaa30eaea20942d251de15ce13f3741adcf9cfeb14a65d"
+    },
+    {
+      "path": "POLICY.md",
+      "sha256": "93998939c97edb5f1b47cf5791bde0727f6f52db7c4803174cae94398060db52"
+    }
+  ]
+}

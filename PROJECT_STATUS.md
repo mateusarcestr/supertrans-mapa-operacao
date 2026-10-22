@@ -326,3 +326,9 @@ Corrigida lacuna de integração: 228 conflitos resolvidos e 1 ativo na projeç�
 ## Marco 2026-10-22 — dark mais claro e iconografia
 
 Dark ajustado para grafite, cartões mais claros e bordas legíveis; sidebar preta nos dois temas. Azul Supertrans em ícones/detalhes e seleção. Lucide ampliado em seletores, status, participantes, ações e evidências. DEC-048 detalha tokens e limites. 29 testes, build, QA dark-theme/operation/process-focus/channels aprovados; fontes/dados preservados. Próximo: revisão visual pelo usuário; manter pendências operacionais anteriores (1 conflito ativo, 18 dúvidas, três inclusões e data da revisão).
+
+## Marco 2026-10-22 — assistente documental e entrada simplificada
+
+/ e /assistente agora abrem chat; processo, pergunta e fontes sob demanda, etapas disponíveis por link. Menu simplificado. Base knowledge/ com 39 Markdown: 10 processos, 1.350 nós, 1.081 linhas POP, 270 revisões e snapshots externos separados. Runtime consulta só Markdown. API NVIDIA preparada com modelo solicitado e chave no servidor; sem chave, busca local identificada. Nenhuma chamada NVIDIA real foi feita. DEC-049 e docs/assistant.md registram decisão mais recente de API externa, confidencialidade e limites do trial.
+
+62 Python/29 Vitest/build e QA assistant/operation/process-focus/human-review aprovados. Fontes/modelo/revisões canônicas preservados. Assistente em 127.0.0.1:8765 deixado ativo em busca local; chave não configurada. Próximo: revisar interface e configurar provedor com conteúdo liberado, validar inferência real. Pendências de processo anteriores permanecem.

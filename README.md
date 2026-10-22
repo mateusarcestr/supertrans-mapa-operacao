@@ -85,3 +85,15 @@ python -X utf8 -m scripts.build_frontend_data   # regenera frontend/public/data 
 ```
 
 Formatação: dentro de `frontend/`, `npx prettier@3.3.3 --write "src/**/*.{ts,tsx}"` (config em `frontend/.prettierrc.json`).
+
+## Assistente de processos
+
+Entrada principal agora permite perguntar sobre o processo; etapas e evidências ficam sob demanda. Base Markdown gerada em `knowledge/`, com revisões e fontes preservadas. Não é fine-tuning: busca documental com evidências verificadas.
+
+```powershell
+python -m scripts.build_knowledge
+npm --prefix frontend run build
+python -m scripts.chat_server
+```
+
+Abrir http://127.0.0.1:8765. Sem chave, funciona como busca local. Integração externa usa NVIDIA_API_KEY somente no servidor e modelo nvidia/nemotron-3.5-super-vl-120b-a12b. `.env.example` documenta configuração; `.env.local` não é versionado. Nenhuma chamada real NVIDIA foi feita nesta sessão. Confidencialidade e limites do trial precisam ser respeitados antes de enviar material interno. Ver [arquitetura, configuração e limites](docs/assistant.md).

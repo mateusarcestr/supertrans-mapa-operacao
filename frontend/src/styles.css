@@ -1471,3 +1471,49 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .human-review-browser summary {
   cursor: pointer;
 }
+.assistant-page { width: min(850px, 100%); margin: 0 auto; padding: 24px 32px 32px; }
+.assistant-theme { display: flex; justify-content: flex-end; padding: 12px 24px 0; }
+.assistant-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 36px; }
+.assistant-flow-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; }
+.assistant-flow-link svg { color: var(--accent); }
+.assistant-local-status { color: var(--text-muted); font-size: 12px; }
+.assistant-welcome { padding: 28px 0 18px; }
+.assistant-mark { display: inline-flex; padding: 14px; border-radius: 16px; color: var(--accent); background: var(--accent-soft); }
+.assistant-welcome h1 { margin: 20px 0 12px; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; letter-spacing: -.035em; }
+.assistant-welcome p { max-width: 57ch; color: var(--text-secondary); font-size: 16px; }
+.assistant-scope { display: flex; align-items: center; gap: 14px; margin: 22px 0; color: var(--text-secondary); font-size: 13px; }
+.assistant-scope select { min-width: 0; max-width: 65%; padding: 9px 32px 9px 12px; border: 1px solid var(--border-main); border-radius: 8px; color: var(--text-primary); background: var(--bg-surface); }
+.assistant-suggestions { display: grid; gap: 8px; margin: 20px 0 28px; }
+.assistant-suggestions button { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; border: 1px solid var(--border-soft); border-radius: 10px; background: transparent; color: var(--text-secondary); text-align: left; font-size: 14px; }
+.assistant-suggestions button:hover { color: var(--text-primary); background: var(--bg-surface); }
+.assistant-suggestions svg { flex: none; color: var(--text-muted); }
+.assistant-composer { display: flex; align-items: flex-end; gap: 10px; padding: 12px; border: 1px solid var(--border-main); border-radius: 15px; background: var(--bg-surface); }
+.assistant-composer:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.assistant-composer textarea { width: 100%; min-height: 64px; max-height: 180px; resize: vertical; border: 0; outline: 0; padding: 8px; background: transparent; color: var(--text-primary); font-size: 16px; line-height: 1.5; }
+.assistant-composer textarea::placeholder { color: var(--text-muted); }
+.assistant-composer button { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border: 0; border-radius: 10px; color: #0c2027; background: var(--accent); }
+.assistant-composer button:disabled { opacity: .4; cursor: default; }
+.assistant-footnote { margin: 12px 4px 0; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.assistant-turn { padding: 10px 0 26px; margin: 12px 0 20px; border-bottom: 1px solid var(--border-soft); }
+.assistant-turn h2 { margin: 0 0 22px; font-size: 21px; line-height: 1.45; overflow-wrap: anywhere; }
+.assistant-answer > p { color: var(--text-secondary); }
+.assistant-evidence { margin: 20px 0; }
+.assistant-evidence h3 { margin: 0 0 8px; color: var(--text-primary); font-size: 15px; font-weight: 600; }
+.assistant-evidence blockquote { margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--accent); color: var(--text-secondary); font-size: 14px; line-height: 1.8; white-space: pre-line; overflow-wrap: anywhere; }
+.assistant-evidence details { margin: 10px 0 0 14px; color: var(--text-muted); font-size: 12px; }
+.assistant-evidence summary { cursor: pointer; }
+.assistant-evidence summary svg { display: inline; vertical-align: -2px; margin-right: 5px; color: var(--accent); }
+.assistant-evidence a { color: var(--accent); }
+.assistant-loading { display: flex; align-items: center; gap: 8px; color: var(--text-muted); }
+.assistant-loading svg { animation: assistant-spin 1.2s linear infinite; }
+.assistant-notice { color: var(--text-secondary); font-size: 14px; }
+.assistant-notice button { padding: 8px 12px; border: 1px solid var(--border-main); border-radius: 7px; background: var(--bg-surface); color: var(--text-primary); }
+@keyframes assistant-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .assistant-loading svg { animation: none; } }
+@media (max-width: 767px) {
+  .assistant-page { padding: 16px 18px 24px; }
+  .assistant-header { margin-bottom: 12px; flex-wrap: wrap; }
+  .assistant-welcome { padding-top: 14px; }
+  .assistant-scope { flex-wrap: wrap; gap: 8px; }
+  .assistant-scope select { max-width: 100%; width: 100%; }
+}

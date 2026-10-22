@@ -1,0 +1,56 @@
+import assert from 'node:assert/strict'
+import { createRequire } from 'node:module'
+import { mkdir } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+
+const require = createRequire(new URL('../../frontend/package.json', import.meta.url))
+const { chromium } = require('playwright')
+const output = new URL('../../docs/screenshots/assistant/', import.meta.url)
+await mkdir(output, { recursive: true })
+const browser = await chromium.launch({ headless: true })
+const page = await browser.newPage()
+const errors = []
+const hosts = new Set()
+page.on('pageerror', (error) => errors.push(error.message))
+page.on('request', (request) => hosts.add(new URL(request.url()).hostname))
+try {
+  for (const [theme, width, height] of [['light', 1366, 900], ['dark', 1366, 900], ['light', 390, 844]]) {
+    await page.setViewportSize({ width, height })
+    await page.goto('http://127.0.0.1:8765/')
+    await page.evaluate((theme) => localStorage.setItem('supertrans-theme', theme), theme)
+    await page.reload()
+    await page.getByRole('heading', { name: 'O que você quer entender?' }).waitFor()
+    await page.getByText('Busca local · trechos documentados', { exact: true }).waitFor()
+    assert.equal(await page.locator('.global-search').count(), 0)
+    assert.equal(await page.locator('.focus-flow-network').count(), 0)
+    assert.equal(await page.locator('.assistant-suggestions button').count(), 3)
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+    await page.screenshot({ path: fileURLToPath(new URL(`home-${theme}-${width}.png`, output)), fullPage: true })
+    await page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' }).fill('quem agenda a retirada de CNTR vazio?')
+    await page.getByRole('button', { name: 'Enviar pergunta' }).click()
+    await page.locator('.assistant-evidence').first().waitFor()
+    assert.ok(await page.locator('.assistant-evidence blockquote').count() > 0)
+    const source = page.locator('.assistant-evidence details').first()
+    assert.equal(await source.getAttribute('open'), null)
+    await source.locator('summary').click()
+    assert.ok((await source.textContent()).includes('processes/P001.md'))
+    const href = await source.locator('a').getAttribute('href')
+    const document = await page.request.get(`http://127.0.0.1:8765${href.split('#')[0]}`)
+    assert.equal(document.status(), 200)
+    assert.ok((await document.text()).includes('Fontes:'))
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+    await page.screenshot({ path: fileURLToPath(new URL(`answer-${theme}-${width}.png`, output)), fullPage: true })
+    await page.getByRole('combobox', { name: 'Consultar processo' }).selectOption('P002')
+    assert.equal(await page.locator('.assistant-turn').count(), 0)
+    await page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' }).fill('receita de pudim de chocolate')
+    await page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' }).press('Enter')
+    await page.getByText('Não encontrei essa informação na base selecionada.', { exact: false }).waitFor()
+    assert.equal(await page.locator('.assistant-evidence').count(), 0)
+    await page.getByRole('link', { name: 'Ver etapas', exact: true }).click()
+    await page.locator('.focus-flow-current').waitFor()
+    assert.ok(page.url().includes('/operacao/P002'))
+  }
+  assert.deepEqual(errors, [])
+  assert.deepEqual([...hosts], ['127.0.0.1'])
+  console.log('Assistant QA OK: chat-first, local answers/citations, document access, missing evidence, process reset, stages on demand, light/dark desktop/mobile, no external requests/overflow/errors.')
+} finally { await browser.close() }

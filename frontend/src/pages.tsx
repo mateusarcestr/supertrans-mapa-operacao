@@ -346,7 +346,10 @@ export function ProcessDetailPage({ catalog, processId }: PageProps & { processI
         className="team-map-drawer process-info-drawer"
         aria-label="Informações e evidências da operação"
         onCancel={() => setInfoOpen(false)}
-        onClose={() => setInfoOpen(false)}
+        onClose={(event) => {
+          // A native close event can arrive after a rapid reopen.
+          if (!event.currentTarget.open) setInfoOpen(false)
+        }}
         onClick={(event) => {
           if (event.target === event.currentTarget) setInfoOpen(false)
         }}

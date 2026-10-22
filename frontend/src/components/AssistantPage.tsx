@@ -1,0 +1,104 @@
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { ArrowRight, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Send, Workflow } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import type { FrontendCatalog } from '../data/types'
+
+interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
+interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string }
+interface Turn { question: string; reply?: Reply; error?: string }
+
+export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
+  const [processId, setProcessId] = useState('P001')
+  const [question, setQuestion] = useState('')
+  const [turns, setTurns] = useState<Turn[]>([])
+  const [pending, setPending] = useState(false)
+  const [mode, setMode] = useState<'local-search' | 'local-nim' | 'nvidia-api' | 'offline'>('offline')
+  const [externalContext, setExternalContext] = useState(false)
+  const lastReply = useRef<HTMLDivElement>(null)
+  const request = useRef<AbortController | null>(null)
+  const revision = useRef(0)
+  useEffect(() => {
+    const controller = new AbortController()
+    fetch('/api/chat/status', { signal: controller.signal }).then((response) => {
+      if (!response.ok) throw new Error()
+      return response.json()
+    }).then((data) => { setMode(data.mode); setExternalContext(Boolean(data.externalContext)) }).catch(() => {})
+    return () => { controller.abort(); request.current?.abort() }
+  }, [])
+  useEffect(() => { if (turns.length) lastReply.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [turns, pending])
+
+  async function ask(value: string) {
+    const text = value.trim()
+    if (pending || text.length < 3) return
+    const current = revision.current
+    setQuestion('')
+    setPending(true)
+    setTurns((previous) => [...previous, { question: text }])
+    request.current = new AbortController()
+    try {
+      const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: text, processId: processId || null }), signal: request.current.signal })
+      if (!response.ok) throw new Error('Não foi possível consultar. Confira se o serviço local está iniciado e tente novamente.')
+      const reply: Reply = await response.json()
+      if (current !== revision.current) return
+      setMode(reply.mode)
+      setTurns((previous) => previous.map((turn, index) => index === previous.length - 1 ? { ...turn, reply } : turn))
+    } catch (reason) {
+      if (current !== revision.current) return
+      setTurns((previous) => previous.map((turn, index) => index === previous.length - 1 ? { ...turn,
+        error: reason instanceof Error ? reason.message : 'Consulta indisponível.' } : turn))
+    } finally { if (current === revision.current) setPending(false) }
+  }
+
+  const submit = (event: FormEvent) => { event.preventDefault(); void ask(question) }
+  const suggestions = ['Quem executa as etapas deste processo?', 'Como funciona a retirada do contêiner vazio?', 'O que acontece depois do aceite?']
+  return (
+    <div className="assistant-page">
+      <header className="assistant-header">
+        <Link className="assistant-flow-link" to={`/operacao/${processId || 'P001'}`}><Workflow size={17} aria-hidden="true" />Ver etapas<ArrowRight size={15} aria-hidden="true" /></Link>
+        <span className="assistant-local-status">{mode === 'nvidia-api' ? 'NVIDIA NIM · respostas com fontes' : mode === 'local-nim' ? 'NIM local · respostas com fontes' : mode === 'local-search' ? 'Busca local · trechos documentados' : 'Base de processos'}</span>
+      </header>
+      {turns.length === 0 && <section className="assistant-welcome">
+        <span className="assistant-mark"><MessageCircle size={27} aria-hidden="true" /></span>
+        <h1>O que você quer entender?</h1>
+        <p>Pergunte sobre a operação. As respostas consultam somente a base de documentação.</p>
+      </section>}
+      <label className="assistant-scope">Consultar processo
+        <select value={processId} onChange={(event) => {
+          revision.current += 1; request.current?.abort(); setPending(false); setProcessId(event.target.value); setTurns([])
+        }}>
+          <option value="">Todos os processos</option>
+          {catalog.processes.map((process) => <option key={process.id} value={process.id}>{process.name}</option>)}
+        </select>
+      </label>
+      <div className="assistant-conversation" aria-live="polite" aria-busy={pending}>
+        {turns.map((turn, index) => <article className="assistant-turn" key={index}>
+          <h2>{turn.question}</h2>
+          {turn.reply && <div className="assistant-answer">
+            <p>{turn.reply.answer}</p>
+            {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
+            {turn.reply.sources.map((source, sourceIndex) => <section className="assistant-evidence" key={source.id}>
+              <h3>{source.title}</h3><blockquote>{source.quote}</blockquote>
+              <details><summary><BookOpen size={14} aria-hidden="true" />Fonte {sourceIndex + 1}</summary>
+                <p>{source.file} · linha {source.line}</p>
+                <a href={`/knowledge/${source.file.split('/').map(encodeURIComponent).join('/')}#L${source.line}`} target="_blank" rel="noreferrer">Abrir documento local</a>
+              </details>
+            </section>)}
+          </div>}
+          {turn.error && <div role="alert" className="assistant-notice"><p>{turn.error}</p><button onClick={() => void ask(turn.question)}>Tentar novamente</button></div>}
+          {!turn.reply && !turn.error && pending && <p className="assistant-loading"><LoaderCircle size={17} aria-hidden="true" />Consultando a base local…</p>}
+        </article>)}
+        <div ref={lastReply} />
+      </div>
+      <form className="assistant-composer" onSubmit={submit}>
+        <label className="sr-only" htmlFor="process-question">Sua pergunta sobre o processo</label>
+        <textarea id="process-question" rows={2} maxLength={2000} value={question} onChange={(event) => setQuestion(event.target.value)}
+          onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void ask(question) } }}
+          placeholder="Ex.: quem agenda a retirada do contêiner?" />
+        <button type="submit" disabled={pending || question.trim().length < 3} aria-label="Enviar pergunta"><Send size={19} aria-hidden="true" /></button>
+      </form>
+      {turns.length === 0 && <div className="assistant-suggestions">{suggestions.map((text) => <button key={text} onClick={() => void ask(text)}>{text}<CornerDownLeft size={15} aria-hidden="true" /></button>)}</div>}
+      <p className="assistant-footnote">Sem evidência suficiente, o assistente informa que não encontrou a resposta. {externalContext ? 'Trechos relevantes são enviados à API NVIDIA para selecionar as evidências.' : 'Busca executada neste ambiente.'}</p>
+    </div>
+  )
+}
