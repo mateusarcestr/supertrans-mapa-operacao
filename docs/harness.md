@@ -74,3 +74,4 @@ python -m harness.loop step --hypothesis "Adicionar sinônimos para retirada de 
 python -m harness.loop history
 ```
 Exibe a tabela cronológica com timestamp, hash de commit, pontuação e hipótese de cada tentativa.
+

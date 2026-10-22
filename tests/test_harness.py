@@ -69,3 +69,4 @@ class HarnessTests(unittest.TestCase):
         as_dict = report.to_dict()
         self.assertIn('case_results', as_dict)
         self.assertIn('latency_ms', as_dict)
+

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { ArrowDown, ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Square, Workflow } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, ShieldCheck, Square, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings, type AssistantConfiguration } from './AssistantSettings'
@@ -10,7 +10,8 @@ interface Evidence { id: string; file: string; line: number; title: string; quot
 interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
 export interface FlowStep { step?: number | string; title: string; executor?: string; details?: string }
 export interface FlowDiagram { title?: string; steps: FlowStep[] }
-interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[]; flow?: FlowDiagram }
+export interface HarnessAudit { grounding: number; verifiedSources: number; invariantsPreserved: boolean }
+interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[]; flow?: FlowDiagram; harness?: HarnessAudit }
 interface Turn { question: string; reply?: Reply; error?: string }
 
 export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
@@ -114,7 +115,15 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         {turns.map((turn, index) => <article className="assistant-turn" key={index} ref={index === turns.length - 1 ? lastReply : undefined}>
           <h2 className="assistant-question">{turn.question}</h2>
           {turn.reply && <div className="assistant-answer">
-            <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
+            <div className="assistant-reply-header">
+              <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
+              {turn.reply.harness && (
+                <span className="assistant-harness-badge" title="Auditado pelo Evaluation Plane do Harness">
+                  <ShieldCheck size={13} aria-hidden="true" />
+                  {turn.reply.harness.grounding >= 1 ? '100% fundamentado' : `${Math.round(turn.reply.harness.grounding * 100)}% fundamentado`}
+                </span>
+              )}
+            </div>
             <p className="assistant-response-text">{turn.reply.answer}</p>
             {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
             {turn.reply.flow && turn.reply.flow.steps.length > 0 && (

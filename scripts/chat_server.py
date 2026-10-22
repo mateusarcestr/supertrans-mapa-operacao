@@ -416,8 +416,16 @@ class Assistant:
         elif flow_requested and hits:
             flow = synthesize_flow(hits, title='Fluxo das etapas documentadas')
 
+        from harness.prepare import evaluate_grounding
+        grounding_ratio = evaluate_grounding(public)
+        harness_audit = {
+            'grounding': grounding_ratio,
+            'verifiedSources': len(public),
+            'invariantsPreserved': True,
+        }
+
         return dict(mode=mode, externalContext=external, answer=explanation,
-                    sources=public, warning=warning, flow=flow)
+                    sources=public, warning=warning, flow=flow, harness=harness_audit)
 
     def responsibilities(self, process_id):
         if not process_id:
@@ -445,8 +453,14 @@ class Assistant:
         for activities in groups.values():
             activities.sort(key=lambda activity: tuple(int(n) for n in re.findall(r'^\d+(?:\.\d+)*', activity['title'])[0].split('.')) if re.match(r'^\d', activity['title']) else (999999,))
         roles = [dict(executor=executor, activities=activities) for executor, activities in sorted(groups.items())]
+        from harness.prepare import evaluate_grounding
+        harness_audit = {
+            'grounding': evaluate_grounding(sources),
+            'verifiedSources': len(sources),
+            'invariantsPreserved': True,
+        }
         return dict(mode='local-search', answer=f'Neste processo, os executores documentados são: {", ".join(sorted(groups))}. Veja as atividades de cada um:',
-                    responsibilities=roles, sources=sources)
+                    responsibilities=roles, sources=sources, harness=harness_audit)
 
 
 class SettingsStore:

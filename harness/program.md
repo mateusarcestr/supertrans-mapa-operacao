@@ -74,3 +74,4 @@ Conforme a Seção VIII.B do Anthropic Playbook:
 2. **Todo artefato possui autoria e versão**: Cada tentativa registrada no `harness/ledger.jsonl` guarda autor, hash do commit e data.
 3. **Toda avaliação possui rubrica**: Nenhum veredito é vago; o relatório aponta caso por caso os sucessos e falhas.
 4. **Todo estado anterior permanece endereçável**: Commits descartados ou mantidos são rastreáveis pelo histórico git e ledger DAG.
+
