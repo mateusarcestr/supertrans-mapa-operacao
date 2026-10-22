@@ -2,17 +2,19 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Settings2, X } from 'lucide-react'
 
 const defaultModel = 'nvidia/nemotron-3.5-super-vl-120b-a12b'
-interface Settings {
+export interface AssistantConfiguration {
   model: string
   keyConfigured: boolean
   locked: boolean
   mode: 'local-search' | 'local-nim' | 'nvidia-api'
   externalContext: boolean
+  effort?: string
+  models?: { id: string; label: string; efforts: string[] }[]
 }
 
-export function AssistantSettings({ onSaved }: { onSaved: (settings: Settings) => void }) {
+export function AssistantSettings({ onSaved }: { onSaved: (settings: AssistantConfiguration) => void }) {
   const dialog = useRef<HTMLDialogElement>(null)
-  const [settings, setSettings] = useState<Settings | null>(null)
+  const [settings, setSettings] = useState<AssistantConfiguration | null>(null)
   const [model, setModel] = useState(defaultModel)
   const [custom, setCustom] = useState(false)
   const [key, setKey] = useState('')
@@ -31,7 +33,7 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: Settings) =
     try {
       const response = await fetch('/api/chat/settings', { signal: controller.current.signal })
       if (!response.ok) throw new Error()
-      const data: Settings = await response.json()
+      const data: AssistantConfiguration = await response.json()
       setSettings(data); setModel(data.model); setCustom(data.model !== defaultModel)
     } catch (reason) {
       if (!(reason instanceof DOMException && reason.name === 'AbortError')) setError('Não foi possível carregar. Confira se o serviço local está iniciado.')

@@ -82,3 +82,13 @@ QA assistant-settings reproduz salvar seguido de resposta local e confirma que o
 A tela do assistente ocupa a viewport. Cabeçalho com processo/estado/etapas/configurações/tema e composer inferior ficam fora da rolagem. Somente a conversa central rola; perguntas aparecem em balões e evidências permanecem sob demanda. Mudança restrita ao assistente, sem travar navegação das outras páginas. Teclado virtual não foi testado em dispositivo físico; QA inclui redução da altura disponível no navegador mobile.
 
 `node scripts/visual-qa/chat-layout.mjs` usa Vite isolado em4174 e intercepta todas as rotas API. Testa resposta longa e segunda mensagem, wheel, posições do composer/cabeçalho, altura do documento, celular, temas e acesso a configurações/etapas. Capturas em docs/screenshots/chat-layout. `QA_BASE_URL=http://127.0.0.1:4174` permite executar QA de configurações na mesma instância, também com APIs simuladas.
+
+## Modelo, esforço e tempo de espera
+
+O cabeçalho permite escolher Super3.5 ou Lightning3.5, presentes no catálogo verificado, e Rápido/sem raciocínio ou Raciocínio ativado. Trocar aplica à próxima pergunta e persiste no servidor, sem reenviar chave nem testar conexão. O modelo personalizado salvo no painel também aparece; esforço fica Padrão quando não há suporte verificado. API recebe snapshot de modelo/esforço por pergunta. Configurações do ambiente continuam prevalecendo. NVIDIA_EFFORT aceita none/standard nos perfis conhecidos e default no personalizado.
+
+A NVIDIA documenta enable_thinking on/off nestes modelos. Os nomes de esforço representam esse controle; não são níveis low/medium/high do ChatGPT. Fontes: [Super3.5](https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3_5-super-vl-120b-a12b), [Lightning3.5](https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b/build).
+
+Contexto enviado retira JSON de fontes/IDs e mantém texto operacional/condições. Referências continuam ligadas ao Markdown completo no servidor. No exemplo da retirada do contêiner,9539→3324 caracteres (65,2%). Busca local~5ms; redução do payload não comprova redução de latência externa. Raciocínio permite mais tokens e pode aumentar espera. Nenhum documento foi enviado ao provedor para benchmark nesta unidade.
+
+Indicador mostra modelo+tempo transcorrido. Interromper espera aborta fetch no navegador e permite outra pergunta; não garante cancelamento de inferência/cobrança na NVIDIA. Texto continua sendo apresentado após validação da resposta completa, sem expor raciocínio interno. QA model-controls verifica salvar/recarregar, snapshot da pergunta, cronômetro e interrupção em dois temas/mobile com API simulada; não altera chave real.

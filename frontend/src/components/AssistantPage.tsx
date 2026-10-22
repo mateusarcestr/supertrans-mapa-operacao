@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Workflow } from 'lucide-react'
+import { ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Square, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
-import { AssistantSettings } from './AssistantSettings'
+import { AssistantSettings, type AssistantConfiguration } from './AssistantSettings'
+import { AssistantModelControls } from './AssistantModelControls'
 import { ThemeToggle } from './ThemeToggle'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
@@ -15,20 +16,29 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   const [question, setQuestion] = useState('')
   const [turns, setTurns] = useState<Turn[]>([])
   const [pending, setPending] = useState(false)
-  const [mode, setMode] = useState<'local-search' | 'local-nim' | 'nvidia-api' | 'offline'>('offline')
-  const [externalContext, setExternalContext] = useState(false)
+  const [configuration, setConfiguration] = useState<AssistantConfiguration | null>(null)
+  const [elapsed, setElapsed] = useState(0)
+  const mode = configuration?.mode || 'offline'
+  const externalContext = configuration?.externalContext || false
   const lastReply = useRef<HTMLElement>(null)
   const conversation = useRef<HTMLDivElement>(null)
   const request = useRef<AbortController | null>(null)
   const revision = useRef(0)
   useEffect(() => {
     const controller = new AbortController()
-    fetch('/api/chat/status', { signal: controller.signal }).then((response) => {
+    fetch('/api/chat/settings', { signal: controller.signal }).then((response) => {
       if (!response.ok) throw new Error()
       return response.json()
-    }).then((data) => { setMode(data.mode); setExternalContext(Boolean(data.externalContext)) }).catch(() => {})
+    }).then(setConfiguration).catch(() => {})
     return () => { controller.abort(); request.current?.abort() }
   }, [])
+  useEffect(() => {
+    if (!pending) return
+    const started = Date.now()
+    setElapsed(0)
+    const timer = window.setInterval(() => setElapsed(Math.floor((Date.now() - started) / 1000)), 1000)
+    return () => window.clearInterval(timer)
+  }, [pending])
   useEffect(() => {
     const viewport = conversation.current
     const turn = lastReply.current
@@ -48,7 +58,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
     request.current = new AbortController()
     try {
       const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: text, processId: processId || null }), signal: request.current.signal })
+        body: JSON.stringify({ question: text, processId: processId || null, model: configuration?.model, effort: configuration?.effort }), signal: request.current.signal })
       if (!response.ok) throw new Error('Não foi possível consultar. Confira se o serviço local está iniciado e tente novamente.')
       const reply: Reply = await response.json()
       if (current !== revision.current) return
@@ -65,6 +75,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   return (
     <div className="assistant-page">
       <header className="assistant-header">
+        <AssistantModelControls configuration={configuration} pending={pending} onChanged={setConfiguration} />
         <div className="assistant-header-context">
         <label className="assistant-scope"><span className="sr-only">Consultar processo</span>
         <select value={processId} onChange={(event) => {
@@ -79,7 +90,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         </div>
         <div className="assistant-header-actions">
           <Link className="assistant-flow-link" to={`/operacao/${processId || 'P001'}`}><Workflow size={17} aria-hidden="true" />Ver etapas<ArrowRight size={15} aria-hidden="true" /></Link>
-          <AssistantSettings onSaved={(settings) => { setMode(settings.mode); setExternalContext(settings.externalContext) }} />
+          <AssistantSettings onSaved={setConfiguration} />
           <ThemeToggle />
         </div>
       </header>
@@ -112,7 +123,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
             </section>)}</details>}
           </div>}
           {turn.error && <div role="alert" className="assistant-notice"><p>{turn.error}</p><button onClick={() => void ask(turn.question)}>Tentar novamente</button></div>}
-          {!turn.reply && !turn.error && pending && <p className="assistant-loading"><LoaderCircle size={17} aria-hidden="true" />Consultando a base local…</p>}
+          {!turn.reply && !turn.error && pending && <p className="assistant-loading"><LoaderCircle size={17} aria-hidden="true" />{mode === 'nvidia-api' ? `Consultando ${configuration?.models?.find(item => item.id === configuration.model)?.label || configuration?.model || 'NVIDIA'}…` : 'Consultando a documentação…'} <span>{elapsed}s</span></p>}
         </article>)}
         </div>
       </div>
@@ -122,7 +133,10 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         <textarea id="process-question" rows={2} maxLength={2000} value={question} onChange={(event) => setQuestion(event.target.value)}
           onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void ask(question) } }}
           placeholder="Ex.: quem agenda a retirada do contêiner?" />
-        <button type="submit" disabled={pending || question.trim().length < 3} aria-label="Enviar pergunta"><ArrowUp size={20} aria-hidden="true" /></button>
+        {pending ? <button type="button" aria-label="Interromper espera" onClick={() => {
+          revision.current += 1; request.current?.abort(); setPending(false)
+          setTurns(previous => previous.map((turn, index) => index === previous.length - 1 ? { ...turn, error: 'Espera interrompida nesta tela.' } : turn))
+        }}><Square size={15} aria-hidden="true" /></button> : <button type="submit" disabled={question.trim().length < 3} aria-label="Enviar pergunta"><ArrowUp size={20} aria-hidden="true" /></button>}
       </form>
       <p className="assistant-footnote">Sem evidência suficiente, o assistente informa que não encontrou a resposta. {externalContext ? 'Trechos relevantes são enviados à API NVIDIA para selecionar as evidências.' : 'Busca executada neste ambiente.'}</p>
       </div></footer>

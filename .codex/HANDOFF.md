@@ -471,3 +471,11 @@ DEC-053. User rejeitou tela quebrada e pediu padrão ChatGPT: só texto/conversa
 Build/29 Vitest OK. QA chat-layout reproduziu falha antes e passou após correção, com respostas longas/sucessivas, wheel, desktop/mobile/temas, viewport mobile de500px, posições constantes do header/composer, documento sem overflow e navegação para etapas. QA assistant-settings também OK, mockando inclusive status, com QA_BASE_URL para frontend isolado. Nenhum documento ou chave enviado para fora; somente Vite isolado na4174 durante testes. Capturas em docs/screenshots/chat-layout e configurações renovadas. Fontes/raw/normalized/review/knowledge intactos.
 
 Próximo exato: usuário atualizar página para revisar layout; alteração é frontend e não exige mudar configuração da IA. Encerrar Vite de QA4174 ao concluir. Pendências de qualidade documental e operação anteriores permanecem. Não pedir a chave novamente.
+
+## CHECKPOINT VIGENTE — modelo/esforço/espera (2026-10-22)
+
+DEC-054. AssistantModelControls no cabeçalho: Super3.5/Lightning3.5, perfis none=Rápido e standard=Raciocínio ativado. Catálogo real confirmou ambos; documentação só comprova toggle, sem níveis inventados. Custom model salvo aparece com default e sem esforço editável. Preferências POST settings sem apiKey/probe, NVIDIA_EFFORT persistido; POST chat leva snapshot por pergunta. SettingsStore/Assistant validam suporte. .env.example atualizado sem segredo.
+
+compact_context remove JSON/IDs e preserva procedimento/executor/condições. Prompt do caso do print:9539→3324 caracteres,65,2%; busca~5ms. Sem medir latência externa comparativa. Orçamento1400/8192 para direto/raciocínio. Espera mostra modelo+segundos; botão aborta fetch local, ignora resposta velha, não promete cancelar provedor. Streaming segue validado antes de apresentar texto.
+
+78 Python suíte completa,20 específicos após ajuste final de condições,29 Vitest/build/QA model-controls/chat-layout/assistant-settings OK. Testes de UI em Vite4174 com API simulada; sem envio de acervo. Catálogo NVIDIA foi a única chamada externa desta unidade. Chave real/.env.local não alterados. Capturas em docs/screenshots/model-controls e demais QA atualizadas. Próximo exato: encerrar Vite4174 de QA; usuário reiniciar npm run dev para carregar backend novo, revisar modelos/esforço e avaliar latência/qualidade com material liberado.

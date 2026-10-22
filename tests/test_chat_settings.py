@@ -14,6 +14,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SettingsTests(unittest.TestCase):
+    def test_effort_is_persisted_without_replacing_key(self):
+        self.store.save(dict(model=NVIDIA_MODEL, apiKey='effort-placeholder'))
+        reply = self.store.save(dict(model=NVIDIA_MODEL, effort='standard'))
+        self.assertEqual(reply['effort'], 'standard')
+        self.assertEqual(configuration(self.root)['NVIDIA_EFFORT'], 'standard')
+        self.assertEqual(self.assistant.api_key, 'effort-placeholder')
+        self.assertNotIn('effort-placeholder', json.dumps(reply))
+
     def test_connection_test_uses_saved_key_without_exposing_it(self):
         self.store.save(dict(model=NVIDIA_MODEL, apiKey='connection-placeholder'))
         with patch('scripts.chat_server.probe_provider', return_value={'ok': True, 'message': 'Conexão confirmada.'}) as probe:
@@ -34,7 +42,7 @@ class SettingsTests(unittest.TestCase):
     def setUp(self):
         self.env = patch.dict(os.environ, {}, clear=False)
         self.env.start()
-        for key in ('NVIDIA_API_KEY', 'NVIDIA_MODEL', 'NIM_BASE_URL', 'NIM_MODEL'):
+        for key in ('NVIDIA_API_KEY', 'NVIDIA_MODEL', 'NVIDIA_EFFORT', 'NIM_BASE_URL', 'NIM_MODEL'):
             os.environ.pop(key, None)
         workspaces = ROOT / 'data/test-workspaces'
         workspaces.mkdir(parents=True, exist_ok=True)

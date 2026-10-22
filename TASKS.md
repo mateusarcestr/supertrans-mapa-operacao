@@ -348,3 +348,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Corrigir interferência do título global grande na tipografia das mensagens.
 - [x] Validar build/29 Vitest e QA desktop/mobile/claro/escuro, roda do mouse, segunda mensagem e altura reduzida.
 - [ ] Revisão visual do usuário após atualizar página; qualidade da IA permanece unidade separada.
+
+## Modelo/esforço e espera — 2026-10-22
+
+- [x] Conferir modelos no catálogo e suporte documentado de raciocínio.
+- [x] Modelo/esforço no cabeçalho, persistência sem reenviar chave e snapshot por pergunta.
+- [x] Retirar metadados do contexto sem perder procedimento/executor/condições e manter validação literal.
+- [x] Mostrar modelo/tempo de espera e permitir interromper a espera local.
+- [x] Validar suíte Python/targets,29 Vitest/build e QA de seletores/contador/cancelamento/layout/configurações.
+- [ ] Avaliar latência externa e qualidade sobre conteúdo liberado; redução de contexto não comprova redução de tempo da API.
