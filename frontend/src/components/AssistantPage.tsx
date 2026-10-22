@@ -75,10 +75,10 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   return (
     <div className="assistant-page">
       <header className="assistant-header">
-        <AssistantModelControls configuration={configuration} pending={pending} onChanged={setConfiguration} />
         <div className="assistant-header-context">
-        <label className="assistant-scope"><span className="sr-only">Consultar processo</span>
-        <select value={processId} onChange={(event) => {
+        <AssistantModelControls configuration={configuration} pending={pending} onChanged={setConfiguration}>
+        <label className="assistant-scope"><span>Processo</span>
+        <select aria-label="Consultar processo" value={processId} onChange={(event) => {
           revision.current += 1; request.current?.abort(); setPending(false); setProcessId(event.target.value); setTurns([])
           conversation.current?.scrollTo({ top: 0 })
         }}>
@@ -86,6 +86,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
           {catalog.processes.map((process) => <option key={process.id} value={process.id}>{process.name}</option>)}
         </select>
       </label>
+        </AssistantModelControls>
         <span className="assistant-local-status">{mode === 'nvidia-api' ? 'NVIDIA NIM · respostas com fontes' : mode === 'local-nim' ? 'NIM local · respostas com fontes' : mode === 'local-search' ? 'Busca local · trechos documentados' : 'Base de processos'}</span>
         </div>
         <div className="assistant-header-actions">

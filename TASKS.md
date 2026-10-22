@@ -357,3 +357,9 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Mostrar modelo/tempo de espera e permitir interromper a espera local.
 - [x] Validar suíte Python/targets,29 Vitest/build e QA de seletores/contador/cancelamento/layout/configurações.
 - [ ] Avaliar latência externa e qualidade sobre conteúdo liberado; redução de contexto não comprova redução de tempo da API.
+
+## Padrão dos três seletores — 2026-10-22
+
+- [x] Padronizar Modelo | Esforço | Processo com rótulos visíveis e dimensões consistentes.
+- [x] Validar escolha de processo na requisição, build, alinhamento e rolagem em desktop/mobile.
+- [ ] Revisão visual do usuário.

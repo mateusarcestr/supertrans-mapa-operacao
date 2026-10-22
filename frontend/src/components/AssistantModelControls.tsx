@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { AssistantConfiguration } from './AssistantSettings'
 
 const labels: Record<string, string> = { none: 'Rápido · sem raciocínio', standard: 'Raciocínio ativado', default: 'Padrão do modelo' }
 
-export function AssistantModelControls({ configuration, pending, onChanged }: {
-  configuration: AssistantConfiguration | null; pending: boolean; onChanged: (value: AssistantConfiguration) => void
+export function AssistantModelControls({ configuration, pending, onChanged, children }: {
+  configuration: AssistantConfiguration | null; pending: boolean; onChanged: (value: AssistantConfiguration) => void; children?: ReactNode
 }) {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -36,6 +36,7 @@ export function AssistantModelControls({ configuration, pending, onChanged }: {
       onChange={event => void change(model, event.target.value)}>
       {efforts.map(value => <option key={value} value={value}>{labels[value] || value}</option>)}
     </select></label>
+    {children}
     {error && <p className="assistant-model-error" role="alert">{error}</p>}
   </div>
 }
