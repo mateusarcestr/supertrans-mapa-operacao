@@ -339,3 +339,9 @@ Botão Configurações da IA no chat: senha para chave NVIDIA, seleção do mode
 Validação: 66 Python, 29 Vitest, build e QA assistant/assistant-settings aprovados; testes HTTP em servidor efêmero e UI simulada sem inferência NVIDIA real. Temas e mobile conferidos; aviso existente de chunk >500 kB permanece. Fontes/raw/normalized/review/frontend/public/data intactos. Serviço 8765 atualizado e ativo em busca local, sem chave real cadastrada.
 
 Próximo exato: usuário abre Configurações da IA, cadastra chave e modelo; validar inferência real com material liberado. Pendências operacionais anteriores continuam abertas.
+
+## Marco 2026-10-22 — resposta por executores e dev unificado
+
+Corrigido caso do print: pergunta ampla não usa mais três hits isolados. Percorre Markdown revisado do processo, agrupa executor/procedimento documentados e apresenta atividades com expansão/fontes recolhidas; Importação contém oito executores/121 atividades únicas informadas. Não converte lanes em executor. Consultas específicas recebem texto com procedimento/executor; API admite síntese referenciada com evidências literais validadas. Sem inferência NVIDIA real nesta unidade.
+
+npm run dev em frontend agora inicia Python e Vite, aguarda saúde, recusa portas incompatíveis e fecha serviços próprios ao encerrar. DEC-051. 70 Python/29 Vitest/build, QA assistant/assistant-settings e teste end-to-end dev-lifecycle aprovados; dez testes específicos repetidos após ajuste de ordem/texto. Fontes/dados/knowledge intactos. Próximo: usuário reiniciar npm run dev e revisar resposta; validar qualidade NVIDIA real após configurar chave com conteúdo liberado.

@@ -321,3 +321,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Respeitar precedência de ambiente/NIM local e recusar gravação de origem externa.
 - [x] Validar persistência, contrato HTTP, 66 Python/29 Vitest/build e QA desktop/mobile/claro/escuro.
 - [ ] Usuário cadastrar chave/modelo e validar NVIDIA real com conteúdo liberado; testes realizados não chamaram o provedor real.
+
+## Correção da resposta e inicialização — 2026-10-22
+
+- [x] Reproduzir resposta inadequada da pergunta ampla com teste falhando.
+- [x] Consultar executores do processo revisado completo e mostrar atividades/fontes sob demanda.
+- [x] Permitir síntese NVIDIA com citações verificadas e preservar fallback documental.
+- [x] npm run dev iniciar frontend/backend, aguardar saúde e limpar serviços próprios ao encerrar.
+- [x] Validar 70 Python/29 Vitest/build, QA chat/configurações e ciclo completo de desenvolvimento.
+- [ ] Revisão do usuário e avaliação de respostas NVIDIA reais; chave não foi cadastrada por este trabalho.

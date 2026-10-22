@@ -8,6 +8,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ChatTests(unittest.TestCase):
+    def test_synthesis_is_displayed_only_with_valid_evidence_and_citations(self):
+        from unittest.mock import MagicMock
+        hits = [{'id': 'doc:1', 'text': 'A Central de Operações realiza o agendamento.'}]
+        for quote, expected in [(hits[0]['text'], True), ('O Comercial aprova o pagamento.', False)]:
+            content = json.dumps({'resposta': 'A Central de Operações faz o agendamento. [1]',
+                                  'evidencias': [{'source_id': 'doc:1', 'quote': quote}]})
+            opener = MagicMock()
+            opener.open.return_value.__enter__.return_value.read.return_value = json.dumps({'choices': [{'message': {'content': content}}]}).encode()
+            with patch('scripts.chat_server.urllib.request.build_opener', return_value=opener):
+                selected = nim_quotes('Quem agenda?', hits, NVIDIA_ENDPOINT, NVIDIA_MODEL, 'placeholder')
+            self.assertEqual(bool(selected and selected[0].get('explanation')), expected)
+
     def test_nvidia_request_contract_without_sending_documents(self):
         from unittest.mock import MagicMock
         hits = [{'id': 'doc:1', 'text': 'A Central de Operações realiza o agendamento.'}]

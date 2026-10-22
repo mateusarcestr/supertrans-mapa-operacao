@@ -99,3 +99,5 @@ python -m scripts.chat_server
 Abrir http://127.0.0.1:8765. Sem chave, funciona como busca local. Integração externa usa NVIDIA_API_KEY somente no servidor e modelo nvidia/nemotron-3.5-super-vl-120b-a12b. `.env.example` documenta configuração; `.env.local` não é versionado. Nenhuma chamada real NVIDIA foi feita nesta sessão. Confidencialidade e limites do trial precisam ser respeitados antes de enviar material interno. Ver [arquitetura, configuração e limites](docs/assistant.md).
 
 No chat, **Configurações da IA** permite cadastrar/substituir/remover a chave e escolher o modelo NVIDIA. Salvar aplica na próxima pergunta sem reiniciar; chave fica em `.env.local` no servidor e nunca é devolvida pela API. A validade da chave não é testada ao salvar.
+
+Desenvolvimento completo: na pasta `frontend/`, execute **`npm run dev`**. Inicia backend Python em 8765 e Vite em 5173, aguarda disponibilidade e encerra os serviços iniciados com Ctrl+C. Python 3.12+ no PATH (ou variável `PYTHON` com caminho do executável). Não exige segundo terminal. A inicialização manual acima permanece alternativa para servir o build.

@@ -1533,3 +1533,13 @@ a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .assistant-settings .assistant-settings-remove { display:flex; align-items:center; gap:8px; font-weight:400; }
 .assistant-settings-save { border:0; border-radius:8px; padding:12px; color:var(--text-inverse); background:var(--accent); cursor:pointer; font-weight:600; }
 .assistant-settings :disabled { opacity:.6; cursor:default; }
+
+.assistant-response-text { white-space:pre-line; }
+.assistant-role { margin:20px 0; }
+.assistant-role h3 { display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin:0 0 7px; font-size:16px; }
+.assistant-role h3 span, .assistant-role small { color:var(--muted-foreground); font-weight:400; font-size:12px; }
+.assistant-role ul { margin:8px 0; padding-left:20px; }
+.assistant-role li { padding:3px 0; line-height:1.6; }
+.assistant-role summary, .assistant-sources > summary { cursor:pointer; color:var(--accent); font-size:13px; }
+.assistant-sources { margin-top:22px; padding-top:16px; border-top:1px solid var(--border); }
+.assistant-sources > summary svg { vertical-align:middle; margin-right:6px; }

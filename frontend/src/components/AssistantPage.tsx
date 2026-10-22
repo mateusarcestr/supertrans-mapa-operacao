@@ -5,7 +5,8 @@ import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings } from './AssistantSettings'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
-interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string }
+interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
+interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[] }
 interface Turn { question: string; reply?: Reply; error?: string }
 
 export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
@@ -15,7 +16,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   const [pending, setPending] = useState(false)
   const [mode, setMode] = useState<'local-search' | 'local-nim' | 'nvidia-api' | 'offline'>('offline')
   const [externalContext, setExternalContext] = useState(false)
-  const lastReply = useRef<HTMLDivElement>(null)
+  const lastReply = useRef<HTMLElement>(null)
   const request = useRef<AbortController | null>(null)
   const revision = useRef(0)
   useEffect(() => {
@@ -26,7 +27,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
     }).then((data) => { setMode(data.mode); setExternalContext(Boolean(data.externalContext)) }).catch(() => {})
     return () => { controller.abort(); request.current?.abort() }
   }, [])
-  useEffect(() => { if (turns.length) lastReply.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [turns, pending])
+  useEffect(() => { if (turns.length) lastReply.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [turns, pending])
 
   async function ask(value: string) {
     const text = value.trim()
@@ -74,23 +75,28 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
         </select>
       </label>
       <div className="assistant-conversation" aria-live="polite" aria-busy={pending}>
-        {turns.map((turn, index) => <article className="assistant-turn" key={index}>
+        {turns.map((turn, index) => <article className="assistant-turn" key={index} ref={index === turns.length - 1 ? lastReply : undefined}>
           <h2>{turn.question}</h2>
           {turn.reply && <div className="assistant-answer">
-            <p>{turn.reply.answer}</p>
+            <p className="assistant-response-text">{turn.reply.answer}</p>
             {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
+            {turn.reply.responsibilities?.map((role) => <section className="assistant-role" key={role.executor}>
+              <h3>{role.executor}<span>{role.activities.length} atividades</span></h3>
+              <ul>{role.activities.slice(0, 3).map((activity) => <li key={activity.sourceId}>{activity.title}{activity.diagram && <small> · {activity.diagram}</small>}</li>)}</ul>
+              {role.activities.length > 3 && <details><summary>Ver mais {role.activities.length - 3} atividades</summary><ul>{role.activities.slice(3).map((activity) => <li key={activity.sourceId}>{activity.title}{activity.diagram && <small> · {activity.diagram}</small>}</li>)}</ul></details>}
+            </section>)}
+            {turn.reply.sources.length > 0 && <details className="assistant-sources"><summary><BookOpen size={15} aria-hidden="true" />Consultar fontes ({turn.reply.sources.length})</summary>
             {turn.reply.sources.map((source, sourceIndex) => <section className="assistant-evidence" key={source.id}>
               <h3>{source.title}</h3><blockquote>{source.quote}</blockquote>
               <details><summary><BookOpen size={14} aria-hidden="true" />Fonte {sourceIndex + 1}</summary>
                 <p>{source.file} · linha {source.line}</p>
                 <a href={`/knowledge/${source.file.split('/').map(encodeURIComponent).join('/')}#L${source.line}`} target="_blank" rel="noreferrer">Abrir documento local</a>
               </details>
-            </section>)}
+            </section>)}</details>}
           </div>}
           {turn.error && <div role="alert" className="assistant-notice"><p>{turn.error}</p><button onClick={() => void ask(turn.question)}>Tentar novamente</button></div>}
           {!turn.reply && !turn.error && pending && <p className="assistant-loading"><LoaderCircle size={17} aria-hidden="true" />Consultando a base local…</p>}
         </article>)}
-        <div ref={lastReply} />
       </div>
       <form className="assistant-composer" onSubmit={submit}>
         <label className="sr-only" htmlFor="process-question">Sua pergunta sobre o processo</label>
