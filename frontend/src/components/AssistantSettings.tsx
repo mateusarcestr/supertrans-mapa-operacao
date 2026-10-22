@@ -82,7 +82,7 @@ export function AssistantSettings({ onSaved }: { onSaved: (settings: Settings) =
   }
 
   return <>
-    <button className="assistant-settings-trigger" onClick={() => void open()}><Settings2 size={17} aria-hidden="true" />Configurações da IA</button>
+    <button className="assistant-settings-trigger" aria-label="Configurações da IA" onClick={() => void open()}><Settings2 size={17} aria-hidden="true" /><span>Configurações da IA</span></button>
     <dialog ref={dialog} className="assistant-settings" aria-labelledby="ai-settings-title" onClose={() => { setKey(''); controller.current?.abort() }} onCancel={(event) => { if (busy) event.preventDefault() }}>
       <div className="assistant-settings-heading"><h2 id="ai-settings-title">Configurações da IA</h2><button aria-label="Fechar configurações" disabled={busy} onClick={() => dialog.current?.close()}><X size={20} aria-hidden="true" /></button></div>
       {error && <p role="alert" className="assistant-notice">{error}</p>}

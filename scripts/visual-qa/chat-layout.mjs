@@ -1,0 +1,86 @@
+import assert from 'node:assert/strict'
+import { createRequire } from 'node:module'
+import { mkdir } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+const require = createRequire(new URL('../../frontend/package.json', import.meta.url))
+const { chromium } = require('playwright')
+const output = new URL('../../docs/screenshots/chat-layout/', import.meta.url)
+await mkdir(output, { recursive: true })
+const browser = await chromium.launch({ headless: true })
+try {
+  for (const [theme, width, height] of [['dark', 1366, 900], ['light', 1366, 900], ['dark', 390, 844], ['light', 390, 667]]) {
+    const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' })
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
+    await page.route('**/api/**', async route => {
+      const url = new URL(route.request().url())
+      if (url.pathname === '/api/chat/status') return route.fulfill({ json: { mode: 'local-search', externalContext: false } })
+      if (url.pathname === '/api/chat/settings') return route.fulfill({ json: { model: 'nvidia/nemotron-3.5-super-vl-120b-a12b', keyConfigured: false, locked: false, mode: 'local-search', externalContext: false } })
+      if (url.pathname === '/api/chat') return route.fulfill({ json: { mode: 'local-search', answer: Array.from({ length: 35 }, (_, i) => `Parágrafo de teste ${i + 1}: resposta simulada para conferir a leitura e a rolagem da conversa.`).join('\n\n'), sources: [] } })
+      return route.abort()
+    })
+    await page.goto('http://127.0.0.1:4174/')
+    await page.evaluate(theme => localStorage.setItem('supertrans-theme', theme), theme)
+    await page.reload()
+    await page.getByRole('heading', { name: 'O que você quer entender?' }).waitFor()
+    const composer = page.locator('.assistant-composer')
+    const topbar = page.locator('.assistant-header')
+    const initialComposer = await composer.boundingBox()
+    const initialHeader = await topbar.boundingBox()
+    await page.screenshot({ path: fileURLToPath(new URL(`home-${theme}-${width}-${height}.png`, output)) })
+    const input = page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' })
+    await input.fill('Mostre uma resposta longa de teste')
+    await page.getByRole('button', { name: 'Enviar pergunta' }).click()
+    await page.locator('.assistant-response-text').waitFor()
+    assert.equal(await page.locator('.assistant-question').evaluate(el => getComputedStyle(el).fontSize), '15px')
+    const conversation = page.locator('.assistant-conversation')
+    const geometry = await page.evaluate(() => {
+      const conversation = document.querySelector('.assistant-conversation')
+      return { bodyOverflow: document.documentElement.scrollHeight > innerHeight + 1,
+        conversationScrolls: conversation.scrollHeight > conversation.clientHeight + 100,
+        overflowY: getComputedStyle(conversation).overflowY }
+    })
+    assert.equal(geometry.bodyOverflow, false, 'The page must not grow with messages')
+    assert.ok(geometry.conversationScrolls, 'Only conversation must contain overflowing messages')
+    assert.ok(['auto', 'scroll'].includes(geometry.overflowY))
+    const filledComposer = await composer.boundingBox()
+    assert.ok(Math.abs(initialComposer.y - filledComposer.y) < 2, 'Composer stays anchored when an answer arrives')
+    assert.ok(filledComposer.y >= 0 && filledComposer.y + filledComposer.height <= height)
+    await page.screenshot({ path: fileURLToPath(new URL(`answer-start-${theme}-${width}-${height}.png`, output)) })
+    await conversation.hover()
+    await page.mouse.wheel(0, 500)
+    await page.waitForFunction(() => document.querySelector('.assistant-conversation').scrollTop > 100)
+    assert.equal(await page.evaluate(() => document.querySelector('.assistant-main-content').scrollTop), 0)
+    await conversation.evaluate(el => { el.scrollTop = el.scrollHeight })
+    const endComposer = await composer.boundingBox()
+    const endHeader = await topbar.boundingBox()
+    assert.ok(Math.abs(endComposer.y - filledComposer.y) < 2, 'Composer must not move while messages scroll')
+    assert.ok(Math.abs(endHeader.y - initialHeader.y) < 2, 'Header must not move while messages scroll')
+    assert.ok(await conversation.evaluate(el => el.scrollTop > 100))
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+    await page.screenshot({ path: fileURLToPath(new URL(`conversation-${theme}-${width}-${height}.png`, output)) })
+    await input.fill('Segunda mensagem de teste')
+    await page.getByRole('button', { name: 'Enviar pergunta' }).click()
+    await page.locator('.assistant-turn').nth(1).locator('.assistant-response-text').waitFor()
+    assert.equal(await page.locator('.assistant-turn').count(), 2)
+    assert.ok(Math.abs((await composer.boundingBox()).y - initialComposer.y) < 2)
+    assert.equal(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight + 1), false)
+    if (width < 500) {
+      await page.setViewportSize({ width, height: 500 })
+      const compactComposer = await composer.boundingBox()
+      assert.ok(compactComposer.y + compactComposer.height <= 500, 'Composer stays inside a shortened mobile viewport')
+      assert.equal(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight + 1), false)
+      await page.setViewportSize({ width, height })
+    }
+    await page.getByRole('button', { name: 'Configurações da IA', exact: true }).click()
+    await page.getByRole('dialog').getByLabel('Chave de API NVIDIA').waitFor()
+    await page.keyboard.press('Escape')
+    await page.getByRole('dialog').waitFor({ state: 'hidden' })
+    assert.deepEqual(errors, [])
+    await page.getByRole('link', { name: 'Ver etapas', exact: true }).click()
+    await page.locator('.focus-flow-current').waitFor()
+    assert.equal(await page.locator('.assistant-shell').count(), 0)
+    await page.close()
+  }
+  console.log('Chat layout OK: conversation-only scrolling; anchored header/composer; no page overflow; desktop/mobile/themes; settings and process route preserved. All chat/API responses mocked.')
+} finally { await browser.close() }

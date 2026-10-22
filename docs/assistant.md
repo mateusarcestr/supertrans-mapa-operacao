@@ -76,3 +76,9 @@ O indicador superior representa o provedor configurado e não é sobrescrito pel
 POST /api/chat/settings/test aceita rascunho ou a chave já salva, sem devolver segredo e sem persistir alterações. Usa texto sintético, sem acervo. O salvamento continua separado da validade: chave fica salva mesmo se o teste falhar, com mensagem explícita. Erros 401/403/404/429, parâmetros, rede e timeout têm diagnósticos distintos, sem repetir corpo de erro do provedor. SSE ignora reasoning_content e eventos sem choices.
 
 QA assistant-settings reproduz salvar seguido de resposta local e confirma que o estado NVIDIA permanece, em três temas/larguras, com transporte simulado. QA assistant-provider-state exige chave existente e testa só o painel/conexão sintética real, bloqueando /api/chat e conferindo .env.local byte a byte. Nenhum documento operacional foi enviado nesta validação.
+
+## Layout e rolagem do chat
+
+A tela do assistente ocupa a viewport. Cabeçalho com processo/estado/etapas/configurações/tema e composer inferior ficam fora da rolagem. Somente a conversa central rola; perguntas aparecem em balões e evidências permanecem sob demanda. Mudança restrita ao assistente, sem travar navegação das outras páginas. Teclado virtual não foi testado em dispositivo físico; QA inclui redução da altura disponível no navegador mobile.
+
+`node scripts/visual-qa/chat-layout.mjs` usa Vite isolado em4174 e intercepta todas as rotas API. Testa resposta longa e segunda mensagem, wheel, posições do composer/cabeçalho, altura do documento, celular, temas e acesso a configurações/etapas. Capturas em docs/screenshots/chat-layout. `QA_BASE_URL=http://127.0.0.1:4174` permite executar QA de configurações na mesma instância, também com APIs simuladas.

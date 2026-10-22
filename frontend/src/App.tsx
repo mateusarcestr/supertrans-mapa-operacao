@@ -186,8 +186,8 @@ function AppShell() {
 
   return (
     <OrionAppShell
-      className="app-shell orion-app-shell"
-      contentClassName="orion-main-content"
+      className={`app-shell orion-app-shell${assistantView ? ' assistant-shell' : ''}`}
+      contentClassName={`orion-main-content${assistantView ? ' assistant-main-content' : ''}`}
       sidebar={{
         brand,
         navigation,
@@ -272,7 +272,6 @@ function AppShell() {
           </Button>
         </div>
       </header>}
-      {assistantView && <div className="assistant-theme"><ThemeToggle /></div>}
       <div id="main-content" className="content-shell">
         <Outlet />
       </div>

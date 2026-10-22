@@ -339,3 +339,12 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Implementar SSE conforme exemplo fornecido e ignorar reasoning/eventos vazios.
 - [x] Validar 74 Python/29 Vitest/build, regressão visual simulada e painel real com mensagem sintética.
 - [ ] Revisão do usuário após reiniciar npm run dev; avaliar qualidade operacional sem confundir teste sintético com resposta documental.
+
+## Interface de chat e rolagem — 2026-10-22
+
+- [x] Reproduzir aumento indevido da página com resposta longa.
+- [x] Conter tela na viewport, rolar somente conversa e manter composer/cabeçalho ancorados.
+- [x] Compactar controles, separar perguntas em balões e preservar etapas/configurações/tema.
+- [x] Corrigir interferência do título global grande na tipografia das mensagens.
+- [x] Validar build/29 Vitest e QA desktop/mobile/claro/escuro, roda do mouse, segunda mensagem e altura reduzida.
+- [ ] Revisão visual do usuário após atualizar página; qualidade da IA permanece unidade separada.

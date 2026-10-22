@@ -16,6 +16,7 @@ try {
     let saves = 0
     let probes = 0
     let connectionOk = true
+    await page.route('**/api/chat/status', route => route.fulfill({ json: { mode: 'local-search', externalContext: false } }))
     await page.route('**/api/chat/settings/test', async route => {
       probes++
       await route.fulfill({ json: { ok: connectionOk, message: connectionOk ? 'Conexão confirmada: teste simulado.' : 'Limite da NVIDIA atingido (429).' } })
@@ -29,7 +30,7 @@ try {
       }
       await route.fulfill({ json: state })
     })
-    await page.goto('http://127.0.0.1:8765/')
+    await page.goto(process.env.QA_BASE_URL || 'http://127.0.0.1:8765/')
     await page.evaluate(theme => localStorage.setItem('supertrans-theme', theme), theme)
     await page.reload()
     await page.getByRole('button', { name: 'Configurações da IA', exact: true }).click()

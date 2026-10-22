@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { ArrowRight, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Send, Workflow } from 'lucide-react'
+import { ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings } from './AssistantSettings'
+import { ThemeToggle } from './ThemeToggle'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
 interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
@@ -17,6 +18,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   const [mode, setMode] = useState<'local-search' | 'local-nim' | 'nvidia-api' | 'offline'>('offline')
   const [externalContext, setExternalContext] = useState(false)
   const lastReply = useRef<HTMLElement>(null)
+  const conversation = useRef<HTMLDivElement>(null)
   const request = useRef<AbortController | null>(null)
   const revision = useRef(0)
   useEffect(() => {
@@ -27,7 +29,14 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
     }).then((data) => { setMode(data.mode); setExternalContext(Boolean(data.externalContext)) }).catch(() => {})
     return () => { controller.abort(); request.current?.abort() }
   }, [])
-  useEffect(() => { if (turns.length) lastReply.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [turns, pending])
+  useEffect(() => {
+    const viewport = conversation.current
+    const turn = lastReply.current
+    if (viewport && turn) {
+      const top = viewport.scrollTop + turn.getBoundingClientRect().top - viewport.getBoundingClientRect().top - 24
+      viewport.scrollTo({ top, behavior: 'instant' })
+    }
+  }, [turns])
 
   async function ask(value: string) {
     const text = value.trim()
@@ -56,26 +65,34 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
   return (
     <div className="assistant-page">
       <header className="assistant-header">
-        <Link className="assistant-flow-link" to={`/operacao/${processId || 'P001'}`}><Workflow size={17} aria-hidden="true" />Ver etapas<ArrowRight size={15} aria-hidden="true" /></Link>
-        <span className="assistant-local-status">{mode === 'nvidia-api' ? 'NVIDIA NIM · respostas com fontes' : mode === 'local-nim' ? 'NIM local · respostas com fontes' : mode === 'local-search' ? 'Busca local · trechos documentados' : 'Base de processos'}</span>
-      </header>
-      <div className="assistant-settings-bar"><AssistantSettings onSaved={(settings) => { setMode(settings.mode); setExternalContext(settings.externalContext) }} /></div>
-      {turns.length === 0 && <section className="assistant-welcome">
-        <span className="assistant-mark"><MessageCircle size={27} aria-hidden="true" /></span>
-        <h1>O que você quer entender?</h1>
-        <p>Pergunte sobre a operação. As respostas consultam somente a base de documentação.</p>
-      </section>}
-      <label className="assistant-scope">Consultar processo
+        <div className="assistant-header-context">
+        <label className="assistant-scope"><span className="sr-only">Consultar processo</span>
         <select value={processId} onChange={(event) => {
           revision.current += 1; request.current?.abort(); setPending(false); setProcessId(event.target.value); setTurns([])
+          conversation.current?.scrollTo({ top: 0 })
         }}>
           <option value="">Todos os processos</option>
           {catalog.processes.map((process) => <option key={process.id} value={process.id}>{process.name}</option>)}
         </select>
       </label>
-      <div className="assistant-conversation" aria-live="polite" aria-busy={pending}>
+        <span className="assistant-local-status">{mode === 'nvidia-api' ? 'NVIDIA NIM · respostas com fontes' : mode === 'local-nim' ? 'NIM local · respostas com fontes' : mode === 'local-search' ? 'Busca local · trechos documentados' : 'Base de processos'}</span>
+        </div>
+        <div className="assistant-header-actions">
+          <Link className="assistant-flow-link" to={`/operacao/${processId || 'P001'}`}><Workflow size={17} aria-hidden="true" />Ver etapas<ArrowRight size={15} aria-hidden="true" /></Link>
+          <AssistantSettings onSaved={(settings) => { setMode(settings.mode); setExternalContext(settings.externalContext) }} />
+          <ThemeToggle />
+        </div>
+      </header>
+      <div className="assistant-conversation" ref={conversation} role="log" aria-label="Conversa sobre o processo" aria-live="polite" aria-busy={pending} tabIndex={0}>
+        <div className={`assistant-thread${turns.length === 0 ? ' is-empty' : ''}`}>
+        {turns.length === 0 && <section className="assistant-welcome">
+          <span className="assistant-mark"><MessageCircle size={27} aria-hidden="true" /></span>
+          <h1>O que você quer entender?</h1>
+          <p>Pergunte sobre a operação. As respostas consultam somente a base de documentação.</p>
+          <div className="assistant-suggestions">{suggestions.map((text) => <button key={text} onClick={() => void ask(text)}>{text}<CornerDownLeft size={15} aria-hidden="true" /></button>)}</div>
+        </section>}
         {turns.map((turn, index) => <article className="assistant-turn" key={index} ref={index === turns.length - 1 ? lastReply : undefined}>
-          <h2>{turn.question}</h2>
+          <h2 className="assistant-question">{turn.question}</h2>
           {turn.reply && <div className="assistant-answer">
             <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
             <p className="assistant-response-text">{turn.reply.answer}</p>
@@ -97,16 +114,18 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
           {turn.error && <div role="alert" className="assistant-notice"><p>{turn.error}</p><button onClick={() => void ask(turn.question)}>Tentar novamente</button></div>}
           {!turn.reply && !turn.error && pending && <p className="assistant-loading"><LoaderCircle size={17} aria-hidden="true" />Consultando a base local…</p>}
         </article>)}
+        </div>
       </div>
+      <footer className="assistant-compose-area"><div className="assistant-compose-inner">
       <form className="assistant-composer" onSubmit={submit}>
         <label className="sr-only" htmlFor="process-question">Sua pergunta sobre o processo</label>
         <textarea id="process-question" rows={2} maxLength={2000} value={question} onChange={(event) => setQuestion(event.target.value)}
           onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void ask(question) } }}
           placeholder="Ex.: quem agenda a retirada do contêiner?" />
-        <button type="submit" disabled={pending || question.trim().length < 3} aria-label="Enviar pergunta"><Send size={19} aria-hidden="true" /></button>
+        <button type="submit" disabled={pending || question.trim().length < 3} aria-label="Enviar pergunta"><ArrowUp size={20} aria-hidden="true" /></button>
       </form>
-      {turns.length === 0 && <div className="assistant-suggestions">{suggestions.map((text) => <button key={text} onClick={() => void ask(text)}>{text}<CornerDownLeft size={15} aria-hidden="true" /></button>)}</div>}
       <p className="assistant-footnote">Sem evidência suficiente, o assistente informa que não encontrou a resposta. {externalContext ? 'Trechos relevantes são enviados à API NVIDIA para selecionar as evidências.' : 'Busca executada neste ambiente.'}</p>
+      </div></footer>
     </div>
   )
 }
