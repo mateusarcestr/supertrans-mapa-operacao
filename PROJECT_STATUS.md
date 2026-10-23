@@ -394,3 +394,9 @@ O sistema agora possui:
 - `docs/harness.md`: Documentação técnica completa.
 
 Validação: Benchmark gold executado com composite_score de 0.9474 (100% de fundamentação, 100% de fluxo, 6/6 casos aprovados), 91 testes Python aprovados (86 anteriores + 5 novos). Próximo passo: utilizar o harness para testar experimentos de prompt e recuperação com reversão automática.
+
+## Marco 2026-10-23 — Limpeza de arquivos sem uso
+
+Removidos: `Central de Atendimento (standalone).html` (autorizado pelo usuário), `docs/ui-recovery-audit.md` (vazio), `docs/superpowers/` (planos de 2026-09-30 sem referências), capturas sem referência (`docs/screenshots/polish/`, `polish-nodes/`, `responsive-v2/`, `guided-flow/`, `qa-assistant-operational.png`), `node_modules/` da raiz (Puppeteer não usado; fora do Git) e funções frontend sem uso em produção (`allProcessNodes`, `processSummaryConfidence`, `centeredScrollOffset`, `getProcessSummary`) com seus testes. Mantidos `docs/frontend-visual-qa.md`, capturas citadas e `theme-legibility/`. Originais, `data/` e `knowledge/` intactos.
+
+Validação: 26 testes Vitest, build Vite e 91 testes Python OK. Próximo passo inalterado.

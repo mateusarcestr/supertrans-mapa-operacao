@@ -15,41 +15,8 @@ export function aggregateConfidence(states: DataConfidenceState[]): DataConfiden
   return 'NOT_AVAILABLE'
 }
 
-export function processSummaryConfidence(summary: {
-  conflictCount: number
-  unresolvedSubflowCount: number
-  reconciliation: Record<string, number>
-}): DataConfidenceState {
-  if (summary.conflictCount > 0) return 'READY_WITH_SOURCE_CONFLICT'
-  if (
-    summary.unresolvedSubflowCount > 0 ||
-    (summary.reconciliation.ambiguous ?? 0) > 0 ||
-    (summary.reconciliation['partially-matched'] ?? 0) > 0
-  ) {
-    return 'NEEDS_HUMAN_REVIEW'
-  }
-  return 'READY'
-}
-
 export function catalogItemConfidence(item: { sources: unknown[] }): DataConfidenceState {
   return item.sources.length > 0 ? 'READY' : 'NOT_AVAILABLE'
-}
-
-export function centeredScrollOffset({
-  targetStart,
-  targetSize,
-  scale,
-  viewportSize,
-  contentSize,
-}: {
-  targetStart: number
-  targetSize: number
-  scale: number
-  viewportSize: number
-  contentSize: number
-}): number {
-  const centered = (targetStart + targetSize / 2) * scale - viewportSize / 2
-  return Math.max(0, Math.min(centered, Math.max(contentSize - viewportSize, 0)))
 }
 
 export function handoffConfidence(handoff: Handoff): DataConfidenceState {

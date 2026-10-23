@@ -29,13 +29,6 @@ function searchable(value: string): string {
     .trim()
 }
 
-export function getProcessSummary<T extends NamedCatalogItem>(
-  catalog: Pick<CatalogSearchSource, 'processes'>,
-  processId: string,
-): T | undefined {
-  return catalog.processes.find((process) => process.id === processId) as T | undefined
-}
-
 export function findCatalogResults(catalog: CatalogSearchSource, query: string): CatalogResult[] {
   const normalizedQuery = searchable(query)
   if (!normalizedQuery) return []

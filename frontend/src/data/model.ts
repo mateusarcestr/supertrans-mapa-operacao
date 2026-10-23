@@ -11,10 +11,6 @@ import type {
   SourceReference,
 } from './types'
 
-export function allProcessNodes(process: ProcessPayload): ProcessNode[] {
-  return process.diagrams.flatMap((diagram) => diagram.nodes)
-}
-
 export function nodeReconciliations(process: ProcessPayload, nodeId: string) {
   return process.reconciliations.filter((reconciliation) => reconciliation.bizagiNodeIds.includes(nodeId))
 }

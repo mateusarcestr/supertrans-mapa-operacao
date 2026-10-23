@@ -516,3 +516,6 @@ O harness estrutura o projeto nos 5 planos recomendados:
 CLI de controle: harness/loop.py fornece comandos benchmark (scorecard executivo), step (keep se melhorar, git reset se piorar) e history (rastreamento de linhagem).
 
 91 testes Python aprovados (86 anteriores + 5 novos em tests/test_harness.py). Benchmark gold executado com composite_score de 0.9474 (6/6 casos gold aprovados). Documentação completa em docs/harness.md. Próximo exato: utilizar o harness para testar otimizações autônomas com reversão automática.
+
+## Limpeza 2026-10-23
+Branch `chore/limpeza-arquivos`: removidos arquivos e funções sem uso (detalhes em PROJECT_STATUS.md, marco 2026-10-23). 26 Vitest, build e 91 Python OK. Próximo exato inalterado.

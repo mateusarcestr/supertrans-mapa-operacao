@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { findCatalogResults, getProcessSummary } from './selectors'
+import { findCatalogResults } from './selectors'
 
 const catalog = {
   processes: [
@@ -15,10 +15,6 @@ const catalog = {
 }
 
 describe('catalog selectors', () => {
-  it('retrieves a process by its stable canonical identifier', () => {
-    expect(getProcessSummary(catalog, 'P009')).toEqual({ id: 'P009', name: 'Comercial' })
-  })
-
   it('searches processes, actors, systems, channels, and artifacts without graph data', () => {
     expect(findCatalogResults(catalog, 'opera')).toEqual([{ id: 'actor:1', kind: 'actor', label: 'Central de Operações' }])
     expect(findCatalogResults(catalog, 'sag')).toEqual([{ id: 'system:1', kind: 'system', label: 'Web SAG' }])

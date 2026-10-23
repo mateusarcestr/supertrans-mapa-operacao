@@ -5,10 +5,8 @@ import {
   aggregateConfidence,
   buildHandoffMatrix,
   catalogItemConfidence,
-  centeredScrollOffset,
   filterHandoffs,
   normalizeRelationshipView,
-  processSummaryConfidence,
   resolveProcessRequest,
 } from './presentation'
 import type { Handoff, ProcessPayload } from './types'
@@ -74,22 +72,9 @@ describe('presentation contracts', () => {
     expect(aggregateConfidence(['NOT_AVAILABLE'])).toBe('NOT_AVAILABLE')
   })
 
-  it('keeps process conflicts above unresolved and partial reconciliation signals', () => {
-    expect(processSummaryConfidence({ conflictCount: 2, unresolvedSubflowCount: 1, reconciliation: { 'partially-matched': 3 } })).toBe(
-      'READY_WITH_SOURCE_CONFLICT',
-    )
-    expect(processSummaryConfidence({ conflictCount: 0, unresolvedSubflowCount: 1, reconciliation: {} })).toBe('NEEDS_HUMAN_REVIEW')
-  })
-
   it('derives catalog item availability only from source references', () => {
     expect(catalogItemConfidence({ sources: [{ kind: 'pop', file: 'POP/item.docx' }] })).toBe('READY')
     expect(catalogItemConfidence({ sources: [] })).toBe('NOT_AVAILABLE')
-  })
-
-  it('centers a selected graph item without scrolling beyond its own viewport', () => {
-    expect(centeredScrollOffset({ targetStart: 500, targetSize: 100, scale: 1, viewportSize: 400, contentSize: 1000 })).toBe(350)
-    expect(centeredScrollOffset({ targetStart: 10, targetSize: 20, scale: 1, viewportSize: 400, contentSize: 1000 })).toBe(0)
-    expect(centeredScrollOffset({ targetStart: 950, targetSize: 50, scale: 1, viewportSize: 400, contentSize: 1000 })).toBe(600)
   })
 
   it('filters handoffs by process, origin, destination and confidence without changing records', () => {
