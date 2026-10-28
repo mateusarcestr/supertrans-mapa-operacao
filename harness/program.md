@@ -2,6 +2,8 @@
 
 Este documento atua como o `program.md` do loop autoresearch (Seção II.B de *Graph Engineering: The Karpathy Loop, Improved 1000x by Itself*). Ele estabelece os limites, métricas, arquivos protegidos e regras de ratchet para agentes e desenvolvedores operarem de forma autônoma sem violar os contratos do projeto.
 
+Este documento não é enviado ao modelo como system prompt. O prompt de inferência em tempo de execução está em `scripts/chat_server.py`, na função `nim_quotes`. A métrica atual `grounding_score` verifica localizadores das fontes; ela não mede se a resposta atende à pergunta. Perguntas de contagem geral têm teste de regressão específico em `tests/test_chat_server.py`.
+
 ---
 
 ## 1. Objetivo do Harness
@@ -30,7 +32,7 @@ Otimizar continuamente a qualidade de recuperação, fundamentação de evidênc
 
 ### Métrica Escalar: `composite_score` (0.0000 a 1.0000)
 A pontuação composta do benchmark pondera:
-1. **Fundamentação de Fontes (`grounding_score`) — Peso 35%**: Proporção de citações que apontam para arquivos e linhas reais e válidos em `knowledge/`.
+1. **Localizadores de Fontes (`grounding_score`) — Peso 35%**: Proporção de fontes que apontam para arquivo existente em `knowledge/` e informam número de linha positivo. Não verifica a pertinência semântica da resposta.
 2. **Revocação de Entidades (`entity_recall`) — Peso 25%**: Proporção de atores, sistemas e termos operacionais esperados presentes na resposta.
 3. **Coerência de Fluxo (`flow_score`) — Peso 20%**: Presença de cards ordenados com número, título, executor e detalhes nas perguntas que exigem fluxo.
 4. **Respostas Estruturadas (`responsibilities_score`) — Peso 10%**: Capacidade de agregar executores de forma abrangente sem depender de limites arbitrários.

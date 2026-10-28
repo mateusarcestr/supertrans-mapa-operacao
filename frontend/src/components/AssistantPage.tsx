@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { ArrowDown, ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, ShieldCheck, Square, Workflow } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUp, BookOpen, CornerDownLeft, LoaderCircle, MessageCircle, Square, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings, type AssistantConfiguration } from './AssistantSettings'
@@ -118,9 +118,9 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
             <div className="assistant-reply-header">
               <p className="assistant-reply-mode">{turn.reply.mode === 'nvidia-api' ? 'Resposta com NVIDIA' : turn.reply.mode === 'local-nim' ? 'Resposta com NIM local' : 'Consulta direta à documentação'}</p>
               {turn.reply.harness && (
-                <span className="assistant-harness-badge" title="Auditado pelo Evaluation Plane do Harness">
-                  <ShieldCheck size={13} aria-hidden="true" />
-                  {turn.reply.harness.grounding >= 1 ? '100% fundamentado' : `${Math.round(turn.reply.harness.grounding * 100)}% fundamentado`}
+                <span className="assistant-harness-badge" title="Confere localizadores das fontes; não avalia se a resposta atende à pergunta.">
+                  <BookOpen size={13} aria-hidden="true" />
+                  Fontes localizadas: {Math.round(turn.reply.harness.grounding * turn.reply.harness.verifiedSources)}/{turn.reply.harness.verifiedSources}
                 </span>
               )}
             </div>

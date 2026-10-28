@@ -110,6 +110,35 @@ class ChatTests(unittest.TestCase):
         counting = Assistant(ROOT / 'knowledge').answer('Quantas etapas tem essa operação?', 'P001')
         self.assertIn('184 atividades', counting['answer'])
 
+    def test_operation_count_answers_only_the_bizagi_counts_without_provider(self):
+        assistant = Assistant(ROOT / 'knowledge', nvidia_api_key='test-placeholder')
+        history = {'question': 'Quem executa as etapas deste processo?', 'sources': []}
+        with patch('scripts.chat_server.nim_quotes', return_value=[]) as provider:
+            answer = assistant.answer('Quantas etapas tem aqui nessa operação?', 'P001', history=history)
+        self.assertEqual(provider.call_count, 0)
+        self.assertEqual(answer['mode'], 'local-search')
+        self.assertIn('184 atividades', answer['answer'])
+        self.assertIn('27 atividades', answer['answer'])
+        self.assertIn('211 atividades', answer['answer'])
+        self.assertNotIn('Cliente (Importador): Caso', answer['answer'])
+        self.assertNotIn('Objetivo:', answer['answer'])
+        self.assertEqual(len(answer['sources']), 1)
+        self.assertIn('Diagrama Bizagi Importação:', answer['sources'][0]['quote'])
+        self.assertIn('Diagrama Bizagi Subprocesso', answer['sources'][0]['quote'])
+
+        export = assistant.answer('Quantas atividades tem a Exportação?', 'P004')
+        for count in ('175 atividades', '15 atividades', '10 atividades', '200 atividades'):
+            self.assertIn(count, export['answer'])
+
+    def test_previous_question_only_reaches_model_for_referential_followup(self):
+        assistant = Assistant(ROOT / 'knowledge', 'http://127.0.0.1:8000/v1', 'local-model')
+        history = {'question': 'Quem executa as etapas deste processo?', 'sources': []}
+        with patch('scripts.chat_server.nim_quotes', return_value=[]) as provider:
+            assistant.answer('Como funciona a retirada do contêiner vazio?', 'P001', history=history)
+            self.assertEqual(provider.call_args.kwargs['context_question'], '')
+            assistant.answer('faça um fluxo dessa dúvida', 'P001', history=history)
+            self.assertEqual(provider.call_args.kwargs['context_question'], history['question'])
+
     def test_bad_model_response_does_not_erase_local_results(self):
         assistant = Assistant(ROOT / 'knowledge', 'http://127.0.0.1:8000/v1', 'local-model')
         with patch('scripts.chat_server.nim_quotes', side_effect=OSError('unavailable')):

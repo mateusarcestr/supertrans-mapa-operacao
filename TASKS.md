@@ -404,3 +404,11 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Mostrar erro HTTP real em vez de mensagem de serviço fora do ar; atualizar rodapé para fallback local.
 - [x] Validar POST local isolado com 121 fontes, 28 Vitest e build.
 - [ ] Usuário atualizar página e repetir pergunta encadeada com Nemotron; verificar resposta e citações com conteúdo/serviço liberado.
+
+## Contagens objetivas e contexto do prompt — 2026-10-28
+- [x] Reproduzir fallback da pergunta de contagem com atividade irrelevante antes da Visão geral.
+- [x] Responder contagem geral com linhas Bizagi do processo selecionado, sem chamada externa e sem tratar soma de diagramas como sequência.
+- [x] Enviar contexto anterior ao modelo somente em perguntas referenciais e instruir seleção de fontes diretamente pertinentes.
+- [x] Renomear selo para "Fontes localizadas" e esclarecer o alcance da métrica do harness.
+- [x] Validar 96 Python, 28 Vitest, build, 6/6 gold, POST local e prova sintética do Nemotron.
+- [ ] Reiniciar backend 8765 e conferir a resposta na interface; validar citações reais de outras perguntas apenas com conteúdo liberado.
