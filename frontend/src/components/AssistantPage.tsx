@@ -5,13 +5,14 @@ import type { FrontendCatalog } from '../data/types'
 import { AssistantSettings, type AssistantConfiguration } from './AssistantSettings'
 import { AssistantModelControls } from './AssistantModelControls'
 import { ThemeToggle } from './ThemeToggle'
+import { AnswerBlocks, type AnswerBlock } from './AnswerBlocks'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
 interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
 export interface FlowStep { step?: number | string; title: string; executor?: string; details?: string }
 export interface FlowDiagram { title?: string; steps: FlowStep[] }
 export interface HarnessAudit { grounding: number; verifiedSources: number; invariantsPreserved: boolean }
-interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[]; flow?: FlowDiagram; harness?: HarnessAudit }
+interface Reply { mode: 'local-search' | 'local-nim' | 'nvidia-api'; answer: string; sources: Evidence[]; warning?: string; responsibilities?: Responsibility[]; flow?: FlowDiagram; blocks?: AnswerBlock[]; harness?: HarnessAudit }
 interface Turn { question: string; reply?: Reply; error?: string }
 
 export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
@@ -126,6 +127,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
             </div>
             <p className="assistant-response-text">{turn.reply.answer}</p>
             {turn.reply.warning && <p className="assistant-notice">{turn.reply.warning}</p>}
+            <AnswerBlocks blocks={turn.reply.blocks} />
             {turn.reply.flow && turn.reply.flow.steps.length > 0 && (
               <section className="assistant-flow-container" aria-label="Fluxo das etapas">
                 <header className="assistant-flow-header">

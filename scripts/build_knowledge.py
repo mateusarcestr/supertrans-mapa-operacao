@@ -34,8 +34,16 @@ def build(root: Path = ROOT, output: Path = ROOT / 'knowledge') -> dict:
     for process in processes:
         pid = process['id']
         steps = {s['id']: s for s in process['popSteps']}
+        doc = process['documentation']
+        # Readable lines feed retrieval and the model; the JSON source lines keep provenance.
+        overview = [f"Processo: {pid}\nCamada: operação revisada\nNome do processo: {process['name']}",
+                    'Diagramas: ' + ', '.join(d['name'] for d in process['diagrams'])]
+        overview += [f"{title}: " + ' '.join(p['text'] for p in section['paragraphs'])
+                     for title, section in doc.items() if section['paragraphs']]
+        overview.append('Fontes:\n' + sources([s for section in doc.values() for s in section['sources']
+                                               + [x for p in section['paragraphs'] for x in p['sources']]]))
         parts = [f"# {pid} — {process['name']}",
-                 f"## Visão geral [{pid}:overview]\nProcesso: {pid}\nCamada: operação revisada\n" + json.dumps(process['documentation'], ensure_ascii=False),
+                 f"## Visão geral [{pid}:overview]\n" + '\n'.join(overview),
                  'Bizagi define ligações. POP explica procedimento. Revisões explícitas prevalecem nos campos decididos. Lanes e passagens geométricas continuam inferidas. Ausência de tempo não permite estimar duração.']
         for diagram in process['diagrams']:
             nodes = {n['id']: n for n in diagram['nodes']}

@@ -400,3 +400,7 @@ Validação: Benchmark gold executado com composite_score de 0.9474 (100% de fun
 Removidos: `Central de Atendimento (standalone).html` (autorizado pelo usuário), `docs/ui-recovery-audit.md` (vazio), `docs/superpowers/` (planos de 2026-09-30 sem referências), capturas sem referência (`docs/screenshots/polish/`, `polish-nodes/`, `responsive-v2/`, `guided-flow/`, `qa-assistant-operational.png`), `node_modules/` da raiz (Puppeteer não usado; fora do Git) e funções frontend sem uso em produção (`allProcessNodes`, `processSummaryConfidence`, `centeredScrollOffset`, `getProcessSummary`) com seus testes. Mantidos `docs/frontend-visual-qa.md`, capturas citadas e `theme-legibility/`. Originais, `data/` e `knowledge/` intactos.
 
 Validação: 26 testes Vitest, build Vite e 91 testes Python OK. Próximo passo inalterado.
+
+## Marco 2026-10-28 — resumo de processo e blocos de resposta
+
+DEC-059. Perguntas de resumo/objetivo agora recuperam a Visão geral legível do processo; pronomes não sequestram a busca para o tópico anterior. Chat ganhou blocos visuais escolhidos pela IA (destaque, cartões, tabela, lista, chips) validados contra as evidências citadas. 93 Python, 26 Vitest, build e QA answer-blocks OK. Próximo exato: usuário reiniciar `npm run dev` e repetir a pergunta de resumo da Importação com NVIDIA; observar se o modelo usa blocos e quantos são descartados pela validação.

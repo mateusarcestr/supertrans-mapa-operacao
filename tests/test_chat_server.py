@@ -112,6 +112,37 @@ class ChatTests(unittest.TestCase):
         broken = 'texto antes {"resposta": "ok"} texto depois'
         self.assertEqual(parse_json_payload(broken), {"resposta": "ok"})
 
+    def test_answer_blocks_survive_only_when_grounded(self):
+        from scripts.chat_server import validate_blocks
+        hits = [{'id': 'a', 'text': 'Executor: Central de Operações\nSistemas: Portal, Excel\nCanais: E-mail'}]
+        blocks = validate_blocks([
+            {'tipo': 'chips', 'titulo': 'Sistemas', 'itens': ['Portal', 'SAP'], 'fontes': [1]},
+            {'tipo': 'tabela', 'colunas': ['Quem', 'Canal'], 'linhas': [['Central de Operações', 'E-mail']], 'fontes': [1]},
+            {'tipo': 'destaque', 'texto': 'A Central agenda.', 'fontes': [2]},
+            {'tipo': 'script', 'texto': '<b>x</b>', 'fontes': [1]},
+            {'tipo': 'lista', 'itens': ['Confere o agendamento'], 'fontes': []},
+        ], hits)
+        self.assertEqual([b['type'] for b in blocks], ['chips', 'table'])
+        self.assertEqual(blocks[0]['items'], ['Portal'])  # SAP is not in the cited text
+        self.assertEqual(blocks[1]['rows'], [['Central de Operações', 'E-mail']])
+        self.assertEqual(validate_blocks([{'tipo': 'tabela', 'colunas': ['Quem'], 'linhas': [['Comercial']], 'fontes': [1]}], hits), [])
+        from unittest.mock import MagicMock
+        content = json.dumps({'resposta': 'A Central agenda. [1]', 'evidencias': [{'source_id': 'a', 'quote': 'Executor: Central de Operações'}],
+                              'blocos': [{'tipo': 'chips', 'titulo': 'Sistemas', 'itens': ['Excel'], 'fontes': [1]}]})
+        opener = MagicMock()
+        opener.open.return_value.__enter__.return_value.read.return_value = json.dumps({'choices': [{'message': {'content': content}}]}).encode()
+        with patch('scripts.chat_server.urllib.request.build_opener', return_value=opener):
+            selected = nim_quotes('Quais sistemas?', hits, NVIDIA_ENDPOINT, NVIDIA_MODEL, 'placeholder')
+        self.assertEqual(selected[0]['blocks'][0]['items'], ['Excel'])
+
+    def test_summary_question_retrieves_process_objective_even_after_other_topic(self):
+        assistant = Assistant(ROOT / 'knowledge')
+        history = {'question': 'faça um fluxo do aceite da demanda', 'sources': []}
+        answer = assistant.answer('Me resume em poucas palavras o processo de importaçao, qual o objetivo dele?', 'P001', history=history)
+        self.assertIn('[P001:overview]', assistant.index.search('resumo objetivo importação', 'P001')[0]['title'])
+        self.assertTrue(answer['sources'][0]['title'].startswith('Visão geral'))
+        self.assertIn('objetivo descrever', answer['sources'][0]['quote'])
+
     def test_followup_flow_request_resolves_context_and_returns_flow_steps(self):
         assistant = Assistant(ROOT / 'knowledge')
         history = {

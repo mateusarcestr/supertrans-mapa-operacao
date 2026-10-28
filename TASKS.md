@@ -392,3 +392,8 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Documentar arquitetura e plano de 5 planos em `docs/harness.md`.
 - [x] Validar benchmark com score 0.9474 e 91 testes Python aprovados.
 - [ ] Conduzir otimizações de recuperação usando o ratchet loop.
+
+## Resumo de processo e blocos de resposta — 2026-10-28
+- [x] Visão geral legível em knowledge/ e recuperação de perguntas de resumo/objetivo (teste de regressão).
+- [x] Blocos de resposta verificados (servidor + AnswerBlocks + QA visual).
+- [ ] Avaliar com NVIDIA real a frequência/qualidade dos blocos com material liberado.

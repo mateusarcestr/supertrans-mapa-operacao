@@ -9,7 +9,9 @@ import unicodedata
 STOP = set('a o os as de do da dos das em no na nos nas para por com um uma e ou que qual quais quem como quando onde quanto isso essa esse processo etapa item pode sobre sao ser se ao the faca fazer faz gera gerar crie criar mostra mostrar monte montar duvida duvidas dessa desse disso deste desta disto dele dela aquilo aqui ali la'.split())
 ALIASES = {'executa': 'executor', 'executam': 'executor', 'responsavel': 'executor', 'responsaveis': 'executor',
            'container': 'conteiner', 'cntr': 'conteiner', 'conteineres': 'conteiner', 'agenda': 'agendamento',
-           'agendar': 'agendamento', 'retira': 'retirada', 'etapas': 'procedimento', 'passos': 'procedimento'}
+           'agendar': 'agendamento', 'retira': 'retirada', 'etapas': 'procedimento', 'passos': 'procedimento',
+           'resume': 'objetivo', 'resumo': 'objetivo', 'resumir': 'objetivo', 'sintese': 'objetivo', 'objetivos': 'objetivo',
+           'finalidade': 'objetivo', 'proposito': 'objetivo'}
 
 
 def terms(text):
@@ -61,6 +63,8 @@ class KnowledgeIndex:
             score += sum(math.log(1 + len(self.chunks) / (self.df[t] + 1)) for t in query & title_terms) * 1.5
             if 'agendamento' in query and 'agendamento' in title_terms:
                 score *= 1.8
+            if 'objetivo' in query and chunk['title'].startswith('Visão geral'):
+                score *= 3
             if chunk['file'].startswith('originals/'):
                 score *= 0.25
             elif chunk['file'].startswith('external/'):

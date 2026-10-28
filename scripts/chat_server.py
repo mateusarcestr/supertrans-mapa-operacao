@@ -180,6 +180,62 @@ def select_quotes(hits: list[dict], generated) -> list[dict]:
     return result
 
 
+BLOCK_TYPES = {'destaque': 'highlight', 'cartoes': 'cards', 'tabela': 'table', 'lista': 'list', 'chips': 'chips'}
+
+
+def validate_blocks(raw, selected) -> list[dict]:
+    """Keep model-chosen UI blocks only when cited; atomic values must be literal in the cited text."""
+    if not isinstance(raw, list):
+        return []
+
+    def norm(value):
+        return re.sub(r'\s+', ' ', value).strip().lower()
+
+    def text(value, limit):
+        return value.strip()[:limit] if isinstance(value, str) and value.strip() else None
+
+    blocks = []
+    for item in raw[:4]:
+        if not isinstance(item, dict) or item.get('tipo') not in BLOCK_TYPES:
+            continue
+        refs = item.get('fontes')
+        if not (isinstance(refs, list) and refs and all(isinstance(n, int) and 1 <= n <= len(selected) for n in refs)):
+            continue
+        cited = norm('\n'.join(selected[n - 1]['text'] for n in refs))
+        literal = lambda v: isinstance(v, str) and 0 < len(v.strip()) <= 120 and norm(v) in cited
+        block = dict(type=BLOCK_TYPES[item['tipo']], title=text(item.get('titulo'), 80), sources=sorted(set(refs)))
+        if block['type'] == 'highlight':
+            block['text'] = text(item.get('texto'), 400)
+            if not block['text']:
+                continue
+        elif block['type'] == 'list':
+            block['items'] = [t for t in (text(v, 200) for v in item.get('itens') or [] if isinstance(v, str)) if t][:8]
+            if not block['items']:
+                continue
+        elif block['type'] == 'chips':
+            block['items'] = list(dict.fromkeys(v.strip() for v in item.get('itens') or [] if literal(v)))[:12]
+            if not block['items']:
+                continue
+        elif block['type'] == 'table':
+            columns = [text(c, 40) for c in item.get('colunas') or []][:5]
+            rows = [[c.strip() for c in row] for row in item.get('linhas') or []
+                    if isinstance(row, list) and len(row) == len(columns) and all(literal(c) for c in row)][:10]
+            if not columns or None in columns or not rows:
+                continue
+            block.update(columns=columns, rows=rows)
+        else:
+            cards = []
+            for card in item.get('itens') or []:
+                if isinstance(card, dict) and literal(card.get('titulo')):
+                    cards.append(dict(title=card['titulo'].strip(), text=text(card.get('texto'), 240),
+                                      label=card['rotulo'].strip() if literal(card.get('rotulo')) else None))
+            block['items'] = cards[:6]
+            if not cards:
+                continue
+        blocks.append(block)
+    return blocks
+
+
 def is_flow_request(question: str) -> bool:
     import unicodedata
     clean = unicodedata.normalize('NFKD', question.lower())
@@ -248,6 +304,10 @@ def nim_quotes(question, hits, endpoint, model, api_key='', effort=None, is_flow
               '{"resposta":"explicação concisa com referências [1], [2] na ordem das evidências", '
               '"evidencias":[{"source_id":"ID fornecido","quote":"trecho literal que apoia a resposta"}], '
               '"fluxo":[{"etapa":1,"titulo":"nome da etapa","executor":"quem executa","detalhes":"sistema, canal ou descrição curta"}]}. '
+              'Opcionalmente inclua "blocos" (máximo 3) para organizar a resposta visualmente, cada um com "fontes":[números das evidências]: '
+              '{"tipo":"destaque","titulo":"...","texto":"ideia principal"}, {"tipo":"cartoes","itens":[{"titulo":"executor copiado do trecho","texto":"o que faz","rotulo":"sistema ou canal copiado"}]}, '
+              '{"tipo":"tabela","colunas":["..."],"linhas":[["valores copiados dos trechos"]]}, {"tipo":"lista","itens":["..."]} ou {"tipo":"chips","titulo":"Sistemas","itens":["nomes copiados"]}. '
+              'Use blocos só quando ajudarem (resumo, comparação, responsáveis, sistemas); nomes em cartões, tabelas e chips devem ser cópia literal dos trechos. '
               'O campo fluxo deve conter a sequência lógica ordenada das etapas quando a pergunta pedir fluxo, sequência ou passo a passo (ou deixe [] caso não se aplique). '
               'Explique quem faz o quê; não responda apenas com nomes de campos ou números de linhas. '
               'Nunca invente fatos ou citações. Cada citação deve copiar uma linha textual contínua. '
@@ -291,6 +351,8 @@ def nim_quotes(question, hits, endpoint, model, api_key='', effort=None, is_flow
                 ))
         if steps:
             selected[0]['flow'] = dict(title='Fluxo da operação', steps=steps)
+    if isinstance(payload, dict) and selected:
+        selected[0]['blocks'] = validate_blocks(payload.get('blocos'), selected)
     return selected
 
 
@@ -368,7 +430,9 @@ class Assistant:
         flow_requested = is_flow_request(question)
 
         hits = []
-        if is_contextual and prev_q:
+        # A pronoun ("dele") only borrows the previous topic when the question has no subject of its own.
+        own_terms = query - {'fluxo', 'objetivo', 'poucas', 'palavras', 'explica', 'explique', 'detalhe', 'detalha', 'curto'}
+        if is_contextual and prev_q and not own_terms:
             hits = self.index.search(f"{question} {prev_q}", process_id)
         if not hits:
             hits = self.index.search(question, process_id)
@@ -425,7 +489,7 @@ class Assistant:
         }
 
         return dict(mode=mode, externalContext=external, answer=explanation,
-                    sources=public, warning=warning, flow=flow, harness=harness_audit)
+                    sources=public, warning=warning, flow=flow, blocks=selected[0].get('blocks') or [], harness=harness_audit)
 
     def responsibilities(self, process_id):
         if not process_id:

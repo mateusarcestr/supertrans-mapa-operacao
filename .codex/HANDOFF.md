@@ -519,3 +519,7 @@ CLI de controle: harness/loop.py fornece comandos benchmark (scorecard executivo
 
 ## Limpeza 2026-10-23
 Branch `chore/limpeza-arquivos`: removidos arquivos e funções sem uso (detalhes em PROJECT_STATUS.md, marco 2026-10-23). 26 Vitest, build e 91 Python OK. Próximo exato inalterado.
+
+## CHECKPOINT VIGENTE — resumo de processo e blocos de resposta (2026-10-28)
+
+DEC-059. Visão geral legível em knowledge/processes (regenerado), aliases de resumo/objetivo, contexto multi-turn só sem assunto próprio. `validate_blocks` em scripts/chat_server.py + frontend/src/components/AnswerBlocks.tsx; QA `node scripts/visual-qa/answer-blocks.mjs` (Vite em 4174). 93 Python/26 Vitest/build OK. Próximo exato: usuário reiniciar npm run dev e testar resumo da Importação com NVIDIA.

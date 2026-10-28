@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "processes/P001.md",
-      "sha256": "c6663e6d58aa75c319c60207502a282a2a575e5f52ecf3f19007be3d1623f390"
+      "sha256": "0254cb8e63907d44130c3e1df13ff28bba4e0b215f08eeac9293d10d5db22cfe"
     },
     {
       "path": "originals/P001.md",
@@ -17,7 +17,7 @@
     },
     {
       "path": "processes/P002.md",
-      "sha256": "ec3040fe58e552ad5d2dcb20b6b162f98aab08a172647beeefb50cdf0f088b9a"
+      "sha256": "f29f02cc8bf1c7b88c9679c76ec77833cf06ce3edbc9cf6faa124653d52aeea0"
     },
     {
       "path": "originals/P002.md",
@@ -25,7 +25,7 @@
     },
     {
       "path": "processes/P003.md",
-      "sha256": "b27cc0d4fde4525b3a442b1f8aa829cddbe1c91876a6a13cb2446b5869667314"
+      "sha256": "aae8c993509b61dbc3aefcb84be8b1660c9fce32770b59ac42ef4c5c5c203cc9"
     },
     {
       "path": "originals/P003.md",
@@ -33,7 +33,7 @@
     },
     {
       "path": "processes/P004.md",
-      "sha256": "eca8e30c00dcb885d0e139feb10842cb8832b324e92337aadee6ab5e299282b1"
+      "sha256": "112e098a89316154bb3771e909878d28d88bd76109c9535ed89118247553b724"
     },
     {
       "path": "originals/P004.md",
@@ -41,7 +41,7 @@
     },
     {
       "path": "processes/P005.md",
-      "sha256": "7559ca8af97d5fc6a5db8872f3b949070dfe0ec4d18325de22987085ce3aa36f"
+      "sha256": "62914ea75ecbf7a48ab37cae485921fd0f36055d7b6014194b0627f87427714c"
     },
     {
       "path": "originals/P005.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "processes/P006.md",
-      "sha256": "c43f9c773cf0740a100f3c5ec897f85d60ad974d10ea3703197f07e333a7212d"
+      "sha256": "f34f36a14cef51e8067c0488643a893e5f3fb7ef3b2d66b450f09a59d32544db"
     },
     {
       "path": "originals/P006.md",
@@ -57,7 +57,7 @@
     },
     {
       "path": "processes/P007.md",
-      "sha256": "a86a869f8d2fef3dab9bbaf736209673a983a1770d01681cfb26d6c149bd70ed"
+      "sha256": "20f6df612850aa15018fd1159531ed2f25278c040f4d55dd7b3a6804f2e30bbf"
     },
     {
       "path": "originals/P007.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "processes/P008.md",
-      "sha256": "301da5fa23705b37713c3d41c255a249c8197e14939aab70680c115c8cda19eb"
+      "sha256": "f65395cd1c73035a4475e7cf972e6ee4bee054d01c203d8ab45d3c4bd16b1687"
     },
     {
       "path": "originals/P008.md",
@@ -73,7 +73,7 @@
     },
     {
       "path": "processes/P009.md",
-      "sha256": "fd7202a2259a99012dd3e84a45d5096cdf7e7e4ef9b32b36ec943f02e86d0089"
+      "sha256": "f564a27eef0e19355b70e4cc9cb85db8f712ab45f215aab2db22ea55a7341bdf"
     },
     {
       "path": "originals/P009.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "processes/P010.md",
-      "sha256": "e7b8d2adcfce1d0b5bb9e16af3e79a19ce9e927b4364d1a476c3df64e5dd025e"
+      "sha256": "c64973dcb08ffba5feafd586684c2030698c7241e978fbc8ecdc454a10ba2623"
     },
     {
       "path": "originals/P010.md",
