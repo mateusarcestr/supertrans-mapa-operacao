@@ -523,3 +523,7 @@ Branch `chore/limpeza-arquivos`: removidos arquivos e funções sem uso (detalhe
 ## CHECKPOINT VIGENTE — resumo de processo e blocos de resposta (2026-10-28)
 
 DEC-059. Visão geral legível em knowledge/processes (regenerado), aliases de resumo/objetivo, contexto multi-turn só sem assunto próprio. `validate_blocks` em scripts/chat_server.py + frontend/src/components/AnswerBlocks.tsx; QA `node scripts/visual-qa/answer-blocks.mjs` (Vite em 4174). 93 Python/26 Vitest/build OK. Próximo exato: usuário reiniciar npm run dev e testar resumo da Importação com NVIDIA.
+
+## CHECKPOINT VIGENTE — Visão geral POP+Bizagi (2026-10-28)
+
+DEC-060. knowledge regenerado; fallback local responde com objetivo POP + estrutura Bizagi. GLM 5.3 Flash não respondeu a teste sintético em 30 s; GPT OSS 20B 1,7 s. Próximo exato: usuário trocar o modelo (ex.: GPT OSS 20B) e repetir "Qual o objetivo da importação?".

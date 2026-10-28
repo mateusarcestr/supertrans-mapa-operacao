@@ -142,6 +142,11 @@ class ChatTests(unittest.TestCase):
         self.assertIn('[P001:overview]', assistant.index.search('resumo objetivo importação', 'P001')[0]['title'])
         self.assertTrue(answer['sources'][0]['title'].startswith('Visão geral'))
         self.assertIn('objetivo descrever', answer['sources'][0]['quote'])
+        # Local fallback answers with POP objective and Bizagi structure, not a generic phrase.
+        local = assistant.answer('Qual o objetivo da importação?', 'P001')
+        self.assertIn('Objetivo:', local['answer'])
+        self.assertIn('Participantes (Bizagi):', local['answer'])
+        self.assertIn('Início (Bizagi):', local['answer'])
 
     def test_followup_flow_request_resolves_context_and_returns_flow_steps(self):
         assistant = Assistant(ROOT / 'knowledge')

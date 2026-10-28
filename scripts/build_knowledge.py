@@ -40,6 +40,18 @@ def build(root: Path = ROOT, output: Path = ROOT / 'knowledge') -> dict:
                     'Diagramas: ' + ', '.join(d['name'] for d in process['diagrams'])]
         overview += [f"{title}: " + ' '.join(p['text'] for p in section['paragraphs'])
                      for title, section in doc.items() if section['paragraphs']]
+        for diagram in process['diagrams']:
+            by_id = {n['id']: n for n in diagram['nodes']}
+            kinds = Counter(n['type'] for n in diagram['nodes'])
+            follow = lambda node_id, key: [by_id[f[key]]['name'] or by_id[f[key]]['type'] for f in diagram['flows']
+                                           if f['sourceNodeId' if key == 'targetNodeId' else 'targetNodeId'] == node_id]
+            starts = [f"{n['name'] or 'Início'} → {', '.join(follow(n['id'], 'targetNodeId')) or 'sem ligação'}"
+                      for n in diagram['nodes'] if n['type'] == 'startEvent']
+            ends = [f"após {', '.join(follow(n['id'], 'sourceNodeId')) or 'sem ligação'}" for n in diagram['nodes'] if n['type'] == 'endEvent']
+            overview += [f"Diagrama Bizagi {diagram['name']}: {kinds['task']} atividades, {kinds['gateway']} decisões, "
+                         f"{kinds['startEvent']} início(s), {kinds['endEvent']} fim(ns)",
+                         'Participantes (Bizagi): ' + ', '.join(dict.fromkeys(l['name'] for l in diagram['lanes'] if l['name'])),
+                         'Início (Bizagi): ' + '; '.join(starts), 'Fins (Bizagi): ' + '; '.join(ends)]
         overview.append('Fontes:\n' + sources([s for section in doc.values() for s in section['sources']
                                                + [x for p in section['paragraphs'] for x in p['sources']]]))
         parts = [f"# {pid} — {process['name']}",

@@ -80,7 +80,7 @@ def provider_error(error):
                     422: 'A NVIDIA recusou os parâmetros do modelo (422). Confira o modelo selecionado.'}
         return messages.get(status, f'A NVIDIA retornou erro HTTP {status}. Tente novamente.')
     if isinstance(error, TimeoutError) or isinstance(getattr(error, 'reason', None), TimeoutError):
-        return 'A NVIDIA não respondeu dentro do tempo limite. A chave não pôde ser validada; tente novamente ou escolha outro modelo.'
+        return 'Este modelo não respondeu dentro do tempo limite (lentidão ou fila no provedor, não falha da chave). Tente outro modelo.'
     if isinstance(error, OSError):
         return 'Não foi possível conectar à NVIDIA. Confira a conexão de rede e tente novamente.'
     return 'A IA respondeu em formato inválido ou sem evidências verificáveis.'
@@ -472,6 +472,10 @@ class Assistant:
                 executor = re.search(r'^(?:Executor|Participante da lane): (.+?)(?: - (?:EXT|CONT)|\s*\(associação inferida\))*$', hit['text'], re.M)
                 if procedure:
                     statements.append(f'{executor.group(1) + ": " if executor else ""}{procedure.group(1)}.')
+                elif hit['title'].startswith('Visão geral'):
+                    # Overview combines POP purpose with Bizagi structure; show it as the answer itself.
+                    statements.append('\n'.join(line for line in hit['text'].splitlines()
+                                                if line.startswith(('Objetivo:', 'Público Alvo:', 'Diagrama Bizagi', 'Participantes (Bizagi):', 'Início (Bizagi):', 'Fins (Bizagi):'))))
             explanation = '\n\n'.join(dict.fromkeys(statements)) or 'A documentação disponível informa os trechos abaixo.'
 
         flow = None
