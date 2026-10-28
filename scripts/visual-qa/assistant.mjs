@@ -56,7 +56,7 @@ try {
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
     await page.locator('.assistant-turn').last().getByRole('heading', { name: 'Quem executa as etapas deste processo?', exact: true }).scrollIntoViewIfNeeded()
     await page.screenshot({ path: fileURLToPath(new URL(`responsibilities-${theme}-${width}.png`, output)), fullPage: false })
-    await page.getByRole('combobox', { name: 'Consultar processo' }).selectOption('P002')
+    await page.getByRole('combobox', { name: 'Consultar tipo de operação' }).selectOption('P002')
     assert.equal(await page.locator('.assistant-turn').count(), 0)
     await page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' }).fill('receita de pudim de chocolate')
     await page.getByRole('textbox', { name: 'Sua pergunta sobre o processo' }).press('Enter')

@@ -87,12 +87,12 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
       <header className="assistant-header">
         <div className="assistant-header-context">
         <AssistantModelControls configuration={configuration} pending={pending} onChanged={setConfiguration}>
-        <label className="assistant-scope"><span>Processo</span>
-        <select aria-label="Consultar processo" value={processId} onChange={(event) => {
+        <label className="assistant-scope"><span>Tipo de operação</span>
+        <select aria-label="Consultar tipo de operação" value={processId} onChange={(event) => {
           revision.current += 1; request.current?.abort(); setPending(false); setProcessId(event.target.value); setTurns([])
           conversation.current?.scrollTo({ top: 0 })
         }}>
-          <option value="">Todos os processos</option>
+          <option value="">Todos os tipos de operação</option>
           {catalog.processes.map((process) => <option key={process.id} value={process.id}>{process.name}</option>)}
         </select>
       </label>

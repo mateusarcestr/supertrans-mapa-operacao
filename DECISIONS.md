@@ -705,3 +705,7 @@ Usuário pediu UI no estilo de https://github.com/thesysdev/open-intelligent-ui 
 ## DEC-060 — Visão geral une POP e Bizagi; timeout não culpa a chave (2026-10-28)
 
 Usuário relatou piora com GLM 5.3 Flash e pediu que a resposta use POP e Bizagi. Diagnóstico: busca local já trazia a Visão geral em primeiro lugar; a falha foi o modelo `z-ai/glm-5.3-flash`, que não respondeu nem à mensagem sintética "Responda apenas OK." em 30 s, enquanto `openai/gpt-oss-20b` com a mesma chave respondeu em 1,7 s (2026-10-28, sem documentos enviados). O fallback local exibia frase genérica. Correção: a Visão geral passa a incluir, por diagrama Bizagi, contagem de atividades/decisões/inícios/fins, participantes das lanes, atividade após o início e atividades antes de cada fim, derivados de `data/normalized` sem inferência nova; o fallback local responde com Objetivo/Público Alvo (POP) e essa estrutura (Bizagi). Mensagem de timeout deixa de sugerir chave inválida.
+
+## DEC-061 — seletor do chat chama-se Tipo de operação (2026-10-28)
+
+Usuário indicou que o campo não é "processo". Como a lista inclui Exportação, Cabotagem, Comercial etc., escolheu explicitamente "Tipo de operação" (termo do Portal) em vez de "Tipo de importação". Só o rótulo, nome acessível e opção vazia mudaram no chat; IDs P001–P010, filtro e demais telas inalterados. Build e QA model-controls OK.
