@@ -6,6 +6,7 @@ import { AssistantSettings, type AssistantConfiguration } from './AssistantSetti
 import { AssistantModelControls } from './AssistantModelControls'
 import { ThemeToggle } from './ThemeToggle'
 import { AnswerBlocks, type AnswerBlock } from './AnswerBlocks'
+import { buildChatPayload } from './chatPayload'
 
 interface Evidence { id: string; file: string; line: number; title: string; quote: string; processId: string | null }
 interface Responsibility { executor: string; activities: { title: string; diagram: string; sourceId: string }[] }
@@ -56,27 +57,25 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
     const text = value.trim()
     if (pending || text.length < 3) return
     const current = revision.current
-    const lastTurn = turns[turns.length - 1]
-    const history = lastTurn && lastTurn.reply ? {
-      question: lastTurn.question,
-      answer: lastTurn.reply.answer,
-      sources: lastTurn.reply.sources,
-    } : null
+    const payload = buildChatPayload(text, processId || null, configuration?.model, configuration?.effort, turns)
     setQuestion('')
     setPending(true)
     setTurns((previous) => [...previous, { question: text }])
     request.current = new AbortController()
     try {
       const response = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: text, processId: processId || null, model: configuration?.model, effort: configuration?.effort, history }), signal: request.current.signal })
-      if (!response.ok) throw new Error('Não foi possível consultar. Confira se o serviço local está iniciado e tente novamente.')
+        body: JSON.stringify(payload), signal: request.current.signal })
+      if (!response.ok) {
+        const failure = await response.json().catch(() => null)
+        throw new Error(typeof failure?.error === 'string' ? failure.error : `Consulta falhou (HTTP ${response.status}).`)
+      }
       const reply: Reply = await response.json()
       if (current !== revision.current) return
       setTurns((previous) => previous.map((turn, index) => index === previous.length - 1 ? { ...turn, reply } : turn))
     } catch (reason) {
       if (current !== revision.current) return
       setTurns((previous) => previous.map((turn, index) => index === previous.length - 1 ? { ...turn,
-        error: reason instanceof Error ? reason.message : 'Consulta indisponível.' } : turn))
+        error: reason instanceof TypeError ? 'Não foi possível conectar ao serviço local.' : reason instanceof Error ? reason.message : 'Consulta indisponível.' } : turn))
     } finally { if (current === revision.current) setPending(false) }
   }
 
@@ -189,7 +188,7 @@ export function AssistantPage({ catalog }: { catalog: FrontendCatalog }) {
           setTurns(previous => previous.map((turn, index) => index === previous.length - 1 ? { ...turn, error: 'Espera interrompida nesta tela.' } : turn))
         }}><Square size={15} aria-hidden="true" /></button> : <button type="submit" disabled={question.trim().length < 3} aria-label="Enviar pergunta"><ArrowUp size={20} aria-hidden="true" /></button>}
       </form>
-      <p className="assistant-footnote">Sem evidência suficiente, o assistente informa que não encontrou a resposta. {externalContext ? 'Trechos relevantes são enviados à API NVIDIA para selecionar as evidências.' : 'Busca executada neste ambiente.'}</p>
+      <p className="assistant-footnote">Sem citação verificável da IA, o assistente mostra a busca local. {externalContext ? 'Trechos relevantes são enviados à API NVIDIA para selecionar as evidências.' : 'Busca executada neste ambiente.'}</p>
       </div></footer>
     </div>
   )

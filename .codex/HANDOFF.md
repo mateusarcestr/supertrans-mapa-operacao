@@ -531,3 +531,7 @@ DEC-060. knowledge regenerado; fallback local responde com objetivo POP + estrut
 ## CHECKPOINT VIGENTE — citações por linha (2026-10-28)
 
 DEC-062. select_quotes resolve `linhas` sobre context_lines (texto que o modelo viu); sem citação válida → busca local com aviso. Próximo exato: usuário reiniciar npm run dev e repetir as duas perguntas com Nemotron 3.5 Super; se ainda cair em busca local, inspecionar o JSON devolvido pelo modelo.
+
+## CHECKPOINT VIGENTE — histórico compacto / HTTP 400 (2026-10-28)
+
+DEC-063. Captura com 121 fontes seguida de "Quantas etapas tem aqui nessa operação?" falhava por limite HTTP: histórico anterior media 32.079 bytes para limite de 12.000. `frontend/src/components/chatPayload.ts` envia pergunta e IDs, limita corpo e preserva última resposta válida no retry. `AssistantPage.tsx` mostra erro HTTP saneado e rodapé condizente com fallback. POST isolado local com 121 fontes → 4.492 bytes, HTTP 200, `184 atividades`; 28 Vitest/build OK. Sem inferência externa nesta verificação. Backend ativo na porta 8765, frontend dev 5173 não ativo na inspeção. Próximo exato: atualizar página, repetir pergunta encadeada com Nemotron em conteúdo/serviço liberado; se cair na busca local, inspecionar JSON de evidências do modelo sem registrar documentos ou segredo.

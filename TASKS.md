@@ -397,3 +397,10 @@ O plano abaixo foi executado parcialmente nesta fase; a coluna Jira ficou penden
 - [x] Visão geral legível em knowledge/ e recuperação de perguntas de resumo/objetivo (teste de regressão).
 - [x] Blocos de resposta verificados (servidor + AnswerBlocks + QA visual).
 - [ ] Avaliar com NVIDIA real a frequência/qualidade dos blocos com material liberado.
+
+## Histórico compacto no chat — 2026-10-28
+- [x] Reproduzir HTTP 400 após resposta com 121 fontes: histórico de 32.079 bytes excedia limite de 12.000 bytes.
+- [x] Enviar somente pergunta anterior e IDs das fontes; preservar contexto no retry e limitar tamanho do payload.
+- [x] Mostrar erro HTTP real em vez de mensagem de serviço fora do ar; atualizar rodapé para fallback local.
+- [x] Validar POST local isolado com 121 fontes, 28 Vitest e build.
+- [ ] Usuário atualizar página e repetir pergunta encadeada com Nemotron; verificar resposta e citações com conteúdo/serviço liberado.

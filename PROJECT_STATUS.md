@@ -404,3 +404,11 @@ Validação: 26 testes Vitest, build Vite e 91 testes Python OK. Próximo passo 
 ## Marco 2026-10-28 — resumo de processo e blocos de resposta
 
 DEC-059. Perguntas de resumo/objetivo agora recuperam a Visão geral legível do processo; pronomes não sequestram a busca para o tópico anterior. Chat ganhou blocos visuais escolhidos pela IA (destaque, cartões, tabela, lista, chips) validados contra as evidências citadas. 93 Python, 26 Vitest, build e QA answer-blocks OK. Próximo exato: usuário reiniciar `npm run dev` e repetir a pergunta de resumo da Importação com NVIDIA; observar se o modelo usa blocos e quantos são descartados pela validação.
+
+## Marco 2026-10-28 — histórico compacto no chat (DEC-063)
+
+Captura do usuário após uma resposta com 121 fontes mostrou erro genérico na pergunta seguinte. Reproduzido: o frontend reenviava resposta e fontes completas no histórico (32.079 bytes); `chat_server.py` limita o corpo a 12.000 bytes e devolvia HTTP 400, apresentado como indisponibilidade do serviço. Porta 8765 respondeu normalmente; porta 5173 não estava ativa na inspeção.
+
+`AssistantPage` agora envia pergunta anterior e apenas IDs das fontes, reaproveita a última resposta bem-sucedida em tentativas repetidas, limita o payload ao contrato de 12.000 bytes e mostra a mensagem HTTP retornada pelo servidor. Rodapé atualizado ao fallback da DEC-062. Sem mudança no backend, nos originais ou na configuração da NVIDIA.
+
+Validação: requisição isolada com 121 fontes anteriores passou de 32.079 para 4.492 bytes, HTTP 200 e resposta local com `184 atividades`; 28 Vitest e build aprovados. Nenhuma consulta documental foi enviada à NVIDIA. Próximo exato: atualizar a página e repetir a pergunta encadeada; avaliar separadamente a resposta/citações do Nemotron em ambiente autorizado.
