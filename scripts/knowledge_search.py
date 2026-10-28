@@ -63,7 +63,7 @@ class KnowledgeIndex:
             score += sum(math.log(1 + len(self.chunks) / (self.df[t] + 1)) for t in query & title_terms) * 1.5
             if 'agendamento' in query and 'agendamento' in title_terms:
                 score *= 1.8
-            if 'objetivo' in query and chunk['title'].startswith('Visão geral'):
+            if query & {'objetivo', 'quantas', 'quantos', 'total'} and chunk['title'].startswith('Visão geral'):
                 score *= 3
             if chunk['file'].startswith('originals/'):
                 score *= 0.25

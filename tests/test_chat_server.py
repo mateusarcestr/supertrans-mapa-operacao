@@ -70,8 +70,10 @@ class ChatTests(unittest.TestCase):
         self.assertTrue(assistant.external)
         with patch('scripts.chat_server.nim_quotes', return_value=[]) as provider:
             answer = assistant.answer('retirada de CNTR vazio', 'P001')
-        self.assertEqual(answer['mode'], 'nvidia-api')
-        self.assertEqual(answer['sources'], [])
+        # No verifiable citation from the model: retrieved passages are shown, labelled as search.
+        self.assertEqual(answer['mode'], 'local-search')
+        self.assertTrue(answer['sources'])
+        self.assertIn('busca local', answer['warning'])
         self.assertEqual(provider.call_args.args[-1], 'test-placeholder')
         self.assertNotIn('test-placeholder', json.dumps(answer))
 
@@ -96,6 +98,17 @@ class ChatTests(unittest.TestCase):
         self.assertEqual(select_quotes(hits, json.dumps({'evidencias': [{'source_id': 'a', 'quote': 'A NASA autoriza a entrega.'}]})), [])
         self.assertEqual(select_quotes(hits, json.dumps({'evidencias': [{'source_id': 'fake', 'quote': hits[0]['text']}]})), [])
         self.assertEqual(select_quotes(hits, json.dumps({'evidencias': [{'source_id': 'a', 'quote': hits[0]['text']}]}))[0]['quote'], hits[0]['text'])
+
+    def test_quotes_by_line_number_or_as_seen_by_the_model(self):
+        hit = {'id': 'a', 'text': '## Retira CNTR Vazio [P001:node:x]\nExecutor: Cliente\n\nAnterior: Chega ao Cliente | ID: P001:n | condição: Não documentada'}
+        by_line = select_quotes([hit], {'evidencias': [{'source_id': 'a', 'linhas': [2, 3]}]})
+        self.assertEqual(by_line[0]['quote'], 'Executor: Cliente\nAnterior: Chega ao Cliente')
+        seen = select_quotes([hit], {'evidencias': [{'source_id': 'a', 'quote': 'Anterior: Chega ao Cliente\ncondição: Não documentada'}]})
+        self.assertTrue(seen)
+        self.assertEqual(select_quotes([hit], {'evidencias': [{'source_id': 'a', 'linhas': [99]}]}), [])
+        self.assertEqual(select_quotes([hit], {'evidencias': [{'source_id': 'a', 'linhas': ['2']}]})[0]['quote'], 'Executor: Cliente')
+        counting = Assistant(ROOT / 'knowledge').answer('Quantas etapas tem essa operação?', 'P001')
+        self.assertIn('184 atividades', counting['answer'])
 
     def test_bad_model_response_does_not_erase_local_results(self):
         assistant = Assistant(ROOT / 'knowledge', 'http://127.0.0.1:8000/v1', 'local-model')

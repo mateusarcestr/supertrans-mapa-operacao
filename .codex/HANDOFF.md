@@ -527,3 +527,7 @@ DEC-059. Visão geral legível em knowledge/processes (regenerado), aliases de r
 ## CHECKPOINT VIGENTE — Visão geral POP+Bizagi (2026-10-28)
 
 DEC-060. knowledge regenerado; fallback local responde com objetivo POP + estrutura Bizagi. GLM 5.3 Flash não respondeu a teste sintético em 30 s; GPT OSS 20B 1,7 s. Próximo exato: usuário trocar o modelo (ex.: GPT OSS 20B) e repetir "Qual o objetivo da importação?".
+
+## CHECKPOINT VIGENTE — citações por linha (2026-10-28)
+
+DEC-062. select_quotes resolve `linhas` sobre context_lines (texto que o modelo viu); sem citação válida → busca local com aviso. Próximo exato: usuário reiniciar npm run dev e repetir as duas perguntas com Nemotron 3.5 Super; se ainda cair em busca local, inspecionar o JSON devolvido pelo modelo.
