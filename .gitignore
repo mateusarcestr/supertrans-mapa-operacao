@@ -19,3 +19,18 @@ data/test-workspaces/
 /screenshot_log*.txt
 /temp_styles.css
 /frontend/src/*.py
+
+# Segredos: qualquer .env, exceto o modelo
+.env
+.env.*
+!.env.example
+
+# Ruído de editor, SO e build
+.vscode/
+.idea/
+.claude/
+graphify-out/
+Thumbs.db
+~$*
+*.log
+*.tsbuildinfo

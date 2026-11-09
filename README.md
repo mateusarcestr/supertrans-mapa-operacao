@@ -1,103 +1,90 @@
 # Mapa da operação Super Trans
 
-Mapa interativo da operação Super Trans, baseado em dez pares Bizagi/POP. **Estado atual: Fases 0–3A.1 e frontend 2D (F4.1–F4.30) concluídos; validação humana pendente.** Por decisão do usuário (F4.25), a leitura é 2D; o 3D foi substituído.
+Mapa 2D e assistente de consulta documental da operação Super Trans, construídos a partir de dez pares **Bizagi (fluxo) + POP (procedimento)**, identificados como P001–P010.
 
-Leia [PROJECT_STATUS.md](PROJECT_STATUS.md) e [.codex/HANDOFF.md](.codex/HANDOFF.md) antes de continuar.
+- **Bizagi** define a topologia (atividades, transições, lanes).
+- **POP** define explicação, executor, sistema e tempo.
+- Conflitos entre as fontes são registrados, nunca resolvidos em silêncio. Inferências aparecem marcadas como tal.
 
-## Executar ingestão
+> Material **interno** da Super Trans. Mantenha este repositório privado.
 
-Requisito: Python 3.12+. Sem dependências Python externas nesta etapa. Na raiz:
+## Estado
+
+Pipeline de dados, normalização, documentação operacional e frontend 2D concluídos. **Validação humana pendente** (passagens/handoffs e atribuição de lanes são inferidos). O estado detalhado está no fim de [PROJECT_STATUS.md](PROJECT_STATUS.md) e no último "CHECKPOINT VIGENTE" de [.codex/HANDOFF.md](.codex/HANDOFF.md).
+
+## Requisitos
+
+- Windows, Python 3.12+ (sempre com `-X utf8`)
+- Node.js e npm
+
+## Começando
 
 ```powershell
-python -m scripts.extract_sources
-python -m unittest discover -s tests -v
+# Dependência Python (jsonschema) em .python-deps/
+python -m pip install --target .python-deps -r requirements-normalization.txt
+
+# Frontend
+npm --prefix frontend install
+
+# Assistente com IA (opcional): copie o modelo e preencha a chave
+Copy-Item .env.example .env.local
 ```
 
-No Windows, use `python -X utf8` em todos os comandos (o `python` do sistema basta). A suíte grava apenas em diretórios temporários; não altera `docs/` nem `data/`.
+```powershell
+# Backend Python (:8765) + Vite (:5173); Ctrl+C encerra os dois
+npm --prefix frontend run dev
+```
 
-Saídas: `data/raw/P001.json` até `P010.json`, `data/raw/manifest.json`. Os dez pares são obrigatórios; falta, duplicidade de arquivo e pacote inválido interrompem geração antes de publicar novos JSONs. Diagnósticos de conteúdo são preservados. CLI retorna 2 se houver diagnósticos de erro; avisos de revisão não impedem extração.
+Sem `NVIDIA_API_KEY`, o assistente usa busca local (BM25) sobre `knowledge/`. A chave fica só no servidor (`.env.local`, fora do Git).
+
+## Testes
+
+```powershell
+python -X utf8 -m unittest discover -s tests -v   # Python
+npm --prefix frontend test                         # Vitest
+npm --prefix frontend run build                    # tsc + vite build
+```
+
+Os testes Python gravam apenas em diretórios temporários.
+
+## Pipeline de dados
+
+Cada etapa lê somente a anterior; as saídas são determinísticas.
+
+| Etapa | Comando | Saída |
+|---|---|---|
+| 1. Extração | `python -m scripts.extract_sources` | `data/raw/` |
+| 2. Normalização | `python -m scripts.build_operation_model` | `data/normalized/` |
+| 3a. Documentação | `python -m scripts.build_operational_docs` | `docs/processes`, `review`, `analysis` |
+| 3b. Alinhamento | `python -m scripts.build_alignment_docs --portal <checkout>` | `docs/alignment/` |
+| 3c. Frontend | `python -m scripts.build_frontend_data` | `frontend/public/data/` |
+| 3d. Conhecimento | `python -m scripts.build_knowledge` | `knowledge/` |
+
+Não reexecute a extração sem mudança nas fontes. `data/raw` é volumoso (~52 MB) e nunca entra no frontend.
 
 ## Organização
 
-- `POP/`, `Processos em bpm/`: originais, nunca editar.
-- `data/inventory/`: inspeção inicial, XMLs e hashes.
-- `data/raw/`: dados brutos rastreáveis; ainda sem reconciliação.
-- `data/normalized/`: modelo canônico, catálogos, reconciliações, conflitos, diagnósticos e schema.
-- `scripts/model/`: normalização exclusiva de data/raw, sem frameworks ou fontes externas.
-- `scripts/ingest/`: leitores ZIP/XML/Word.
-- `tests/`: fontes reais e entradas inválidas.
-- `docs/operation-analysis.md`: estrutura real, contagens, áreas, sistemas e dúvidas.
-- `docs/ingestion-plan.md`: plano da unidade de ingestão.
-- `docs/requirements-original.txt`: pedido original completo.
+| Pasta | Conteúdo |
+|---|---|
+| `POP/`, `Processos em bpm/` | Originais. **Nunca editar.** |
+| `data/` | Inventário, bruto, modelo normalizado, revisões |
+| `scripts/` | Pipeline (`ingest/`, `model/`), servidor do chat, busca |
+| `frontend/` | React 19 + Vite + TypeScript + Tailwind 4 + Design System Orion |
+| `knowledge/` | Corpus Markdown usado pelo assistente |
+| `docs/` | Documentação gerada, decisões de QA e do assistente |
+| `harness/` | Avaliação automática do assistente |
+| `tests/` | Testes Python com as fontes reais |
 
-`python scripts/inspect_sources.py` regenera a inspeção inicial. Não é necessário repeti-la ao retomar se as fontes não mudaram. Seu `blocks.json` serve à inspeção; a extração definitiva de texto visível está em `data/raw`, incluindo content controls e separação correta dos campos Word.
+## Documentação
 
-## Limites desta entrega
+- [CLAUDE.md](CLAUDE.md) e [AGENTS.md](AGENTS.md): contrato e comandos para agentes
+- [PROJECT_STATUS.md](PROJECT_STATUS.md), [TASKS.md](TASKS.md), [DECISIONS.md](DECISIONS.md)
+- [docs/assistant.md](docs/assistant.md): funcionamento do assistente
+- [docs/normalization-report.md](docs/normalization-report.md) e [docs/operational-overview.md](docs/operational-overview.md)
 
-Os JSONs brutos preservam estilos, metadados e representações redundantes para auditoria; são volumosos e **não devem ser importados no frontend**. A Fase 2 gera `data/normalized/`, independente de interface. Não usar ordem das linhas POP como fluxo nem GUID isolado como chave global. Normalização concluída não significa que todos os vínculos foram resolvidos nem que existe grafo executável completo.
+## Cuidados
 
-Repositório Git local desde 2026-10-19 (sem remoto; não publicar). `core.autocrlf=false` no repositório preserva bytes e hashes dos dados.
-
-## Executar normalização (Fase 2)
-
-Não é necessário reexecutar ingestão se as fontes não mudaram. Python 3.12+ e dependência local:
-
-```powershell
-python -m pip install --target .python-deps -r requirements-normalization.txt
-python -m scripts.build_operation_model
-python -m unittest discover -s tests -v
-```
-
-O normalizador procura jsonschema no ambiente ou em `.python-deps/`, ignorada pelo projeto. Não precisa instalar ferramentas web.
-
-A CLI lê somente `data/raw/`, valida schema e locadores, e grava 20 JSONs em `data/normalized/`. `--raw` e `--out` permitem diretórios alternativos. `load_model()` em `scripts/build_operation_model.py` verifica hashes e monta o objeto completo; `validate_model(model, raw_dir)` em `scripts/model/validation.py` valida o modelo e sua proveniência. Schema raiz descreve o objeto composto; processo isolado usa a definição `$defs/process`.
-
-Relatório: [docs/normalization-report.md](docs/normalization-report.md). Documentação Fase 3B: [docs/operational-overview.md](docs/operational-overview.md), `docs/processes/`, `docs/review/` e `docs/analysis/`.
-
-## Executar documentação operacional (Fase 3B)
-
-```powershell
-python -m scripts.build_operational_docs
-python -m unittest discover -s tests -v
-```
-
-O gerador lê somente `data/normalized/`, preserva estados e locadores, e cria 22 Markdown de forma determinística. Nenhuma fase posterior começa automaticamente.
-
-## Executar alinhamento externo (Fase 3A)
-
-```powershell
-python -m scripts.build_alignment_docs --portal <checkout do Portal no commit desejado>
-python -m unittest discover -s tests -v
-```
-
-O alinhamento lê o modelo normalizado e o checkout do Portal em modo somente leitura, sem alterar nenhum dos dois. Os documentos ficam em `docs/alignment/`. Quando o Jira não estiver acessível, a coluna é marcada `NOT_AVAILABLE_IN_THIS_RUN` e `docs/alignment/jira-input-needed.md` lista o export necessário.
-
-Os documentos versionados refletem o Portal no commit `de5518559557ffc9b02e0efefba1a8d0c90b919d`; um teste confere isso. Regenerar contra outro commit é decisão explícita: registre em DECISIONS.md e atualize `PINNED_PORTAL_COMMIT` em `tests/test_alignment_documentation.py`.
-
-## Frontend
-
-```powershell
-npm --prefix frontend install
-npm --prefix frontend run dev
-npm --prefix frontend test
-npm --prefix frontend run build
-python -X utf8 -m scripts.build_frontend_data   # regenera frontend/public/data a partir de data/normalized
-```
-
-Formatação: dentro de `frontend/`, `npx prettier@3.3.3 --write "src/**/*.{ts,tsx}"` (config em `frontend/.prettierrc.json`).
-
-## Assistente de processos
-
-Entrada principal agora permite perguntar sobre o processo; etapas e evidências ficam sob demanda. Base Markdown gerada em `knowledge/`, com revisões e fontes preservadas. Não é fine-tuning: busca documental com evidências verificadas.
-
-```powershell
-python -m scripts.build_knowledge
-npm --prefix frontend run build
-python -m scripts.chat_server
-```
-
-Abrir http://127.0.0.1:8765. Sem chave, funciona como busca local. Integração externa usa NVIDIA_API_KEY somente no servidor e modelo nvidia/nemotron-3.5-super-vl-120b-a12b. `.env.example` documenta configuração; `.env.local` não é versionado. Conexão NVIDIA validada com mensagem sintética; respostas sobre documentos ainda precisam de avaliação. Confidencialidade e limites do trial precisam ser respeitados antes de enviar material interno. Ver [arquitetura, configuração e limites](docs/assistant.md).
-
-No chat, **Configurações da IA** permite cadastrar/substituir/remover a chave e escolher o modelo NVIDIA. Salvar aplica na próxima pergunta sem reiniciar; chave fica em `.env.local` no servidor e nunca é devolvida pela API. Salvar também testa a conexão com mensagem sintética; o botão Testar conexão permite conferir novamente sem salvar.
-
-Desenvolvimento completo: na pasta `frontend/`, execute **`npm run dev`**. Inicia backend Python em 8765 e Vite em 5173, aguarda disponibilidade e encerra os serviços iniciados com Ctrl+C. Python 3.12+ no PATH (ou variável `PYTHON` com caminho do executável). Não exige segundo terminal. A inicialização manual acima permanece alternativa para servir o build.
+- GUIDs Bizagi se repetem entre pacotes: nunca use GUID isolado como chave.
+- A ordem das linhas do POP não define fluxo.
+- `NOT_AVAILABLE` significa "não determinado", nunca "não aplicável".
+- `core.autocrlf=false`: não altere finais de linha em `data/` (hashes são conferidos).
